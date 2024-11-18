@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from '@/sanity/schemas';
 import { structureTool } from 'sanity/structure';
+import { structure } from '@/sanity/config/structure';
 import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/config/sanity-api';
 
 const title = 'SiteEngine';
@@ -14,7 +15,9 @@ const config = defineConfig({
   projectId: projectId,
   apiVersion: apiVersion,
   plugins: [
-    structureTool(),
+    structureTool({
+      structure
+    }),
     visionTool(),
   ],
   schema: { types: schemaTypes },
