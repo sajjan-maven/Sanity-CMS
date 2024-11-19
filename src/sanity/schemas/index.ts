@@ -1,9 +1,15 @@
-import generalSettings from "./general-settings";
-import desktopNavigationSettings from "./desktop-navigation-settings";
-import mobileNavigationSettings from "./mobile-navigation-settings";
+import page from "./documents/page";
+import generalSettings from "./singletons/general-settings";
+import mobileNavigationSettings from "./singletons/mobile-navigation-settings";
+import desktopNavigationSettings from "./singletons/desktop-navigation-settings";
+
+const coreSchema = [
+  page,
+  generalSettings,
+  mobileNavigationSettings,
+  desktopNavigationSettings,
+]
 
 export const schemaTypes = [
-  generalSettings,
-  desktopNavigationSettings,
-  mobileNavigationSettings
+  ...coreSchema
 ]

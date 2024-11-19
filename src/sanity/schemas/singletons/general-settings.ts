@@ -10,5 +10,12 @@ export default defineType({
       type: "string",
       title: "Site Title",
     }),
+    defineField({
+      name: 'homePage',
+      title: 'Home Page',
+      type: 'reference',
+      description: 'Choose which page you would like to display as the homepage.',
+      to: [{ type: 'page' }],
+    }),
   ]
 })

@@ -1,3 +1,7 @@
-export type Settings = {
+export type SettingsType = {
   siteTitle: string
+  homePage: {
+    title: string;
+    slug: string;
+  }
 }

@@ -1,7 +1,7 @@
 "use client"
-import Navbar from './navbar'
-import Footer from './footer'
-import { usePathname } from 'next/navigation'
+import Navbar from './navbar';
+import Footer from './footer';
+import { usePathname } from 'next/navigation';
 
 interface ClientLayoutProps {
   children: React.ReactNode
