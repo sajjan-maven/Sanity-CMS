@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Heading from '@/components/ui/heading';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
-import { PortableText } from 'next-sanity';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function HeroBlock(props: HeroBlockType) {
@@ -22,6 +22,14 @@ export default function HeroBlock(props: HeroBlockType) {
               data={content}
               classNames='mt-3 text-xl text-gray-600'
             />
+            <div className='flex items-center gap-3 mt-10'>
+              <Button variant="default">
+                Get Started
+              </Button>
+              <Button variant="underline">
+                Star on GitHub
+              </Button>
+            </div>
           </div>
         </div>
         {image && (

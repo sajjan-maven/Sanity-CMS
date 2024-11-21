@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Container from './container';
+import { Button } from '../ui/button';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
 
@@ -29,14 +30,22 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
         <ul className='flex items-center gap-8'>
           {menuItems.map(({ _key, pageReference, title, isButton }) => (
             <li key={_key}>
-              <Link 
-                href={`/${pageReference.slug}`}
-                className={cn('', {
-                  'py-2 px-4 rounded-full text-white bg-blue-600': isButton
-                })}
-              >
-                {title}
-              </Link>
+              <>
+                {!isButton ? (
+                  <Link 
+                    href={`/${pageReference.slug}`}
+                    className={cn('', {
+                      'py-2 px-4 rounded-full text-white bg-blue-600': isButton
+                    })}
+                  >
+                    {title}
+                  </Link>
+                ): (
+                  <Button variant="default" disableIcon={true}>
+                    {title}
+                  </Button>
+                )}
+              </>
             </li>
           ))}
         </ul>
