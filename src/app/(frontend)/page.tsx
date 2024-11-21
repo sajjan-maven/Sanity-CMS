@@ -1,23 +1,24 @@
 import Container from "@/components/global/container";
+import PageBuilder from "@/components/page-builder";
 import { fetchPageBySlug, fetchSettings } from "@/sanity/lib/fetches";
+
+export const revalidate = 0;
 
 export default async function Home() {
 
-  const settingsData = await fetchSettings();
+  const settings = await fetchSettings();
 
-  if (settingsData.homePage === null) return (
+  if (settings.homePage === null) return (
     <Container className="py-16">
       No Homepage Set...
     </Container>
   )
   
-  const pageData = await fetchPageBySlug(settingsData?.homePage?.slug);
+  const page = await fetchPageBySlug(settings?.homePage?.slug);
 
-  const [ page ] = await Promise.all([settingsData, pageData])
-    
   return(
-    <Container className="py-16">
-      {page.homePage.title}
-    </Container>
+    <PageBuilder
+      blocks={page?.pageBuilder} 
+    />
   )
 }

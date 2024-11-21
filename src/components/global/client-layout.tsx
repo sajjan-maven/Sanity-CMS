@@ -2,8 +2,8 @@
 import Navbar from './navbar';
 import Footer from './footer';
 import { usePathname } from 'next/navigation';
-import { NavigationSettingsType } from '@/types/navigation';
 import { SettingsType } from '@/types/settings';
+import { NavigationSettingsType } from '@/types/navigation';
 
 interface ClientLayoutProps {
   children: React.ReactNode;

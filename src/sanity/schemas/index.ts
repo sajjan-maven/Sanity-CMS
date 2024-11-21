@@ -1,6 +1,13 @@
-import page from "./documents/page";
 import generalSettings from "./singletons/general-settings";
 import navigationSettings from "./singletons/navigation-settings";
+
+import page from "./documents/page";
+
+import { pageBuilder } from "./page-builder/page-builder";
+import headerBlock from "./page-builder/blocks/header-block";
+import heroBlock from "./page-builder/blocks/hero-block";
+import logoBlock from "./page-builder/blocks/logo-block";
+import testimonialBlock from "./page-builder/blocks/testimonial-block";
 
 const coreSchema = [
   page,
@@ -8,6 +15,15 @@ const coreSchema = [
   navigationSettings,
 ]
 
+const pageBuilderSchema = [
+  pageBuilder,
+  heroBlock,
+  headerBlock,
+  logoBlock,
+  testimonialBlock
+]
+
 export const schemaTypes = [
-  ...coreSchema
+  ...coreSchema,
+  ...pageBuilderSchema
 ]

@@ -27,6 +27,11 @@ export default defineType({
       },
       validation: rule => rule.required()
     }),
+    defineField({
+      name: 'pageBuilder',
+      title: 'Page Builder',
+      type: 'pageBuilder',
+    }),
     ...seoFields
   ]
 })

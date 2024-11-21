@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
-import { cva, VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils';
+import { cva, VariantProps } from 'class-variance-authority';
 
 const containerVariants = cva(
   'h-full mx-auto',

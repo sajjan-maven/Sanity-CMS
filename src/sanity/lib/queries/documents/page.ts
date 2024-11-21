@@ -9,5 +9,6 @@ export const pageBySlugQuery = groq`*[_type == 'page' && slug.current == $slug][
   _type,
   title,
   'slug': slug.current,
+  pageBuilder[],
   ${seo}
 }`
