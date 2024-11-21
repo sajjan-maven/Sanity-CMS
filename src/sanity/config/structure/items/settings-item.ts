@@ -10,31 +10,22 @@ export const SettingsItem = (S: StructureBuilder) =>
         .title('Settings')
         .items([
           S.listItem()
-            .title('General Settings')
+            .title('General')
             .child(
               S.document()
               .id('generalSettings')
               .schemaType('generalSettings')
               .documentId('generalSettings')
-              .title('General Settings')
+              .title('General')
             ),
           S.listItem()
-            .title('Desktop Navigation')
+            .title('Navigation')
             .child(
               S.document()
-                .id('desktopNavigationSettings')
-                .schemaType('desktopNavigationSettings')
-                .documentId('desktopNavigationSettings')
-                .title('Desktop Navigation')
-            ),
-          S.listItem()
-            .title('Mobile Navigation')
-            .child(
-              S.document()
-                .id('mobileNavigationSettings')
-                .schemaType('mobileNavigationSettings')
-                .documentId('mobileNavigationSettings')
-                .title('Mobile Navigation')
+                .id('navigationSettings')
+                .schemaType('navigationSettings')
+                .documentId('navigationSettings')
+                .title('Navigation')
             ),
         ])
     )

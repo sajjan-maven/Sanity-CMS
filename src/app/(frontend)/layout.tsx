@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import ClientLayout from "@/components/global/client-layout";
+import { fetchNavigationSettings, fetchSettings } from "@/sanity/lib/fetches";
 
 export const metadata: Metadata = {
   title: "SiteEngine",
@@ -20,15 +21,24 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const navigationSettings = await fetchNavigationSettings();
+  const settings = await fetchSettings();
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ClientLayout>
+        <ClientLayout 
+          settings={settings}
+          navigationSettings={navigationSettings}
+        >
           {children}
         </ClientLayout>
       </body>

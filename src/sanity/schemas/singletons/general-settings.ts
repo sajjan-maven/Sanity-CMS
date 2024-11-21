@@ -11,6 +11,11 @@ export default defineType({
       title: "Site Title",
     }),
     defineField({
+      title: 'Logo',
+      name: 'siteLogo',
+      type: 'image',
+    }),
+    defineField({
       name: 'homePage',
       title: 'Home Page',
       type: 'reference',

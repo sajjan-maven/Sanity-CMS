@@ -1,7 +1,12 @@
 export type SettingsType = {
-  siteTitle: string
+  siteTitle: string;
+  logo?: {
+    asset: { 
+      url: string
+    }, 
+  };
   homePage: {
     title: string;
     slug: string;
-  }
+  };
 }

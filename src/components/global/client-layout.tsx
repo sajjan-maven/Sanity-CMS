@@ -2,13 +2,19 @@
 import Navbar from './navbar';
 import Footer from './footer';
 import { usePathname } from 'next/navigation';
+import { NavigationSettingsType } from '@/types/navigation';
+import { SettingsType } from '@/types/settings';
 
 interface ClientLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
+  settings: SettingsType;
+  navigationSettings: NavigationSettingsType;
 }
 
 export default function ClientLayout({ 
   children,
+  settings,
+  navigationSettings,
 }: ClientLayoutProps) {
 
   const pathname = usePathname()
@@ -16,7 +22,10 @@ export default function ClientLayout({
   
   return (
     <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
-      <Navbar />
+      <Navbar 
+        settings={settings}
+        navigationSettings={navigationSettings['navbar']}
+      />
       <main>
         {children}
       </main>

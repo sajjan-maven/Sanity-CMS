@@ -1,13 +1,11 @@
 import page from "./documents/page";
 import generalSettings from "./singletons/general-settings";
-import mobileNavigationSettings from "./singletons/mobile-navigation-settings";
-import desktopNavigationSettings from "./singletons/desktop-navigation-settings";
+import navigationSettings from "./singletons/navigation-settings";
 
 const coreSchema = [
   page,
   generalSettings,
-  mobileNavigationSettings,
-  desktopNavigationSettings,
+  navigationSettings,
 ]
 
 export const schemaTypes = [
