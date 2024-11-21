@@ -16,9 +16,9 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   const { navbarMenuItems: menuItems } = navigationSettings;
 
   return (
-    <header className='py-6 border-b border-b-gray-100'>
+    <header className='fixed top-0 left-0 w-full py-6 rounded-b-xl border-b border-b-gray-100 bg-white/90 backdrop-blur-lg'>
       <Container className='flex items-center justify-between'>
-        {!logo ? ( <span className='font-semibold tracking-tighter'>{siteTitle}</span> ): (
+        {!logo ? ( <span className='font-semibold tracking-tighter text-xl'>{siteTitle}</span> ): (
           <Image
             src={logo.asset.url}
             width={200}
@@ -32,7 +32,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
               <Link 
                 href={`/${pageReference.slug}`}
                 className={cn('', {
-                  'py-3 px-4 rounded-md text-white bg-blue-600': isButton
+                  'py-2 px-4 rounded-full text-white bg-blue-600': isButton
                 })}
               >
                 {title}

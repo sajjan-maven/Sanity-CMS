@@ -8,7 +8,7 @@ export default function LogoBlock(props: LogoBlockType) {
   return (
     <section className='py-12'>
       <Container>
-        Logo Block
+        
       </Container>
     </section>
   )

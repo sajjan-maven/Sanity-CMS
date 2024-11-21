@@ -8,7 +8,7 @@ export default function HeaderBlock(props: HeaderBlockType) {
   return (
     <section className='py-12'>
       <Container>
-        Header Block
+        
       </Container>
     </section>
   )

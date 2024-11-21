@@ -9,7 +9,7 @@ const containerVariants = cva(
         contained:
           'max-w-8xl px-6 md:px-10',
         fullWidth:
-          'max-w-full px-0 md:px-0',
+          'max-w-full',
       },
     },
     defaultVariants: {
