@@ -41,7 +41,11 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                     {title}
                   </Link>
                 ): (
-                  <Button variant="default" disableIcon={true}>
+                  <Button 
+                    variant="default" 
+                    disableIcon={true}
+                    buttonType="internal"
+                  >
                     {title}
                   </Button>
                 )}

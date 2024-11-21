@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -33,23 +33,49 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof buttonVariants> {
       disableIcon?: boolean;
+      buttonType?: 'internal' | 'external' | 'fileDownload';
     }
 
 const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
-  ({ children, className, variant, disableIcon, size, ...props }, ref) => {
-    return (
+  ({ children, className, variant, disableIcon, buttonType, size, ...props }, ref) => {
+
+    if (buttonType === 'internal') return (
       <Link
         href="/"
         ref={ref}
         className={cn('group', buttonVariants({ variant, size, className }))}
         {...props}
       >
-        {children} {!disableIcon && (<ArrowRight size={16} />)}
-        
+        {children} {!disableIcon && (<ButtonIcon />)}
       </Link>
     )
+
+    if (buttonType === 'external') return (
+      <a 
+        href="https://sanity.io"
+        rel="noopener noreferrer" target="_blank"
+        className={cn('group', buttonVariants({ variant, size, className }))}
+      >
+        {children} {!disableIcon && (<ButtonIcon />)}
+      </a>
+    )
+
+    if (buttonType === 'fileDownload') return (
+      <a 
+        href=""
+        download
+        className={cn('group', buttonVariants({ variant, size, className }))}
+      >
+        {children} {!disableIcon && (<ButtonIcon />)}
+      </a>
+    )
+    
   }
 )
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+
+function ButtonIcon() {
+  return <ArrowRight size={16} className="transition duration-300 group-hover:translate-x-0.5" />
+}
