@@ -13,14 +13,14 @@ export default function HeroBlock(props: HeroBlockType) {
   return (
     <section className='pt-44 pb-24'>
       <Container className='space-y-32'>
-        <div className='grid grid-cols-12'>
+        <div className='xl:px-10 grid grid-cols-12'>
           <Heading size="h1" className='text-balance col-span-7'>
             {heading}
           </Heading>
           <div className='col-span-5'>
             <PortableTextEditor 
               data={content}
-              classNames='mt-3 text-xl text-gray-600'
+              classNames='mt-3 text-xl text-balance text-gray-600'
             />
             <div className='flex items-center gap-3 mt-10'>
               <Button variant="default" buttonType="internal">

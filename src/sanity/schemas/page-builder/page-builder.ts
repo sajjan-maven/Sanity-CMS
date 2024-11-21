@@ -6,6 +6,7 @@ export const pageBuilder = defineType({
   of: [
     { name: 'heroBlock', type: 'heroBlock' },
     { name: 'headerBlock', type: 'headerBlock' },
+    { name: 'featureBlock', type: 'featureBlock' },
     { name: 'logoBlock', type: 'logoBlock' },
     { name: 'testimonialBlock', type: 'testimonialBlock' },
   ],
@@ -16,6 +17,11 @@ export const pageBuilder = defineType({
           name: 'intro',
           title: 'Intro',
           of: [ 'heroBlock', 'headerBlock' ]
+        },
+        {
+          name: 'content',
+          title: 'Content',
+          of: [ 'featureBlock' ]
         },
         {
           name: 'socialProof',

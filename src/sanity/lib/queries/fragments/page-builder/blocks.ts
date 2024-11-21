@@ -16,3 +16,10 @@ export const heroBlockQuery = `
     },
   }
 `
+
+export const featureBlockQuery = `
+  _type == "featureBlock" => {
+    ${baseQuery},
+    heading,
+  }
+`

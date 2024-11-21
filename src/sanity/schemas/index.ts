@@ -8,6 +8,7 @@ import headerBlock from "./page-builder/blocks/header-block";
 import heroBlock from "./page-builder/blocks/hero-block";
 import logoBlock from "./page-builder/blocks/logo-block";
 import testimonialBlock from "./page-builder/blocks/testimonial-block";
+import featureBlock from "./page-builder/blocks/feature-block";
 
 const coreSchema = [
   page,
@@ -19,6 +20,7 @@ const pageBuilderSchema = [
   pageBuilder,
   heroBlock,
   headerBlock,
+  featureBlock,
   logoBlock,
   testimonialBlock
 ]
