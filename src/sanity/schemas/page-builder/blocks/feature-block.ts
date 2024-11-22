@@ -39,6 +39,13 @@ export default defineType({
               title: 'Icon',
               type: 'image',
             }),
+            defineField({
+              name: 'pageReference',
+              title: 'Link to a page',
+              description: 'Optional',
+              type: 'reference',
+              to: [{ type: 'page' }],
+            }),
           ],
         },
       ],

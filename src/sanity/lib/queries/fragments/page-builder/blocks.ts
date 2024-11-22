@@ -27,6 +27,11 @@ export const featureBlockQuery = `
       icon { 
         asset->{ url }, 
       },
+      pageReference->{
+        _id,
+        title,
+        "slug": slug.current
+      },
     }
   }
 `

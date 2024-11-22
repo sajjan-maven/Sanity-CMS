@@ -1,3 +1,5 @@
+import { PageType } from "@/types/page";
+
 export type FeatureBlockType = {
   _id: string;
   _key: string;
@@ -14,5 +16,6 @@ export type FeatureItem = {
     asset: {
       url: string;
     }
-  }
+  };
+  pageReference: PageType;
 }
