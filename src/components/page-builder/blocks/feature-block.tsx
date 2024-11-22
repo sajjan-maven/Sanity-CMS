@@ -1,17 +1,36 @@
-import Container from '@/components/global/container';
+import Image from 'next/image';
 import Heading from '@/components/ui/heading';
-import { FeatureBlockType } from '@/types/page-builder/blocks/features';
+import Container from '@/components/global/container';
+import { FeatureBlockType, FeatureItem } from '@/types/page-builder/blocks/features';
 
 export default function FeatureBlock(props: FeatureBlockType) {
 
-  const { heading } = props
+  const { heading, features } = props
 
   return (
     <section className='pb-24'>
-      <Container>
+      <Container className='space-y-10 md:space-y-14'>
         <Heading size="h2" className='text-balance col-span-7'>
           {heading}
         </Heading>
+        <ul className='grid md:grid-cols-2 xl:grid-cols-4 gap-6'>
+          {features.map((feature: FeatureItem) => (
+            <li className='px-10 py-16 space-y-4 rounded-xl bg-zinc-100'>
+              <Image
+                src={feature.icon.asset.url}
+                width={60}
+                height={60}
+                alt={`${feature.title}`}
+              />
+              <Heading size="h3" className='md:text-2xl'>
+                {feature.title}
+              </Heading>
+              <p className='text-pretty'>
+                {feature.description}
+              </p>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   )

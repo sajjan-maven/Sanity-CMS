@@ -21,5 +21,12 @@ export const featureBlockQuery = `
   _type == "featureBlock" => {
     ${baseQuery},
     heading,
+    features[] {
+      title,
+      description,
+      icon { 
+        asset->{ url }, 
+      },
+    }
   }
 `

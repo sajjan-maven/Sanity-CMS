@@ -32,6 +32,7 @@ export default defineType({
               name: 'description',
               title: 'Description',
               type: 'text',
+              rows: 4
             }),
             defineField({
               name: 'icon',

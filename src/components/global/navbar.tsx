@@ -27,7 +27,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
             alt={`${siteTitle} Logo`}
           />
         )}
-        <ul className='flex items-center gap-8'>
+        <ul className='hidden md:flex items-center gap-8'>
           {menuItems.map(({ _key, pageReference, title, isButton }) => (
             <li key={_key}>
               <>
