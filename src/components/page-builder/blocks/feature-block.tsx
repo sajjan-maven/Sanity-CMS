@@ -3,17 +3,23 @@ import Image from 'next/image';
 import Heading from '@/components/ui/heading';
 import Container from '@/components/global/container';
 import { FeatureBlockType, FeatureItem } from '@/types/page-builder/blocks/features';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureBlock(props: FeatureBlockType) {
 
   const { heading, features } = props
 
   return (
-    <section className='pb-24'>
+    <section className='pb-24 xl:px-10'>
       <Container className='space-y-10 md:space-y-14'>
-        <Heading size="h2" className='text-balance col-span-7'>
-          {heading}
-        </Heading>
+        <div className='flex items-center justify-between'>
+          <Heading size="h2" className='text-balance col-span-7'>
+            {heading}
+          </Heading>
+          <Button variant="default" buttonType="internal">
+            Get Started
+          </Button>
+        </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-4 gap-6'>
           {features.map((feature: FeatureItem) => (
             <li>

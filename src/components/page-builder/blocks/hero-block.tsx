@@ -24,7 +24,7 @@ export default function HeroBlock(props: HeroBlockType) {
             />
             <div className='flex items-center gap-3 mt-10'>
               <Button variant="default" buttonType="internal">
-                Get Started
+                View Demo
               </Button>
               <Button variant="underline" buttonType="external">
                 Star on GitHub
