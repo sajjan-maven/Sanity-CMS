@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Container from './container';
 import { Button } from '../ui/button';
+import useScroll from '@/hooks/use-scroll';
+import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
 
@@ -16,8 +18,14 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   const { siteTitle, logo } = settings
   const { navbarMenuItems: menuItems } = navigationSettings;
 
+  const hasScrolled = useScroll()
+
   return (
-    <header className='fixed top-0 left-0 w-full py-6 rounded-b-xl border-b border-b-gray-100 bg-white/90 backdrop-blur-lg'>
+    <header 
+      className={cn('fixed top-0 left-0 w-full py-6 rounded-b-xl border-b border-b-gray-100 bg-white/90 backdrop-blur-lg transition-all duration-300 ease-in-out', {
+        'py-4': hasScrolled
+      })}
+    >
       <Container className='flex items-center justify-between'>
         {!logo ? ( <span className='font-semibold tracking-tighter text-xl'>{siteTitle}</span> ): (
           <Image
@@ -34,11 +42,14 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                 {!isButton ? (
                   <Link 
                     href={`/${pageReference.slug}`}
-                    className={cn('', {
+                    className={cn('relative overflow-hidden inline-flex', {
+                      'hover:underline underline-offset-[38px]': !isButton,
                       'py-2 px-4 rounded-full text-white bg-blue-600': isButton
                     })}
-                  >
-                    {title}
+                    >
+                      <AnimatedText>
+                        {title}
+                      </AnimatedText>
                   </Link>
                 ): (
                   <Button 
