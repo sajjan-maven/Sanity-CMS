@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className='py-6 border-t'>
       <Container>
         <div className='text-sm'>
-          SiteEngine © 2024 - Made by <a href="" className='font-semibold text-blue-700'>James Rea</a>
+          SiteEngine © 2024 - Made by <a href="" className='font-bold tracking-tight'>James Rea.</a>
         </div>
       </Container>
     </footer>

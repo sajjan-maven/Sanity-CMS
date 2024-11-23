@@ -11,6 +11,10 @@ const config: Config = {
       maxWidth: {
         '8xl': '90rem',
       },
+      fontFamily: {
+        geistSans: ['var(--font-geist-sans)'],
+        geistMono: ['var(--font-geist-mono)']
+      },
       keyframes: {
         'logo-marquee-move': {
           to: {

@@ -14,7 +14,7 @@ export default function HeroBlock(props: HeroBlockType) {
     <section className='pattern-bg'>
       <Container className='space-y-14 xl:space-y-0 pb-14'>
         <div className='pt-52 pb-20 md:pb-36 xl:px-10 grid grid-cols-12 border-x border-dashed gap-6'>
-          <Heading size="h1" className='text-balance col-span-12 xl:col-span-7'>
+          <Heading size="h1" className='text-balance col-span-12 xl:col-span-7 leading-normal'>
             {heading}
           </Heading>
           <div className='col-span-12 xl:col-span-5'>

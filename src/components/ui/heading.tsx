@@ -3,20 +3,20 @@ import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const headingVariants = cva(
-  'font-medium text-gray-900',
+  'font-medium text-gray-900 tracking-tight leading-normal',
   {
     variants: {
       size: {
         h1: 'text-4xl md:text-7xl',
-        h2: 'text-3xl md:text-[2.8rem]',
+        h2: 'text-3xl md:text-[2.6rem]',
         h3: 'text-2xl md:text-4xl',
         h4: 'text-2xl md:text-3xl',
         h5: 'text-2xl',
         h6: 'text-xl',
-      }
+      },
     },
     defaultVariants: {
-      size: 'h1'
+      size: 'h1',
     },
   }
 )
