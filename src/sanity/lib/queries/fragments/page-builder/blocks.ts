@@ -50,3 +50,18 @@ export const logoBlockQuery = `
     }
   }
 `
+export const testimonialBlockQuery = `
+  _type == "testimonialBlock" => {
+    ${baseQuery},
+    heading,
+    testimonial,
+    author,
+    position,
+    avatar { 
+      asset->{ url }, 
+    },
+    logo { 
+      asset->{ url }, 
+    },
+  }
+`

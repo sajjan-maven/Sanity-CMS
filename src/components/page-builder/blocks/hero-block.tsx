@@ -11,9 +11,9 @@ export default function HeroBlock(props: HeroBlockType) {
   const { heading, content, image } = props
 
   return (
-    <section className='pt-48 pb-20 md:pb-28 pattern-bg'>
-      <Container className='space-y-14 xl:space-y-32'>
-        <div className='xl:px-10 grid grid-cols-12 gap-6'>
+    <section className='pattern-bg'>
+      <Container className='space-y-14 xl:space-y-0 pb-14'>
+        <div className='pt-52 pb-20 md:pb-36 xl:px-10 grid grid-cols-12 border-x border-dashed gap-6'>
           <Heading size="h1" className='text-balance col-span-12 xl:col-span-7'>
             {heading}
           </Heading>

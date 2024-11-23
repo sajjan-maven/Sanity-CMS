@@ -10,8 +10,8 @@ export default function FeatureBlock(props: FeatureBlockType) {
   const { heading, features } = props
 
   return (
-    <section className='py-28 xl:px-10'>
-      <Container className='space-y-10 md:space-y-14'>
+    <section className='xl:px-10'>
+      <Container className='py-28 border-x border-dashed space-y-10 md:space-y-14'>
         <div className='flex items-center justify-between'>
           <Heading size="h2" className='text-balance col-span-7'>
             {heading}

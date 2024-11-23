@@ -2,5 +2,18 @@ export type TestimonialBlockType = {
   _id: string;
   _key: string;
   _type: 'testimonialBlock';
-  heading: string;
+  testimonial: string;
+  author: string;
+  position: string;
+  avatar: {
+    asset: {
+      url: string;
+    }
+  };
+  company: string;
+  logo: {
+    asset: {
+      url: string;
+    }
+  };
 }

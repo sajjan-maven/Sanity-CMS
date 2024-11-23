@@ -8,7 +8,7 @@ const headingVariants = cva(
     variants: {
       size: {
         h1: 'text-4xl md:text-7xl',
-        h2: 'text-3xl md:text-5xl',
+        h2: 'text-3xl md:text-[2.8rem]',
         h3: 'text-2xl md:text-4xl',
         h4: 'text-2xl md:text-3xl',
         h5: 'text-2xl',
