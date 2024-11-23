@@ -27,7 +27,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                 {feature.pageReference ? (
                   <Link 
                     href={feature.pageReference?.slug} 
-                    className='block px-10 py-16 space-y-4 rounded-xl border border-gray-200/60 bg-zinc-100 hover:-translate-y-2 transition duration-300'
+                    className='block px-10 py-16 space-y-4 rounded-xl border border-gray-200/40 hover:-translate-y-2 transition duration-300 bg-gray-50'
                   >
                     <Image
                       src={feature.icon.asset.url}
@@ -43,7 +43,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                     </p>
                   </Link>
                 ): (
-                  <div className='px-10 py-16 space-y-4 rounded-xl border border-gray-200/60 bg-zinc-100'>
+                  <div className='px-10 py-16 space-y-4 rounded-xl border border-gray-200/40 bg-gray-50'>
                     <Image
                       src={feature.icon.asset.url}
                       width={60}

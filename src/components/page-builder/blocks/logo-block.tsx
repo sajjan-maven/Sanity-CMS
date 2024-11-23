@@ -1,5 +1,5 @@
-import { LogoBlockType } from '@/types/page-builder/blocks/logos';
 import Image from 'next/image';
+import { LogoBlockType } from '@/types/page-builder/blocks/logos';
 
 export default function LogoBlock(props: LogoBlockType) {
 
@@ -8,9 +8,12 @@ export default function LogoBlock(props: LogoBlockType) {
   const items = [...logos, ...logos]
   
   return (
-    <div className='py-20 border-y border-y-slate-200/60 bg-slate-50 rounded-3xl'>
-      <div className='mt-5 mb-10 text-center font-mono uppercase font-medium text-gray-500'>
-        {heading}
+    <div className='py-20 rounded-3xl border-y border-y-slate-200/60 bg-slate-50'>
+      <div className='relative w-fit mx-auto py-2 px-10 mt-5 mb-10 border-y border-t-slate-200/60 border-b-slate-200/40 bg-white pattern-bg'>
+        <span className=' text-center font-mono text-sm uppercase font-medium text-gray-500'> 
+          {heading}
+        </span>
+        <EdgeBlur />
       </div>
       <div className="relative overflow-clip">
         <ul className="flex items-center pl-[4.8rem] gap-[4.8rem] w-max animate-logo-marquee">
@@ -39,12 +42,3 @@ function EdgeBlur() {
     </div>
   )
 }
-
-const companies = [
-  { id: '1' },
-  { id: '2' },
-  { id: '3' },
-  { id: '3' },
-  { id: '3' },
-  { id: '3' },
-]
