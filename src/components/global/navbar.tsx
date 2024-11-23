@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import Container from './container';
 import { Button } from '../ui/button';
 import useScroll from '@/hooks/use-scroll';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
+import { cn, scrollToElement } from '@/lib/utils';
 import { NavigationSettingsType } from '@/types/navigation';
 
 interface NavbarProps {
@@ -27,14 +27,24 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
       })}
     >
       <Container className='flex items-center justify-between'>
-        {!logo ? ( <span className='font-semibold tracking-tighter text-xl'>{siteTitle}</span> ): (
-          <Image
-            src={logo.asset.url}
-            width={200}
-            height={200}
-            alt={`${siteTitle} Logo`}
-          />
-        )}
+        <button 
+          aria-label="Go to home page"
+          onClick={() => scrollToElement('home')}
+          className='hover:scale-[0.95] transition-transform duration-300 ease-in-out'
+        >
+          {!logo ? ( 
+            <span className='font-semibold tracking-tighter text-xl'>
+              {siteTitle}
+            </span>
+          ): (
+            <Image
+              src={logo.asset.url}
+              width={200}
+              height={200}
+              alt={`${siteTitle} Logo`}
+            />
+          )}
+        </button>
         <ul className='hidden md:flex items-center gap-8'>
           {menuItems.map(({ _key, pageReference, title, isButton }) => (
             <li key={_key}>

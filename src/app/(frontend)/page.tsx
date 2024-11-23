@@ -17,8 +17,10 @@ export default async function Home() {
   const page = await fetchPageBySlug(settings?.homePage?.slug);
 
   return(
-    <PageBuilder
-      blocks={page?.pageBuilder} 
-    />
+    <main id="home">
+      <PageBuilder
+        blocks={page?.pageBuilder} 
+      />
+    </main>
   )
 }

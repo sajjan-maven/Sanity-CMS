@@ -26,9 +26,7 @@ export default function ClientLayout({
         settings={settings}
         navigationSettings={navigationSettings['navbar']}
       />
-      <main>
-        {children}
-      </main>
+      {children}
       <Footer />
     </div>
   )
