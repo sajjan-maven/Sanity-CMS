@@ -11,8 +11,19 @@ const config: Config = {
       maxWidth: {
         '8xl': '90rem',
       },
+      keyframes: {
+        'logo-marquee-move': {
+          to: {
+            transform: 'translateX(-50%)'
+          }
+        }
+      },
+      animation: {
+        'logo-marquee': 'logo-marquee-move 60s linear infinite',
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

@@ -16,8 +16,10 @@ export default async function Home() {
   
   const page = await fetchPageBySlug(settings?.homePage?.slug);
 
+  console.log(page)
+
   return(
-    <main id="home">
+    <main id="home" className="overflow-hidden">
       <PageBuilder
         blocks={page?.pageBuilder} 
       />

@@ -3,4 +3,14 @@ export type LogoBlockType = {
   _key: string;
   _type: 'logoBlock';
   heading: string;
+  logos: {
+    _key: string;
+    title: string;
+    image: {
+      asset: {
+        url: string;
+      }
+    };
+    link?: string;
+  }[];
 }

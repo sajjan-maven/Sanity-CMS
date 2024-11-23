@@ -35,3 +35,18 @@ export const featureBlockQuery = `
     }
   }
 `
+
+export const logoBlockQuery = `
+  _type == "logoBlock" => {
+    ${baseQuery},
+    heading,
+    logos[] {
+      _key,
+      title,
+      image { 
+        asset->{ url }, 
+      },
+      link
+    }
+  }
+`

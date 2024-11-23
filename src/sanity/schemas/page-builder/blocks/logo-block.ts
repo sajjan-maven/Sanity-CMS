@@ -15,6 +15,32 @@ export default defineType({
       title: 'Heading',
       type: 'string',
     }),
+    defineField({
+      name: 'logos',
+      title: 'Logos',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          {
+            name: 'title',
+            type: 'string',
+            title: 'Title',
+          },
+          {
+            name: 'image',
+            type: 'image',
+            title: 'Logo',
+          },
+          {
+            name: 'link',
+            type: 'url',
+            title: 'External Link',
+            description: 'Optional'
+          }
+        ]
+      }]
+    }),
   ],
   preview: {
     select: {
