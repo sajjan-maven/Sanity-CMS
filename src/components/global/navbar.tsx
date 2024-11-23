@@ -16,24 +16,34 @@ interface NavbarProps {
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
 
   const { siteTitle, logo } = settings
-  const { navbarMenuItems: menuItems } = navigationSettings;
+  const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
 
   const hasScrolled = useScroll()
 
   return (
     <header 
-      className={cn('z-10 fixed top-0 left-0 w-full py-6 rounded-b-xl border-b border-b-gray-100 bg-white/80 backdrop-blur-lg transition-all duration-300 ease-in-out', {
-        'py-4': hasScrolled
+      className={cn('z-20 fixed top-0 left-0 bg-white/80 backdrop-blur-lg transition-all duration-300 ease-in-out', {
+        'py-1 border w-fit mx-auto right-0 top-4 rounded-full' : navbarType === 'floating',
+        'w-full py-6 rounded-b-xl border-b border-b-gray-100 ': navbarType === 'classic',
+        'py-4 ': hasScrolled && navbarType === 'classic',
       })}
     >
-      <Container className='flex items-center justify-between'>
+      <Container 
+        className={cn('flex items-center justify-between', {
+          'md:px-1 md:pl-6 gap-6': navbarType === 'floating'
+        })}
+      >
         <button 
           aria-label="Go to home page"
           onClick={() => scrollToElement('home')}
           className='hover:scale-[0.95] transition-transform duration-300 ease-in-out'
         >
           {!logo ? ( 
-            <span className='font-semibold tracking-tighter text-xl'>
+            <span 
+              className={cn('font-semibold tracking-tighter text-xl', {
+                'pr-4 border-r text-lg': navbarType === 'floating'
+              })}
+            >
               {siteTitle}
             </span>
           ): (
@@ -45,7 +55,11 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
             />
           )}
         </button>
-        <ul className='hidden md:flex items-center gap-8'>
+        <ul 
+          className={cn('hidden md:flex items-center gap-8', {
+            'gap-6 text-sm': navbarType === 'floating'
+          })}
+        >
           {menuItems.map(({ _key, pageReference, title, isButton }) => (
             <li key={_key}>
               <>

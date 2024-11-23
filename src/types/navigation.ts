@@ -2,7 +2,8 @@ import { PageType } from "./page";
 
 export type NavigationSettingsType = {
   navbar: {
-    navbarMenuItems: MenuItemType[]
+    navbarType: 'classic' | 'floating';
+    navbarMenuItems: MenuItemType[];
   }
 } 
 

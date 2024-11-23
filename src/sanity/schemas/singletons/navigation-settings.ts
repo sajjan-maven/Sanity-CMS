@@ -10,6 +10,20 @@ export default defineType({
   groups: [ ...fieldGroups ],
   fields: [
     defineField({
+      title: "Navbar Type",
+      name: "navbarType",
+      type: "string",
+      group: 'navbar',
+      fieldset: 'navbar',
+      options: {
+        list: [
+          { title: "Classic", value: "classic" },
+          { title: "Floating", value: "floating" },
+        ],
+      },
+      initialValue: 'classic',
+    }),
+    defineField({
       name: 'navbarMenuItems',
       title: 'Menu Items',
       type: 'array',
