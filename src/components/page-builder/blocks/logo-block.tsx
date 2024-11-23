@@ -8,14 +8,14 @@ export default function LogoBlock(props: LogoBlockType) {
   const items = [...logos, ...logos]
   
   return (
-    <div className='pt-8 pb-28'>
-      <div className='text-center font-mono uppercase tracking-tight text-gray-500'>
+    <div className='py-20 border-y border-y-slate-200/60 bg-slate-50 rounded-3xl'>
+      <div className='mt-5 mb-10 text-center font-mono uppercase font-medium text-gray-500'>
         {heading}
       </div>
-      <div className="py-10 relative overflow-clip">
+      <div className="relative overflow-clip">
         <ul className="flex items-center pl-[4.8rem] gap-[4.8rem] w-max animate-logo-marquee">
           {items.map((item) => (
-            <li key={item._key}>
+            <li key={item._key} className=''>
               <Image
                 width={200}
                 height={100}
@@ -34,8 +34,8 @@ export default function LogoBlock(props: LogoBlockType) {
 function EdgeBlur() {
   return (
     <div className='absolute inset-0 flex items-center justify-between'>
-      <div className='relative bg-gradient-to-r from-white via-white/80 to-transparent h-full w-[100px]'></div>
-      <div className='bg-gradient-to-l from-white via-white/8 to-transparent h-full w-[100px]'></div>
+      <div className='relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[100px]'></div>
+      <div className='bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[100px]'></div>
     </div>
   )
 }

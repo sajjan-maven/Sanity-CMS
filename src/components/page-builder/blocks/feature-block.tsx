@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Heading from '@/components/ui/heading';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { FeatureBlockType, FeatureItem } from '@/types/page-builder/blocks/features';
-import { Button } from '@/components/ui/button';
 
 export default function FeatureBlock(props: FeatureBlockType) {
 
   const { heading, features } = props
 
   return (
-    <section className='pb-24 xl:px-10'>
+    <section className='py-28 xl:px-10'>
       <Container className='space-y-10 md:space-y-14'>
         <div className='flex items-center justify-between'>
           <Heading size="h2" className='text-balance col-span-7'>
@@ -27,7 +27,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                 {feature.pageReference ? (
                   <Link 
                     href={feature.pageReference?.slug} 
-                    className='block px-10 py-16 space-y-4 rounded-xl bg-zinc-100 hover:-translate-y-2 transition duration-300'
+                    className='block px-10 py-16 space-y-4 rounded-xl border border-gray-200/60 bg-zinc-100 hover:-translate-y-2 transition duration-300'
                   >
                     <Image
                       src={feature.icon.asset.url}
@@ -43,7 +43,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                     </p>
                   </Link>
                 ): (
-                  <div className='px-10 py-16 space-y-4 rounded-xl bg-zinc-100'>
+                  <div className='px-10 py-16 space-y-4 rounded-xl border border-gray-200/60 bg-zinc-100'>
                     <Image
                       src={feature.icon.asset.url}
                       width={60}
