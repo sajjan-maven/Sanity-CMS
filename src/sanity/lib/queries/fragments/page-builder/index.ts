@@ -3,6 +3,7 @@ import {
   featureBlockQuery,
   logoBlockQuery,
   testimonialBlockQuery,
+  freeformBlockQuery,
 } from "./blocks";
 
 export const pageBuilder = `
@@ -10,6 +11,7 @@ export const pageBuilder = `
     ${heroBlockQuery},
     ${featureBlockQuery},
     ${logoBlockQuery},
-    ${testimonialBlockQuery}
+    ${testimonialBlockQuery},
+    ${freeformBlockQuery}
   }
 `

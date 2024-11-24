@@ -9,6 +9,11 @@ import heroBlock from "./page-builder/blocks/hero-block";
 import logoBlock from "./page-builder/blocks/logo-block";
 import testimonialBlock from "./page-builder/blocks/testimonial-block";
 import featureBlock from "./page-builder/blocks/feature-block";
+import freeformBlock from "./page-builder/blocks/freeform-block";
+import headingObject from './objects/heading';
+import richTextObject from './objects/rich-text';
+import buttonObject from './objects/button';
+import singleImageObject from "./objects/single-image";
 
 const coreSchema = [
   page,
@@ -21,11 +26,20 @@ const pageBuilderSchema = [
   heroBlock,
   headerBlock,
   featureBlock,
+  freeformBlock,
   logoBlock,
   testimonialBlock
 ]
 
+const objectSchema = [
+  headingObject,
+  richTextObject,
+  buttonObject,
+  singleImageObject
+]
+
 export const schemaTypes = [
   ...coreSchema,
-  ...pageBuilderSchema
+  ...pageBuilderSchema,
+  ...objectSchema
 ]

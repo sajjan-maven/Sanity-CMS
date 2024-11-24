@@ -1,4 +1,4 @@
-import type { PortableTextBlock } from '@portabletext/types'
+import type { PortableTextBlock } from '@portabletext/types';
 
 export type HeroBlockType = {
   _id: string;

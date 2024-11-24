@@ -8,6 +8,7 @@ const blockMap: Record<BlockType["_type"], ComponentType<any>> = {
   featureBlock: dynamic(() => import('./blocks/feature-block')),
   testimonialBlock: dynamic(() => import('./blocks/testimonial-block')),
   logoBlock: dynamic(() => import('./blocks/logo-block')),
+  freeformBlock: dynamic(() => import('./blocks/freeform-block')),
 }
 
 type PageBuilderProps = { blocks: BlockType[] }

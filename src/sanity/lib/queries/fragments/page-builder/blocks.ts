@@ -65,3 +65,31 @@ export const testimonialBlockQuery = `
     },
   }
 `
+
+export const freeformBlockQuery = `
+  _type == "freeformBlock" => {
+    ${baseQuery},
+    title,
+    columnsPerRow,
+    columns[] {
+      _key,
+      _type,
+      title,
+      items[] {
+        _key,
+        _type,
+        image { 
+          asset->{ url }, 
+          cornerRadius,
+          altText 
+        },
+        headingText,
+        headingSize,
+        richTextContent,
+        buttonText,
+        buttonVariant,
+        buttonType,
+      },
+    }
+  }
+`
