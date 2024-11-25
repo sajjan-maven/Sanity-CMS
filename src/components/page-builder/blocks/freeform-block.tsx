@@ -43,7 +43,9 @@ export default function FreeformBlock(props: FreeformBlockType) {
                         height={800}
                         alt={item.image.alt}
                         className={cn('object-cover aspect-square', {
-                          'rounded-2xl': item.image.cornerRadius === 'rounded'
+                          'rounded-2xl': item.image.cornerRadius === 'rounded',
+                          'aspect-[3/2]': item.image.aspectRatio === 'rectangle',
+                          'aspect-[3/4]': item.image.aspectRatio === 'portrait'  
                         })}
                       />
                     </div>

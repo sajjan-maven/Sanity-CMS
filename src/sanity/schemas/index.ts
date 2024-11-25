@@ -13,7 +13,7 @@ import freeformBlock from "./page-builder/blocks/freeform-block";
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
 import buttonObject from './objects/button';
-import singleImageObject from "./objects/single-image";
+import singleImageObject from "./objects/single-image.tsx";
 
 const coreSchema = [
   page,

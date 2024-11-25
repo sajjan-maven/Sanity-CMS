@@ -80,6 +80,7 @@ export const freeformBlockQuery = `
         _type,
         image { 
           asset->{ url }, 
+          aspectRatio,
           cornerRadius,
           altText 
         },

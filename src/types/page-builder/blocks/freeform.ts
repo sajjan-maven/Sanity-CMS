@@ -19,6 +19,7 @@ export type FreeformBlockType = {
         asset: {
           url: string;
         };
+        aspectRatio: 'square' | 'rectangle' | 'portrait';
         cornerRadius: 'rounded' | 'straight';
         alt: string;
       };
