@@ -10,7 +10,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
   return (
     <section className='xl:px-10'>
-      <Container className='pt-28 pb-8 border-x border-dashed space-y-10 md:space-y-14'>
+      <Container className='pt-28 pb-6 border-x border-dashed space-y-10 md:space-y-14'>
         <div className='grid grid-cols-12 gap-20'>
           <div className='col-span-12 xl:col-span-5 space-y-14'>
             <Heading size="h2" className='-ml-3 relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>

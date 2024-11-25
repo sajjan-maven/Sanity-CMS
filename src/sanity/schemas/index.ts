@@ -15,6 +15,7 @@ import richTextObject from './objects/rich-text';
 import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
 import featuresMinimalBlock from "./page-builder/blocks/features-minimal-block";
+import featureCardsBlock from "./page-builder/blocks/feature-cards-block";
 
 const coreSchema = [
   page,
@@ -27,6 +28,7 @@ const pageBuilderSchema = [
   heroBlock,
   headerBlock,
   featureBlock,
+  featureCardsBlock,
   featuresMinimalBlock,
   freeformBlock,
   logoBlock,

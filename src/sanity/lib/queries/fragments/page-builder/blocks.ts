@@ -36,6 +36,26 @@ export const featureBlockQuery = `
   }
 `
 
+export const featureCardsBlockQuery = `
+  _type == "featureCardsBlock" => {
+    ${baseQuery},
+    heading,
+    features[] {
+      title,
+      description,
+      items,
+      image { 
+        asset->{ url }, 
+      },
+      pageReference->{
+        _id,
+        title,
+        "slug": slug.current
+      },
+    }
+  }
+`
+
 export const featuresMinimalBlockQuery = `
   _type == "featuresMinimalBlock" => {
     ${baseQuery},
