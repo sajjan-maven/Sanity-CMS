@@ -36,6 +36,14 @@ export const featureBlockQuery = `
   }
 `
 
+export const featuresMinimalBlockQuery = `
+  _type == "featuresMinimalBlock" => {
+    ${baseQuery},
+    heading,
+    features
+  }
+`
+
 export const logoBlockQuery = `
   _type == "logoBlock" => {
     ${baseQuery},

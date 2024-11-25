@@ -13,7 +13,8 @@ import freeformBlock from "./page-builder/blocks/freeform-block";
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
 import buttonObject from './objects/button';
-import singleImageObject from "./objects/single-image.tsx";
+import singleImageObject from "./objects/single-image";
+import featuresMinimalBlock from "./page-builder/blocks/features-minimal-block";
 
 const coreSchema = [
   page,
@@ -26,6 +27,7 @@ const pageBuilderSchema = [
   heroBlock,
   headerBlock,
   featureBlock,
+  featuresMinimalBlock,
   freeformBlock,
   logoBlock,
   testimonialBlock
