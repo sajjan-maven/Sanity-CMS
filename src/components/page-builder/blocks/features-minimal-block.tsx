@@ -16,7 +16,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
             <Heading size="h2" className='-ml-3 relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
               {heading}
             </Heading>
-            <Button variant="primary" buttonType="internal" className='bg-black'>
+            <Button variant="tertiary" buttonType="internal">
               Get Started
             </Button>
           </div>

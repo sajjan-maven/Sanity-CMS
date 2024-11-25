@@ -36,7 +36,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     />
                   )}
                   {item._type === 'singleImage' && (
-                    <div className='pb-1.5'>
+                    <div className='p-3 border border-dashed rounded-3xl'>
                       <Image
                         src={item.image.asset.url}
                         width={800}
@@ -51,12 +51,15 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     </div>
                   )}
                   {item._type === 'button' && (
-                    <Button 
-                      variant={item.buttonVariant}
-                      buttonType={item.buttonType}
-                    >
-                      {item.buttonText}
-                    </Button>
+                    <div className='pt-2.5'>
+                      <Button 
+                        variant={item.buttonVariant}
+                        buttonType={item.buttonType}
+                        size="sm"
+                      >
+                        {item.buttonText}
+                      </Button>
+                    </div>
                   )}
                 </>
               ))}

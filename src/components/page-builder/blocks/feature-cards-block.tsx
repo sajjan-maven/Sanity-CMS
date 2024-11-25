@@ -18,14 +18,14 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
             <span className='relative z-10'>
               {heading}
             </span>
-              <EdgeBlur />
+            <EdgeBlur />
           </Heading>
           <Button variant="primary" buttonType="internal" className='bg-black'>
             Get Started
           </Button>
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
-          {features?.map((feature: FeatureItem) => (
+          {features?.map((feature: FeatureItem, index) => (
             <li key={feature._key} className='border rounded-2xl'>
               <div className='p-2'>
                 <Image
@@ -36,11 +36,17 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
                 />
               </div>
               <div className='px-8 pb-2'>
-                <div className='space-y-2'>
-                  <h2 className='text-xl font-medium'>
+                <div className='space-y-6'>
+                  <h2 className='relative py-2 text-lg font-semibold tracking-tight border-y border-y-gray-200/40 pattern-bg'>
                     {feature.title}
+                    <div 
+                      className={cn('absolute inset-0 bg-gradient-to-r from-white/0 via-indigo-500/10 to-white/0', {
+                        'via-yellow-500/10': index === 1,
+                        'via-green-500/10': index === 2,
+                      })}
+                    />
                   </h2>
-                  <p className='text-balance text-gray-500'>
+                  <p className='text-balance text-sm text-gray-500'>
                     {feature.description}
                   </p>
                 </div>
@@ -54,7 +60,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
                     })}
                   >
                     <CircleCheck className='col-span-1 h-4 w-4' />
-                    <span className='-mt-[3px] col-span-11 text-balance'>
+                    <span className='-mt-[3px] col-span-11 text-balance text-sm'>
                       {item}
                     </span>
                   </li>
