@@ -6,6 +6,7 @@ import { LogoBlockType } from "./blocks/logos";
 import { TestimonialBlockType } from "./blocks/testimonials";
 import { FeaturesMinimalBlockType } from "./blocks/features-minimal";
 import { FeatureCardsBlockType } from "./blocks/feature-cards";
+import { CallToActionBlockType } from "./blocks/call-to-action";
 
 export type BlockType = 
   HeroBlockType |
@@ -15,4 +16,5 @@ export type BlockType =
   FeatureCardsBlockType |
   FeaturesMinimalBlockType |
   LogoBlockType |
+  CallToActionBlockType |
   TestimonialBlockType;

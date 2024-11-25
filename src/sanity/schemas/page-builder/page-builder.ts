@@ -9,6 +9,7 @@ export const pageBuilder = defineType({
     { name: 'featureBlock', type: 'featureBlock' },
     { name: 'featureCardsBlock', type: 'featureCardsBlock' },
     { name: 'featuresMinimalBlock', type: 'featuresMinimalBlock' },
+    { name: 'callToActionBlock', type: 'callToActionBlock' },
     { name: 'freeformBlock', type: 'freeformBlock' },
     { name: 'logoBlock', type: 'logoBlock' },
     { name: 'testimonialBlock', type: 'testimonialBlock' },
@@ -25,6 +26,16 @@ export const pageBuilder = defineType({
           name: 'content',
           title: 'Content',
           of: [ 'freeformBlock', 'featureCardsBlock', 'featuresMinimalBlock', 'featureBlock' ]
+        },
+        {
+          name: 'socialProof',
+          title: 'Social Proof',
+          of: [ 'logoBlock', 'testimonialBlock' ]
+        },
+        {
+          name: 'marketing',
+          title: 'Marketing',
+          of: [ 'callToActionBlock' ]
         },
         {
           name: 'socialProof',

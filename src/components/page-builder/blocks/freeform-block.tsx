@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { FreeformBlockType } from '@/types/page-builder/blocks/freeform';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { div } from 'motion/react-client';
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
@@ -25,9 +26,11 @@ export default function FreeformBlock(props: FreeformBlockType) {
               {column.items.map((item) => (
                 <>
                   {item._type === 'heading' && (
-                    <Heading size={item.headingSize}>
-                      {item.headingText}
-                    </Heading>
+                    <div className='pt-1'>
+                      <Heading size={item.headingSize}>
+                        {item.headingText}
+                      </Heading>
+                    </div>
                   )}
                   {item._type === 'richText' && (
                     <PortableTextEditor 

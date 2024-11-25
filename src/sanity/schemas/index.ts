@@ -16,6 +16,7 @@ import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
 import featuresMinimalBlock from "./page-builder/blocks/features-minimal-block";
 import featureCardsBlock from "./page-builder/blocks/feature-cards-block";
+import callToActionBlock from "./page-builder/blocks/call-to-action-block";
 
 const coreSchema = [
   page,
@@ -31,6 +32,7 @@ const pageBuilderSchema = [
   featureCardsBlock,
   featuresMinimalBlock,
   freeformBlock,
+  callToActionBlock,
   logoBlock,
   testimonialBlock
 ]

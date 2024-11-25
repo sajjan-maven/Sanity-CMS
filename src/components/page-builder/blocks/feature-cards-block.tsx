@@ -46,7 +46,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
                       })}
                     />
                   </h2>
-                  <p className='text-balance text-sm text-gray-500'>
+                  <p className='text-pretty text-sm text-gray-500'>
                     {feature.description}
                   </p>
                 </div>

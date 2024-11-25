@@ -64,6 +64,14 @@ export const featuresMinimalBlockQuery = `
   }
 `
 
+export const callToActionBlockQuery = `
+  _type == "callToActionBlock" => {
+    ${baseQuery},
+    heading,
+    content
+  }
+`
+
 export const logoBlockQuery = `
   _type == "logoBlock" => {
     ${baseQuery},
