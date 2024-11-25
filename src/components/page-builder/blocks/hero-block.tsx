@@ -23,7 +23,7 @@ export default function HeroBlock(props: HeroBlockType) {
               classNames='mt-3 md:text-xl text-balance text-gray-600'
             />
             <div className='flex items-center gap-3 mt-10'>
-              <Button variant="default" buttonType="internal">
+              <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>
               <Button variant="underline" buttonType="external">

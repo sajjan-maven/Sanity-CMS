@@ -19,7 +19,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
             </span>
               <EdgeBlur />
           </Heading>
-          <Button variant="default" buttonType="internal" className='bg-black'>
+          <Button variant="primary" buttonType="internal" className='bg-black'>
             Get Started
           </Button>
         </div>

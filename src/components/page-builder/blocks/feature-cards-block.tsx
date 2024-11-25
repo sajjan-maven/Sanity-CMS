@@ -20,7 +20,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
             </span>
               <EdgeBlur />
           </Heading>
-          <Button variant="default" buttonType="internal" className='bg-black'>
+          <Button variant="primary" buttonType="internal" className='bg-black'>
             Get Started
           </Button>
         </div>
@@ -62,9 +62,9 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
               </ul>
               <div className='px-4 py-4 border-t border-dashed'>
                 <Button 
-                  variant="default" 
+                  variant="tertiary" 
                   buttonType="internal" 
-                  className='h-12 w-full border border-gray-300/80 hover:border-blue-500 bg-gray-200 text-black hover:text-white'
+                  className='h-12 w-full'
                 >
                   Get Started
                 </Button>

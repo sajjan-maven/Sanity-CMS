@@ -17,11 +17,13 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Default", value: "default" },
+          { title: "Primary", value: "primary" },
+          { title: "Secondary", value: "secondary" },
+          { title: "Tertiary", value: "tertiary" },
           { title: "Underline", value: "underline" },
         ],
       },
-      initialValue: 'default',
+      initialValue: 'primary',
     }),
     defineField({
       title: "Button Type",

@@ -77,7 +77,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                   </Link>
                 ): (
                   <Button 
-                    variant="default" 
+                    variant="primary" 
                     disableIcon={true}
                     buttonType="internal"
                   >

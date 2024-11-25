@@ -24,7 +24,7 @@ export type FreeformBlockType = {
         alt: string;
       };
       buttonText?: string;
-      buttonVariant?: 'default' | 'underline';
+      buttonVariant?: 'primary' | 'underline';
       buttonType?: 'internal' | 'external' | 'fileDownload';
     }[]
   }[]

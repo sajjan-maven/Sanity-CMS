@@ -54,7 +54,6 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     <Button 
                       variant={item.buttonVariant}
                       buttonType={item.buttonType}
-                      className='bg-black'
                     >
                       {item.buttonText}
                     </Button>
