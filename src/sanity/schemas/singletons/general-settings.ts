@@ -22,5 +22,11 @@ export default defineType({
       description: 'Choose which page you would like to display as the homepage.',
       to: [{ type: 'page' }],
     }),
+    defineField({
+      name: "copyright",
+      type: "string",
+      title: "Copyright",
+      description: 'This will be displayed in the footer.'
+    }),
   ]
 })

@@ -13,5 +13,20 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
       },
       isButton,
     },
+  },
+  "footer": {
+    footerColumns[] {
+      _key,
+      title,
+      menuItems[] {
+        _key,
+        title,
+        pageReference->{
+          _id,
+          title,
+          "slug": slug.current
+        },
+      }
+    }
   }
 }` 

@@ -1,15 +1,19 @@
-import { SettingsType } from '@/types/settings';
-import SiteLogo from '../shared/site-logo';
+import Link from 'next/link';
 import Container from './container';
 import Heading from '../ui/heading';
+import SiteLogo from '../shared/site-logo';
+import { SettingsType } from '@/types/settings';
+import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 
 interface FooterProps {
   settings: SettingsType;
+  navigationSettings: NavigationSettingsType['footer']
 }
 
-export default function Footer({ settings }: FooterProps) {
+export default function Footer({ settings, navigationSettings }: FooterProps) {
 
-  const { siteTitle, logo } = settings
+  const { siteTitle, copyright, logo } = settings;
+  const { footerColumns: columns } = navigationSettings;
 
   return (
     <footer className='pt-20 border-t'>
@@ -18,33 +22,44 @@ export default function Footer({ settings }: FooterProps) {
           <div className='flex-none'>
             <SiteLogo siteTitle={siteTitle} logo={logo} location="footer" />
           </div>
-          <div className='flex-1 grid grid-cols-4 gap-8'>
-            <div className='w-full'>
-              <Heading size="h6" className='font-semibold'>
-                Features
-              </Heading>
-            </div>
-            <div className='w-full'>
-              <Heading size="h6" className='font-semibold'>
-                Resources
-              </Heading>
-            </div>
-            <div className='w-full'>
-              <Heading size="h6" className='font-semibold'>
-                Company
-              </Heading>
-            </div>
-            <div className='w-full'>
-              <Heading size="h6" className='font-semibold'>
-                Socials
-              </Heading>
-            </div>
-          </div>
+          <FooterColumns columns={columns} />
         </div>
         <div className='mt-20 py-6 border-t border-dashed text-sm'>
-          SiteEngine © 2024 - Made by <a href="" className='font-bold tracking-tight'>James Rea.</a>
+          {copyright} - Made by <a href="" className='font-bold tracking-tight'>James Rea.</a>
         </div>
       </Container>
     </footer>
+  )
+}
+
+function FooterColumns({ columns }: {
+  columns: {
+    _key: string;
+    title: string;
+    menuItems: MenuItemType[]
+  }[]
+}) {
+  return (
+    <ul className='flex-1 grid grid-cols-4 gap-8'>
+      {columns.map((column) => (
+        <li key={column._key} className='w-full space-y-4'>
+          <Heading size="h6" className='font-semibold'>
+            {column.title}
+          </Heading>
+          <ul className='space-y-1.5'>
+            {column.menuItems.map((item) => (
+              <li key={item._key}>
+                <Link 
+                  href={`/${item.pageReference.slug}`}
+                  className='hover:underline underline-offset-8'
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
   )
 }

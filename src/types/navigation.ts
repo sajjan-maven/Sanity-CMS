@@ -5,11 +5,18 @@ export type NavigationSettingsType = {
     navbarType: 'classic' | 'floating';
     navbarMenuItems: MenuItemType[];
   }
+  footer: {
+    footerColumns: {
+      _key: string;
+      title: string;
+      menuItems: MenuItemType[]
+    }[]
+  }
 } 
 
 export type MenuItemType = {
   _key: string;
   title: string;
   pageReference: PageType;
-  isButton: boolean;
+  isButton?: boolean;
 }
