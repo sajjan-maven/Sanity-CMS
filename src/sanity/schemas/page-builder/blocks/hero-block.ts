@@ -28,6 +28,18 @@ export default defineType({
       ],
     }),
     defineField({
+      title: "Media",
+      name: "mediaType",
+      type: "string",
+      options: {
+        list: [
+          { title: "Image", value: "image" },
+          { title: "None", value: "none" },
+        ],
+      },
+      initialValue: 'image',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -50,6 +62,7 @@ export default defineType({
           initialValue: 'rounded',
         }),
       ],
+      hidden: ({ parent }) => parent?.mediaType !== 'image',
     }),
   ],
   preview: {

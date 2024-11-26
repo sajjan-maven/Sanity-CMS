@@ -9,6 +9,7 @@ export const heroBlockQuery = `
     ${baseQuery},
     heading,
     content[],
+    mediaType,
     image { 
       asset->{ url }, 
       cornerRadius,

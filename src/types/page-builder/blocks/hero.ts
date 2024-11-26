@@ -6,6 +6,7 @@ export type HeroBlockType = {
   _type: 'heroBlock';
   heading: string;
   content: PortableTextBlock;
+  mediaType: 'image' | 'none';
   image: {
     asset: {
       url: string;

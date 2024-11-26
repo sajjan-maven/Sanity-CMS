@@ -21,7 +21,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
           })}
         >
           {columns.map((column) => (
-            <div key={column._key} className='space-y-6'>
+            <div key={column._key} className='space-y-6 flex flex-col justify-center'>
               {column.items.map((item) => (
                 <>
                   {item._type === 'heading' && (

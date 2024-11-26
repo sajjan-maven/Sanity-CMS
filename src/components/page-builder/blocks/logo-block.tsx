@@ -8,7 +8,7 @@ export default function LogoBlock(props: LogoBlockType) {
   const items = [...logos, ...logos]
   
   return (
-    <div className='py-20 rounded-3xl border-y border-y-slate-200/60 bg-slate-50'>
+    <div className='py-20 rounded-b-3xl border-b border-y-slate-200/60 bg-slate-50'>
       <div className='relative w-fit mx-auto py-2 px-10 mt-5 mb-10 border-y border-t-slate-200/60 border-b-slate-200/40 bg-white pattern-bg'>
         <span className=' text-center font-geistMono text-sm uppercase font-medium text-gray-500'> 
           {heading}
