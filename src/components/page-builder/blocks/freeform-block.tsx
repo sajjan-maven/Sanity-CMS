@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { FreeformBlockType } from '@/types/page-builder/blocks/freeform';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { div } from 'motion/react-client';
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
@@ -39,7 +38,12 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     />
                   )}
                   {item._type === 'singleImage' && (
-                    <div className='p-3 border border-dashed rounded-3xl'>
+                    <div 
+                      className={cn({
+                        'p-3 border border-dashed rounded-3xl': item.image.enableBorder,
+                        'border-solid': item.image.borderStyle === 'solid',
+                      })}
+                    >
                       <Image
                         src={item.image.asset.url}
                         width={800}
@@ -48,7 +52,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                         className={cn('object-cover aspect-square', {
                           'rounded-2xl': item.image.cornerRadius === 'rounded',
                           'aspect-[3/2]': item.image.aspectRatio === 'rectangle',
-                          'aspect-[3/4]': item.image.aspectRatio === 'portrait'  
+                          'aspect-[3/4]': item.image.aspectRatio === 'portrait',
                         })}
                       />
                     </div>

@@ -118,6 +118,8 @@ export const freeformBlockQuery = `
           asset->{ url }, 
           aspectRatio,
           cornerRadius,
+          enableBorder,
+          borderStyle,
           altText 
         },
         headingText,

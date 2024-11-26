@@ -40,6 +40,25 @@ export default defineType({
           },
           initialValue: 'rounded',
         }),
+        defineField({
+          name: 'enableBorder',
+          type: 'boolean',
+          title: 'Enable Border',
+          initialValue: false
+        }),
+        defineField({
+          title: "Border Style",
+          name: "borderStyle",
+          type: "string",
+          options: {
+            list: [
+              { title: "Solid", value: "solid" },
+              { title: "Dashed", value: "dashed" },
+            ],
+          },
+          initialValue: 'dashed',
+          hidden: ({ parent }) => parent?.enableBorder === false,
+        }),
       ],
     }),
   ],

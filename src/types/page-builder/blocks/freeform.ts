@@ -21,6 +21,8 @@ export type FreeformBlockType = {
         };
         aspectRatio: 'square' | 'rectangle' | 'portrait';
         cornerRadius: 'rounded' | 'straight';
+        enableBorder: boolean;
+        borderStyle: 'solid' | 'dashed';
         alt: string;
       };
       buttonText?: string;
