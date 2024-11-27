@@ -11,6 +11,9 @@ const config: Config = {
       maxWidth: {
         '8xl': '90rem',
       },
+      borderRadius: {
+        '4xl': '2.4rem'
+      },
       fontFamily: {
         geistSans: ['var(--font-geist-sans)'],
         geistMono: ['var(--font-geist-mono)']

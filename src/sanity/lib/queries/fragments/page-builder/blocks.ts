@@ -15,6 +15,7 @@ export const heroBlockQuery = `
     heading,
     content[],
     mediaType,
+    bottomCornerRadius,
     image { 
       asset->{ url }, 
       cornerRadius,

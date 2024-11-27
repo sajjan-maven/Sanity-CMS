@@ -14,4 +14,5 @@ export type HeroBlockType = {
     cornerRadius: 'rounded' | 'straight';
     alt: string;
   };
+  bottomCornerRadius: 'rounded' | 'straight';
 }

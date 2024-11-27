@@ -40,6 +40,18 @@ export default defineType({
       initialValue: 'image',
     }),
     defineField({
+      title: "Corner Radius - Bottom L/R",
+      name: "bottomCornerRadius",
+      type: "string",
+      options: {
+        list: [
+          { title: "Straight", value: "straight" },
+          { title: "Rounded", value: "rounded" },
+        ],
+      },
+      initialValue: 'straight',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',

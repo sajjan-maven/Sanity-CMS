@@ -8,10 +8,14 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function HeroBlock(props: HeroBlockType) {
 
-  const { heading, content, mediaType, image } = props
+  const { heading, content, mediaType, bottomCornerRadius, image } = props
 
   return (
-    <section className='pattern-bg border-b'>
+    <section 
+      className={cn('pattern-bg border-b', {
+        'rounded-4xl': bottomCornerRadius === 'rounded'
+      })}
+    >
       <Container 
         className={cn('space-y-14 xl:space-y-0', {
           'pb-14': mediaType === 'image'
