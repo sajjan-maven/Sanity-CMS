@@ -4,6 +4,11 @@ const baseQuery = `
   _type
 `
 
+const paddingQuery = `
+  paddingTop,
+  paddingBottom
+`
+
 export const heroBlockQuery = `
   _type == "heroBlock" => {
     ${baseQuery},
@@ -53,7 +58,8 @@ export const featureCardsBlockQuery = `
         title,
         "slug": slug.current
       },
-    }
+    },
+    ${paddingQuery}
   }
 `
 
@@ -61,7 +67,8 @@ export const featuresMinimalBlockQuery = `
   _type == "featuresMinimalBlock" => {
     ${baseQuery},
     heading,
-    features
+    features,
+    ${paddingQuery}
   }
 `
 
@@ -69,7 +76,8 @@ export const callToActionBlockQuery = `
   _type == "callToActionBlock" => {
     ${baseQuery},
     heading,
-    content
+    content,
+    ${paddingQuery}
   }
 `
 
@@ -100,6 +108,7 @@ export const testimonialBlockQuery = `
     logo { 
       asset->{ url }, 
     },
+    ${paddingQuery}
   }
 `
 

@@ -6,4 +6,6 @@ export type CallToActionBlockType = {
   _type: 'callToActionBlock';
   heading: string;
   content: PortableTextBlock;
+  paddingTop: string;
+  paddingBottom: string;
 }

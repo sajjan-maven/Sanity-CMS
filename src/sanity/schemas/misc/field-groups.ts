@@ -5,6 +5,7 @@ export const fieldGroups = [
   { name: 'appearance', title: 'Appearance' },
   { name: 'navbar', title: 'Navbar' },
   { name: 'footer', title: 'Footer' },
+  { name: 'layout', title: 'Layout' },
   { name: 'mobileMenu', title: 'Mobile Menu' },
   { name: 'slideOutMenu', title: 'Slide Out Menu' },
 ]

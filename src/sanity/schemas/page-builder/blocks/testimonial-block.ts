@@ -2,6 +2,7 @@ import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { Star } from "lucide-react";
+import { paddingFields } from "../../misc/padding-fields";
 
 export default defineType({
   name: 'testimonialBlock',
@@ -41,6 +42,7 @@ export default defineType({
       title: 'Company Logo',
       type: 'image',
     }),
+    ...paddingFields
   ],
   preview: {
     select: {

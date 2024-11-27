@@ -4,11 +4,24 @@ import { TestimonialBlockType } from '@/types/page-builder/blocks/testimonials';
 
 export default function TestimonialBlock(props: TestimonialBlockType) {
 
-  const { testimonial, author, position, avatar, company, logo } = props
+  const { 
+    testimonial, 
+    author, 
+    position, 
+    avatar, 
+    company, 
+    logo,
+    paddingTop,
+    paddingBottom
+  } = props
 
   return (
     <section className='xl:px-10 pattern-bg border-y border-dashed rounded-3xl'>
-      <Container className='py-28 space-y-10'>
+      <Container 
+        className='space-y-10'
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div>
           <div className='w-fit mx-auto px-2.5 rounded-full text-center text-sm tracking-tight text-white bg-black'>
             Testimonials

@@ -1,16 +1,20 @@
+import { Check } from 'lucide-react';
 import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
-import { Check } from 'lucide-react';
 
 export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
-  const { heading, features } = props
+  const { heading, features, paddingTop, paddingBottom } = props
 
   return (
     <section className='xl:px-10'>
-      <Container className='pt-28 pb-6 border-x border-dashed space-y-10 md:space-y-14'>
+      <Container 
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        className='border-x border-dashed space-y-10 md:space-y-14'
+      >
         <div className='grid grid-cols-12 gap-20'>
           <div className='col-span-12 xl:col-span-5 space-y-14'>
             <Heading size="h2" className='-ml-3 relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>

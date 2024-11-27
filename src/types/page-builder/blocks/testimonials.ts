@@ -16,4 +16,6 @@ export type TestimonialBlockType = {
       url: string;
     }
   };
+  paddingTop: string;
+  paddingBottom: string;
 }

@@ -8,11 +8,15 @@ import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/
 
 export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 
-  const { heading, features } = props
+  const { heading, features, paddingTop, paddingBottom } = props
 
   return (
     <section className='xl:px-10'>
-      <Container className='py-28 border-x border-dashed space-y-10 md:space-y-14'>
+      <Container 
+        className='space-y-10 md:space-y-14 border-x border-dashed'
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div className='flex items-center justify-between'>
           <Heading size="h2" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
             <span className='relative z-10'>

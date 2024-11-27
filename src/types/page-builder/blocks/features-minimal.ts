@@ -3,5 +3,7 @@ export type FeaturesMinimalBlockType = {
   _key: string;
   _type: 'featuresMinimalBlock';
   heading: string;
-  features: string[]
+  features: string[];
+  paddingTop: string;
+  paddingBottom: string;
 }

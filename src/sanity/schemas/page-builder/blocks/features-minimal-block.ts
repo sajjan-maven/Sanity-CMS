@@ -2,6 +2,7 @@ import { Shapes } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
+import { paddingFields } from "../../misc/padding-fields";
 
 export default defineType({
   name: 'featuresMinimalBlock',
@@ -21,6 +22,7 @@ export default defineType({
       type: 'array',
       of: [{ type: 'string' }],
     }),
+    ...paddingFields
   ],
   preview: {
     select: {

@@ -5,7 +5,9 @@ export type FeatureCardsBlockType = {
   _key: string;
   _type: 'featureCardsBlock';
   heading: string;
-  features: FeatureItem[]
+  features: FeatureItem[];
+  paddingTop: string;
+  paddingBottom: string;
 }
 
 export type FeatureItem = {

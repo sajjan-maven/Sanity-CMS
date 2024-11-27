@@ -6,11 +6,14 @@ import { CallToActionBlockType } from '@/types/page-builder/blocks/call-to-actio
 
 export default function CallToActionBlock(props: CallToActionBlockType) {
 
-  const { heading, content } = props
+  const { heading, content, paddingTop, paddingBottom } = props
 
   return (
     <section className='pattern-bg--2 border-t'>
-      <Container className='py-28'>
+      <Container 
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div className='flex items-center justify-between'>
           <div>
             <Heading size="h2" className='max-w-[40rem] text-balance leading-tight'>

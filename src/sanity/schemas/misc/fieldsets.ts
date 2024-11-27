@@ -5,5 +5,12 @@ export const fieldsets = [
   { name: 'appearance', title: 'Appearance' },
   { name: 'navbar', title: 'Navbar' },
   { name: 'footer', title: 'Footer' },
+  { 
+    name: 'padding', 
+    title: 'Padding',
+    options: {
+      columns: 2
+    } 
+  },
   { name: 'mobileMenu', title: 'Mobile Menu' },
 ]
