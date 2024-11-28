@@ -12,16 +12,16 @@ export default function HeroBlock(props: HeroBlockType) {
 
   return (
     <section 
-      className={cn('pattern-bg border-b', {
+      className={cn('px-10 pattern-bg border-b', {
         'rounded-4xl': bottomCornerRadius === 'rounded'
       })}
     >
       <Container 
-        className={cn('space-y-14 xl:space-y-0', {
+        className={cn('space-y-14 xl:space-y-0 border-x border-dashed', {
           'pb-14': mediaType === 'image'
         })}
       >
-        <div className='pt-52 pb-20 md:pb-36 xl:px-10 grid grid-cols-12 border-x border-dashed gap-6'>
+        <div className='pt-52 pb-20 md:pb-36  grid grid-cols-12 gap-6'>
           <Heading size="h1" className='text-balance col-span-12 xl:col-span-7 leading-normal'>
             {heading}
           </Heading>

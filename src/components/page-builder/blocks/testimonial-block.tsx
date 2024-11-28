@@ -18,9 +18,9 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
   return (
     <section className='xl:px-10 pattern-bg border-y border-dashed rounded-3xl'>
       <Container 
-        className='space-y-10'
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
+        className='space-y-10 border-x border-dashed'
       >
         <div>
           <div className='w-fit mx-auto px-2.5 rounded-full text-center text-sm tracking-tight text-white bg-black'>

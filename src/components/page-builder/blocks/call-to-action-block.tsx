@@ -9,10 +9,11 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
   const { heading, content, paddingTop, paddingBottom } = props
 
   return (
-    <section className='pattern-bg--2 border-t'>
+    <section className='xl:px-10 pattern-bg--2 border-t'>
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
+        className='border-x border-dashed'
       >
         <div className='flex items-center justify-between'>
           <div>

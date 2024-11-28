@@ -15,7 +15,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
     <section className='px-10'>
       <Container className='py-28 border-x border-dashed'>
         <div 
-          className={cn('grid grid-cols-1 md:grid-cols-2 gap-20', {
+          className={cn('grid grid-cols-1 md:grid-cols-2 gap-12', {
             'md:grid-cols-3': columnsPerRow === '3',
             'md:grid-cols-4': columnsPerRow === '4',
           })}
@@ -34,7 +34,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   {item._type === 'richText' && (
                     <PortableTextEditor 
                       data={item.richTextContent} 
-                      classNames=''
+                      classNames='text-balance'
                     />
                   )}
                   {item._type === 'singleImage' && (

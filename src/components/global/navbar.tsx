@@ -35,7 +35,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
       >
         <SiteLogo siteTitle={siteTitle} logo={logo} navbarType={navbarType} />
         <ul 
-          className={cn('hidden md:flex items-center gap-8', {
+          className={cn('hidden md:flex items-center gap-8 group/nav', {
             'gap-6 text-sm': navbarType === 'floating'
           })}
         >
@@ -45,14 +45,14 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                 {!isButton ? (
                   <Link 
                     href={`/${pageReference.slug}`}
-                    className={cn('relative overflow-hidden inline-flex', {
+                    className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
                       'hover:underline underline-offset-[38px]': !isButton,
                       'py-2 px-4 rounded-full text-white bg-blue-600': isButton
                     })}
-                    >
-                      <AnimatedText>
-                        {title}
-                      </AnimatedText>
+                  >
+                    <AnimatedText>
+                      {title}
+                    </AnimatedText>
                   </Link>
                 ): (
                   <Button 
