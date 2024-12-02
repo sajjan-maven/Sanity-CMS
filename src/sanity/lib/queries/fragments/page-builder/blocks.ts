@@ -69,6 +69,10 @@ export const featuresMinimalBlockQuery = `
     ${baseQuery},
     heading,
     features,
+    enableBorderTop,
+    cornerRadiusTop,
+    enableBorderBottom,
+    cornerRadiusBottom,
     ${paddingQuery}
   }
 `

@@ -4,6 +4,10 @@ export type FeaturesMinimalBlockType = {
   _type: 'featuresMinimalBlock';
   heading: string;
   features: string[];
+  enableBorderTop: boolean;
+  cornerRadiusTop: 'rounded' | 'straight';
+  enableBorderBottom: boolean;
+  cornerRadiusBottom: 'rounded' | 'straight';
   paddingTop: string;
   paddingBottom: string;
 }

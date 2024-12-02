@@ -22,6 +22,43 @@ export default defineType({
       type: 'array',
       of: [{ type: 'string' }],
     }),
+    defineField({
+      name: 'enableBorderTop',
+      title: 'Enable Border Top',
+      type: 'boolean',
+      initialValue: false
+    }),
+    defineField({
+      name: "cornerRadiusTop",
+      title: "Corner Radius Top",
+      type: "string",
+      options: {
+        list: [
+          { title: "Rounded", value: "rounded" },
+          { title: "Straight", value: "straight" },
+        ],
+      },
+      initialValue: 'rounded',
+      hidden: ({ parent }) => parent?.enableBorderTop === false,
+    }),
+    defineField({
+      name: 'enableBorderBottom',
+      title: 'Enable Border Bottom',
+      type: 'boolean',
+    }),
+    defineField({
+      name: "cornerRadiusBottom",
+      title: "Corner Radius Bottom",
+      type: "string",
+      options: {
+        list: [
+          { title: "Rounded", value: "rounded" },
+          { title: "Straight", value: "straight" },
+        ],
+      },
+      initialValue: 'rounded',
+      hidden: ({ parent }) => parent?.enableBorderBottom === false,
+    }),
     ...paddingFields
   ],
   preview: {

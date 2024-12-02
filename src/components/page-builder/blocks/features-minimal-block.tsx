@@ -3,13 +3,30 @@ import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
 import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
+import { cn } from '@/lib/utils';
 
 export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
-  const { heading, features, paddingTop, paddingBottom } = props
+  const { 
+    heading, 
+    features, 
+    enableBorderTop,
+    cornerRadiusTop,
+    enableBorderBottom,
+    cornerRadiusBottom,
+    paddingTop, 
+    paddingBottom 
+  } = props
 
   return (
-    <section className='xl:px-10'>
+    <section 
+      className={cn('xl:px-10', {
+        'border-t': enableBorderTop,
+        'rounded-t-4xl': cornerRadiusTop,
+        'border-b': enableBorderBottom,
+        'rounded-b-4xl': cornerRadiusBottom
+      })}
+    >
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
