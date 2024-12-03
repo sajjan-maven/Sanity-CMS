@@ -15,6 +15,30 @@ export default defineType({
       title: 'Heading',
       type: 'string',
     }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        { 
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        },
+      ],
+    }),
+    defineField({
+      title: "Corner Radius - Bottom L/R",
+      name: "bottomCornerRadius",
+      type: "string",
+      options: {
+        list: [
+          { title: "Straight", value: "straight" },
+          { title: "Rounded", value: "rounded" },
+        ],
+      },
+      initialValue: 'straight',
+    }),
   ],
   preview: {
     select: {

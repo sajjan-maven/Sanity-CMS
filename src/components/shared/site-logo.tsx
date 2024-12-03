@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import { cn, scrollToElement } from '@/lib/utils';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function SiteLogo({ siteTitle, logo, navbarType, location }: {
   siteTitle: string;
@@ -12,10 +14,14 @@ export default function SiteLogo({ siteTitle, logo, navbarType, location }: {
   navbarType?: 'classic' | 'floating';
   location?: 'footer' | 'navbar';
 }) {
+
+  const pathname = usePathname()
+  const router = useRouter()
+
   return (
     <button 
       aria-label="Go to home page"
-      onClick={() => scrollToElement('home')}
+      onClick={() => pathname === '/' ? scrollToElement('home') : router.push(`/#home`)}
       className='hover:scale-[0.95] transition-transform duration-300 ease-in-out'
     >
       {!logo ? ( 

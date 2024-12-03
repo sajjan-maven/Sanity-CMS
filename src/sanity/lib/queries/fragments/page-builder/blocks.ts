@@ -24,6 +24,15 @@ export const heroBlockQuery = `
   }
 `
 
+export const headerBlockQuery = `
+  _type == "headerBlock" => {
+    ${baseQuery},
+    heading,
+    content[],
+    bottomCornerRadius,
+  }
+`
+
 export const featureBlockQuery = `
   _type == "featureBlock" => {
     ${baseQuery},
