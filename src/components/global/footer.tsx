@@ -32,7 +32,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
         <div className='flex items-center justify-between mt-20 py-6 border-t border-dashed text-xs'>
           <div>
             {copyright} - Made by
-            <a href="" className='relative ml-1 font-bold tracking-tight text-blue-600 group'>
+            <a href="" className='relative ml-1 font-semibold tracking-tight text-blue-600 group'>
               <span>James Rea.</span> 
               <AnimatedUnderline className='bg-blue-600'/>
             </a>
@@ -84,8 +84,12 @@ function LegalMenuItems({ legalMenuItems }: {
     <ul className='flex items-center gap-1'>
       {legalMenuItems.map((item, index) => (
         <li key={item._key} className='text-xs font-medium'>
-          <Link href={item.pageReference.slug}>
-            {item.title}
+          <Link 
+            href={`/${item.pageReference.slug}`}
+            className='relative group'
+          >
+            <span>{item.title}</span>
+            <AnimatedUnderline />
           </Link>
           {index !== legalMenuItems.length - 1 && (
             <span className='ml-1'>/</span>
