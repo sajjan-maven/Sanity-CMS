@@ -30,7 +30,7 @@ export default function HeroBlock(props: HeroBlockType) {
               data={content}
               classNames='mt-3 md:text-xl text-balance text-gray-600'
             />
-            <div className='flex items-center gap-3 mt-10'>
+            <div className='flex items-center gap-6 mt-10'>
               <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>

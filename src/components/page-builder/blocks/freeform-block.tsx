@@ -25,7 +25,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
               {column.items.map((item) => (
                 <>
                   {item._type === 'heading' && (
-                    <div className='pt-1'>
+                    <div className='pt-2'>
                       <Heading size={item.headingSize}>
                         {item.headingText}
                       </Heading>
@@ -58,7 +58,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     </div>
                   )}
                   {item._type === 'button' && (
-                    <div className='pt-2.5'>
+                    <div className='pt-1'>
                       <Button 
                         variant={item.buttonVariant}
                         buttonType={item.buttonType}
