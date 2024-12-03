@@ -101,5 +101,32 @@ export default defineType({
         })
       ]
     }),
+    defineField({
+      name: 'footerLegalMenuItems',
+      title: 'Legal Menu Items',
+      type: 'array',
+      group: 'footer',
+      fieldset: 'footer',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              description: 'The title of the menu item.'
+            }),
+            defineField({
+              name: 'pageReference',
+              title: 'Page',
+              description: 'The page that the menu item will link to.',
+              type: 'reference',
+              to: [{ type: 'page' }]
+            }),
+          ]
+        }),
+      ],
+    }),
   ],
 })

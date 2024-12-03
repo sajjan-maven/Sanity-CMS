@@ -11,6 +11,7 @@ export type NavigationSettingsType = {
       title: string;
       menuItems: MenuItemType[]
     }[]
+    footerLegalMenuItems: MenuItemType[];
   }
 } 
 

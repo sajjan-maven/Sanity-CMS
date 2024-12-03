@@ -27,6 +27,15 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
           "slug": slug.current
         },
       }
-    }
+    },
+    footerLegalMenuItems[] {
+      _key,
+      title,
+      pageReference->{
+        _id,
+        title,
+        "slug": slug.current
+      },
+    },
   }
 }` 

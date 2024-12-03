@@ -3,8 +3,8 @@ import Container from './container';
 import Heading from '../ui/heading';
 import SiteLogo from '../shared/site-logo';
 import { SettingsType } from '@/types/settings';
-import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 import AnimatedUnderline from '../ui/animated-underline';
+import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 
 interface FooterProps {
   settings: SettingsType;
@@ -14,7 +14,11 @@ interface FooterProps {
 export default function Footer({ settings, navigationSettings }: FooterProps) {
 
   const { siteTitle, copyright, logo } = settings;
-  const { footerColumns: columns } = navigationSettings;
+  
+  const { 
+    footerColumns: columns, 
+    footerLegalMenuItems: legalMenuItems 
+  } = navigationSettings;
 
   return (
     <footer className='pt-20 border-t'>
@@ -33,9 +37,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
               <AnimatedUnderline className='bg-blue-600'/>
             </a>
           </div>
-          <div className='text-xs font-medium'>
-            Terms of Use &nbsp; / &nbsp; License
-          </div>
+          <LegalMenuItems legalMenuItems={legalMenuItems} />
         </div>
       </Container>
     </footer>
@@ -69,6 +71,25 @@ function FooterColumns({ columns }: {
               </li>
             ))}
           </ul>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function LegalMenuItems({ legalMenuItems }: {
+  legalMenuItems: MenuItemType[]
+}) {
+  return (
+    <ul className='flex items-center gap-1'>
+      {legalMenuItems.map((item, index) => (
+        <li key={item._key} className='text-xs font-medium'>
+          <Link href={item.pageReference.slug}>
+            {item.title}
+          </Link>
+          {index !== legalMenuItems.length - 1 && (
+            <span className='ml-1'>/</span>
+          )}
         </li>
       ))}
     </ul>
