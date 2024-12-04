@@ -37,7 +37,7 @@ function Thumbnail({ image }: {
   }
 }) {
   return (
-    <div className='p-4 rounded-3xl border border-dashed'>
+    <div className='p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
       <Image
         src={image?.asset?.url}
         width={800}

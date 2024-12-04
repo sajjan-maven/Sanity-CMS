@@ -44,7 +44,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
           <div className='col-span-12 xl:col-span-7'>
             <ul className='grid md:grid-cols-2 gap-y-3 gap-x-10'>
               {features.map((feature: string) => (
-                <li className='pb-3.5 flex items-center gap-3.5 border-b border-b-slate-100/60'>
+                <li className='pb-3.5 flex items-center gap-3.5 border-b border-dashed border-b-slate-200/80'>
                   <Check size={20} />
                   <span>
                     {feature}

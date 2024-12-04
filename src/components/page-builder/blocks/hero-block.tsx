@@ -12,7 +12,7 @@ export default function HeroBlock(props: HeroBlockType) {
 
   return (
     <section 
-      className={cn('px-10 pattern-bg border-b', {
+      className={cn('px-10 pattern-bg border-b border-b-gray-200/60', {
         'rounded-4xl': bottomCornerRadius === 'rounded'
       })}
     >

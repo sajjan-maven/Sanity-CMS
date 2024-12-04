@@ -21,7 +21,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
   } = navigationSettings;
 
   return (
-    <footer className='pt-20 border-t'>
+    <footer className='pt-20 border-t border-t-gray-200/60'>
       <Container>
         <div className='w-full flex items-start gap-60'>
           <div className='flex-none'>

@@ -9,7 +9,7 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
   const { heading, content, paddingTop, paddingBottom } = props
 
   return (
-    <section className='xl:px-10 pattern-bg--2 border-t'>
+    <section className='xl:px-10 pattern-bg--2 border-t border-t-gray-200/60'>
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
