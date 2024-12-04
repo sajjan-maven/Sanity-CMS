@@ -37,10 +37,8 @@ export default defineType({
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'array',
-      of: [
-        { type: 'block' },
-      ],
+      type: 'text',
+      rows: 4  
     }),
     defineField({
       name: 'content',
@@ -51,15 +49,28 @@ export default defineType({
       ],
     }),
     defineField({
-      title: 'Image',
       name: 'image',
+      title: 'Image',
       type: 'image',
-      fields: [{
-        name: 'altText',
-        title: 'Alternative Text',
-        description: 'Describe the image for screen readers.',
-        type: 'string'
-      }],
+      fields: [
+        defineField({
+          name: 'altText',
+          title: 'Alternative Text',
+          type: 'string'
+        }),
+        defineField({
+          title: "Corner Radius",
+          name: "cornerRadius",
+          type: "string",
+          options: {
+            list: [
+              { title: "Rounded", value: "rounded" },
+              { title: "Straight", value: "straight" },
+            ],
+          },
+          initialValue: 'rounded',
+        }),
+      ],
     }),
     ...seoFields
   ]

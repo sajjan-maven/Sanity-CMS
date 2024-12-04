@@ -10,7 +10,7 @@ export type NavigationSettingsType = {
       _key: string;
       title: string;
       menuItems: MenuItemType[]
-    }[]
+    }[];
     footerLegalMenuItems: MenuItemType[];
   }
 } 

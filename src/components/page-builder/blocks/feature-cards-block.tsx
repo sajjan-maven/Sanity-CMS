@@ -18,7 +18,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         paddingBottom={paddingBottom}
       >
         <div className='flex items-center justify-between'>
-          <Heading size="h2" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
+          <Heading tag="h2" size="xl" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
             <span className='relative z-10'>
               {heading}
             </span>
@@ -31,25 +31,20 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {features?.map((feature: FeatureItem, index) => (
             <li key={feature._key} className='border rounded-2xl'>
-              <div className='p-2'>
+              <div className='p-6'>
                 <Image
                   src={feature.image.asset.url}
                   width={600}
                   height={400}
                   alt={feature.title}
+                  className='rounded-2xl h-[280px] object-cover overflow-hidden'
                 />
               </div>
-              <div className='px-8 pb-2'>
+              <div className='mt-2 px-8 pb-2'>
                 <div className='space-y-6'>
-                  <h2 className='relative py-2 text-lg font-semibold tracking-tight border-y border-y-gray-200/40 pattern-bg'>
+                  <Heading tag="h3" size="sm" className='relative py-2 font-semibold border-y border-y-gray-200/40 pattern-bg'>
                     {feature.title}
-                    <div 
-                      className={cn('absolute inset-0 bg-gradient-to-r from-white/0 via-indigo-500/10 to-white/0', {
-                        'via-yellow-500/10': index === 1,
-                        'via-green-500/10': index === 2,
-                      })}
-                    />
-                  </h2>
+                  </Heading>
                   <p className='text-pretty text-sm text-gray-500'>
                     {feature.description}
                   </p>

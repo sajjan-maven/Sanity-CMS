@@ -1,7 +1,11 @@
 import { FiList, FiFileText } from "react-icons/fi";
-import { StructureBuilder } from "sanity/structure";
+import { StructureBuilder, StructureResolverContext } from "sanity/structure";
+import { orderableDocumentListDeskItem} from '@sanity/orderable-document-list';
 
-export const BlogItem = (S: StructureBuilder) =>
+export const BlogItem = (
+  S: StructureBuilder, 
+  context: StructureResolverContext
+) => (
   S.listItem()
     .title('Blog')
     .icon(FiFileText)
@@ -9,20 +13,34 @@ export const BlogItem = (S: StructureBuilder) =>
       S.list()
         .title('Blog')
         .items([
-          S.listItem()
-            .title('Posts')
-            .child(
-              S.documentList()
-              .title('All Posts')
-              .filter('_type == "post"')
-            ),
-          S.listItem()
-            .title('Categories')
-            .icon(FiList)
-            .child(
-              S.documentList()
-              .title('Post Categories')
-              .filter('_type == "postCategory"')
-            ),
+          AllPosts(S),
+          PostCategories(S, context)
         ])
     )
+)
+
+export const AllPosts = (
+  S: StructureBuilder, 
+) => (
+  S.listItem()
+    .title('Posts')
+    .child(
+      S.documentList()
+      .title('All Posts')
+      .filter('_type == "post"')
+    ) 
+)
+
+export const PostCategories = (
+  S: StructureBuilder, 
+  context: StructureResolverContext
+) => (
+  orderableDocumentListDeskItem({
+    S, 
+    context, 
+    icon: FiList, 
+    type: 'postCategory', 
+    title: 'Categories', 
+    id: 'orderable-post-categories'
+  })
+)

@@ -2,6 +2,7 @@ import { FiFile } from "react-icons/fi";
 import { fieldsets } from "../misc/fieldsets";
 import { defineField, defineType } from "sanity";
 import { fieldGroups } from "../misc/field-groups";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export default defineType({
   name: 'postCategory',
@@ -10,6 +11,7 @@ export default defineType({
   icon: FiFile,
   fieldsets: [ ...fieldsets ],
   groups: [ ...fieldGroups ],
+  orderings: [orderRankOrdering],
   fields: [
     defineField({
       name: 'title',
@@ -25,6 +27,9 @@ export default defineType({
         source: 'title',
       },
       validation: rule => rule.required()
+    }),
+    orderRankField({ 
+      type: 'postCategory' 
     }),
   ]
 })

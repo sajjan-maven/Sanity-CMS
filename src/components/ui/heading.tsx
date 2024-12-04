@@ -6,17 +6,22 @@ const headingVariants = cva(
   'font-medium text-gray-900 tracking-tight leading-normal',
   {
     variants: {
-      size: {
-        h1: 'text-4xl md:text-7xl',
-        h2: 'text-3xl md:text-[2.6rem]',
-        h3: 'text-2xl md:text-3xl',
-        h4: 'text-2xl md:text-2xl',
-        h5: 'text-xl',
-        h6: 'text-lg',
+      tag: {
+        h1: '', h2: '', h3: '', h4: '', h5: '', h6: '',
       },
+      size: {
+        xxl: 'text-4xl md:text-7xl',
+        xl: 'text-3xl md:text-[2.6rem]',
+        lg: 'text-2xl md:text-3xl',
+        md: 'text-2xl md:text-2xl',
+        sm: 'text-xl',
+        xs: 'text-lg',
+      },
+      
     },
     defaultVariants: {
-      size: 'h1',
+      tag: 'h1',
+      size: 'xxl',
     },
   }
 )
@@ -37,18 +42,19 @@ const sizeToComponent = {
 } as const;
 
 export default function Heading({
-  size = 'h1',
+  tag = 'h1',
+  size = 'xxl',
   as,
   className,
   children,
   ...props
 }: HeadingProps) {
 
-  const Component = as || sizeToComponent[size as keyof typeof sizeToComponent] || 'h1';
+  const Component = as || sizeToComponent[tag as keyof typeof sizeToComponent] || 'h1';
   
   return (
     <Component 
-      className={cn('', headingVariants({ size, className }))}
+      className={cn('', headingVariants({ tag, size, className }))}
       {...props}
     >
       {children}

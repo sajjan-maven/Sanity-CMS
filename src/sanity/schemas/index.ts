@@ -19,6 +19,7 @@ import featureCardsBlock from "./page-builder/blocks/feature-cards-block";
 import callToActionBlock from "./page-builder/blocks/call-to-action-block";
 import post from "./documents/post";
 import postCategory from "./documents/post-category";
+import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
 
 const coreSchema = [
   page,
@@ -38,7 +39,8 @@ const pageBuilderSchema = [
   freeformBlock,
   callToActionBlock,
   logoBlock,
-  testimonialBlock
+  testimonialBlock,
+  blogArchiveBlock
 ]
 
 const objectSchema = [

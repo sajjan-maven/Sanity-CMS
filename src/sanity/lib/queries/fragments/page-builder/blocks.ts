@@ -156,3 +156,16 @@ export const freeformBlockQuery = `
     }
   }
 `
+
+export const blogArchiveBlockQuery = `
+  _type == "blogArchiveBlock" => {
+    ${baseQuery},
+    heading,
+    "categories": *[_type == "postCategory"] {
+      _id,
+      title,
+      "slug": slug.current,
+    },
+    ${paddingQuery}
+  }
+`

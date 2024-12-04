@@ -26,7 +26,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                 <>
                   {item._type === 'heading' && (
                     <div className='pt-2'>
-                      <Heading size={item.headingSize}>
+                      <Heading tag="h3" size="md">
                         {item.headingText}
                       </Heading>
                     </div>

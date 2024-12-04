@@ -17,7 +17,7 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
       >
         <div className='flex items-center justify-between'>
           <div>
-            <Heading size="h2" className='max-w-[40rem] text-balance leading-tight'>
+            <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
               {heading}
             </Heading>
             <PortableTextEditor 

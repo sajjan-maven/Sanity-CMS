@@ -13,6 +13,7 @@ export const pageBuilder = defineType({
     { name: 'freeformBlock', type: 'freeformBlock' },
     { name: 'logoBlock', type: 'logoBlock' },
     { name: 'testimonialBlock', type: 'testimonialBlock' },
+    { name: 'blogArchiveBlock', type: 'blogArchiveBlock' },
   ],
   options: {
     insertMenu: {
@@ -36,6 +37,11 @@ export const pageBuilder = defineType({
           name: 'marketing',
           title: 'Marketing',
           of: [ 'callToActionBlock' ]
+        },
+        {
+          name: 'blog',
+          title: 'Blog',
+          of: [ 'blogArchiveBlock' ]
         },
         {
           name: 'socialProof',

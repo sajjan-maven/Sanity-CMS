@@ -13,6 +13,6 @@ export const structure: StructureResolver = (
       SettingsItem(S),
       S.divider(),
       PagesItem(S),
-      BlogItem(S)
+      BlogItem(S, context)
     ])
 )

@@ -55,7 +55,7 @@ function FooterColumns({ columns }: {
     <ul className='flex-1 grid grid-cols-4 gap-8'>
       {columns.map((column) => (
         <li key={column._key} className='w-full space-y-3'>
-          <Heading size="h6" className='font-semibold'>
+          <Heading tag="h2" size="xs" className='font-semibold'>
             {column.title}
           </Heading>
           <ul className='space-y-2'>
