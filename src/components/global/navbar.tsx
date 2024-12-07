@@ -7,6 +7,7 @@ import useScroll from '@/hooks/use-scroll';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
+import { usePathname } from 'next/navigation';
 
 interface NavbarProps {
   settings: SettingsType;
@@ -14,6 +15,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
+  const pathname = usePathname();
 
   const { siteTitle, logo } = settings
   const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
@@ -47,7 +49,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                     href={`/${pageReference.slug}`}
                     className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
                       'hover:underline underline-offset-[38px]': !isButton,
-                      'py-2 px-4 rounded-full text-white bg-blue-600': isButton
+                      'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
+                      'text-blue-700': pathname === `/${pageReference.slug}`
                     })}
                   >
                     <AnimatedText>

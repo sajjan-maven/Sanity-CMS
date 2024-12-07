@@ -9,7 +9,7 @@ interface PortableTextEditorProps {
 
 export default function PortableTextEditor({ data, classNames }: PortableTextEditorProps) {
   return (
-    <div className={cn('', classNames)}>
+    <div className={cn('prose prose-h2:mt-12 prose-h2:text-4xl', classNames)}>
       <PortableText 
         value={data} 
       />

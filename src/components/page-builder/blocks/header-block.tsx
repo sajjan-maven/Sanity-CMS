@@ -16,7 +16,7 @@ export default function HeaderBlock(props: HeaderBlockType) {
     >
       <Container className='border-x border-dashed'>
         <div className='pt-52 pb-20 md:pb-36'>
-          <Heading size="h1" className='text-balance leading-normal'>
+          <Heading tag="h1" size="xxl" className='text-balance leading-normal'>
             {heading}
           </Heading>
           <PortableTextEditor 

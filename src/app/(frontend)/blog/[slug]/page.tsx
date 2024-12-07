@@ -1,9 +1,18 @@
 import React from 'react';
+import PostContent from '../_components/post-content';
+import { fetchPostBySlug } from '@/sanity/lib/fetches';
 
-export default function PostPage() {
+export const revalidate = 0;
+
+export default async function PostPage({ params }: {
+  params: { slug: string; }
+}) {
+
+  const post = await fetchPostBySlug(params.slug);
+
   return (
     <div>
-      Post Page
+      <PostContent post={post} />
     </div>
   )
 }
