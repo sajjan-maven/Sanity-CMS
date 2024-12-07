@@ -5,8 +5,10 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
   _id,
   _type,
   title,
+  publishedAt,
   'slug': slug.current,
   excerpt,
+  "tableOfContents": content[style in ["h2", "h3", "h4", "h5", "h6"]],
   content[],
   category->{
     _id,

@@ -7,6 +7,7 @@ export type PostType = {
   category: PostCategoryType;
   content: PortableTextBlock;
   excerpt: string;
+  tableOfContents: any,
   image: {
     asset: {
       url: string;

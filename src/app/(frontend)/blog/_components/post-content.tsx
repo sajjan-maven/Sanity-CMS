@@ -2,10 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/ui/heading';
+import { ArrowLeft, Text } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
+import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function PostContent({ post }: {
@@ -14,11 +15,11 @@ export default function PostContent({ post }: {
 
   const router = useRouter();
   
-  const { title, category, excerpt, image, content } = post;
+  const { title, category, content, tableOfContents, excerpt, image } = post;
 
   return (
     <div className='grid grid-cols-12 gap-20'>
-      <div className='col-span-2'>
+      <div className='col-span-2 sticky top-28 h-fit'>
         <button 
           onClick={() => router.back()}
           className='flex items-center gap-1.5'
@@ -41,10 +42,14 @@ export default function PostContent({ post }: {
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <div className='col-span-3'>
-        <span className='font-medium'>
-          On This Page
-        </span>
+      <div className='col-span-3 sticky top-28 h-fit'>
+        <div className="mb-4 flex items-center gap-2">
+          <Text size={16} />
+          <span className='font-medium'>
+            Table Of Contents
+          </span>
+        </div>
+        <TableOfContents content={tableOfContents} />
       </div>
     </div>
   )
