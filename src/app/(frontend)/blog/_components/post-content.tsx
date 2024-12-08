@@ -2,10 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { formatDate } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/ui/heading';
+import { ChevronLeft, Text } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
-import { ArrowLeft, ChevronLeft, Text } from 'lucide-react';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
@@ -14,7 +15,7 @@ export default function PostContent({ post }: {
   post: PostType;
 }) {
 
-  const { title, category, content, tableOfContents, excerpt, image } = post;
+  const { title, _createdAt, category, content, tableOfContents, excerpt, image } = post;
 
   return (
     <div className='grid grid-cols-12 gap-20'>
@@ -23,7 +24,7 @@ export default function PostContent({ post }: {
       </div>
       <div className='col-span-7'>
         <div className='flex items-center gap-3'>
-          <Category category={category} /> <Date />
+          <Category category={category} /> <Date date={_createdAt} />
         </div>
         <Heading tag="h1" size="xl" className='mt-8 font-semibold leading-tight tracking-tight text-balance'>
           {title}
@@ -101,10 +102,10 @@ function Category({ category }: {
   )
 }
 
-function Date() {
+function Date({ date }: { date: string; }) {
   return(
     <span className='text-sm font-medium text-gray-500'>
-      7th December 2024
+      {`${formatDate(date)}`}
     </span>
   )
 }

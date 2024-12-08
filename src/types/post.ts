@@ -2,6 +2,7 @@ import type { PortableTextBlock } from '@portabletext/types';
 
 export type PostType = {
   _id: string;
+  _createdAt: string;
   title: string;
   slug: string;
   category: PostCategoryType;

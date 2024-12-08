@@ -4,8 +4,8 @@ import { seo } from "../fragments/seo";
 export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][0] {
   _id,
   _type,
+  _createdAt,
   title,
-  publishedAt,
   'slug': slug.current,
   excerpt,
   "tableOfContents": content[style in ["h2", "h3", "h4", "h5", "h6"]],
