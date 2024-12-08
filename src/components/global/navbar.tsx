@@ -15,12 +15,12 @@ interface NavbarProps {
 }
 
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
+
   const pathname = usePathname();
+  const hasScrolled = useScroll()
 
   const { siteTitle, logo } = settings
   const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
-
-  const hasScrolled = useScroll()
 
   return (
     <header 

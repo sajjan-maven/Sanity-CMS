@@ -20,6 +20,7 @@ import callToActionBlock from "./page-builder/blocks/call-to-action-block";
 import post from "./documents/post";
 import postCategory from "./documents/post-category";
 import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
+import blogArchivePage from "./singletons/pages/blog-archive-page";
 
 const coreSchema = [
   page,
@@ -27,6 +28,7 @@ const coreSchema = [
   postCategory,
   generalSettings,
   navigationSettings,
+  blogArchivePage
 ]
 
 const pageBuilderSchema = [

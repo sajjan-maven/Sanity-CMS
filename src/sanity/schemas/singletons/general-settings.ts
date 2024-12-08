@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { pageReferenceTypes } from "../misc/page-reference-types";
 
 export default defineType({
   name: 'generalSettings',
@@ -20,7 +21,7 @@ export default defineType({
       title: 'Home Page',
       type: 'reference',
       description: 'Choose which page you would like to display as the homepage.',
-      to: [{ type: 'page' }],
+      to: [ ...pageReferenceTypes ]
     }),
     defineField({
       name: "copyright",

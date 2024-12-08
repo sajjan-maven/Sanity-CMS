@@ -1,6 +1,7 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
 import { fieldsets } from "../misc/fieldsets";
 import { fieldGroups } from "../misc/field-groups";
+import { pageReferenceTypes } from "../misc/page-reference-types";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: 'navigationSettings',
@@ -44,7 +45,7 @@ export default defineType({
               title: 'Page',
               description: 'The page that the menu item will link to.',
               type: 'reference',
-              to: [{ type: 'page' }]
+              to: [ ...pageReferenceTypes ]
             }),
             defineField({
               name: 'isButton',
@@ -91,7 +92,7 @@ export default defineType({
                       title: 'Page',
                       description: 'The page that the menu item will link to.',
                       type: 'reference',
-                      to: [{ type: 'page' }]
+                      to: [ ...pageReferenceTypes ]
                     }),
                   ]
                 }
@@ -122,7 +123,7 @@ export default defineType({
               title: 'Page',
               description: 'The page that the menu item will link to.',
               type: 'reference',
-              to: [{ type: 'page' }]
+              to: [ ...pageReferenceTypes ]
             }),
           ]
         }),
