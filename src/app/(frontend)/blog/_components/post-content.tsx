@@ -4,8 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/ui/heading';
-import { ArrowLeft, Text } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
+import { ArrowLeft, ChevronLeft, Text } from 'lucide-react';
+import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
@@ -13,19 +14,12 @@ export default function PostContent({ post }: {
   post: PostType;
 }) {
 
-  const router = useRouter();
-  
   const { title, category, content, tableOfContents, excerpt, image } = post;
 
   return (
     <div className='grid grid-cols-12 gap-20'>
       <div className='col-span-2 sticky top-28 h-fit'>
-        <button 
-          onClick={() => router.back()}
-          className='flex items-center gap-1.5'
-        >
-         <ArrowLeft size={18} /> <span className='font-medium'>Back</span>
-        </button>
+        <BackButton />
       </div>
       <div className='col-span-7'>
         <div className='flex items-center gap-3'>
@@ -74,11 +68,34 @@ function Thumbnail({ image }: {
   )
 }
 
+function BackButton() {
+
+  const router = useRouter();
+
+  return (
+    <button 
+      type="button"
+      onClick={() => router.back()}
+      aria-label="Go back to previous page"
+      className='flex items-center gap-1'
+    >
+      <ChevronLeft size={18} aria-hidden="true" /> 
+      <span className='relative group font-medium'>
+        Back
+        <AnimatedUnderline />
+      </span>
+    </button>
+  )
+}
+
 function Category({ category }: {
   category: PostCategoryType;
 }) {
   return (
-    <Link href={`/blog/category/${category.slug}`} className='px-1.5 text-sm rounded-full bg-black text-white'>
+    <Link 
+      href={`/blog/category/${category.slug}`} 
+      className='px-1.5 text-sm rounded-full bg-black text-white'
+    >
       {category.title}
     </Link>
   )

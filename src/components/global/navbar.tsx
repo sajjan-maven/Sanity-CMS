@@ -50,7 +50,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                     className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
                       'hover:underline underline-offset-[38px]': !isButton,
                       'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
-                      'text-blue-700': pathname === `/${pageReference.slug}`
+                      'text-blue-700': pathname.includes(`/${pageReference.slug}`)
                     })}
                   >
                     <AnimatedText>
