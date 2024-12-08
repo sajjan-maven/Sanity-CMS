@@ -44,3 +44,14 @@ export function formatDate(date: string | Date) {
     return match + suffix;
   });
 };
+
+export async function copyHeadingUrl(id: string): Promise<boolean> {
+  try {
+    const url = `${window.location.href.split('#')[0]}#${id}`;
+    await navigator.clipboard.writeText(url);
+    return true;
+  } catch (error) {
+    console.error('Failed to copy URL:', error);
+    return false;
+  }
+};

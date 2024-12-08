@@ -1,6 +1,7 @@
 "use client"
 import Navbar from './navbar';
 import Footer from './footer';
+import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
@@ -31,6 +32,7 @@ export default function ClientLayout({
         settings={settings} 
         navigationSettings={navigationSettings['footer']}
       />
+      <Toaster position="bottom-right" />
     </div>
   )
 }

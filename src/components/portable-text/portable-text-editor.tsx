@@ -11,7 +11,7 @@ interface PortableTextEditorProps {
 export default function PortableTextEditor({ data, classNames }: PortableTextEditorProps) {
   return (
     <div className={cn(
-      'prose prose-headings:font-semibold prose-h2:mt-12 prose-h4:mt-12 prose-h5:mt-12 prose-h6:mt-12',
+      'prose prose-headings:font-semibold',
       classNames
     )}>
       <PortableText 
