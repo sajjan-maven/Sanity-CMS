@@ -22,7 +22,7 @@ export default function ClientLayout({
   if (pathname.includes('/studio')) return (children)
   
   return (
-    <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
+    <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]  '>
       <Navbar 
         settings={settings}
         navigationSettings={navigationSettings['navbar']}
@@ -32,7 +32,15 @@ export default function ClientLayout({
         settings={settings} 
         navigationSettings={navigationSettings['footer']}
       />
-      <Toaster position="bottom-right" />
+      <Toaster 
+        position="bottom-right" 
+        toastOptions={{
+          className: 'text-sm font-semibold antialiased',
+          style: {
+            borderRadius: '300px'
+          }
+        }}
+      />
     </div>
   )
 }

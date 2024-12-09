@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PostGrid from '../../_components/post-grid';
 import { fetchPostsByCategory } from '@/sanity/lib/fetches';
 
@@ -9,16 +9,16 @@ export default async function PostsByCategoryPage({ params }: {
 }) {
 
   const posts = await fetchPostsByCategory(params.slug);
+
+  if (posts.length === 0) {
+    return (
+      <p className="py-8 text-center text-gray-600">
+        No posts found in this category.
+      </p>
+    )
+  }
   
   return (
-    <div>
-      {posts.length > 0 ? (
-        <PostGrid posts={posts} />
-      ) : (
-        <p className="py-8 text-center text-gray-600">
-          No posts found in this category.
-        </p>
-      )}
-    </div>
+    <PostGrid posts={posts} />
   )
 }

@@ -1,10 +1,10 @@
 "use client"
 import React from 'react';
+import Heading from '@/components/ui/heading';
 import { usePathname } from 'next/navigation';
 import PostCategories from './post-categories';
 import { PostCategoryType } from '@/types/post';
 import Container from '@/components/global/container';
-import Heading from '@/components/ui/heading';
 
 export default function BlogLayout({
   children,

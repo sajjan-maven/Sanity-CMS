@@ -30,7 +30,12 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {features?.map((feature: FeatureItem, index) => (
-            <li key={feature._key} className='border rounded-2xl'>
+            <li 
+              key={feature._key} 
+              className={cn('border border-dashed rounded-2xl', {
+                'border-solid': index === 1 
+              })}
+            >
               <div className='p-6'>
                 <Image
                   src={feature.image.asset.url}

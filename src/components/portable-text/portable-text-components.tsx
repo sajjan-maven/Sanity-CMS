@@ -13,7 +13,7 @@ export const portableTextComponents: PortableTextComponents = {
           className='mt-12 flex items-center gap-3 text-4xl group cursor-pointer'
           onClick={() => {
             copyHeadingUrl(id);
-            toast.success('Link copied to clipboard!');
+            toast.success('Copied to clipboard.');
           }}
         >
           {value.children[0].text}
@@ -32,7 +32,7 @@ export const portableTextComponents: PortableTextComponents = {
           className='text-3xl flex items-center gap-3 group cursor-pointer'
           onClick={() => {
             copyHeadingUrl(id);
-            toast.success('Link copied to clipboard!');
+            toast.success('Copied to clipboard.');
           }}
         >
           {value.children[0].text}
@@ -51,7 +51,7 @@ export const portableTextComponents: PortableTextComponents = {
           className='mt-12 text-2xl flex items-center gap-3 group cursor-pointer'
           onClick={() => {
             copyHeadingUrl(id);
-            toast.success('Link copied to clipboard!');
+            toast.success('Copied to clipboard.');
           }}
         >
           {value.children[0].text}
@@ -70,7 +70,7 @@ export const portableTextComponents: PortableTextComponents = {
           className='mt-12 text-xl flex items-center gap-3 group cursor-pointer'
           onClick={() => {
             copyHeadingUrl(id);
-            toast.success('Link copied to clipboard!');
+            toast.success('Copied to clipboard.');
           }}
         >
           {value.children[0].text}
@@ -89,7 +89,7 @@ export const portableTextComponents: PortableTextComponents = {
           className='mt-12 text-lg flex items-center gap-3 group cursor-pointer'
           onClick={() => {
             copyHeadingUrl(id);
-            toast.success('Link copied to clipboard!');
+            toast.success('Copied to clipboard.');
           }}
         >
           {value.children[0].text}

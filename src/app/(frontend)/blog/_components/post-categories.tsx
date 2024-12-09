@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { PostCategoryType } from "@/types/post";
+import { Suspense } from "react";
 
 export default function PostCategories({ categories }: {
   categories: PostCategoryType[]
