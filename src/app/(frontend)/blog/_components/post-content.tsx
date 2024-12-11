@@ -6,16 +6,26 @@ import { formatDate } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/ui/heading';
 import { ChevronLeft, Text } from 'lucide-react';
-import { PostCategoryType, PostType } from '@/types/post';
+import { PostAuthorType, PostCategoryType, PostType } from '@/types/post';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 
 export default function PostContent({ post }: {
   post: PostType;
 }) {
 
-  const { title, _createdAt, category, content, tableOfContents, excerpt, image } = post;
+  const { 
+    title, 
+    _createdAt, 
+    category,
+    author, 
+    content, 
+    tableOfContents, 
+    excerpt, 
+    image,
+  } = post;
 
   return (
     <div className='grid grid-cols-12 gap-20'>
@@ -24,7 +34,9 @@ export default function PostContent({ post }: {
       </div>
       <div className='col-span-7'>
         <div className='flex items-center gap-3'>
-          <Category category={category} /> <Date date={_createdAt} />
+          <Author author={author} />
+          <Category category={category} /> 
+          <Date date={_createdAt} />
         </div>
         <Heading tag="h1" size="xl" className='mt-8 font-semibold leading-tight tracking-tight text-balance'>
           {title}
@@ -86,6 +98,35 @@ function BackButton() {
         <AnimatedUnderline />
       </span>
     </button>
+  )
+}
+
+function Author({ author }: {
+  author: PostAuthorType;
+}) {
+  return (
+    <HoverCard>
+      <HoverCardTrigger>
+        <Image
+          src={author.avatar.asset.url}
+          width={26}
+          height={26}
+          alt={author.name}
+          className='rounded-full'
+        />
+      </HoverCardTrigger>
+      <HoverCardContent>
+        <div className='text-sm font-semibold antialiased'>
+          {author.name}
+        </div>
+        <div className='text-sm text-gray-600'>
+          @{author.username}
+        </div>
+        <div className='mt-2 pt-2 border-t border-dashed text-sm text-gray-600'>
+          {author.bio}
+        </div>
+      </HoverCardContent>
+    </HoverCard>
   )
 }
 

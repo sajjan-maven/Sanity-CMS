@@ -21,10 +21,12 @@ import post from "./documents/post";
 import postCategory from "./documents/post-category";
 import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
 import blogArchivePage from "./singletons/pages/blog-archive-page";
+import author from "./documents/author";
 
 const coreSchema = [
   page,
   post,
+  author,
   postCategory,
   generalSettings,
   navigationSettings,

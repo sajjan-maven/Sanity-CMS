@@ -14,7 +14,8 @@ export const BlogItem = (
         .title('Blog')
         .items([
           AllPosts(S),
-          PostCategories(S, context)
+          PostCategories(S, context),
+          Authors(S)
         ])
     )
 )
@@ -43,4 +44,16 @@ export const PostCategories = (
     title: 'Categories', 
     id: 'orderable-post-categories'
   })
+)
+
+export const Authors = (
+  S: StructureBuilder, 
+) => (
+  S.listItem()
+    .title('Authors')
+    .child(
+      S.documentList()
+      .title('Authors')
+      .filter('_type == "author"')
+    ) 
 )

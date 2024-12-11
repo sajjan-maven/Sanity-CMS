@@ -6,6 +6,7 @@ export type PostType = {
   title: string;
   slug: string;
   category: PostCategoryType;
+  author: PostAuthorType;
   content: PortableTextBlock;
   excerpt: string;
   tableOfContents: any,
@@ -27,4 +28,16 @@ export type PostCategoryType = {
   _id: string;
   title: string;
   slug: string;
+}
+
+export type PostAuthorType = {
+  _id: string;
+  name: string;
+  username: string;
+  bio: string;
+  avatar: {
+    asset: {
+      url: string;
+    };
+  };
 }

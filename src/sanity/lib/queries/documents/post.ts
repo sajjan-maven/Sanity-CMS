@@ -15,6 +15,15 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
     title,
     'slug': slug.current,
   },
+  author->{
+    _id,
+    name,
+    username,
+    bio,
+    avatar { 
+      asset->{ url }, 
+    },
+  },
   image { 
     asset->{ url }, 
     cornerRadius,
@@ -33,6 +42,15 @@ export const allPostsQuery = groq`*[_type == 'post'] {
     _id,
     title,
     'slug': slug.current,
+  },
+  author->{
+    _id,
+    name,
+    username,
+    bio,
+    avatar { 
+      asset->{ url }, 
+    },
   },
   image { 
     asset->{ url }, 
