@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PostType } from '@/types/post';
+import Date from '@/components/ui/date';
+import { ChevronRight } from 'lucide-react';
+import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 
@@ -9,7 +12,7 @@ export default function PostCard({ post }: {
   post: PostType;
 }) {
 
-  const { title, category, slug, excerpt, image } = post;
+  const { _createdAt, title, category, author, slug, excerpt, image } = post;
 
   return (
     <article aria-label={title} className='relative group pb-10 border-b border-dashed'>
@@ -24,6 +27,16 @@ export default function PostCard({ post }: {
         <Excerpt>
           {excerpt}
         </Excerpt>
+        <div className='mt-10 flex items-center justify-between'>
+          <div className='flex items-center gap-3.5'>
+            <Author author={author} classNames='-translate-y-0'/>
+            <Date date={_createdAt} />
+          </div>
+          <ChevronRight 
+            size={18} 
+            className='-translate-x-6 opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all duration-300 text-gray-600'
+          />
+        </div>
       </Link>
       <AnimatedUnderline className='-translate-y-0.5' />
     </article>

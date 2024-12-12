@@ -66,6 +66,11 @@ export default defineType({
           type: 'string'
         }),
         defineField({
+          name: 'caption',
+          title: 'Caption',
+          type: 'string'
+        }),
+        defineField({
           title: "Corner Radius",
           name: "cornerRadius",
           type: "string",

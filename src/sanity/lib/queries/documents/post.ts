@@ -26,8 +26,9 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
   },
   image { 
     asset->{ url }, 
+    altText,
+    caption, 
     cornerRadius,
-    altText 
   },
   ${seo}
 }`
@@ -35,6 +36,7 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
 export const allPostsQuery = groq`*[_type == 'post'] {
   _id,
   _type,
+  _createdAt,
   title,
   'slug': slug.current,
   excerpt,

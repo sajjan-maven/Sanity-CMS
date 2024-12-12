@@ -1,4 +1,5 @@
 import type { PortableTextBlock } from '@portabletext/types';
+import { AuthorType } from './author';
 
 export type PostType = {
   _id: string;
@@ -6,7 +7,7 @@ export type PostType = {
   title: string;
   slug: string;
   category: PostCategoryType;
-  author: PostAuthorType;
+  author: AuthorType;
   content: PortableTextBlock;
   excerpt: string;
   tableOfContents: any,
@@ -14,8 +15,9 @@ export type PostType = {
     asset: {
       url: string;
     };
-    cornerRadius: 'rounded' | 'straight';
     alt: string;
+    caption: string;
+    cornerRadius: 'rounded' | 'straight';
   };
   seo: {
     metaTitle: string
@@ -30,14 +32,3 @@ export type PostCategoryType = {
   slug: string;
 }
 
-export type PostAuthorType = {
-  _id: string;
-  name: string;
-  username: string;
-  bio: string;
-  avatar: {
-    asset: {
-      url: string;
-    };
-  };
-}

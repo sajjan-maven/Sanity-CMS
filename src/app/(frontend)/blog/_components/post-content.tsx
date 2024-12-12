@@ -2,15 +2,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatDate } from '@/lib/utils';
+import Date from '@/components/ui/date';
 import { useRouter } from 'next/navigation';
+import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
 import { ChevronLeft, Text } from 'lucide-react';
-import { PostAuthorType, PostCategoryType, PostType } from '@/types/post';
+import { PostCategoryType, PostType } from '@/types/post';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 
 export default function PostContent({ post }: {
   post: PostType;
@@ -66,18 +66,24 @@ function Thumbnail({ image }: {
   image: {
     asset: { url: string; },
     alt: string;
+    caption: string;
   }
 }) {
   return (
-    <div className='mt-10 p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
-      <Image
-        src={image?.asset?.url}
-        width={800}
-        height={800}
-        alt={image?.alt}
-        className='aspect-[3/2] rounded-2xl'
-      />
-    </div>
+    <>
+      <div className='mt-10 p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
+        <Image
+          src={image?.asset?.url}
+          width={800}
+          height={800}
+          alt={image?.alt}
+          className='aspect-[3/2] rounded-2xl'
+        />
+      </div>
+      <div className='mt-4 text-center text-gray-600'>
+        {image.caption}
+      </div>
+    </>
   )
 }
 
@@ -101,35 +107,6 @@ function BackButton() {
   )
 }
 
-function Author({ author }: {
-  author: PostAuthorType;
-}) {
-  return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <Image
-          src={author.avatar.asset.url}
-          width={26}
-          height={26}
-          alt={author.name}
-          className='rounded-full'
-        />
-      </HoverCardTrigger>
-      <HoverCardContent>
-        <div className='text-sm font-semibold antialiased'>
-          {author.name}
-        </div>
-        <div className='text-sm text-gray-600'>
-          @{author.username}
-        </div>
-        <div className='mt-2 pt-2 border-t border-dashed text-sm text-gray-600'>
-          {author.bio}
-        </div>
-      </HoverCardContent>
-    </HoverCard>
-  )
-}
-
 function Category({ category }: {
   category: PostCategoryType;
 }) {
@@ -140,13 +117,5 @@ function Category({ category }: {
     >
       {category.title}
     </Link>
-  )
-}
-
-function Date({ date }: { date: string; }) {
-  return(
-    <span className='text-sm font-medium text-gray-500'>
-      {`${formatDate(date)}`}
-    </span>
   )
 }
