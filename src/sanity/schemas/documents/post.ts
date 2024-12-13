@@ -84,6 +84,31 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      title: "Related Posts",
+      name: "relatedPostsType",
+      type: "string",
+      description: "Defaults to posts of the same category.",
+      options: {
+        list: [
+          { title: "Autofill", value: "autofill" },
+          { title: "Custom", value: "custom" },
+        ],
+      },
+      initialValue: 'autofill',
+    }),
+    defineField({
+      title: "Choose Related Posts",
+      name: "customRelatedPosts",
+      type: "array",
+      of: [{ 
+        type: 'reference', 
+        to: [{ type: 'post' }] 
+      }],
+      validation: rule => rule.max(3),
+      hidden: ({ parent }) => parent?.relatedPosts !== 'custom'
+    }),
+    
     ...seoFields
   ]
 })

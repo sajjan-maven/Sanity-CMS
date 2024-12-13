@@ -17,8 +17,8 @@ export const revalidate = 0;
 
 export default async function Page({ params }: PageProps) {
 
-  const page = await fetchPageBySlug(params.slug)
-  if (page === null) notFound()
+  const page = await fetchPageBySlug(params.slug);
+  if (page === null) notFound();
 
   return (
     <main id="home" className="overflow-hidden">

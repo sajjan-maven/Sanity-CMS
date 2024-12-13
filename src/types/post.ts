@@ -19,6 +19,7 @@ export type PostType = {
     caption: string;
     cornerRadius: 'rounded' | 'straight';
   };
+  relatedPosts: PostType[];
   seo: {
     metaTitle: string
     metaDescription: string

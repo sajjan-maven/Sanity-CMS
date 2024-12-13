@@ -30,6 +30,61 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
     caption, 
     cornerRadius,
   },
+  relatedPostsType,
+  "relatedPosts": select(
+    relatedPostsType == "custom" => customRelatedPosts[]->{ 
+      _id,
+      _createdAt,
+      title,
+      'slug': slug.current,
+      excerpt,
+      category->{
+        _id,
+        title,
+        'slug': slug.current,
+      },
+      author->{
+        _id,
+        name,
+        username,
+        bio,
+        avatar { 
+          asset->{ url }, 
+        },
+      },
+      image { 
+        asset->{ url }, 
+        cornerRadius,
+        altText 
+      }
+    },
+    relatedPostsType == "autofill" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{ 
+      _id,
+      _createdAt,
+      title,
+      'slug': slug.current,
+      category->{
+        _id,
+        title,
+        'slug': slug.current,
+      },
+      author->{
+        _id,
+        name,
+        username,
+        bio,
+        avatar { 
+          asset->{ url }, 
+        },
+      },
+      excerpt,
+      image { 
+        asset->{ url }, 
+        cornerRadius,
+        altText 
+      }
+    }
+  ),
   ${seo}
 }`
 

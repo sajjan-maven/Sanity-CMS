@@ -27,7 +27,7 @@ export default function PostCard({ post }: {
         <Excerpt>
           {excerpt}
         </Excerpt>
-        <div className='mt-10 flex items-center justify-between'>
+        <div className='pt-2 flex items-center justify-between'>
           <div className='flex items-center gap-3.5'>
             <Author author={author} classNames='-translate-y-0'/>
             <Date date={_createdAt} />
