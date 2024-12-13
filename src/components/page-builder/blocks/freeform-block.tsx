@@ -1,4 +1,3 @@
-"use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Heading from '@/components/ui/heading';
@@ -21,52 +20,57 @@ export default function FreeformBlock(props: FreeformBlockType) {
           })}
         >
           {columns.map((column) => (
-            <div key={column._key} className='space-y-6 flex flex-col justify-center'>
+            <div key={column._key} className='flex flex-col items-start justify-center'>
               {column.items.map((item) => (
                 <>
-                  {item._type === 'heading' && (
-                    <div className='pt-2'>
-                      <Heading tag="h3" size="md">
-                        {item.headingText}
-                      </Heading>
-                    </div>
+                  {item._type === 'heading' && item?.headingText && (
+                    <Heading tag="h3" size="md">
+                      {item?.headingText}
+                    </Heading>
                   )}
-                  {item._type === 'richText' && (
+                  {item._type === 'spacer' && item?.spacing && (
+                    <div 
+                      className={cn('h-0', {
+                        'h-4': item?.spacing === 'small',
+                        'h-6': item?.spacing === 'medium',
+                        'h-8': item?.spacing === 'large',
+                      })}
+                    />
+                  )}
+                  {item._type === 'richText' && item?.richTextContent && (
                     <PortableTextEditor 
-                      data={item.richTextContent} 
+                      data={item?.richTextContent} 
                       classNames='text-balance'
                     />
                   )}
-                  {item._type === 'singleImage' && (
+                  {item._type === 'singleImage' && item?.image?.asset?.url && (
                     <div 
                       className={cn({
-                        'p-3 border border-dashed rounded-3xl': item.image.enableBorder,
-                        'border-solid': item.image.borderStyle === 'solid',
+                        'p-3 border border-dashed rounded-3xl': item?.image?.enableBorder,
+                        'border-solid': item?.image?.borderStyle === 'solid',
                       })}
                     >
                       <Image
-                        src={item.image.asset.url}
+                        src={item?.image?.asset?.url ?? ''}
                         width={800}
                         height={800}
-                        alt={item.image.alt}
+                        alt={item?.image?.alt ?? ''}
                         className={cn('object-cover aspect-square', {
-                          'rounded-2xl': item.image.cornerRadius === 'rounded',
-                          'aspect-[3/2]': item.image.aspectRatio === 'rectangle',
-                          'aspect-[3/4]': item.image.aspectRatio === 'portrait',
+                          'rounded-2xl': item?.image?.cornerRadius === 'rounded',
+                          'aspect-[3/2]': item?.image?.aspectRatio === 'rectangle',
+                          'aspect-[3/4]': item?.image?.aspectRatio === 'portrait',
                         })}
                       />
                     </div>
                   )}
-                  {item._type === 'button' && (
-                    <div className='pt-1'>
-                      <Button 
-                        variant={item.buttonVariant}
-                        buttonType={item.buttonType}
-                        size="sm"
-                      >
-                        {item.buttonText}
-                      </Button>
-                    </div>
+                  {item._type === 'button' && item?.buttonText && (
+                    <Button 
+                      variant={item?.buttonVariant}
+                      buttonType={item?.buttonType}
+                      size="sm"
+                    >
+                      {item?.buttonText}
+                    </Button>
                   )}
                 </>
               ))}

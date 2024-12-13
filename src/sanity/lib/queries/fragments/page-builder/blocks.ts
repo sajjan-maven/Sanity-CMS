@@ -152,6 +152,7 @@ export const freeformBlockQuery = `
         buttonText,
         buttonVariant,
         buttonType,
+        spacing
       },
     }
   }

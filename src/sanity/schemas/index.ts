@@ -12,6 +12,8 @@ import featureBlock from "./page-builder/blocks/feature-block";
 import freeformBlock from "./page-builder/blocks/freeform-block";
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
+import spacerObject from './objects/spacer';
+
 import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
 import featuresMinimalBlock from "./page-builder/blocks/features-minimal-block";
@@ -51,7 +53,8 @@ const objectSchema = [
   headingObject,
   richTextObject,
   buttonObject,
-  singleImageObject
+  singleImageObject,
+  spacerObject
 ]
 
 export const schemaTypes = [

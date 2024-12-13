@@ -1,4 +1,4 @@
-import type { PortableTextBlock } from '@portabletext/types'
+import type { PortableTextBlock } from '@portabletext/types';
 
 export type FreeformBlockType = {
   _id: string;
@@ -15,7 +15,7 @@ export type FreeformBlockType = {
       headingText?: string;
       headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
       richTextContent?: PortableTextBlock;
-      image: {
+      image?: {
         asset: {
           url: string;
         };
@@ -28,6 +28,7 @@ export type FreeformBlockType = {
       buttonText?: string;
       buttonVariant?: 'primary' | 'underline';
       buttonType?: 'internal' | 'external' | 'fileDownload';
+      spacing?: 'none' | 'small' | 'medium' | 'large';
     }[]
   }[]
 }

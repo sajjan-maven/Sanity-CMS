@@ -32,11 +32,9 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
           {features?.map((feature: FeatureItem, index) => (
             <li 
               key={feature._key} 
-              className={cn('border border-dashed rounded-2xl', {
-                'border-solid': index === 1 
-              })}
+              className='border border-dashed rounded-3xl'
             >
-              <div className='p-6'>
+              <div className='p-3'>
                 <Image
                   src={feature.image.asset.url}
                   width={600}
@@ -45,7 +43,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
                   className='rounded-2xl h-[280px] object-cover overflow-hidden'
                 />
               </div>
-              <div className='mt-2 px-8 pb-2'>
+              <div className='mt-5 px-8 pb-2'>
                 <div className='space-y-6'>
                   <Heading tag="h3" size="sm" className='relative py-2 font-semibold border-y border-y-gray-200/40 pattern-bg'>
                     {feature.title}

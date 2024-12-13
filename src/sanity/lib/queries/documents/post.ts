@@ -71,6 +71,7 @@ export const allPostCategoriesQuery = groq`*[_type == 'postCategory'] | order(or
 export const postsByCategoryQuery = groq`*[_type == 'post' && category->slug.current == $slug] {
   _id,
   _type,
+  _createdAt,
   title,
   'slug': slug.current,
   excerpt,
@@ -79,10 +80,18 @@ export const postsByCategoryQuery = groq`*[_type == 'post' && category->slug.cur
     title,
     'slug': slug.current,
   },
+  author->{
+    _id,
+    name,
+    username,
+    bio,
+    avatar { 
+      asset->{ url }, 
+    },
+  },
   image { 
     asset->{ url }, 
     cornerRadius,
     altText 
   },
 }`
-

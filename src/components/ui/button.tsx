@@ -71,9 +71,9 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
   }
 )
 
-Button.displayName = "Button"
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
 
 function ButtonIcon() {
   return <ArrowRight size={16} className="transition duration-300 group-hover:translate-x-0.5" />

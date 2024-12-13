@@ -47,6 +47,11 @@ export default defineType({
             type: 'array',
             of: [
               defineField({ 
+                name: 'spacer', 
+                type: 'spacerObject', 
+                title: 'Spacer', 
+              }),
+              defineField({ 
                 name: 'heading', 
                 type: 'headingObject', 
                 title: 'Heading', 
