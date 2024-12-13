@@ -136,6 +136,7 @@ export const freeformBlockQuery = `
       _type,
       title,
       spacing,
+      alignment,
       items[] {
         _key,
         _type,

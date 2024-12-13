@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { StringInputProps, set } from 'sanity';
 import { Stack, Flex, Button, Grid, Label, Text } from '@sanity/ui';
 
-export const spacings = [
+export const spacingOptions = [
   { title: 'None', value: 'none', description: '0px'},
   { title: 'Small', value: 'small', description: '8px'},
   { title: 'Medium', value: 'medium', description: '12px'},
   { title: 'Large', value: 'large', description: '16px'},
-]
+] as const;
 
 export function SpacingInput(props: StringInputProps) {
 
@@ -22,8 +22,8 @@ export function SpacingInput(props: StringInputProps) {
   )
 
   return (
-    <Grid columns={spacings.length} gap={3}>
-      {spacings.map((spacing: {
+    <Grid columns={spacingOptions.length} gap={3}>
+      {spacingOptions.map((spacing: {
         title: string;
         value: string;
         description: string;

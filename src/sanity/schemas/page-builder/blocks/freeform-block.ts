@@ -2,7 +2,8 @@ import { Shapes } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-import { SpacingInput, spacings } from "@/sanity/components/spacing-input";
+import { SpacingInput, spacingOptions } from "@/sanity/components/spacing-input";
+import { AlignmentInput, alignmentOptions } from "@/sanity/components/alignment-input";
 
 export default defineType({
   name: 'freeformBlock',
@@ -48,11 +49,22 @@ export default defineType({
             type: "string",
             description: 'Add some default spacing between items (optional).',
             options: {
-              list: spacings.map(({ title, value }) => ({ title, value })),
+              list: spacingOptions.map(({ title, value }) => ({ title, value })),
               layout: 'radio',
             },
             components: { input: SpacingInput },
             initialValue: 'small',
+          }),
+          defineField({
+            title: "Alignment",
+            name: "alignment",
+            type: "string",
+            options: {
+              list: alignmentOptions.map(({ title, value }) => ({ title, value })),
+              layout: 'radio',
+            },
+            components: { input: AlignmentInput },
+            initialValue: 'left',
           }),
           defineField({
             name: 'items',

@@ -26,6 +26,8 @@ export default function FreeformBlock(props: FreeformBlockType) {
                 'gap-2': column?.spacing === 'small',
                 'gap-3': column?.spacing === 'medium',
                 'gap-4': column?.spacing === 'large',
+                'items-center': column?.alignment === 'center',
+                'items-end': column?.alignment === 'right',
               })}
             >
               {column.items.map((item) => (

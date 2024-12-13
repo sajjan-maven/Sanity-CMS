@@ -10,6 +10,7 @@ export type FreeformBlockType = {
     _key: string;
     title: string;
     spacing?: 'none' | 'small' | 'medium' | 'large';
+    alignment?: 'left' | 'center' | 'right';
     items: {
       _key: string;
       _type: string;

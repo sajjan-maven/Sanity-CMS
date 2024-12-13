@@ -3,11 +3,11 @@ import { createElement, useCallback } from 'react';
 import { Stack, Flex, Button, Grid, Label, Text } from '@sanity/ui';
 import { RectangleHorizontal, RectangleVertical, Square } from 'lucide-react';
 
-export const ratios = [
+export const ratioOptions = [
   { title: 'Square', value: 'square', description: '1:1', icon: Square },
   { title: 'Rectangle', value: 'rectangle', description: '3:2', icon:  RectangleHorizontal },
   { title: 'Portrait', value: 'portrait', description: '3:4', icon: RectangleVertical },
-]
+] as const;
 
 export function RatioInput(props: StringInputProps) {
 
@@ -22,8 +22,13 @@ export function RatioInput(props: StringInputProps) {
   )
 
   return (
-    <Grid columns={ratios.length} gap={3}>
-      {ratios.map((ratio: any) => (
+    <Grid columns={ratioOptions.length} gap={3}>
+      {ratioOptions.map((ratio: {
+        title: string;
+        value: string;
+        description: string;
+        icon: React.ComponentType;
+      }) => (
         <Button
           key={ratio.value}
           value={ratio.value}
