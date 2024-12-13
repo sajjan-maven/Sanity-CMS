@@ -1,5 +1,6 @@
-import type { PortableTextBlock } from '@portabletext/types';
 import { AuthorType } from './author';
+import { BlogSettingsType } from './settings';
+import type { PortableTextBlock } from '@portabletext/types';
 
 export type PostType = {
   _id: string;
@@ -20,6 +21,8 @@ export type PostType = {
     cornerRadius: 'rounded' | 'straight';
   };
   relatedPosts: PostType[];
+  settings: BlogSettingsType;
+  categories: PostCategoryType[];
   seo: {
     metaTitle: string
     metaDescription: string

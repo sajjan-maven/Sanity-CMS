@@ -25,6 +25,7 @@ import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
 import blogArchivePage from "./singletons/pages/blog-archive-page";
 import author from "./documents/author";
 import testimonial from "./documents/testimonial";
+import blogSettings from "./singletons/blog-settings";
 
 const coreSchema = [
   page,
@@ -33,6 +34,7 @@ const coreSchema = [
   postCategory,
   generalSettings,
   navigationSettings,
+  blogSettings,
   blogArchivePage,
   testimonial
 ]

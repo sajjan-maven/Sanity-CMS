@@ -27,5 +27,14 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .documentId('navigationSettings')
                 .title('Navigation')
             ),
+          S.listItem()
+            .title('Blog & Posts')
+            .child(
+              S.document()
+                .id('blogSettings')
+                .schemaType('blogSettings')
+                .documentId('blogSettings')
+                .title('Blog & Posts')
+            ),
         ])
     )

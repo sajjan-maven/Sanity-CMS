@@ -6,7 +6,7 @@ import Date from '@/components/ui/date';
 import { useRouter } from 'next/navigation';
 import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
-import { ChevronLeft, Text } from 'lucide-react';
+import { ChevronLeft, Tag, Text } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
@@ -25,8 +25,10 @@ export default function PostContent({ post }: {
     tableOfContents, 
     excerpt, 
     image,
+    categories,
+    settings
   } = post;
-
+  
   return (
     <div className='grid grid-cols-12 gap-20'>
       <div className='col-span-2 sticky top-28 h-fit'>
@@ -49,14 +51,44 @@ export default function PostContent({ post }: {
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <div className='col-span-3 sticky top-28 h-fit'>
-        <div className="mb-4 flex items-center gap-2">
-          <Text size={16} />
-          <span className='font-medium'>
-            Table Of Contents
-          </span>
-        </div>
-        <TableOfContents content={tableOfContents} />
+      <div className='col-span-3 sticky top-28 h-fit space-y-6'>
+        {settings.showTableOfContents && (
+          <div>
+            <div className="mb-4 flex items-center gap-2">
+              <Text size={16} />
+              <span className='font-medium'>
+                Table Of Contents
+              </span>
+            </div>
+            <TableOfContents content={tableOfContents} />
+          </div>
+        )}
+        {settings.showPostsByCategory && (
+          <div className='pt-6 border-t border-dashed space-y-4'>
+            <div className="flex items-center gap-2">
+              <Tag size={16} />
+              <span className='font-medium'>
+                Posts by Category
+              </span>
+            </div>
+            <ul role="list" className="space-y-2 border-l border-dashed">
+              {categories.map((category: PostCategoryType) => (
+                <li key={category.slug}>
+                  <Link 
+                    href={`/blog/category/${category.slug}`}
+                    className="flex items-center gap-2 scroll-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                  >
+                    <span className="block w-2.5 border-t border-dashed text-gray-300" /> 
+                      <span className="relative group w-fit">
+                        {category.title}
+                        <AnimatedUnderline />
+                      </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   )

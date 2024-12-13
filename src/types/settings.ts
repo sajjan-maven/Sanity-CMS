@@ -11,3 +11,9 @@ export type SettingsType = {
     slug: string;
   };
 }
+
+export type BlogSettingsType = {
+  showRelatedPosts: boolean;
+  showTableOfContents: boolean;
+  showPostsByCategory: boolean;
+}

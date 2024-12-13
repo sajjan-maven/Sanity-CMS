@@ -13,7 +13,7 @@ export default async function PostPage({ params }: {
   const post = await fetchPostBySlug(params.slug);
   if (post === null) notFound();
 
-  const showRelatedPosts = post.relatedPosts?.length > 0;
+  const showRelatedPosts = post.relatedPosts?.length > 0 && post.settings.showRelatedPosts;
 
   return (
     <>

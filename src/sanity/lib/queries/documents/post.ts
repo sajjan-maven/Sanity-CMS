@@ -83,8 +83,18 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
         cornerRadius,
         altText 
       }
-    }
+    },
   ),
+  "settings": *[_type == "blogSettings"][0] {
+    showRelatedPosts,
+    showTableOfContents,
+    showPostsByCategory
+  },
+  "categories": *[_type == "postCategory"] {
+    _id,
+    title,
+    'slug': slug.current,
+  },
   ${seo}
 }`
 

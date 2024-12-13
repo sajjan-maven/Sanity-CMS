@@ -8,3 +8,9 @@ export const generalSettingsQuery = groq`*[_type == 'generalSettings'][0] {
     'slug': slug.current,
   }
 }` 
+
+export const blogSettingsQuery = groq`*[_type == 'blogSettings'][0] {
+  showRelatedPosts,
+  showTableOfContents,
+  showPostsByCategory
+}` 
