@@ -6,7 +6,7 @@ import Date from '@/components/ui/date';
 import { useRouter } from 'next/navigation';
 import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
-import { ChevronLeft, Tag, Text } from 'lucide-react';
+import { ChevronLeft, Tag, Text, ImageIcon } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
@@ -53,10 +53,12 @@ export default function PostContent({ post }: {
       </div>
       <div className='col-span-3 sticky top-28 h-fit space-y-6'>
         {settings.showTableOfContents && (
-          <div>
-            <div className="mb-4 flex items-center gap-2">
-              <Text size={16} />
-              <span className='font-medium'>
+          <div className='space-y-4'>
+            <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">
+              <span className='h-5 w-5 flex items-center justify-center rounded bg-gray-200 text-black'>
+                <Text size={12} />
+              </span>
+              <span className='font-medium text-sm'>
                 Table Of Contents
               </span>
             </div>
@@ -64,11 +66,13 @@ export default function PostContent({ post }: {
           </div>
         )}
         {settings.showPostsByCategory && (
-          <div className='pt-6 border-t border-dashed space-y-4'>
-            <div className="flex items-center gap-2">
-              <Tag size={16} />
-              <span className='font-medium'>
-                Posts by Category
+          <div className='space-y-4'>
+            <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">
+              <span className='h-5 w-5 flex items-center justify-center rounded bg-gray-200 text-black'>
+                <Tag size={12} />
+              </span>
+              <span className='font-medium text-sm'>
+                Explore Categories
               </span>
             </div>
             <ul role="list" className="space-y-2 border-l border-dashed">
@@ -112,7 +116,8 @@ function Thumbnail({ image }: {
           className='aspect-[3/2] rounded-2xl'
         />
       </div>
-      <div className='mt-4 text-center text-gray-600'>
+      <div className='flex items-center justify-center gap-1 mt-4 text-center text-gray-600'>
+        <ImageIcon size={15} />
         {image.caption}
       </div>
     </>
