@@ -113,14 +113,19 @@ export const testimonialBlockQuery = `
   _type == "testimonialBlock" => {
     ${baseQuery},
     heading,
-    testimonial,
-    author,
-    position,
-    avatar { 
-      asset->{ url }, 
-    },
-    logo { 
-      asset->{ url }, 
+    eyebrow,
+    testimonial->{
+      _id,
+      name,
+      jobTitle,
+      company,
+      quote,
+      avatar { 
+        asset->{ url }, 
+      },
+      logo { 
+        asset->{ url }, 
+      },
     },
     ${paddingQuery}
   }

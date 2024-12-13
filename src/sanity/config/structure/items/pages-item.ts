@@ -3,7 +3,6 @@ import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 
 export const PagesItem = (
   S: StructureBuilder, 
-  context: StructureResolverContext
 ) => (
   S.listItem()
     .title('Pages')

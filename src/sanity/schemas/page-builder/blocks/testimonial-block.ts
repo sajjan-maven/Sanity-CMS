@@ -1,7 +1,7 @@
+import { Star } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-import { Star } from "lucide-react";
 import { paddingFields } from "../../misc/padding-fields";
 
 export default defineType({
@@ -12,41 +12,27 @@ export default defineType({
   groups: [ ...fieldGroups ],
   fields: [
     defineField({
+      name: 'heading',
+      title: 'Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow',
+      type: 'string',
+    }),
+    defineField({
       name: 'testimonial',
       title: 'Testimonial',
-      type: 'text',
-      rows: 4
-    }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'string',
-    }),
-    defineField({
-      name: 'position',
-      title: 'Position',
-      type: 'string',
-    }),
-    defineField({
-      name: 'avatar',
-      title: 'Avatar',
-      type: 'image',
-    }),
-    defineField({
-      name: 'company',
-      title: 'Company Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'logo',
-      title: 'Company Logo',
-      type: 'image',
+      type: 'reference',
+      to: [{ type: 'testimonial' }],
+      description: 'Select a testimonial to display.'
     }),
     ...paddingFields
   ],
   preview: {
     select: {
-      title: 'author',
+      title: 'heading',
       media: '',
     },
     prepare(selection) {
