@@ -9,6 +9,7 @@ export type FreeformBlockType = {
   columns: {
     _key: string;
     title: string;
+    spacing?: 'none' | 'small' | 'medium' | 'large';
     items: {
       _key: string;
       _type: string;

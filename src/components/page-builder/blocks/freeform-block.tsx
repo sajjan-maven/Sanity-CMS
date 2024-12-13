@@ -20,7 +20,14 @@ export default function FreeformBlock(props: FreeformBlockType) {
           })}
         >
           {columns.map((column) => (
-            <div key={column._key} className='flex flex-col items-start justify-center'>
+            <div 
+              key={column._key} 
+              className={cn('flex flex-col items-start justify-center gap-0', {
+                'gap-2': column?.spacing === 'small',
+                'gap-3': column?.spacing === 'medium',
+                'gap-4': column?.spacing === 'large',
+              })}
+            >
               {column.items.map((item) => (
                 <>
                   {item._type === 'heading' && item?.headingText && (
