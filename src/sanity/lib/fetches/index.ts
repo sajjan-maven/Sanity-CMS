@@ -1,14 +1,14 @@
 import 'server-only'
 
 import { PageType } from '@/types/page';
-import { BlogSettingsType, SettingsType } from '@/types/settings';
 import { sanityFetch } from './utils/sanity-fetch';
+import { PostCategoryType, PostType } from '@/types/post';
 import { NavigationSettingsType } from '@/types/navigation';
 import { pageBySlugQuery } from '../queries/documents/page';
-import { blogSettingsQuery, generalSettingsQuery } from '../queries/singletons/settings';
+import { BlogSettingsType, SettingsType } from '@/types/settings';
 import { navigationSettingsQuery } from '../queries/singletons/navigation';
+import { blogSettingsQuery, generalSettingsQuery } from '../queries/singletons/settings';
 import { allPostCategoriesQuery, allPostsQuery, postBySlugQuery, postsByCategoryQuery } from '../queries/documents/post';
-import { PostCategoryType, PostType } from '@/types/post';
 
 export async function fetchSettings() {
   return sanityFetch<SettingsType>({

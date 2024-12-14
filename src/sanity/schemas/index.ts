@@ -26,6 +26,7 @@ import blogArchivePage from "./singletons/pages/blog-archive-page";
 import author from "./documents/author";
 import testimonial from "./documents/testimonial";
 import blogSettings from "./singletons/blog-settings";
+import callToActionObject from "./objects/call-to-action";
 
 const coreSchema = [
   page,
@@ -58,7 +59,8 @@ const objectSchema = [
   richTextObject,
   buttonObject,
   singleImageObject,
-  spacerObject
+  spacerObject,
+  callToActionObject
 ]
 
 export const schemaTypes = [

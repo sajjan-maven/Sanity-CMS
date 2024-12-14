@@ -6,8 +6,8 @@ import Date from '@/components/ui/date';
 import { useRouter } from 'next/navigation';
 import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
-import { ChevronLeft, Tag, Text, ImageIcon } from 'lucide-react';
 import { PostCategoryType, PostType } from '@/types/post';
+import { ChevronLeft, Tag, Text, ImageIcon } from 'lucide-react';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
@@ -31,10 +31,10 @@ export default function PostContent({ post }: {
   
   return (
     <div className='grid grid-cols-12 gap-20'>
-      <div className='col-span-2 sticky top-28 h-fit'>
+      <aside className='col-span-2 sticky top-28 h-fit'>
         <BackButton />
-      </div>
-      <div className='col-span-7'>
+      </aside>
+      <div className='pl-10 border-l border-dashed col-span-7'>
         <div className='flex items-center gap-3'>
           <Author author={author} />
           <Category category={category} /> 
@@ -51,7 +51,7 @@ export default function PostContent({ post }: {
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <div className='col-span-3 sticky top-28 h-fit space-y-6'>
+      <aside className='col-span-3 sticky top-28 h-fit space-y-6'>
         {settings.showTableOfContents && (
           <div className='space-y-4'>
             <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">
@@ -93,7 +93,7 @@ export default function PostContent({ post }: {
             </ul>
           </div>
         )}
-      </div>
+      </aside>
     </div>
   )
 }
@@ -132,7 +132,7 @@ function BackButton() {
     <button 
       type="button"
       onClick={() => router.back()}
-      aria-label="Go back to previous page"
+      aria-label="Go back to previous page or anchor."
       className='flex items-center gap-1'
     >
       <ChevronLeft size={18} aria-hidden="true" /> 
@@ -150,9 +150,12 @@ function Category({ category }: {
   return (
     <Link 
       href={`/blog/category/${category.slug}`} 
-      className='px-1.5 text-sm rounded-full bg-black text-white'
+      className='flex items-center gap-1 px-1.5 rounded-full bg-black'
     >
-      {category.title}
+      <span className='h-2 w-2 rounded bg-violet-300' />
+      <span className='pr-[1.5px] text-sm text-white'>
+        {category.title}
+      </span>
     </Link>
   )
 }

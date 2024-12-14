@@ -27,6 +27,7 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .documentId('navigationSettings')
                 .title('Navigation')
             ),
+          S.divider(),
           S.listItem()
             .title('Blog & Posts')
             .child(
