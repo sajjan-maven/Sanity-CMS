@@ -42,21 +42,27 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
           })}
         >
           {menuItems.map(({ _key, pageReference, title, isButton }) => (
-            <li key={_key}>
+            <li key={_key} className='relative'>
               <>
                 {!isButton ? (
-                  <Link 
-                    href={`/${pageReference.slug}`}
-                    className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
-                      'hover:underline underline-offset-[38px]': !isButton,
-                      'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
-                      'text-blue-700': pathname.includes(`/${pageReference.slug}`)
-                    })}
-                  >
-                    <AnimatedText>
-                      {title}
-                    </AnimatedText>
-                  </Link>
+                  <>
+                    <Link 
+                      href={`/${pageReference.slug}`}
+                      className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
+                        'hover:underline underline-offset-[38px]': !isButton,
+                        'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
+                      })}
+                    >
+                      <AnimatedText>
+                        {title}
+                      </AnimatedText>
+                    </Link>
+                    {pathname.includes(`/${pageReference.slug}`) && (
+                      <div className='absolute -bottom-1 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
+                        <div className='h-0.5 w-full bg-gray-200 rounded-full'></div>
+                      </div>
+                    )}
+                  </>
                 ): (
                   <Button 
                     variant="primary" 
