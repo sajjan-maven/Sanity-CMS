@@ -1,5 +1,5 @@
 import { Folder } from "lucide-react";
-import { StructureBuilder, StructureResolverContext } from "sanity/structure";
+import { StructureBuilder } from "sanity/structure";
 
 export const PagesItem = (
   S: StructureBuilder, 

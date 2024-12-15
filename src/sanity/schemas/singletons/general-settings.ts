@@ -20,7 +20,7 @@ export default defineType({
       name: 'homePage',
       title: 'Home Page',
       type: 'reference',
-      description: 'Choose which page you would like to display as the homepage.',
+      description: 'Choose which page you would like to set as the homepage.',
       to: [ ...pageReferenceTypes ]
     }),
     defineField({

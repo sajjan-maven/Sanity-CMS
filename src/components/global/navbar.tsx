@@ -4,10 +4,10 @@ import Container from './container';
 import { Button } from '../ui/button';
 import SiteLogo from '../shared/site-logo';
 import useScroll from '@/hooks/use-scroll';
+import { usePathname } from 'next/navigation';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
-import { usePathname } from 'next/navigation';
 
 interface NavbarProps {
   settings: SettingsType;
@@ -58,8 +58,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       </AnimatedText>
                     </Link>
                     {pathname.includes(`/${pageReference.slug}`) && (
-                      <div className='absolute -bottom-1 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
-                        <div className='h-0.5 w-full bg-gray-200 rounded-full'></div>
+                      <div className='absolute -bottom-1.5 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
+                        <div className='border-b-[1.5px] border-dashed w-full'></div>
                       </div>
                     )}
                   </>

@@ -27,6 +27,7 @@ import author from "./documents/author";
 import testimonial from "./documents/testimonial";
 import blogSettings from "./singletons/blog-settings";
 import callToActionObject from "./objects/call-to-action";
+import faq from "./documents/faq";
 
 const coreSchema = [
   page,
@@ -37,7 +38,8 @@ const coreSchema = [
   navigationSettings,
   blogSettings,
   blogArchivePage,
-  testimonial
+  testimonial,
+  faq
 ]
 
 const pageBuilderSchema = [
