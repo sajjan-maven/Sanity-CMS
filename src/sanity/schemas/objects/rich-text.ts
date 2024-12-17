@@ -1,5 +1,5 @@
-import { LetterText, Shapes } from "lucide-react";
-import { defineField, defineType, PortableTextBlock } from "sanity";
+import { LetterText } from "lucide-react";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: 'richTextObject',

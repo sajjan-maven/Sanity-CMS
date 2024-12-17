@@ -5,7 +5,7 @@ import { fetchPageBySlug } from '@/sanity/lib/fetches';
 import { pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 
 interface PageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 
 export const revalidate = 0;
 
-export default async function Page({ params }: PageProps) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
 
   const page = await fetchPageBySlug(params.slug);
   if (page === null) notFound();

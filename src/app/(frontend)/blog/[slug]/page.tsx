@@ -6,9 +6,12 @@ import RelatedPosts from '../_components/related-posts';
 
 export const revalidate = 0;
 
-export default async function PostPage({ params }: {
-  params: { slug: string; }
-}) {
+export default async function PostPage(
+  props: {
+    params: Promise<{ slug: string; }>
+  }
+) {
+  const params = await props.params;
 
   const post = await fetchPostBySlug(params.slug);
   if (post === null) notFound();

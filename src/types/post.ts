@@ -1,4 +1,5 @@
 import { AuthorType } from './author';
+import { TableOfContentsType } from './misc';
 import { BlogSettingsType } from './settings';
 import type { PortableTextBlock } from '@portabletext/types';
 
@@ -11,7 +12,7 @@ export type PostType = {
   author: AuthorType;
   content: PortableTextBlock;
   excerpt: string;
-  tableOfContents: any,
+  tableOfContents: TableOfContentsType,
   image: {
     asset: {
       url: string;

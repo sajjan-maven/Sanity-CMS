@@ -1,9 +1,18 @@
 import toast from "react-hot-toast";
 import { Link } from 'lucide-react';
 import { copyHeadingUrl, slugify } from "@/lib/utils";
+import { PortableTextBlock } from '@portabletext/types';
+
+interface HeadingProps {
+  value: PortableTextBlock & {
+    children: Array<{
+      text: string
+    }>
+  }
+}
 
 export const portableTextHeadings = {
-  h2: ({ value }: any) => {
+  h2: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
       <h2 
@@ -22,7 +31,7 @@ export const portableTextHeadings = {
       </h2>
     );
   },
-  h3: ({ value }: any) => {
+  h3: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
       <h3 
@@ -41,7 +50,7 @@ export const portableTextHeadings = {
       </h3>
     );
   },
-  h4: ({ value }: any) => {
+  h4: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
       <h4 
@@ -60,7 +69,7 @@ export const portableTextHeadings = {
       </h4>
     );
   },
-  h5: ({ value }: any) => {
+  h5: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
       <h5 
@@ -79,7 +88,7 @@ export const portableTextHeadings = {
       </h5>
     );
   },
-  h6: ({ value }: any) => {
+  h6: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
       <h6 

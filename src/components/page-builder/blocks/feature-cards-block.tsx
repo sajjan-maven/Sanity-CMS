@@ -29,7 +29,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
           </Button>
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
-          {features?.map((feature: FeatureItem, index) => (
+          {features?.map((feature: FeatureItem) => (
             <li 
               key={feature._key} 
               className='border border-dashed rounded-3xl'

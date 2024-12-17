@@ -13,7 +13,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
     <section className='xl:px-10'>
       <Container className='py-28 border-x border-dashed space-y-10 md:space-y-14'>
         <div className='flex items-center justify-between'>
-          <Heading size="h2" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
+          <Heading size="xl" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
             <span className='relative z-10'>
               {heading}
             </span>
@@ -25,7 +25,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {features.map((feature: FeatureItem) => (
-            <li>
+            <li key={feature._key}>
               <>
                 {feature.pageReference ? (
                   <Link 
@@ -40,7 +40,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                       className='mb-12'
                     />
                     <div className='space-y-4'>
-                      <Heading size="h3" className='md:text-2xl'>
+                      <Heading size="lg" className='md:text-2xl'>
                         {feature.title}
                       </Heading>
                       <p className='text-pretty'>
@@ -58,7 +58,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                       className='mb-12'
                     />
                     <div className='space-y-4'>
-                      <Heading size="h3" className='md:text-2xl'>
+                      <Heading size="lg" className='md:text-2xl'>
                         {feature.title}
                       </Heading>
                       <p className='text-pretty'>

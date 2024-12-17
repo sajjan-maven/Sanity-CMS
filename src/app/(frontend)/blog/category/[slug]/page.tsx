@@ -3,9 +3,12 @@ import { fetchPostsByCategory } from '@/sanity/lib/fetches';
 
 export const revalidate = 0;
 
-export default async function PostsByCategoryPage({ params }: {
-  params: { slug: string }
-}) {
+export default async function PostsByCategoryPage(
+  props: {
+    params: Promise<{ slug: string }>
+  }
+) {
+  const params = await props.params;
 
   const posts = await fetchPostsByCategory(params.slug);
 
@@ -16,7 +19,7 @@ export default async function PostsByCategoryPage({ params }: {
       </p>
     )
   }
-  
+
   return (
     <PostGrid posts={posts} />
   )

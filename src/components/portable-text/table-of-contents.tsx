@@ -1,14 +1,15 @@
 import React from "react";
+import { TableOfContentsType } from "@/types/misc";
 import { slugify, truncateText } from "@/lib/utils";
 import AnimatedUnderline from "../ui/animated-underline";
 
 export default function TableOfContents({ content }: {
-  content: any;
+  content: TableOfContentsType[];
 }) {
   return (
     <nav aria-label="Table of contents" className="scroll-smooth">
       <ul role="list" className="space-y-2 border-l border-dashed">
-        {content?.map((item: any) => (
+        {content?.map((item: TableOfContentsType) => (
           <li key={item?._key}>
             <a 
               href={`#${slugify(item.children[0].text)}`} 
