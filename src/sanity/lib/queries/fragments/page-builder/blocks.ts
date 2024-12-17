@@ -57,11 +57,12 @@ export const featureCardsBlockQuery = `
     ${baseQuery},
     heading,
     features[] {
+      _key,
       title,
       description,
       items,
       image { 
-        asset->{ url }, 
+        asset->{ url },
       },
       pageReference->{
         _id,

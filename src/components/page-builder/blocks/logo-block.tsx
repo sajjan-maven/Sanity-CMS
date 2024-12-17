@@ -17,13 +17,13 @@ export default function LogoBlock(props: LogoBlockType) {
       </div>
       <div className="relative overflow-clip">
         <ul className="flex items-center pl-[4.8rem] gap-[4.8rem] w-max animate-logo-marquee">
-          {items.map((item) => (
-            <li key={item._key} className=''>
+          {items.map((item, index) => (
+            <li key={item._key + index}>
               <Image
                 width={200}
                 height={100}
                 src={item.image.asset.url}
-                alt={`${item.title} Logo`}
+                alt={`${item.title} Logo` ?? ''}
               />  
             </li>
           ))}

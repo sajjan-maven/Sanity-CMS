@@ -112,7 +112,7 @@ function Thumbnail({ image }: {
           src={image?.asset?.url}
           width={800}
           height={800}
-          alt={image?.alt}
+          alt={image?.alt ?? ''}
           className='aspect-[3/2] rounded-2xl'
         />
       </div>

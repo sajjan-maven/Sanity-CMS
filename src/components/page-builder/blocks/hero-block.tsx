@@ -45,7 +45,7 @@ export default function HeroBlock(props: HeroBlockType) {
             src={image.asset.url}
             width={1400}
             height={800}
-            alt={image.alt}
+            alt={image.alt ?? ''}
             className={cn('rounded-xl md:rounded-3xl', {
               'rounded-none': image.cornerRadius === 'straight'
             })}

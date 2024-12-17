@@ -31,7 +31,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
                 src={testimonial?.avatar?.asset?.url}
                 width={50}
                 height={50}
-                alt={testimonial?.name}
+                alt={testimonial?.name ?? ''}
                 className='rounded-full'
               />
               <div className='-space-y-0.5'>
@@ -48,7 +48,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
                 src={testimonial?.logo?.asset?.url}
                 width={80}
                 height={40}
-                alt={`${testimonial?.company} Logo`}
+                alt={`${testimonial?.company} Logo` ?? ''}
               />
             </div>
           </div>

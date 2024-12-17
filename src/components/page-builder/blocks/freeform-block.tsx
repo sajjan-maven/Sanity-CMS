@@ -33,12 +33,13 @@ export default function FreeformBlock(props: FreeformBlockType) {
               {column.items.map((item) => (
                 <>
                   {item._type === 'heading' && item?.headingText && (
-                    <Heading tag="h3" size="md">
+                    <Heading tag="h3" size="md" key={item._key}>
                       {item?.headingText}
                     </Heading>
                   )}
                   {item._type === 'spacer' && item?.spacing && (
                     <div 
+                      key={item._key}
                       className={cn('h-0', {
                         'h-4': item?.spacing === 'small',
                         'h-6': item?.spacing === 'medium',
@@ -48,12 +49,14 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   )}
                   {item._type === 'richText' && item?.richTextContent && (
                     <PortableTextEditor 
+                      key={item._key}
                       data={item?.richTextContent} 
                       classNames='text-balance'
                     />
                   )}
                   {item._type === 'singleImage' && item?.image?.asset?.url && (
                     <div 
+                      key={item._key}
                       className={cn({
                         'p-3 border border-dashed rounded-3xl': item?.image?.enableBorder,
                         'border-solid': item?.image?.borderStyle === 'solid',
@@ -74,9 +77,10 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   )}
                   {item._type === 'button' && item?.buttonText && (
                     <Button 
+                      key={item._key}
+                      size="sm"
                       variant={item?.buttonVariant}
                       buttonType={item?.buttonType}
-                      size="sm"
                     >
                       {item?.buttonText}
                     </Button>

@@ -10,10 +10,10 @@ export default function Author({ author, classNames }: {
     <HoverCard>
       <HoverCardTrigger>
         <Image
-          src={author.avatar.asset.url}
+          src={author?.avatar?.asset?.url}
           width={26}
           height={26}
-          alt={author.name}
+          alt={author.name ?? ''}
           className='rounded-full'
         />
       </HoverCardTrigger>

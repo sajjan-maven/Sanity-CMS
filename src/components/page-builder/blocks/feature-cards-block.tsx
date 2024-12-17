@@ -39,7 +39,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
                   src={feature.image.asset.url}
                   width={600}
                   height={400}
-                  alt={feature.title}
+                  alt={feature.title ?? ''}
                   className='rounded-2xl h-[280px] object-cover overflow-hidden'
                 />
               </div>

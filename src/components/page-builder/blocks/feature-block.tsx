@@ -36,7 +36,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                       src={feature.icon.asset.url}
                       width={60}
                       height={60}
-                      alt={`${feature.title}`}
+                      alt={feature.title ?? ''}
                       className='mb-12'
                     />
                     <div className='space-y-4'>
@@ -54,7 +54,7 @@ export default function FeatureBlock(props: FeatureBlockType) {
                       src={feature.icon.asset.url}
                       width={60}
                       height={60}
-                      alt={`${feature.title}`}
+                      alt={feature.title ?? ''}
                       className='mb-12'
                     />
                     <div className='space-y-4'>

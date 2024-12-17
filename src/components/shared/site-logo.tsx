@@ -38,7 +38,7 @@ export default function SiteLogo({ siteTitle, logo, navbarType, location }: {
           src={logo.asset.url}
           width={200}
           height={200}
-          alt={`${siteTitle} Logo`}
+          alt={`${siteTitle} Logo` ?? ''}
         />
       )}
     </button>
