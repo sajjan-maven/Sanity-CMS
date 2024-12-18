@@ -9,6 +9,7 @@ import {
   featureCardsBlockQuery,
   callToActionBlockQuery,
   blogArchiveBlockQuery,
+  servicesBlockQuery,
 } from "./blocks";
 
 export const pageBuilder = `
@@ -22,6 +23,7 @@ export const pageBuilder = `
     ${callToActionBlockQuery},
     ${testimonialBlockQuery},
     ${freeformBlockQuery},
-    ${blogArchiveBlockQuery}
+    ${blogArchiveBlockQuery},
+    ${servicesBlockQuery}
   }
 `

@@ -4,7 +4,7 @@ import { PageType } from '@/types/page';
 import { sanityFetch } from './utils/sanity-fetch';
 import { PostCategoryType, PostType } from '@/types/post';
 import { NavigationSettingsType } from '@/types/navigation';
-import { pageBySlugQuery } from '../queries/documents/page';
+import { pageBySlugQuery, servicesPageQuery } from '../queries/documents/page';
 import { BlogSettingsType, SettingsType } from '@/types/settings';
 import { navigationSettingsQuery } from '../queries/singletons/navigation';
 import { blogSettingsQuery, generalSettingsQuery } from '../queries/singletons/settings';
@@ -68,3 +68,11 @@ export async function fetchPostsByCategory(slug: string) {
     tags: ['post']
   })
 }
+
+export async function fetchServicesPage() {
+  return sanityFetch<PageType>({
+    query: servicesPageQuery,
+    tags: ['servicesPage']
+  })
+}
+

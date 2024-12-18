@@ -1,4 +1,5 @@
 export const pageReferenceTypes = [
   { type: 'page' },
-  { type: 'blogArchivePage' },
+  { type: 'blogPage' },
+  { type: 'servicesPage' },
 ] as const;

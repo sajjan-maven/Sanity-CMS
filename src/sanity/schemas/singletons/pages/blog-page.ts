@@ -4,8 +4,8 @@ import { seoFields } from "../../misc/seo-fields";
 import { fieldGroups } from "../../misc/field-groups";
 
 export default defineType({
-  name: 'blogArchivePage',
-  title: 'Blog Archive Page',
+  name: 'blogPage',
+  title: 'Blog Page',
   type: 'document',
   fieldsets: [ ...fieldsets ],
   groups: [ ...fieldGroups ],
@@ -22,11 +22,6 @@ export default defineType({
       options: {
         source: 'title',
       },
-    }),
-    defineField({
-      name: 'heading',
-      title: 'Heading',
-      type: 'string',
     }),
     ...seoFields,
   ]

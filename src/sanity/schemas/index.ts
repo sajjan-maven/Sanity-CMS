@@ -22,12 +22,15 @@ import callToActionBlock from "./page-builder/blocks/call-to-action-block";
 import post from "./documents/post";
 import postCategory from "./documents/post-category";
 import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
-import blogArchivePage from "./singletons/pages/blog-archive-page";
 import author from "./documents/author";
 import testimonial from "./documents/testimonial";
 import blogSettings from "./singletons/blog-settings";
 import callToActionObject from "./objects/call-to-action";
 import faq from "./documents/faq";
+import service from "./documents/service";
+import servicesPage from "./singletons/pages/services-page";
+import blogPage from "./singletons/pages/blog-page";
+import servicesBlock from "./page-builder/blocks/services-block";
 
 const coreSchema = [
   page,
@@ -37,9 +40,11 @@ const coreSchema = [
   generalSettings,
   navigationSettings,
   blogSettings,
-  blogArchivePage,
+  blogPage,
   testimonial,
-  faq
+  faq,
+  service,
+  servicesPage
 ]
 
 const pageBuilderSchema = [
@@ -53,7 +58,8 @@ const pageBuilderSchema = [
   callToActionBlock,
   logoBlock,
   testimonialBlock,
-  blogArchiveBlock
+  blogArchiveBlock,
+  servicesBlock
 ]
 
 const objectSchema = [

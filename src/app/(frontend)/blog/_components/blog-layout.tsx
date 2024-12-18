@@ -31,7 +31,7 @@ export default function BlogLayout({
   )
 
   return (
-    <main className='py-40 pattern-bg'>
+    <main className='pt-40 pb-28 pattern-bg'>
       <Container>
         {children}
       </Container>

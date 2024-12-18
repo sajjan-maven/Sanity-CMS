@@ -17,7 +17,7 @@ interface NavbarProps {
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
 
   const pathname = usePathname();
-  const hasScrolled = useScroll()
+  const hasScrolled = useScroll();
 
   const { siteTitle, logo } = settings
   const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
@@ -25,8 +25,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   return (
     <header 
       className={cn('z-20 fixed top-0 left-0 bg-white/80 backdrop-blur-lg transition-all duration-300 ease-in-out', {
-        'py-1 border w-fit mx-auto right-0 top-4 rounded-full' : navbarType === 'floating',
-        'w-full py-6 rounded-b-xl border-b border-b-gray-100 ': navbarType === 'classic',
+        'py-1 border w-fit mx-auto right-0 top-4 rounded-full': navbarType === 'floating',
+        'w-full py-6 rounded-b-xl border-b border-b-gray-100': navbarType === 'classic',
         'py-4 ': hasScrolled && navbarType === 'classic',
       })}
     >

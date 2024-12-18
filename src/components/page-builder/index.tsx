@@ -13,6 +13,7 @@ const blockMap: Record<BlockType["_type"], ComponentType<any>> = {
   callToActionBlock: dynamic(() => import('./blocks/call-to-action-block')),
   featuresMinimalBlock: dynamic(() => import('./blocks/features-minimal-block')),
   blogArchiveBlock: dynamic(() => import('./blocks/blog-archive-block')),
+  servicesBlock: dynamic(() => import('./blocks/services-block')),
 }
 
 type PageBuilderProps = { blocks: BlockType[] }

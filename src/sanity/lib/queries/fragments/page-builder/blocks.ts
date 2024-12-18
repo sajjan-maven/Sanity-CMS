@@ -178,3 +178,25 @@ export const blogArchiveBlockQuery = `
     ${paddingQuery}
   }
 `
+
+export const servicesBlockQuery = `
+  _type == "servicesBlock" => {
+    ${baseQuery},
+    heading,
+    services[]->{
+      _id,
+      title,
+      shortDescription,
+      image { 
+        asset->{ url }, 
+        aspectRatio,
+        cornerRadius,
+        enableBorder,
+        borderStyle,
+        altText 
+      },
+      "slug": slug.current,
+    },
+    ${paddingQuery}
+  }
+`

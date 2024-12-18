@@ -26,7 +26,8 @@ export const CorePages = (
       S.list()
         .title('Core Pages')
         .items([
-          BlogArchiveItem(S)
+          ServicesItem(S),
+          BlogItem(S)
         ])
     ) 
 )
@@ -43,16 +44,30 @@ export const PageBuilder = (
     ) 
 )
 
-export const BlogArchiveItem = (
+export const BlogItem = (
   S: StructureBuilder, 
 ) => (
   S.listItem()
-    .title('Blog Archive')
+    .title('Blog')
     .child(
       S.document()
-      .id('blogArchivePage')
-      .schemaType('blogArchivePage')
-      .documentId('blogArchivePage')
-      .title('Blog Archive')
+      .id('blogPage')
+      .schemaType('blogPage')
+      .documentId('blogPage')
+      .title('Blog')
+    )
+)
+
+export const ServicesItem = (
+  S: StructureBuilder, 
+) => (
+  S.listItem()
+    .title('Services')
+    .child(
+      S.document()
+      .id('servicesPage')
+      .schemaType('servicesPage')
+      .documentId('servicesPage')
+      .title('Services')
     )
 )
