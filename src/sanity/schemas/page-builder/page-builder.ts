@@ -6,14 +6,12 @@ export const pageBuilder = defineType({
   of: [
     { name: 'heroBlock', type: 'heroBlock' },
     { name: 'headerBlock', type: 'headerBlock' },
-    { name: 'featureBlock', type: 'featureBlock' },
     { name: 'featureCardsBlock', type: 'featureCardsBlock' },
     { name: 'featuresMinimalBlock', type: 'featuresMinimalBlock' },
     { name: 'callToActionBlock', type: 'callToActionBlock' },
     { name: 'freeformBlock', type: 'freeformBlock' },
     { name: 'logoBlock', type: 'logoBlock' },
     { name: 'testimonialBlock', type: 'testimonialBlock' },
-    { name: 'blogArchiveBlock', type: 'blogArchiveBlock' },
     { name: 'servicesBlock', type: 'servicesBlock' },
   ],
   options: {
@@ -27,7 +25,7 @@ export const pageBuilder = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'featureCardsBlock', 'featuresMinimalBlock', 'featureBlock' ]
+          of: [ 'freeformBlock', 'featureCardsBlock', 'featuresMinimalBlock' ]
         },
         {
           name: 'socialProof',
@@ -38,11 +36,6 @@ export const pageBuilder = defineType({
           name: 'marketing',
           title: 'Marketing',
           of: [ 'callToActionBlock', 'servicesBlock' ]
-        },
-        {
-          name: 'blog',
-          title: 'Blog',
-          of: [ 'blogArchiveBlock' ]
         },
         {
           name: 'socialProof',

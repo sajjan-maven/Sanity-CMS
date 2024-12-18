@@ -8,7 +8,6 @@ import headerBlock from "./page-builder/blocks/header-block";
 import heroBlock from "./page-builder/blocks/hero-block";
 import logoBlock from "./page-builder/blocks/logo-block";
 import testimonialBlock from "./page-builder/blocks/testimonial-block";
-import featureBlock from "./page-builder/blocks/feature-block";
 import freeformBlock from "./page-builder/blocks/freeform-block";
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
@@ -21,7 +20,6 @@ import featureCardsBlock from "./page-builder/blocks/feature-cards-block";
 import callToActionBlock from "./page-builder/blocks/call-to-action-block";
 import post from "./documents/post";
 import postCategory from "./documents/post-category";
-import blogArchiveBlock from "./page-builder/blocks/blog-archive-block";
 import author from "./documents/author";
 import testimonial from "./documents/testimonial";
 import blogSettings from "./singletons/blog-settings";
@@ -51,14 +49,12 @@ const pageBuilderSchema = [
   pageBuilder,
   heroBlock,
   headerBlock,
-  featureBlock,
   featureCardsBlock,
   featuresMinimalBlock,
   freeformBlock,
   callToActionBlock,
   logoBlock,
   testimonialBlock,
-  blogArchiveBlock,
   servicesBlock
 ]
 
