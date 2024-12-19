@@ -62,6 +62,11 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'pageBuilder',
+      title: 'Page Builder',
+      type: 'pageBuilder',
+    }),
     orderRankField({ 
       type: 'service' 
     }),

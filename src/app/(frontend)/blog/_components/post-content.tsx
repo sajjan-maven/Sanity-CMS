@@ -11,6 +11,7 @@ import { ChevronLeft, Tag, Text, ImageIcon } from 'lucide-react';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import BackButton from '@/components/ui/back-button';
 
 export default function PostContent({ post }: {
   post: PostType;
@@ -121,26 +122,6 @@ function Thumbnail({ image }: {
         {image.caption}
       </div>
     </>
-  )
-}
-
-function BackButton() {
-
-  const router = useRouter();
-
-  return (
-    <button 
-      type="button"
-      onClick={() => router.back()}
-      aria-label="Go back to previous page or anchor."
-      className='flex items-center gap-1'
-    >
-      <ChevronLeft size={18} aria-hidden="true" /> 
-      <span className='relative group font-medium'>
-        Back
-        <AnimatedUnderline />
-      </span>
-    </button>
   )
 }
 

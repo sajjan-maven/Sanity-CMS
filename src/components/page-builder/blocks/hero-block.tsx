@@ -2,13 +2,14 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
+import BackButton from '@/components/ui/back-button';
 import Container from '@/components/global/container';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function HeroBlock(props: HeroBlockType) {
 
-  const { heading, content, mediaType, bottomCornerRadius, image } = props
+  const { heading, content, mediaType, showBackButton, bottomCornerRadius, image } = props
 
   return (
     <section 
@@ -21,10 +22,17 @@ export default function HeroBlock(props: HeroBlockType) {
           'pb-14': mediaType === 'image'
         })}
       >
-        <div className='pt-52 pb-20 md:pb-36  grid grid-cols-12 gap-6'>
-          <Heading size="xxl" className='text-balance col-span-12 xl:col-span-7 leading-normal'>
-            {heading}
-          </Heading>
+        <div className='pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-6'>
+          <div 
+            className={cn('col-span-12 xl:col-span-7', {
+              '-mt-12 space-y-6': showBackButton
+            })}
+          >
+            {showBackButton && <BackButton />}
+            <Heading size="xxl" className='max-w-[40rem] text-balance leading-normal'>
+              {heading}
+            </Heading>
+          </div>
           <div className='col-span-12 xl:col-span-5'>
             <PortableTextEditor 
               data={content}
@@ -46,7 +54,7 @@ export default function HeroBlock(props: HeroBlockType) {
             width={1400}
             height={800}
             alt={image.alt ?? ''}
-            className={cn('rounded-xl md:rounded-3xl', {
+            className={cn('max-h-[44rem] object-cover rounded-xl md:rounded-3xl', {
               'rounded-none': image.cornerRadius === 'straight'
             })}
           />

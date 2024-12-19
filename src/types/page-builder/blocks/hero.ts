@@ -7,6 +7,7 @@ export type HeroBlockType = {
   heading: string;
   content: PortableTextBlock;
   mediaType: 'image' | 'none';
+  showBackButton: boolean;
   image: {
     asset: {
       url: string;

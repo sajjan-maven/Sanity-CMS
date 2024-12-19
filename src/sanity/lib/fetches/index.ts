@@ -9,6 +9,8 @@ import { BlogSettingsType, SettingsType } from '@/types/settings';
 import { navigationSettingsQuery } from '../queries/singletons/navigation';
 import { blogSettingsQuery, generalSettingsQuery } from '../queries/singletons/settings';
 import { allPostCategoriesQuery, allPostsQuery, postBySlugQuery, postsByCategoryQuery } from '../queries/documents/post';
+import { ServiceType } from '@/types/service';
+import { serviceBySlugQuery } from '../queries/documents/service';
 
 export async function fetchSettings() {
   return sanityFetch<SettingsType>({
@@ -29,6 +31,14 @@ export async function fetchPageBySlug(slug: string) {
     query: pageBySlugQuery,
     params: { slug: slug },
     tags: ['page']
+  })
+}
+
+export async function fetchServiceBySlug(slug: string) {
+  return sanityFetch<ServiceType>({
+    query: serviceBySlugQuery,
+    params: { slug: slug },
+    tags: ['service']
   })
 }
 
