@@ -30,6 +30,9 @@ import servicesPage from "./singletons/pages/services-page";
 import blogPage from "./singletons/pages/blog-page";
 import servicesBlock from "./page-builder/blocks/services-block";
 import portableTextBlock from "./page-builder/blocks/portable-text-block";
+import project from "./documents/project";
+import projectCategory from "./documents/project-category";
+import projectsPage from "./singletons/pages/projects-page";
 
 const coreSchema = [
   page,
@@ -43,7 +46,10 @@ const coreSchema = [
   testimonial,
   faq,
   service,
-  servicesPage
+  servicesPage,
+  projectsPage,
+  project,
+  projectCategory
 ]
 
 const pageBuilderSchema = [

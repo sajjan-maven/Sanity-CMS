@@ -36,4 +36,3 @@ export type PostCategoryType = {
   title: string;
   slug: string;
 }
-
