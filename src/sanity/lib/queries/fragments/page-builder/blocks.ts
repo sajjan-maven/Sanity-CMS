@@ -20,7 +20,8 @@ export const heroBlockQuery = `
     image { 
       asset->{ url }, 
       cornerRadius,
-      altText 
+      altText,
+      height 
     },
   }
 `
@@ -164,6 +165,15 @@ export const freeformBlockQuery = `
         spacing
       },
     }
+  }
+`
+
+export const portableTextBlockQuery = `
+  _type == "portableTextBlock" => {
+    ${baseQuery},
+    title,
+    content[],
+    ${paddingQuery}
   }
 `
 

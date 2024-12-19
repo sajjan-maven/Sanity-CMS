@@ -4,20 +4,19 @@ import { client } from '@/sanity/config/sanity-client';
 import { fetchServiceBySlug } from '@/sanity/lib/fetches';
 import { servicePathsQuery } from '@/sanity/lib/queries/documents/service';
 
-interface PageProps {
-  params: Promise<{ slug: string }>
-}
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const services = await client.fetch(servicePathsQuery);
   return services;
 }
 
-export const revalidate = 0;
-
-export default async function ServicePage(props: PageProps) {
+export default async function ServicePage(props: {
+  params: Promise<{ slug: string }>
+}) {
 
   const params = await props.params;
+  
   const service = await fetchServiceBySlug(params.slug);
   if (service === null) notFound();
 

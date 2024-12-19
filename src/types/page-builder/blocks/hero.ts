@@ -13,6 +13,7 @@ export type HeroBlockType = {
       url: string;
     };
     cornerRadius: 'rounded' | 'straight';
+    height: 'full' | 'short';
     alt: string;
   };
   bottomCornerRadius: 'rounded' | 'straight';

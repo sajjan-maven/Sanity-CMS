@@ -1,7 +1,7 @@
+import { GalleryVertical } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-import { GalleryVertical } from "lucide-react";
 
 export default defineType({
   name: 'heroBlock',
@@ -79,6 +79,18 @@ export default defineType({
             ],
           },
           initialValue: 'rounded',
+        }),
+        defineField({
+          title: "Height",
+          name: "height",
+          type: "string",
+          options: {
+            list: [
+              { title: "Full", value: "full" },
+              { title: "Short", value: "short" },
+            ],
+          },
+          initialValue: 'full',
         }),
       ],
       hidden: ({ parent }) => parent?.mediaType !== 'image',

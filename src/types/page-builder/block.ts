@@ -7,11 +7,13 @@ import { FeaturesMinimalBlockType } from "./blocks/features-minimal";
 import { FeatureCardsBlockType } from "./blocks/feature-cards";
 import { CallToActionBlockType } from "./blocks/call-to-action";
 import { ServicesBlockType } from "./blocks/services";
+import { PortableTextBlockType } from "./blocks/portable-text";
 
 export type BlockType = 
   HeroBlockType |
   HeaderBlockType |
   FreeformBlockType |
+  PortableTextBlockType |
   FeatureCardsBlockType |
   FeaturesMinimalBlockType |
   LogoBlockType |

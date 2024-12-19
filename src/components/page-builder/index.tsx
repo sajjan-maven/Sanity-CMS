@@ -9,6 +9,7 @@ const blockMap: Record<BlockType["_type"], ComponentType<any>> = {
   testimonialBlock: dynamic(() => import('./blocks/testimonial-block')),
   logoBlock: dynamic(() => import('./blocks/logo-block')),
   freeformBlock: dynamic(() => import('./blocks/freeform-block')),
+  portableTextBlock: dynamic(() => import('./blocks/portable-text-block')),
   callToActionBlock: dynamic(() => import('./blocks/call-to-action-block')),
   featuresMinimalBlock: dynamic(() => import('./blocks/features-minimal-block')),
   servicesBlock: dynamic(() => import('./blocks/services-block')),

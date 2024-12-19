@@ -22,10 +22,14 @@ export default function HeroBlock(props: HeroBlockType) {
           'pb-14': mediaType === 'image'
         })}
       >
-        <div className='pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-6'>
+        <div 
+          className={cn('pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-6', {
+            'pt-56': showBackButton
+          })}
+        >
           <div 
             className={cn('col-span-12 xl:col-span-7', {
-              '-mt-12 space-y-6': showBackButton
+              '-mt-12 space-y-8': showBackButton
             })}
           >
             {showBackButton && <BackButton />}
@@ -54,8 +58,9 @@ export default function HeroBlock(props: HeroBlockType) {
             width={1400}
             height={800}
             alt={image.alt ?? ''}
-            className={cn('max-h-[44rem] object-cover rounded-xl md:rounded-3xl', {
-              'rounded-none': image.cornerRadius === 'straight'
+            className={cn('object-cover rounded-xl md:rounded-3xl', {
+              'rounded-none': image.cornerRadius === 'straight',
+              'max-h-[30rem]': image.height === 'short'
             })}
           />
         )}

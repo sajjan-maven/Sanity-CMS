@@ -4,18 +4,16 @@ import { client } from '@/sanity/config/sanity-client';
 import { fetchPageBySlug } from '@/sanity/lib/fetches';
 import { pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 
-interface PageProps {
-  params: Promise<{ slug: string }>
-}
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const pages = await client.fetch(pagePathsQuery)
   return pages
 }
 
-export const revalidate = 0;
-
-export default async function Page(props: PageProps) {
+export default async function Page(props: {
+  params: Promise<{ slug: string }>
+}) {
 
   const params = await props.params;
   const page = await fetchPageBySlug(params.slug);

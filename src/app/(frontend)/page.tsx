@@ -1,5 +1,5 @@
-import Container from "@/components/global/container";
 import PageBuilder from "@/components/page-builder";
+import Container from "@/components/global/container";
 import { fetchPageBySlug, fetchSettings } from "@/sanity/lib/fetches";
 
 export const revalidate = 0;

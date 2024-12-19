@@ -29,6 +29,7 @@ import service from "./documents/service";
 import servicesPage from "./singletons/pages/services-page";
 import blogPage from "./singletons/pages/blog-page";
 import servicesBlock from "./page-builder/blocks/services-block";
+import portableTextBlock from "./page-builder/blocks/portable-text-block";
 
 const coreSchema = [
   page,
@@ -52,6 +53,7 @@ const pageBuilderSchema = [
   featureCardsBlock,
   featuresMinimalBlock,
   freeformBlock,
+  portableTextBlock,
   callToActionBlock,
   logoBlock,
   testimonialBlock,
