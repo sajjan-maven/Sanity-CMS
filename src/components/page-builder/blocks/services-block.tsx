@@ -6,13 +6,19 @@ import Heading from '@/components/ui/heading';
 import Container from '@/components/global/container';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import { ServicesBlockType } from '@/types/page-builder/blocks/services';
+import { cn } from '@/lib/utils';
 
 export default function ServicesBlock(props: ServicesBlockType) {
 
-  const { heading, services, paddingTop, paddingBottom } = props
+  const { heading, services, background, topCornerRadius, paddingTop, paddingBottom } = props
 
   return (
-    <section className='xl:px-10'>
+    <section 
+      className={cn('xl:px-10', {
+        'pattern-bg': background === 'pattern',
+        'rounded-t-4xl border-t border-t-gray-200/60': topCornerRadius === 'rounded'
+      })}
+    >
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}

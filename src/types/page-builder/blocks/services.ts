@@ -6,6 +6,8 @@ export type ServicesBlockType = {
   _type: 'servicesBlock';
   heading?: string;
   services: ServiceType[];
+  background: 'white' | 'pattern';
+  topCornerRadius: 'straight' | 'rounded';
   paddingTop: string;
   paddingBottom: string;
 }

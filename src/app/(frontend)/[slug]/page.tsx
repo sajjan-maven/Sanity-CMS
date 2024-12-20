@@ -7,8 +7,8 @@ import { pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 export const revalidate = 0;
 
 export async function generateStaticParams() {
-  const pages = await client.fetch(pagePathsQuery)
-  return pages
+  const pages = await client.fetch(pagePathsQuery);
+  return pages;
 }
 
 export default async function Page(props: {
@@ -16,6 +16,7 @@ export default async function Page(props: {
 }) {
 
   const params = await props.params;
+  
   const page = await fetchPageBySlug(params.slug);
   if (page === null) notFound();
 

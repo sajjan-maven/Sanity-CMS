@@ -53,16 +53,18 @@ export default function HeroBlock(props: HeroBlockType) {
           </div>
         </div>
         {mediaType === 'image' && image && (
-          <Image
-            src={image.asset.url}
-            width={1400}
-            height={800}
-            alt={image.alt ?? ''}
-            className={cn('object-cover rounded-xl md:rounded-3xl', {
-              'rounded-none': image.cornerRadius === 'straight',
-              'max-h-[30rem]': image.height === 'short'
-            })}
-          />
+          <div className='p-6 rounded-4xl border border-dashed'>
+            <Image
+              src={image.asset.url}
+              width={1400}
+              height={800}
+              alt={image.alt ?? ''}
+              className={cn('object-cover rounded-xl md:rounded-3xl', {
+                'rounded-none': image.cornerRadius === 'straight',
+                'max-h-[30rem]': image.height === 'short'
+              })}
+            />
+          </div>
         )}
       </Container>
     </section>

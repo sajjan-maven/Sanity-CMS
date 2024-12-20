@@ -37,7 +37,10 @@ export default function ClientLayout({
         toastOptions={{
           className: 'text-sm font-semibold antialiased',
           style: {
-            borderRadius: '300px'
+            borderRadius: '300px',
+            padding: '3px 7px 3px 8px',
+            color: '#FFFFFF',
+            backgroundColor: '#000000'
           }
         }}
       />

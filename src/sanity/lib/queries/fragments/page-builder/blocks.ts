@@ -208,6 +208,8 @@ export const servicesBlockQuery = `
       },
       "slug": slug.current,
     },
+    background,
+    topCornerRadius,
     ${paddingQuery}
   }
 `

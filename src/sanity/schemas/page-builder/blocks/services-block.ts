@@ -27,6 +27,30 @@ export default defineType({
         })
       ]
     }),
+    defineField({
+      title: "Background",
+      name: "background",
+      type: "string",
+      options: {
+        list: [
+          { title: "White Background", value: "white" },
+          { title: "Pattern Background", value: "pattern" },
+        ],
+      },
+      initialValue: 'white',
+    }),
+    defineField({
+      title: "Corner Radius - Top L/R",
+      name: "topCornerRadius",
+      type: "string",
+      options: {
+        list: [
+          { title: "Straight", value: "straight" },
+          { title: "Rounded", value: "rounded" },
+        ],
+      },
+      initialValue: 'straight',
+    }),
     ...paddingFields
   ],
   preview: {
