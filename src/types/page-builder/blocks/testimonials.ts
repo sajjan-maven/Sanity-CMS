@@ -4,23 +4,25 @@ export type TestimonialBlockType = {
   _type: 'testimonialBlock';
   heading: string;
   eyebrow: string;
-  testimonial: {
-    _id: string;
-    name: string;
-    jobTitle: string; 
-    company: string;
-    quote: string;
-    avatar: {
-      asset: {
-        url: string;
-      }
-    };
-    logo: {
-      asset: {
-        url: string;
-      }
-    };
-  };
+  testimonials: TestimonialType[];
   paddingTop: string;
   paddingBottom: string;
+}
+
+export type TestimonialType = {
+  _id: string;
+  name: string;
+  jobTitle: string; 
+  company: string;
+  quote: string;
+  avatar: {
+    asset: {
+      url: string;
+    }
+  };
+  logo: {
+    asset: {
+      url: string;
+    }
+  };
 }

@@ -117,7 +117,7 @@ export const testimonialBlockQuery = `
     ${baseQuery},
     heading,
     eyebrow,
-    testimonial->{
+    testimonials[]->{
       _id,
       name,
       jobTitle,

@@ -22,11 +22,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'testimonial',
-      title: 'Testimonial',
-      type: 'reference',
-      to: [{ type: 'testimonial' }],
-      description: 'Select a testimonial to display.'
+      name: 'testimonials',
+      title: 'Testimonials',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'testimonial' }] }],
+      description: 'Select testimonials to display.'
     }),
     ...paddingFields
   ],

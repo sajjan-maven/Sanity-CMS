@@ -16,6 +16,8 @@
     "@sanity/vision": "^3.58.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel": "^8.5.1",
+    "embla-carousel-react": "^8.5.1",
     "lucide-react": "^0.460.0",
     "motion": "^11.11.17",
     "next": "15.1.0",

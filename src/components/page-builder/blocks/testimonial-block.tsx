@@ -1,10 +1,14 @@
+"use client"
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 import Container from '@/components/global/container';
+import { TestimonialType } from '@/types/testimonial';
 import { TestimonialBlockType } from '@/types/page-builder/blocks/testimonials';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export default function TestimonialBlock(props: TestimonialBlockType) {
 
-  const { heading, eyebrow, testimonial, paddingTop, paddingBottom } = props
+  const { heading, eyebrow, testimonials, paddingTop, paddingBottom } = props;
 
   return (
     <section className='xl:px-10 pattern-bg border-y border-dashed rounded-3xl'>
@@ -21,39 +25,65 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
             {heading}
           </h2>
         </div>
-        <div className='mx-auto w-[44rem] p-12 space-y-20 border border-gray-200/70 rounded-xl bg-white'>
-          <h2 className='text-xl text-pretty'>
-            {testimonial?.quote}
-          </h2>
-          <div className='flex items-center justify-between'>
-            <div className='flex items-center gap-4'>
-              <Image
-                src={testimonial?.avatar?.asset?.url}
-                width={50}
-                height={50}
-                alt={testimonial?.name ?? ''}
-                className='rounded-full'
-              />
-              <div className='-space-y-0.5'>
-                <h3 className='font-medium'>
-                  {testimonial?.name}
-                </h3>
-                <p className='text-sm text-gray-400'>
-                  {testimonial?.jobTitle}
-                </p>
-              </div>
-            </div>
-            <div>
-              <Image
-                src={testimonial?.logo?.asset?.url}
-                width={80}
-                height={40}
-                alt={`${testimonial?.company} Logo` ?? ''}
-              />
-            </div>
-          </div>
-        </div>
+        {testimonials.length > 1 ? (
+          <Carousel className="w-full max-w-[44rem] mx-auto">
+            <CarouselContent>
+              {testimonials?.map((testimonial: TestimonialType) => (
+                <CarouselItem key={testimonial._id}>
+                  <TestimonialCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        ): (
+          <TestimonialCard 
+            testimonial={testimonials[0]} 
+            classNames='border border-gray-200/70 rounded-xl'
+          />
+        )}       
       </Container>
     </section>
+  )
+}
+
+function TestimonialCard({ testimonial, classNames }: {
+  testimonial: TestimonialType;
+  classNames?: string;
+}) {
+  return (
+    <div className={cn('h-full mx-auto w-[44rem] p-12 space-y-20 flex flex-col justify-between bg-white', classNames)}>
+      <h2 className='text-xl text-pretty'>
+        {testimonial?.quote}
+      </h2>
+      <div className='flex items-center justify-between'>
+        <div className='flex items-center gap-4'>
+          <Image
+            src={testimonial?.avatar?.asset?.url}
+            width={50}
+            height={50}
+            alt={testimonial?.name ?? ''}
+            className='rounded-full'
+          />
+          <div className='-space-y-0.5'>
+            <h3 className='font-medium'>
+              {testimonial?.name}
+            </h3>
+            <p className='text-sm text-gray-400'>
+              {testimonial?.jobTitle}
+            </p>
+          </div>
+        </div>
+        <div>
+          <Image
+            src={testimonial?.logo?.asset?.url}
+            width={80}
+            height={40}
+            alt={`${testimonial?.company} Logo` ?? ''}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
