@@ -173,6 +173,7 @@ export const portableTextBlockQuery = `
     ${baseQuery},
     title,
     content[],
+    alignment,
     ${paddingQuery}
   }
 `

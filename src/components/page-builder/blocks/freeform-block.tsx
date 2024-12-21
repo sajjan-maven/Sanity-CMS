@@ -14,7 +14,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
     <section className='px-10'>
       <Container className='py-28 border-x border-dashed'>
         <div 
-          className={cn('grid grid-cols-1 md:grid-cols-2 gap-12', {
+          className={cn('grid grid-cols-1 md:grid-cols-2 gap-6', {
             'md:grid-cols-3': columnsPerRow === '3',
             'md:grid-cols-4': columnsPerRow === '4',
           })}

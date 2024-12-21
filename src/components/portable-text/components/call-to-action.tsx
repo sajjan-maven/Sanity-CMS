@@ -18,7 +18,7 @@ export default function CallToAction({ data }: {
         <div className="font-medium text-xl">
           {title}
         </div>
-        <p className="my-0 text-gray-500">
+        <p className="my-0 text-pretty text-gray-500">
           {paragrapgh}
         </p>
       </div>

@@ -6,7 +6,7 @@ export default function PostGrid({ posts }: {
   posts: PostType[];
 }) {
   return (
-    <ul className='grid grid-cols-3 gap-8'>
+    <ul className='grid grid-cols-3 gap-6'>
       {posts.map((post) => (
         <li key={post._id}>
           <PostCard post={post} />

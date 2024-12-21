@@ -6,6 +6,7 @@ export type PortableTextBlockType = {
   _type: 'portableTextBlock';
   title: string;
   content: PortableTextBlock;
+  alignment?: 'left' | 'center' | 'right';
   paddingTop: string;
   paddingBottom: string;
 }

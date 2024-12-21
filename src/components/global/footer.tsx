@@ -32,7 +32,11 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
         <div className='flex items-center justify-between mt-20 py-6 border-t border-dashed text-xs'>
           <div>
             {copyright} - Made by
-            <a href="" className='relative ml-1 font-semibold tracking-tight text-blue-600 group'>
+            <a 
+              href="https://jamesrea.co" 
+              rel="noopener noreferrer" target="_blank"
+              className='relative ml-1 font-semibold tracking-tight text-blue-600 group'
+            >
               <span>James Rea.</span> 
               <AnimatedUnderline className='bg-blue-600'/>
             </a>

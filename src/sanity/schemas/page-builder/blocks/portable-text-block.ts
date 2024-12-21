@@ -3,6 +3,7 @@ import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { paddingFields } from "../../misc/padding-fields";
+import { AlignmentInput, alignmentOptions } from "@/sanity/components/alignment-input";
 
 export default defineType({
   name: 'portableTextBlock',
@@ -24,6 +25,17 @@ export default defineType({
         { type: 'block' },
         { type: 'callToActionObject' }
       ],
+    }),
+    defineField({
+      title: "Alignment",
+      name: "alignment",
+      type: "string",
+      options: {
+        list: alignmentOptions.map(({ title, value }) => ({ title, value })),
+        layout: 'radio',
+      },
+      components: { input: AlignmentInput },
+      initialValue: 'center',
     }),
     ...paddingFields
   ],

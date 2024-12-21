@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 import { ServiceType } from '@/types/service';
 import Heading from '@/components/ui/heading';
 import Container from '@/components/global/container';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import { ServicesBlockType } from '@/types/page-builder/blocks/services';
-import { cn } from '@/lib/utils';
 
 export default function ServicesBlock(props: ServicesBlockType) {
 
@@ -31,7 +31,7 @@ export default function ServicesBlock(props: ServicesBlockType) {
             </Heading>
           )}
         </div>
-        <ul className='grid grid-cols-3 gap-x-4 gap-y-10'>
+        <ul className='grid grid-cols-3 gap-x-6 gap-y-10'>
           {services.map((service) => (
             <li key={service._id}>
               <ServiceCard service={service} />

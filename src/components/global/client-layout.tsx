@@ -38,7 +38,7 @@ export default function ClientLayout({
           className: 'text-sm font-semibold antialiased',
           style: {
             borderRadius: '300px',
-            padding: '3px 7px 3px 8px',
+            padding: '4px 6px 4px 8px',
             color: '#FFFFFF',
             backgroundColor: '#000000'
           }

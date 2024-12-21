@@ -23,8 +23,8 @@ export default function HeroBlock(props: HeroBlockType) {
         })}
       >
         <div 
-          className={cn('pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-6', {
-            'pt-56': showBackButton
+          className={cn('pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-14', {
+            'pt-56': showBackButton,
           })}
         >
           <div 
@@ -40,7 +40,7 @@ export default function HeroBlock(props: HeroBlockType) {
           <div className='col-span-12 xl:col-span-5'>
             <PortableTextEditor 
               data={content}
-              classNames='mt-3 md:text-xl text-balance text-gray-600'
+              classNames='mt-3 md:text-lg text-balance text-gray-600'
             />
             <div className='flex items-center gap-6 mt-10'>
               <Button variant="primary" buttonType="internal">
