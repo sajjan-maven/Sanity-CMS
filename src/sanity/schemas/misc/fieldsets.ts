@@ -4,6 +4,7 @@ export const fieldsets = [
   { name: 'settings', title: 'Page Settings' },
   { name: 'appearance', title: 'Appearance' },
   { name: 'navbar', title: 'Navbar' },
+  { name: 'slideOutMenu', title: 'Slide Out Menu' },
   { name: 'footer', title: 'Footer' },
   { 
     name: 'padding', 

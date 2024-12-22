@@ -14,6 +14,18 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
       isButton,
     },
   },
+  "slideOutMenu": {
+    showSlideOutMenu,
+    slideOutMenuItems[] {
+      _key,
+      title,
+      pageReference->{
+        _id,
+        title,
+        "slug": slug.current
+      },
+    },
+  },
   "footer": {
     footerColumns[] {
       _key,

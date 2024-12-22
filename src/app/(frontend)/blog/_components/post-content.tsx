@@ -3,15 +3,14 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Date from '@/components/ui/date';
-import { useRouter } from 'next/navigation';
 import Author from '@/components/ui/author';
 import Heading from '@/components/ui/heading';
+import { Tag, Text, ImageIcon } from 'lucide-react';
+import BackButton from '@/components/ui/back-button';
 import { PostCategoryType, PostType } from '@/types/post';
-import { ChevronLeft, Tag, Text, ImageIcon } from 'lucide-react';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import BackButton from '@/components/ui/back-button';
 
 export default function PostContent({ post }: {
   post: PostType;

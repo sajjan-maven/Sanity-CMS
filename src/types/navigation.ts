@@ -5,6 +5,10 @@ export type NavigationSettingsType = {
     navbarType: 'classic' | 'floating';
     navbarMenuItems: MenuItemType[];
   }
+  slideOutMenu: {
+    showSlideOutMenu: boolean;
+    slideOutMenuItems: MenuItemType[];
+  }
   footer: {
     footerColumns: {
       _key: string;

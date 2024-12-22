@@ -59,6 +59,49 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'showSlideOutMenu',
+      title: 'Show Slide-Out Menu',
+      type: 'boolean',
+      group: 'slideOutMenu',
+      fieldset: 'slideOutMenu',
+      initialValue: false
+    }),
+    defineField({
+      name: 'slideOutMenuItems',
+      title: 'Menu Items',
+      type: 'array',
+      group: 'slideOutMenu',
+      fieldset: 'slideOutMenu',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              description: 'The title of the menu item.'
+            }),
+            defineField({
+              name: 'pageReference',
+              title: 'Page',
+              description: 'The page that the menu item will link to.',
+              type: 'reference',
+              to: [ ...pageReferenceTypes ]
+            }),
+            defineField({
+              name: 'isButton',
+              title: 'Show as Button',
+              type: 'boolean',
+              description: 'If checked, the menu item will be shown as a button instead of a link.',
+              initialValue: false
+            })
+          ]
+        }),
+      ],
+      hidden: ({ parent }) => !parent.showSlideOutMenu
+    }),
+    defineField({
       name: 'footerColumns',
       title: 'Footer Columns',
       type: 'array',

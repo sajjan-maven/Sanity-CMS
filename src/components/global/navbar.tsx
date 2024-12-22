@@ -8,21 +8,25 @@ import useScroll from '@/hooks/use-scroll';
 import { usePathname } from 'next/navigation';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
-import { NavigationSettingsType } from '@/types/navigation';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import AnimatedUnderline from '../ui/animated-underline';
+import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 
 interface NavbarProps {
   settings: SettingsType;
   navigationSettings: NavigationSettingsType['navbar'];
+  slideOutMenuSettings: NavigationSettingsType['slideOutMenu'];
 }
 
-export default function Navbar({ settings, navigationSettings }: NavbarProps) {
+export default function Navbar({ settings, navigationSettings, slideOutMenuSettings }: NavbarProps) {
 
   const pathname = usePathname();
   const hasScrolled = useScroll();
 
   const { siteTitle, logo } = settings;
+  
   const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
+  const { showSlideOutMenu, slideOutMenuItems } = slideOutMenuSettings;
 
   return (
     <header 
@@ -79,19 +83,22 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
               </li>
             ))}
           </ul>
-          <SlideOutNavigation>
-            <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer'>
-              <Menu size={18} />
-            </button>
-          </SlideOutNavigation>
+          {showSlideOutMenu && (
+            <SlideOutNavigation menuItems={slideOutMenuItems}>
+              <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
+                <Menu size={18} />
+              </button>
+            </SlideOutNavigation>
+          )}
         </div>
       </Container>
     </header>
   )
 }
 
-function SlideOutNavigation({ children }: {
+function SlideOutNavigation({ children, menuItems }: {
   children: React.ReactNode;
+  menuItems: MenuItemType[];
 }) {
   return(
     <Sheet>
@@ -99,9 +106,22 @@ function SlideOutNavigation({ children }: {
         {children}
       </SheetTrigger>
       <SheetContent>
-        <div className='text-white'>
-        
-        </div>
+        <SheetTitle className='p-8 pb-6 antialiased font-normal text-gray-400'>
+          Explore
+        </SheetTitle>
+        <ul className='px-8 space-y-4 text-white'>
+          {menuItems?.map((item) => (
+            <li key={item?._key}>
+              <Link 
+                href={item?.pageReference?.slug} 
+                className='relative text-3xl tracking-tight group'
+              >
+                {item.title}
+                <AnimatedUnderline className='bg-white' />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </SheetContent>
     </Sheet>
   )

@@ -26,6 +26,7 @@ export default function ClientLayout({
       <Navbar 
         settings={settings}
         navigationSettings={navigationSettings['navbar']}
+        slideOutMenuSettings={navigationSettings['slideOutMenu']}
       />
       {children}
       <Footer 
