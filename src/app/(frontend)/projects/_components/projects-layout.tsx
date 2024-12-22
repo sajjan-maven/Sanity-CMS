@@ -19,7 +19,7 @@ export default function ProjectsLayout({
   if (pathname === '/projects' || pathname.includes('/projects/category/')) return (
     <main className='pt-40 pb-28 pattern-bg'>
       <Container>
-        <Heading tag="h1" size="xxl">
+        <Heading tag="h1" size="xxxl">
           Projects
         </Heading>
         {(pathname === '/projects' || pathname.includes('/projects/category/')) && (

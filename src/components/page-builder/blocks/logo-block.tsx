@@ -3,9 +3,9 @@ import { LogoBlockType } from '@/types/page-builder/blocks/logos';
 
 export default function LogoBlock(props: LogoBlockType) {
 
-  const { heading, logos } = props
+  const { heading, logos } = props;
   
-  const items = [...logos, ...logos]
+  const items = [...logos, ...logos];
   
   return (
     <div className='py-20 rounded-b-3xl border-b border-y-slate-200/60 bg-slate-50'>

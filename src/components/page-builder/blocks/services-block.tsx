@@ -10,7 +10,7 @@ import { ServicesBlockType } from '@/types/page-builder/blocks/services';
 
 export default function ServicesBlock(props: ServicesBlockType) {
 
-  const { heading, services, background, topCornerRadius, paddingTop, paddingBottom } = props
+  const { heading, services, background, topCornerRadius, paddingTop, paddingBottom } = props;
 
   return (
     <section 

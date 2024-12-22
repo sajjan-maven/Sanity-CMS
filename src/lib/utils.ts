@@ -1,5 +1,6 @@
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import toast from "react-hot-toast";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -54,4 +55,9 @@ export async function copyHeadingUrl(id: string): Promise<boolean> {
     console.error('Failed to copy URL:', error);
     return false;
   }
+};
+
+export function copyToClipboard(id: string) {
+  copyHeadingUrl(id);
+  toast.success('Copied to clipboard');
 };

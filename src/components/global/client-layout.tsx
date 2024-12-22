@@ -38,8 +38,9 @@ export default function ClientLayout({
           className: 'text-sm font-semibold antialiased',
           style: {
             borderRadius: '300px',
-            padding: '4px 6px 4px 8px',
+            padding: '4px 8px',
             color: '#FFFFFF',
+            fontWeight: '500',
             backgroundColor: '#000000'
           }
         }}

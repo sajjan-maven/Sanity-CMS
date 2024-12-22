@@ -3,15 +3,16 @@ import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const headingVariants = cva(
-  'font-medium text-gray-900 tracking-tight leading-normal',
+  'font-semibold antialiased text-gray-900 tracking-tighter leading-normal',
   {
     variants: {
       tag: {
         h1: '', h2: '', h3: '', h4: '', h5: '', h6: '',
       },
       size: {
-        xxl: 'text-4xl md:text-7xl',
-        xl: 'text-3xl md:text-[2.6rem]',
+        xxxl: 'text-4xl md:text-6xl',
+        xxl: 'text-4xl md:text-5xl',
+        xl: 'text-3xl md:text-4xl',
         lg: 'text-2xl md:text-3xl',
         md: 'text-2xl md:text-2xl',
         sm: 'text-xl',
@@ -21,7 +22,7 @@ const headingVariants = cva(
     },
     defaultVariants: {
       tag: 'h1',
-      size: 'xxl',
+      size: 'xl',
     },
   }
 )

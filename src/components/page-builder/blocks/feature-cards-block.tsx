@@ -30,58 +30,65 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {features?.map((feature: FeatureItem) => (
-            <li 
-              key={feature._key} 
-              className='border border-dashed rounded-3xl'
-            >
-              <div className='p-3'>
-                <Image
-                  src={feature.image.asset.url}
-                  width={600}
-                  height={400}
-                  alt={feature.title ?? ''}
-                  className='rounded-2xl h-[280px] object-cover overflow-hidden'
-                />
-              </div>
-              <div className='mt-5 px-8 pb-2'>
-                <div className='space-y-6'>
-                  <Heading tag="h3" size="sm" className='relative py-2 font-semibold border-y border-y-gray-200/40 pattern-bg'>
-                    {feature.title}
-                  </Heading>
-                  <p className='text-pretty text-sm text-gray-500'>
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-              <ul className='mt-4 space-y-3 border-t border-dashed'>
-                {feature.items.map((item, index) => (
-                  <li 
-                    key={item} 
-                    className={cn('grid grid-cols-12 px-8 py-4 border-b border-dashed', {
-                      'border-none pb-6': index === feature.items.length  - 1
-                    })}
-                  >
-                    <CircleCheck className='col-span-1 h-4 w-4' />
-                    <span className='-mt-[3px] col-span-11 text-balance text-sm'>
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className='px-4 py-4 border-t border-dashed'>
-                <Button 
-                  variant="tertiary" 
-                  buttonType="internal" 
-                  className='h-12 w-full'
-                >
-                  Get Started
-                </Button>
-              </div>
+            <li key={feature._key}>
+              <FeatureCard feature={feature} />
             </li>
           ))}
         </ul>
       </Container>
     </section>
+  )
+}
+
+function FeatureCard({ feature }: {
+  feature: FeatureItem;
+}) {
+  return (
+    <div className='border border-dashed rounded-3xl'>
+      <div className='p-3'>
+        <Image
+          src={feature.image.asset.url}
+          width={600}
+          height={400}
+          alt={feature.title ?? ''}
+          className='rounded-2xl h-[280px] object-cover overflow-hidden'
+        />
+      </div>
+      <div className='mt-5 px-8 pb-2'>
+        <div className='space-y-6'>
+          <Heading tag="h3" size="sm" className='relative py-2 font-semibold border-y border-y-gray-200/40 pattern-bg'>
+            {feature.title}
+          </Heading>
+          <p className='text-pretty text-sm text-gray-500'>
+            {feature.description}
+          </p>
+        </div>
+      </div>
+      <ul className='mt-4 space-y-3 border-t border-dashed'>
+        {feature.items.map((item, index) => (
+          <li 
+            key={item} 
+            className={cn('grid grid-cols-12 px-8 py-4 border-b border-dashed', {
+              'border-none pb-6': index === feature.items.length  - 1
+            })}
+          >
+            <CircleCheck className='col-span-1 h-4 w-4' />
+            <span className='-mt-[3px] col-span-11 text-balance text-sm'>
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className='px-4 py-4 border-t border-dashed'>
+        <Button 
+          variant="tertiary" 
+          buttonType="internal" 
+          className='h-12 w-full'
+        >
+          Get Started
+        </Button>
+      </div>
+    </div>
   )
 }
 

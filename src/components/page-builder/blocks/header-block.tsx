@@ -6,7 +6,7 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function HeaderBlock(props: HeaderBlockType) {
 
-  const { heading, content, bottomCornerRadius } = props
+  const { heading, content, bottomCornerRadius } = props;
 
   return (
     <section 

@@ -41,7 +41,7 @@ export default function PostContent({ post }: {
           <Category category={category} /> 
           <Date date={_createdAt} />
         </div>
-        <Heading tag="h1" size="xl" className='mt-8 font-semibold leading-tight tracking-tight text-balance'>
+        <Heading tag="h1" size="xxl" className='mt-8'>
           {title}
         </Heading>
         <Thumbnail image={image} />

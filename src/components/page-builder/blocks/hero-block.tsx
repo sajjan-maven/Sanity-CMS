@@ -9,7 +9,7 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function HeroBlock(props: HeroBlockType) {
 
-  const { heading, content, mediaType, showBackButton, bottomCornerRadius, image } = props
+  const { heading, content, mediaType, showBackButton, bottomCornerRadius, image } = props;
 
   return (
     <section 
@@ -33,7 +33,7 @@ export default function HeroBlock(props: HeroBlockType) {
             })}
           >
             {showBackButton && <BackButton />}
-            <Heading size="xxl" className='max-w-[40rem] text-balance leading-normal'>
+            <Heading size="xxxl" tag="h1" className='max-w-[40rem] text-balance leading-normal'>
               {heading}
             </Heading>
           </div>

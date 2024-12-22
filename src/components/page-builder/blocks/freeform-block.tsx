@@ -8,7 +8,7 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
-  const { columnsPerRow, columns } = props
+  const { columnsPerRow, columns } = props;
 
   return (
     <section className='px-10'>

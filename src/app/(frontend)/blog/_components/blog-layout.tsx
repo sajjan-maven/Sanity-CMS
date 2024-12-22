@@ -19,7 +19,7 @@ export default function BlogLayout({
   if (pathname === '/blog' || pathname.includes('/blog/category/')) return (
     <main className='pt-40 pb-28 pattern-bg'>
       <Container>
-        <Heading tag="h1" size="xxl">
+        <Heading tag="h1" size="xxxl">
           Blog
         </Heading>
         {(pathname === '/blog' || pathname.includes('/blog/category/')) && (

@@ -1,6 +1,6 @@
-import toast from "react-hot-toast";
 import { Link } from 'lucide-react';
-import { copyHeadingUrl, slugify } from "@/lib/utils";
+import Heading from "@/components/ui/heading";
+import { copyToClipboard, slugify } from "@/lib/utils";
 import { PortableTextBlock } from '@portabletext/types';
 
 interface HeadingProps {
@@ -15,96 +15,75 @@ export const portableTextHeadings = {
   h2: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
-      <h2 
-        id={id}
-        className='mt-12 flex items-center gap-3 text-4xl group cursor-pointer'
-        onClick={() => {
-          copyHeadingUrl(id);
-          toast.success('Copied to clipboard');
-        }}
+      <Heading 
+        id={id} size="xl" tag="h2" 
+        onClick={() => copyToClipboard(id)}
+        className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
-        <Link 
-          size={18} 
-          className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
-        />
-      </h2>
+        <LinkIcon />
+      </Heading>
     );
   },
   h3: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
-      <h3 
-        id={id}
-        className='text-3xl flex items-center gap-3 group cursor-pointer'
-        onClick={() => {
-          copyHeadingUrl(id);
-          toast.success('Copied to clipboard');
-        }}
+      <Heading 
+        id={id} size="lg" tag="h3" 
+        onClick={() => copyToClipboard(id)}
+        className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
-        <Link 
-          size={18} 
-          className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
-        />
-      </h3>
+        <LinkIcon />
+      </Heading>
     );
   },
   h4: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
-      <h4 
-        id={id}
-        className='mt-12 text-2xl flex items-center gap-3 group cursor-pointer'
-        onClick={() => {
-          copyHeadingUrl(id);
-          toast.success('Copied to clipboard');
-        }}
+      <Heading 
+        id={id} size="md" tag="h4" 
+        onClick={() => copyToClipboard(id)}
+        className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
-        <Link 
-          size={18} 
-          className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
-        />
-      </h4>
+        <LinkIcon />
+      </Heading>
     );
   },
   h5: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
-      <h5 
-        id={id}
-        className='mt-12 text-xl flex items-center gap-3 group cursor-pointer'
-        onClick={() => {
-          copyHeadingUrl(id);
-          toast.success('Copied to clipboard');
-        }}
+      <Heading 
+        id={id} size="sm" tag="h5" 
+        onClick={() => copyToClipboard(id)}
+        className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
-        <Link 
-          size={18} 
-          className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
-        />
-      </h5>
+        <LinkIcon />
+      </Heading>
     );
   },
   h6: ({ value }: HeadingProps) => {
     const id = slugify(value.children[0].text);
     return (
-      <h6 
-        id={id}
-        className='mt-12 text-lg flex items-center gap-3 group cursor-pointer'
-        onClick={() => {
-          copyHeadingUrl(id);
-          toast.success('Copied to clipboard');
-        }}
+      <Heading 
+        id={id} size="xs" tag="h6" 
+        onClick={() => copyToClipboard(id)}
+        className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
-        <Link 
-          size={18} 
-          className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
-        />
-      </h6>
+        <LinkIcon />
+      </Heading>
     );
   },
+}
+
+function LinkIcon() {
+  return (
+    <Link 
+      size={18} 
+      className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-500'
+    />
+  )
 }
