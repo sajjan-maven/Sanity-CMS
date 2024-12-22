@@ -11,6 +11,12 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
         title,
         "slug": slug.current
       },
+      pageReferences[]->{
+        _id,
+        title,
+        "slug": slug.current
+      },
+      menuItemType,
       isButton,
     },
   },

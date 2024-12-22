@@ -22,6 +22,8 @@ export type NavigationSettingsType = {
 export type MenuItemType = {
   _key: string;
   title: string;
+  menuItemType: 'single' | 'group';
   pageReference: PageType;
+  pageReferences: PageType[];
   isButton?: boolean;
 }

@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Container from './container';
-import { Menu } from 'lucide-react';
 import { Button } from '../ui/button';
-import SiteLogo from '../shared/site-logo';
 import useScroll from '@/hooks/use-scroll';
-import { usePathname } from 'next/navigation';
+import SiteLogo from '../shared/site-logo';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
+import { ChevronRight, Menu } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 import AnimatedUnderline from '../ui/animated-underline';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
 interface NavbarProps {
   settings: SettingsType;
@@ -43,31 +44,45 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
       >
         <SiteLogo siteTitle={siteTitle} logo={logo} navbarType={navbarType} />
         <div className='flex items-center gap-3'>
-          <ul 
-            className={cn('hidden md:flex items-center gap-8 group/nav', {
-              'gap-6 text-sm': navbarType === 'floating'
-            })}
-          >
-            {menuItems.map(({ _key, pageReference, title, isButton }) => (
-              <li key={_key} className='relative'>
+          <NavigationMenu>
+            <NavigationMenuList
+              className={cn('space-x-8 group/nav', {
+                'gap-6 text-sm': navbarType === 'floating'
+              })}
+            >
+              {menuItems.map(({ _key, pageReference, pageReferences, title, isButton, menuItemType }) => (
                 <>
                   {!isButton ? (
                     <>
-                      <Link 
-                        href={`/${pageReference.slug}`}
-                        className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
-                          'hover:underline underline-offset-[38px]': !isButton,
-                          'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
-                        })}
-                      >
-                        <AnimatedText>
-                          {title}
-                        </AnimatedText>
-                      </Link>
-                      {pathname.includes(`/${pageReference.slug}`) && (
-                        <div className='absolute -bottom-1.5 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
-                          <div className='border-b-[1.5px] border-dashed w-full'></div>
-                        </div>
+                      {menuItemType === 'group' ? (
+                        <NavigationMenuItem key={_key}>
+                          <NavigationMenuTrigger>
+                            {title}
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent className='min-w-[180px] py-3 px-3 flex flex-col gap-2 bg-white'>
+                            {pageReferences?.map((page) => (
+                              <Link key={page.slug} href={`/${page.slug}`} className='group py-1 pl-3 pr-2 flex items-center justify-between gap-2 rounded-md border border-dashed hover:bg-gray-50'>
+                                {page.title}
+                                <ChevronRight size={14} className='text-gray-300 group-hover:text-gray-500' />
+                              </Link>
+                            ))}
+                          </NavigationMenuContent>
+                        </NavigationMenuItem>
+                      ): (
+                        <NavigationMenuItem key={_key}>
+                          <Link 
+                            href={`/${pageReference.slug}`}
+                            className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
+                              'hover:underline underline-offset-[38px]': !isButton,
+                              'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
+                              'text-blue-700': pathname.includes(`/${pageReference.slug}`)
+                            })}
+                          >
+                            <AnimatedText>
+                              {title}
+                            </AnimatedText>
+                          </Link>
+                        </NavigationMenuItem>
                       )}
                     </>
                   ): (
@@ -80,11 +95,11 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
                     </Button>
                   )}
                 </>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
           {showSlideOutMenu && (
-            <SlideOutNavigation menuItems={slideOutMenuItems}>
+            <SlideOutNavigation menuItems={slideOutMenuItems} siteTitle={siteTitle} logo={logo}>
               <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
                 <Menu size={18} />
               </button>
@@ -96,29 +111,45 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
   )
 }
 
-function SlideOutNavigation({ children, menuItems }: {
+function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
+  siteTitle: string;
+  logo?: {
+    asset: {
+      url: string;
+    }
+  }
   children: React.ReactNode;
   menuItems: MenuItemType[];
 }) {
+
+  const router = useRouter();
+
   return(
     <Sheet>
       <SheetTrigger asChild>
         {children}
       </SheetTrigger>
       <SheetContent>
-        <SheetTitle className='p-8 pb-6 antialiased font-normal text-gray-400'>
+        <div className='border-b border-dashed border-b-gray-800 pb-6'>
+          <SheetClose>
+            <SiteLogo siteTitle={siteTitle} logo={logo} theme='light' />
+          </SheetClose>
+        </div>
+        <SheetTitle className='px-0 py-6 antialiased font-normal text-gray-400'>
           Explore
         </SheetTitle>
-        <ul className='px-8 space-y-4 text-white'>
+        <ul className='px-0 space-y-4 text-white'>
           {menuItems?.map((item) => (
             <li key={item?._key}>
-              <Link 
-                href={item?.pageReference?.slug} 
-                className='relative text-3xl tracking-tight group'
-              >
-                {item.title}
-                <AnimatedUnderline className='bg-white' />
-              </Link>
+              <SheetClose>
+                <button 
+                  onClick={() => router.push(item?.pageReference?.slug)}
+                  className='relative block text-3xl tracking-tight group'
+                >
+                  {item.title}
+                  <AnimatedUnderline className='bg-white' />
+                </button>
+              </SheetClose>
             </li>
           ))}
         </ul>

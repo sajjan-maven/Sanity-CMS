@@ -35,6 +35,18 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
+              title: "Menu Item Type",
+              name: "menuItemType",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Single", value: "single" },
+                  { title: "Group", value: "group" },
+                ],
+              },
+              initialValue: 'single',
+            }),
+            defineField({
               name: 'title',
               title: 'Title',
               type: 'string',
@@ -45,14 +57,26 @@ export default defineType({
               title: 'Page',
               description: 'The page that the menu item will link to.',
               type: 'reference',
-              to: [ ...pageReferenceTypes ]
+              to: [ ...pageReferenceTypes ],
+              hidden: ({ parent }) => parent?.menuItemType !== 'single'
+            }),
+            defineField({
+              title: "Page References",
+              name: "pageReferences",
+              type: "array",
+              of: [{ 
+                type: 'reference', 
+                to: [ ...pageReferenceTypes ]
+              }],
+              hidden: ({ parent }) => parent?.menuItemType !== 'group'
             }),
             defineField({
               name: 'isButton',
               title: 'Show as Button',
               type: 'boolean',
               description: 'If checked, the menu item will be shown as a button instead of a link.',
-              initialValue: false
+              initialValue: false,
+              hidden: ({ parent }) => parent?.menuItemType !== 'single'
             })
           ]
         }),
