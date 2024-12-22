@@ -23,7 +23,7 @@ const config: Config = {
           to: {
             transform: 'translateX(-50%)'
           }
-        }
+        },
       },
       animation: {
         'logo-marquee': 'logo-marquee-move 60s linear infinite',
@@ -32,6 +32,7 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require("tailwindcss-animate")
   ],
 };
 

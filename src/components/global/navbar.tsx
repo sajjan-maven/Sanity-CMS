@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Container from './container';
+import { Menu } from 'lucide-react';
 import { Button } from '../ui/button';
 import SiteLogo from '../shared/site-logo';
 import useScroll from '@/hooks/use-scroll';
@@ -8,10 +9,11 @@ import { usePathname } from 'next/navigation';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
 import { NavigationSettingsType } from '@/types/navigation';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 
 interface NavbarProps {
   settings: SettingsType;
-  navigationSettings: NavigationSettingsType['navbar']
+  navigationSettings: NavigationSettingsType['navbar'];
 }
 
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
@@ -19,7 +21,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   const pathname = usePathname();
   const hasScrolled = useScroll();
 
-  const { siteTitle, logo } = settings
+  const { siteTitle, logo } = settings;
   const { navbarType, navbarMenuItems: menuItems } = navigationSettings;
 
   return (
@@ -36,47 +38,71 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
         })}
       >
         <SiteLogo siteTitle={siteTitle} logo={logo} navbarType={navbarType} />
-        <ul 
-          className={cn('hidden md:flex items-center gap-8 group/nav', {
-            'gap-6 text-sm': navbarType === 'floating'
-          })}
-        >
-          {menuItems.map(({ _key, pageReference, title, isButton }) => (
-            <li key={_key} className='relative'>
-              <>
-                {!isButton ? (
-                  <>
-                    <Link 
-                      href={`/${pageReference.slug}`}
-                      className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
-                        'hover:underline underline-offset-[38px]': !isButton,
-                        'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
-                      })}
+        <div className='flex items-center gap-3'>
+          <ul 
+            className={cn('hidden md:flex items-center gap-8 group/nav', {
+              'gap-6 text-sm': navbarType === 'floating'
+            })}
+          >
+            {menuItems.map(({ _key, pageReference, title, isButton }) => (
+              <li key={_key} className='relative'>
+                <>
+                  {!isButton ? (
+                    <>
+                      <Link 
+                        href={`/${pageReference.slug}`}
+                        className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
+                          'hover:underline underline-offset-[38px]': !isButton,
+                          'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
+                        })}
+                      >
+                        <AnimatedText>
+                          {title}
+                        </AnimatedText>
+                      </Link>
+                      {pathname.includes(`/${pageReference.slug}`) && (
+                        <div className='absolute -bottom-1.5 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
+                          <div className='border-b-[1.5px] border-dashed w-full'></div>
+                        </div>
+                      )}
+                    </>
+                  ): (
+                    <Button 
+                      variant="primary" 
+                      disableIcon={true}
+                      buttonType="internal"
                     >
-                      <AnimatedText>
-                        {title}
-                      </AnimatedText>
-                    </Link>
-                    {pathname.includes(`/${pageReference.slug}`) && (
-                      <div className='absolute -bottom-1.5 left-0 right-0 w-full flex items-center justify-center transition-all duration-300'>
-                        <div className='border-b-[1.5px] border-dashed w-full'></div>
-                      </div>
-                    )}
-                  </>
-                ): (
-                  <Button 
-                    variant="primary" 
-                    disableIcon={true}
-                    buttonType="internal"
-                  >
-                    {title}
-                  </Button>
-                )}
-              </>
-            </li>
-          ))}
-        </ul>
+                      {title}
+                    </Button>
+                  )}
+                </>
+              </li>
+            ))}
+          </ul>
+          <SlideOutNavigation>
+            <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer'>
+              <Menu size={18} />
+            </button>
+          </SlideOutNavigation>
+        </div>
       </Container>
     </header>
+  )
+}
+
+function SlideOutNavigation({ children }: {
+  children: React.ReactNode;
+}) {
+  return(
+    <Sheet>
+      <SheetTrigger asChild>
+        {children}
+      </SheetTrigger>
+      <SheetContent>
+        <div className='text-white'>
+        
+        </div>
+      </SheetContent>
+    </Sheet>
   )
 }
