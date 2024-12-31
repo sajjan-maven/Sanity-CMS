@@ -11,10 +11,10 @@ export default function FreeformBlock(props: FreeformBlockType) {
   const { columnsPerRow, columns } = props;
 
   return (
-    <section className='px-10'>
+    <section className='px-4 md:px-10'>
       <Container className='py-28 border-x border-dashed'>
         <div 
-          className={cn('grid grid-cols-1 md:grid-cols-2 gap-6', {
+          className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6', {
             'md:grid-cols-3': columnsPerRow === '3',
             'md:grid-cols-4': columnsPerRow === '4',
           })}

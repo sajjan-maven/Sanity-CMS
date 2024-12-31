@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { LogoBlockType } from '@/types/page-builder/blocks/logos';
+import Container from '@/components/global/container';
+import { cn } from '@/lib/utils';
 
 export default function LogoBlock(props: LogoBlockType) {
 
@@ -8,29 +10,36 @@ export default function LogoBlock(props: LogoBlockType) {
   const items = [...logos, ...logos];
   
   return (
-    <div className='py-20 rounded-b-3xl border-b border-y-slate-200/60 bg-slate-50'>
-      <div className='relative w-fit mx-auto py-2 px-10 mt-5 mb-10 border-y border-t-slate-200/60 border-b-slate-200/40 bg-white pattern-bg'>
-        <span className=' text-center font-geistMono text-sm uppercase font-medium text-gray-500'> 
-          {heading}
-        </span>
-        <EdgeBlur />
-      </div>
-      <div className="relative overflow-clip">
-        <ul className="flex items-center pl-[4.8rem] gap-[4.8rem] w-max animate-logo-marquee">
-          {items.map((item, index) => (
-            <li key={item._key + index}>
-              <Image
-                width={200}
-                height={100}
-                src={item.image.asset.url}
-                alt={`${item.title} Logo` ?? ''}
-              />  
-            </li>
-          ))}
-        </ul>
-        <EdgeBlur />
-      </div>
-    </div>
+    <section className='border-b'>
+      <Container>
+        <div className='py-10 md:py-20 border-x border-x-slate-200/60 border-dashed bg-slate-50'>
+          <div className='relative w-fit mx-auto py-2 px-10 mt-5 bg-white pattern-bg'>
+            <h2 className='text-center font-geistMono text-xs md:text-sm uppercase font-medium text-gray-500'> 
+              {heading}
+            </h2>
+            <EdgeBlur />
+          </div>
+          <div className="mt-8 md:mt-20 md:mb-10 relative overflow-clip">
+            <ul className="flex items-center pl-[4.8rem] gap-10 md:gap-[10rem] w-max animate-logo-marquee">
+              {items.map((item, index) => (
+                <li key={item._key + index}>
+                  <Image
+                    width={200}
+                    height={100}
+                    src={item.image.asset.url}
+                    alt={`${item.title} Logo` ?? ''}
+                    className={cn('w-40 md:w-32 object-contain', {
+                      'md:w-56': item.size === 'large'
+                    })}
+                  />  
+                </li>
+              ))}
+            </ul>
+            <EdgeBlur />
+          </div>
+        </div>
+      </Container>
+    </section>
   )
 }
 

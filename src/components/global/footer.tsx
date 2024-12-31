@@ -23,7 +23,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
   return (
     <footer className='pt-20 border-t border-t-gray-200/60'>
       <Container>
-        <div className='w-full flex items-start gap-60'>
+        <div className='w-full flex flex-col md:flex-row items-start gap-16 md:gap-60'>
           <div className='flex-none'>
             <SiteLogo siteTitle={siteTitle} logo={logo} location="footer" />
           </div>
@@ -56,7 +56,7 @@ function FooterColumns({ columns }: {
   }[]
 }) {
   return (
-    <ul className='flex-1 grid grid-cols-4 gap-8'>
+    <ul className='flex-1 grid grid-cols-2 xl:grid-cols-4 gap-8'>
       {columns.map((column) => (
         <li key={column._key} className='w-full space-y-3'>
           <Heading tag="h2" size="xs" className='font-semibold'>

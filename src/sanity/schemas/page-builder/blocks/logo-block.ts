@@ -32,6 +32,18 @@ export default defineType({
             type: 'image',
             title: 'Logo',
           },
+          defineField({
+            name: "size",
+            title: "Size",
+            type: "string",
+            options: {
+              list: [
+                { title: "Default", value: "default" },
+                { title: "Large", value: "large" },
+              ],
+            },
+            initialValue: 'default',
+          }),
           {
             name: 'link',
             type: 'url',

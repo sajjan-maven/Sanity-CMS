@@ -39,7 +39,7 @@ export default function Container(props: ContainerProps) {
     'pt-0': paddingTop === 'none', 
     'pt-7': paddingTop === 'small',
     'pt-14 md:pt-16': paddingTop === 'medium',
-    'pt-20 md:pt-28': paddingTop === 'default', 
+    'pt-16 md:pt-28': paddingTop === 'default', 
     'pt-24 lg:pt-44': paddingTop === 'large', 
   }
 
@@ -47,7 +47,7 @@ export default function Container(props: ContainerProps) {
     'pb-0': paddingBottom === 'none', 
     'pb-7': paddingBottom === 'small', 
     'pt-14 md:pb-16': paddingTop === 'medium',
-    'pb-20 md:pb-28': paddingBottom === 'default', 
+    'pb-16 md:pb-28': paddingBottom === 'default', 
     'pb-24 lg:pb-44': paddingBottom === 'large'
   }
  

@@ -15,18 +15,18 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
         paddingBottom={paddingBottom}
         className='border-x border-dashed'
       >
-        <div className='flex items-center justify-between'>
+        <div className='flex flex-col md:flex-row md:items-center justify-between'>
           <div>
             <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
               {heading}
             </Heading>
             <PortableTextEditor 
               data={content}
-              classNames='mt-8 text-balance text-gray-600'
+              classNames='mt-6 md:mt-8 text-balance text-gray-600'
             />
           </div>
           <div>
-            <div className='flex items-center gap-3 mt-10'>
+            <div className='flex items-center gap-3 mt-8 md:mt-10'>
               <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>

@@ -11,20 +11,20 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
   const { heading, features, paddingTop, paddingBottom } = props
 
   return (
-    <section className='xl:px-10'>
+    <section className='px-4 xl:px-10'>
       <Container 
-        className='space-y-10 md:space-y-14 border-x border-dashed'
+        className='px-4 space-y-10 md:space-y-14 border-x border-dashed'
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <div className='flex items-center justify-between'>
-          <Heading tag="h2" size="xl" className='relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
+        <div className='flex flex-col md:flex-row gap-6 items-center justify-between'>
+          <Heading tag="h2" size="xl" className='relative col-span-7 px-4 text-balance leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
             <span className='relative z-10'>
               {heading}
             </span>
             <EdgeBlur />
           </Heading>
-          <Button variant="primary" buttonType="internal" className='bg-black'>
+          <Button variant="primary" buttonType="internal" className='hidden md:flex bg-black'>
             Get Started
           </Button>
         </div>
@@ -54,7 +54,7 @@ function FeatureCard({ feature }: {
           className='rounded-2xl h-[280px] object-cover overflow-hidden'
         />
       </div>
-      <div className='mt-5 px-8 pb-2'>
+      <div className='mt-5 px-6 md:px-8 pb-2'>
         <div className='space-y-6'>
           <Heading tag="h3" size="sm" className='relative py-2 font-semibold border-y border-y-gray-200/40 pattern-bg'>
             {feature.title}
@@ -68,7 +68,7 @@ function FeatureCard({ feature }: {
         {feature.items.map((item, index) => (
           <li 
             key={item} 
-            className={cn('grid grid-cols-12 px-8 py-4 border-b border-dashed', {
+            className={cn('grid grid-cols-12 px-6 md:px-8 py-4 border-b border-dashed', {
               'border-none pb-6': index === feature.items.length  - 1
             })}
           >

@@ -20,7 +20,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
   return (
     <section 
-      className={cn('xl:px-10', {
+      className={cn('px-4 xl:px-10', {
         'border-t': enableBorderTop,
         'rounded-t-4xl': cornerRadiusTop,
         'border-b': enableBorderBottom,
@@ -33,8 +33,8 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
         className='border-x border-dashed space-y-10 md:space-y-14'
       >
         <div className='grid grid-cols-12 gap-20'>
-          <div className='col-span-12 xl:col-span-5 space-y-14'>
-            <Heading tag="h2" size="xl" className='-ml-3 relative px-4 text-balance col-span-7 leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
+          <div className='col-span-5 space-y-14'>
+            <Heading tag="h2" size="xl" className='-ml-3 relative px-4 text-balance leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
               {heading}
             </Heading>
             <Button variant="tertiary" buttonType="internal">

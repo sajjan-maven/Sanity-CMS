@@ -13,7 +13,7 @@ export default function HeroBlock(props: HeroBlockType) {
 
   return (
     <section 
-      className={cn('px-10 pattern-bg border-b border-b-gray-200/60', {
+      className={cn('px-4 md:px-10 pattern-bg border-b border-b-gray-200/60', {
         'rounded-4xl': bottomCornerRadius === 'rounded'
       })}
     >
@@ -23,7 +23,7 @@ export default function HeroBlock(props: HeroBlockType) {
         })}
       >
         <div 
-          className={cn('pt-52 pb-20 md:pb-36 grid grid-cols-12 gap-14', {
+          className={cn('pt-40 md:pt-52 md:pb-36 grid grid-cols-12 gap-3 md:gap-14', {
             'pt-56': showBackButton,
           })}
         >
@@ -33,33 +33,33 @@ export default function HeroBlock(props: HeroBlockType) {
             })}
           >
             {showBackButton && <BackButton />}
-            <Heading size="xxxl" tag="h1" className='max-w-[40rem] text-balance leading-normal'>
+            <Heading size="xxxl" tag="h1" className='md:max-w-[40rem] text-balance'>
               {heading}
             </Heading>
           </div>
           <div className='col-span-12 xl:col-span-5'>
             <PortableTextEditor 
               data={content}
-              classNames='mt-3 md:text-lg text-balance text-gray-600'
+              classNames='mt-3 md:text-lg md:text-balance text-gray-600'
             />
-            <div className='flex items-center gap-6 mt-10'>
+            <div className='mt-9 md:mt-10 flex items-center gap-3'>
               <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>
-              <Button variant="underline" buttonType="external">
+              <Button variant="outline" buttonType="external">
                 Star on GitHub
               </Button>
             </div>
           </div>
         </div>
         {mediaType === 'image' && image && (
-          <div className='p-6 rounded-4xl border border-dashed'>
+          <div className='p-4 md:p-6 rounded-3xl md:rounded-4xl border border-dashed'>
             <Image
               src={image.asset.url}
               width={1400}
               height={800}
               alt={image.alt ?? ''}
-              className={cn('object-cover rounded-xl md:rounded-3xl', {
+              className={cn('object-cover rounded-2xl md:rounded-3xl', {
                 'rounded-none': image.cornerRadius === 'straight',
                 'max-h-[30rem]': image.height === 'short'
               })}

@@ -11,6 +11,7 @@ export type LogoBlockType = {
         url: string;
       }
     };
+    size: 'default' | 'large';
     link?: string;
   }[];
 }

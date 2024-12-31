@@ -43,7 +43,7 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
         })}
       >
         <SiteLogo siteTitle={siteTitle} logo={logo} navbarType={navbarType} />
-        <div className='flex items-center gap-3'>
+        <div className='hidden md:flex items-center gap-3'>
           <NavigationMenu>
             <NavigationMenuList
               className={cn('space-x-8 group/nav', {
@@ -63,7 +63,7 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
                             {pageReferences?.map((page) => (
                               <Link key={page.slug} href={`/${page.slug}`} className='group py-1 pl-3 pr-2 flex items-center justify-between gap-2 rounded-md border border-dashed hover:bg-gray-50'>
                                 {page.title}
-                                <ChevronRight size={14} className='text-gray-300 group-hover:text-gray-500' />
+                                <ChevronRight size={14} className='text-gray-300 group-hover:-translate-x-0.5 group-hover:text-gray-500 transition-all duration-300' />
                               </Link>
                             ))}
                           </NavigationMenuContent>

@@ -14,7 +14,7 @@ export default function ServicesBlock(props: ServicesBlockType) {
 
   return (
     <section 
-      className={cn('xl:px-10', {
+      className={cn('px-4 xl:px-10', {
         'pattern-bg': background === 'pattern',
         'rounded-t-4xl border-t border-t-gray-200/60': topCornerRadius === 'rounded'
       })}
@@ -31,7 +31,7 @@ export default function ServicesBlock(props: ServicesBlockType) {
             </Heading>
           )}
         </div>
-        <ul className='grid grid-cols-3 gap-x-6 gap-y-10'>
+        <ul className='grid md:grid-cols-3 gap-x-6 gap-y-10'>
           {services.map((service) => (
             <li key={service._id}>
               <ServiceCard service={service} />
@@ -62,9 +62,9 @@ function ServiceCard({ service }: {
           />
         </div>
         <Heading tag="h2" size="md" className='text-balance'>
-          {title}   
+          {title}
         </Heading>
-        <p className='text-balance text-neutral-500'>
+        <p className='md:text-balance text-neutral-500'>
           {shortDescription}
         </p>
       </Link>

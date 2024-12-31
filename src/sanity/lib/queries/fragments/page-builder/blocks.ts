@@ -108,6 +108,7 @@ export const logoBlockQuery = `
       image { 
         asset->{ url }, 
       },
+      size,
       link
     }
   }
