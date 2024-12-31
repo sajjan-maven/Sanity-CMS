@@ -12,7 +12,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
 
   return (
     <section className='px-4 md:px-10'>
-      <Container className='py-28 border-x border-dashed'>
+      <Container className='py-16 md:py-28 border-x border-dashed border-t'>
         <div 
           className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6', {
             'md:grid-cols-3': columnsPerRow === '3',

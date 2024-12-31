@@ -64,7 +64,7 @@ function ServiceCard({ service }: {
         <Heading tag="h2" size="md" className='text-balance'>
           {title}
         </Heading>
-        <p className='md:text-balance text-neutral-500'>
+        <p className='text-sm md:text-base md:text-balance text-neutral-500'>
           {shortDescription}
         </p>
       </Link>

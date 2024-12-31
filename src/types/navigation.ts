@@ -2,7 +2,6 @@ import { PageType } from "./page";
 
 export type NavigationSettingsType = {
   navbar: {
-    navbarType: 'classic' | 'floating';
     navbarMenuItems: MenuItemType[];
   }
   slideOutMenu: {

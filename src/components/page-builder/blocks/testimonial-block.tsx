@@ -18,7 +18,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
         className='space-y-10 border-x border-dashed'
       >
         <div>
-          <div className='w-fit mx-auto px-2 rounded-full text-center text-sm font-medium tracking-tight text-white bg-black'>
+          <div className='w-fit mx-auto px-2 h-6 flex items-center justify-between rounded-full text-center text-sm font-medium tracking-tight text-white bg-black'>
             {eyebrow}
           </div>
           <h2 className='mt-6 py-2 text-center text-xl md:text-2xl font-semibold border-y w-fit mx-auto bg-gradient-to-r from-white/0 via-yellow-500/15 to-white/0'>
@@ -54,7 +54,7 @@ function TestimonialCard({ testimonial, classNames }: {
 }) {
   return (
     <div className={cn('h-full mx-auto md:w-[44rem] p-8 md:p-12 space-y-10 md:space-y-20 flex flex-col justify-between bg-white', classNames)}>
-      <h2 className='text-lg md:text-xl text-pretty'>
+      <h2 className='text-base md:text-xl text-pretty'>
         {testimonial?.quote}
       </h2>
       <div className='flex flex-col md:flex-row md:items-center justify-between'>
@@ -67,7 +67,7 @@ function TestimonialCard({ testimonial, classNames }: {
             className='w-12 h-12 rounded-full'
           />
           <div className='-space-y-0.5'>
-            <h3 className='font-medium'>
+            <h3 className='text-sm md:text-base font-medium'>
               {testimonial?.name}
             </h3>
             <p className='text-sm text-gray-400'>

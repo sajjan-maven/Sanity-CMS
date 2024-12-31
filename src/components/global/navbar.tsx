@@ -10,7 +10,7 @@ import { ChevronRight, Menu } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import AnimatedUnderline from '../ui/animated-underline';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
-import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
 interface NavbarProps {
@@ -126,16 +126,18 @@ function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
       <SheetTrigger asChild>
         {children}
       </SheetTrigger>
-      <SheetContent>
-        <div className='border-b border-dashed border-b-gray-800 pb-6'>
-          <SheetClose>
-            <SiteLogo siteTitle={siteTitle} logo={logo} theme='light' />
-          </SheetClose>
-        </div>
-        <SheetTitle className='px-0 py-6 antialiased font-normal text-gray-400'>
+      <SheetContent className='overflow-y-scroll'>
+        <SheetHeader className='z-20 fixed top-0 pt-[26px] right-7 w-[330px] h-20 border-b border-dashed border-b-gray-200 bg-white/95'>
+          <div className=' pb-6'>
+            <SheetClose>
+              <SiteLogo siteTitle={siteTitle} logo={logo} theme='dark' />
+            </SheetClose>
+          </div>
+        </SheetHeader>
+        <SheetTitle className='mt-16 px-0 py-6 antialiased font-normal text-gray-400'>
           Explore
         </SheetTitle>
-        <ul className='px-0 space-y-4 text-white'>
+        <ul className='px-0 space-y-4 text-black h-[800px]'>
           {menuItems?.map((item) => (
             <li key={item?._key}>
               <SheetClose>
@@ -144,12 +146,15 @@ function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
                   className='relative block text-3xl tracking-tight group'
                 >
                   {item.title}
-                  <AnimatedUnderline className='bg-white' />
+                  <AnimatedUnderline className='h-[2px]' />
                 </button>
               </SheetClose>
             </li>
           ))}
         </ul>
+        {/* <div className='fixed bottom-1 right-0 w-[380px] h-20 bg-red-500'>
+
+        </div> */}
       </SheetContent>
     </Sheet>
   )

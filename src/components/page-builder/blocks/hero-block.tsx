@@ -18,12 +18,12 @@ export default function HeroBlock(props: HeroBlockType) {
       })}
     >
       <Container 
-        className={cn('space-y-14 xl:space-y-0 border-x border-dashed', {
+        className={cn('pb-10 space-y-14 xl:space-y-0 border-x border-dashed', {
           'pb-14': mediaType === 'image'
         })}
       >
         <div 
-          className={cn('pt-40 md:pt-52 md:pb-36 grid grid-cols-12 gap-3 md:gap-14', {
+          className={cn('pt-36 md:pt-52 md:pb-36 grid grid-cols-12 gap-3 md:gap-14', {
             'pt-56': showBackButton,
           })}
         >
@@ -42,7 +42,7 @@ export default function HeroBlock(props: HeroBlockType) {
               data={content}
               classNames='mt-3 md:text-lg md:text-balance text-gray-600'
             />
-            <div className='mt-9 md:mt-10 flex items-center gap-3'>
+            <div className='mt-8 md:mt-10 flex items-center gap-3'>
               <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>

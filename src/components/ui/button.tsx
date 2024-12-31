@@ -5,18 +5,18 @@ import { ArrowRight } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "py-2 px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50",
+  "px-4 md:px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-xs md:text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary: "text-white bg-blue-700 hover:bg-blue-600",
         secondary: "text-white bg-black hover:bg-blue-700",
         tertiary: "text-black hover:text-white border border-gray-300/80 hover:border-blue-500 bg-gray-200 hover:bg-blue-600",
-        outline: "text-black border border-gray-300/80 hover:border-black hover:bg-black hover:text-white",
+        outline: "text-black border border-gray-300/80 hover:border-black hover:bg-black backdrop-blur hover:text-white",
         underline: "xl:px-0 mb-2 underline underline-offset-[10px] decoration-[1.5px] decoration-gray-800",
       },
       size: {
-        default: "h-10",
+        default: "h-9 md:h-10",
         sm: "h-9 px-4",
       },
     },

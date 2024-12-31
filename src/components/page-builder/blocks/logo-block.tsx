@@ -11,16 +11,16 @@ export default function LogoBlock(props: LogoBlockType) {
   
   return (
     <section className='border-b'>
-      <Container>
+      <Container className='px-0'>
         <div className='py-10 md:py-20 border-x border-x-slate-200/60 border-dashed bg-slate-50'>
-          <div className='relative w-fit mx-auto py-2 px-10 mt-5 bg-white pattern-bg'>
+          <div className='relative w-fit mx-auto py-2 px-10 mt-5 bg-white pattern-bg border-y border-y-gray-100'>
             <h2 className='text-center font-geistMono text-xs md:text-sm uppercase font-medium text-gray-500'> 
               {heading}
             </h2>
             <EdgeBlur />
           </div>
-          <div className="mt-8 md:mt-20 md:mb-10 relative overflow-clip">
-            <ul className="flex items-center pl-[4.8rem] gap-10 md:gap-[10rem] w-max animate-logo-marquee">
+          <div className="mt-10 md:mt-16 mb-6 md:mb-8 relative overflow-clip">
+            <ul className="flex items-center pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee">
               {items.map((item, index) => (
                 <li key={item._key + index}>
                   <Image
@@ -28,8 +28,8 @@ export default function LogoBlock(props: LogoBlockType) {
                     height={100}
                     src={item.image.asset.url}
                     alt={`${item.title} Logo` ?? ''}
-                    className={cn('w-40 md:w-32 object-contain', {
-                      'md:w-56': item.size === 'large'
+                    className={cn('w-20 md:w-32 object-contain', {
+                      'w-36 md:w-56': item.size === 'large'
                     })}
                   />  
                 </li>

@@ -21,15 +21,15 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
   } = navigationSettings;
 
   return (
-    <footer className='pt-20 border-t border-t-gray-200/60'>
+    <footer className='pt-14 md:pt-20 border-t border-t-gray-200/60'>
       <Container>
-        <div className='w-full flex flex-col md:flex-row items-start gap-16 md:gap-60'>
-          <div className='flex-none'>
+        <div className='w-full flex flex-col md:flex-row items-start gap-0 md:gap-60'>
+          <div className='flex-none py-4 md:py-0 border-y border-dashed md:border-none'>
             <SiteLogo siteTitle={siteTitle} logo={logo} location="footer" />
           </div>
           <FooterColumns columns={columns} />
         </div>
-        <div className='flex items-center justify-between mt-20 py-6 border-t border-dashed text-xs'>
+        <div className='mt-10 md:mt-20 mb-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0 border-y border-dashed text-xs'>
           <div>
             {copyright} - Made by
             <a 
@@ -56,7 +56,7 @@ function FooterColumns({ columns }: {
   }[]
 }) {
   return (
-    <ul className='flex-1 grid grid-cols-2 xl:grid-cols-4 gap-8'>
+    <ul className='pt-10 md:pt-0 flex-1 grid grid-cols-2 xl:grid-cols-4 gap-8'>
       {columns.map((column) => (
         <li key={column._key} className='w-full space-y-3'>
           <Heading tag="h2" size="xs" className='font-semibold'>
@@ -67,7 +67,7 @@ function FooterColumns({ columns }: {
               <li key={item._key}>
                 <Link 
                   href={`/${item.pageReference.slug}`}
-                  className='relative group'
+                  className='relative group text-sm md:text-base'
                 >
                   {item.title}
                   <AnimatedUnderline />
