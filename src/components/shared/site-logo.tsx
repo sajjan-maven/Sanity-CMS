@@ -4,14 +4,13 @@ import Image from 'next/image';
 import { cn, scrollToElement } from '@/lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
 
-export default function SiteLogo({ siteTitle, logo, navbarType, location, theme }: {
+export default function SiteLogo({ siteTitle, logo, location, theme }: {
   siteTitle: string;
   logo?: {
     asset: {
       url: string;
     }
   };
-  navbarType?: 'classic' | 'floating';
   location?: 'footer' | 'navbar';
   theme?: 'light' | 'dark';
 }) {
@@ -30,7 +29,6 @@ export default function SiteLogo({ siteTitle, logo, navbarType, location, theme 
       {!logo ? ( 
         <span 
           className={cn('font-semibold tracking-tighter text-xl', {
-            'pr-4 border-r text-lg': navbarType === 'floating',
             'text-3xl': location === 'footer'
           })}
         >
