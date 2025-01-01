@@ -30,6 +30,9 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
         "slug": slug.current
       },
     },
+    showSlideOutMenuCallToAction,
+    slideOutMenuCallToActionText,
+    slideOutMenuCallToActionPageReference
   },
   "footer": {
     footerColumns[] {

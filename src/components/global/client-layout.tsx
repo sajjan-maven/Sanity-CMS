@@ -25,13 +25,12 @@ export default function ClientLayout({
     <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
       <Navbar 
         settings={settings}
-        navigationSettings={navigationSettings['navbar']}
-        slideOutMenuSettings={navigationSettings['slideOutMenu']}
+        navigationSettings={navigationSettings}
       />
       {children}
       <Footer 
         settings={settings} 
-        navigationSettings={navigationSettings['footer']}
+        navigationSettings={navigationSettings}
       />
       <Toaster 
         position="bottom-right" 

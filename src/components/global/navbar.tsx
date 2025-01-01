@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Container from './container';
 import { Button } from '../ui/button';
+import { PageType } from '@/types/page';
 import useScroll from '@/hooks/use-scroll';
 import SiteLogo from '../shared/site-logo';
 import AnimatedText from '../ui/animated-text';
@@ -15,19 +16,18 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 
 interface NavbarProps {
   settings: SettingsType;
-  navigationSettings: NavigationSettingsType['navbar'];
-  slideOutMenuSettings: NavigationSettingsType['slideOutMenu'];
+  navigationSettings: NavigationSettingsType;
 }
 
-export default function Navbar({ settings, navigationSettings, slideOutMenuSettings }: NavbarProps) {
+export default function Navbar({ settings, navigationSettings }: NavbarProps) {
 
   const pathname = usePathname();
   const hasScrolled = useScroll();
 
   const { siteTitle, logo } = settings;
-  
-  const { navbarMenuItems: menuItems } = navigationSettings;
-  const { showSlideOutMenu, slideOutMenuItems } = slideOutMenuSettings;
+
+  const { navbarMenuItems } = navigationSettings['navbar'];
+  const { showSlideOutMenu } = navigationSettings['slideOutMenu'];
 
   return (
     <header 
@@ -40,17 +40,17 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
         <div className='hidden md:flex items-center gap-3'>
           <NavigationMenu>
             <NavigationMenuList className='space-x-8 group/nav'>
-              {menuItems.map(({ _key, pageReference, pageReferences, title, isButton, menuItemType }) => (
+              {navbarMenuItems.map((item: MenuItemType) => (
                 <>
-                  {!isButton ? (
+                  {!item.isButton ? (
                     <>
-                      {menuItemType === 'group' ? (
-                        <NavigationMenuItem key={_key}>
+                      {item.menuItemType === 'group' ? (
+                        <NavigationMenuItem key={item._key}>
                           <NavigationMenuTrigger>
-                            {title}
+                            {item.title}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent className='min-w-[180px] py-3 px-3 flex flex-col gap-2 bg-white'>
-                            {pageReferences?.map((page) => (
+                            {item.pageReferences?.map((page: PageType) => (
                               <Link 
                                 key={page.slug} 
                                 href={`/${page.slug}`} 
@@ -66,17 +66,17 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       ): (
-                        <NavigationMenuItem key={_key}>
+                        <NavigationMenuItem key={item._key}>
                           <Link 
-                            href={`/${pageReference.slug}`}
+                            href={`/${item.pageReference.slug}`}
                             className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
-                              'hover:underline underline-offset-[38px]': !isButton,
-                              'py-2 px-4 rounded-full text-white bg-blue-600': isButton,
-                              'text-blue-700': pathname.includes(`/${pageReference.slug}`)
+                              'hover:underline underline-offset-[38px]': !item.isButton,
+                              'py-2 px-4 rounded-full text-white bg-blue-600': item.isButton,
+                              'text-blue-700': pathname.includes(`/${item.pageReference.slug}`)
                             })}
                           >
                             <AnimatedText>
-                              {title}
+                              {item.title}
                             </AnimatedText>
                           </Link>
                         </NavigationMenuItem>
@@ -88,7 +88,7 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
                       disableIcon={true}
                       buttonType="internal"
                     >
-                      {title}
+                      {item.title}
                     </Button>
                   )}
                 </>
@@ -96,7 +96,11 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
             </NavigationMenuList>
           </NavigationMenu>
           {showSlideOutMenu && (
-            <SlideOutNavigation menuItems={slideOutMenuItems} siteTitle={siteTitle} logo={logo}>
+            <SlideOutNavigation 
+              logo={logo}
+              siteTitle={siteTitle} 
+              settings={navigationSettings['slideOutMenu']}
+            >
               <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
                 <Menu size={18} />
               </button>
@@ -108,18 +112,21 @@ export default function Navbar({ settings, navigationSettings, slideOutMenuSetti
   )
 }
 
-function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
+function SlideOutNavigation({ children, logo, siteTitle, settings  }: {
   siteTitle: string;
-  logo?: {
-    asset: {
-      url: string;
-    }
-  }
   children: React.ReactNode;
-  menuItems: MenuItemType[];
+  logo?: { asset: { url: string; } };
+  settings: NavigationSettingsType['slideOutMenu'];
 }) {
 
   const router = useRouter();
+
+  const { 
+    slideOutMenuItems: menuItems,
+    showSlideOutMenuCallToAction,
+    slideOutMenuCallToActionText,
+    slideOutMenuCallToActionPageReference 
+  } = settings;
 
   return(
     <Sheet>
@@ -137,8 +144,8 @@ function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
         <SheetTitle className='mt-16 px-0 py-6 antialiased font-normal text-gray-400'>
           Explore
         </SheetTitle>
-        <ul className='px-0 space-y-4 text-black h-[800px]'>
-          {menuItems?.map((item) => (
+        <ul className='px-0 space-y-4 text-black'>
+          {menuItems?.map((item: MenuItemType) => (
             <li key={item?._key}>
               <SheetClose>
                 <button 
@@ -152,9 +159,17 @@ function SlideOutNavigation({ children, menuItems, siteTitle, logo }: {
             </li>
           ))}
         </ul>
-        {/* <div className='fixed bottom-1 right-0 w-[380px] h-20 bg-red-500'>
-
-        </div> */}
+        {showSlideOutMenuCallToAction && (
+          <div className='fixed bottom-1 right-0 w-[380px] px-4 pb-4'>
+            <Button 
+              variant="secondary" 
+              buttonType="internal" 
+              className='w-full py-6'
+            >
+              {slideOutMenuCallToActionText}
+            </Button> 
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   )

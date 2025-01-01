@@ -7,6 +7,9 @@ export type NavigationSettingsType = {
   slideOutMenu: {
     showSlideOutMenu: boolean;
     slideOutMenuItems: MenuItemType[];
+    showSlideOutMenuCallToAction: boolean;
+    slideOutMenuCallToActionText: string;
+    slideOutMenuCallToActionPageReference: PageType;
   }
   footer: {
     footerColumns: {

@@ -8,7 +8,7 @@ import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 
 interface FooterProps {
   settings: SettingsType;
-  navigationSettings: NavigationSettingsType['footer']
+  navigationSettings: NavigationSettingsType;
 }
 
 export default function Footer({ settings, navigationSettings }: FooterProps) {
@@ -18,10 +18,10 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
   const { 
     footerColumns: columns, 
     footerLegalMenuItems: legalMenuItems 
-  } = navigationSettings;
+  } = navigationSettings['footer'];
 
   return (
-    <footer className='pt-14 md:pt-20 border-t border-t-gray-200/60'>
+    <footer className='pt-14 md:pt-24 border-t border-t-gray-200/60'>
       <Container>
         <div className='w-full flex flex-col md:flex-row items-start gap-0 md:gap-60'>
           <div className='flex-none py-4 md:py-0 border-y border-dashed md:border-none'>
