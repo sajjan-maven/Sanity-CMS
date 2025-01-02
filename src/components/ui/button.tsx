@@ -31,15 +31,26 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof buttonVariants> {
       disableIcon?: boolean;
+      pageReference?: string;
+      externalUrl?: string;
       buttonType?: 'internal' | 'external' | 'fileDownload';
     }
 
-const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
-  ({ children, className, variant, disableIcon, buttonType, size, ...props }, ref) => {
+const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({ 
+  children, 
+  className, 
+  variant, 
+  disableIcon, 
+  pageReference, 
+  externalUrl, 
+  buttonType, 
+  size, 
+  ...props 
+}, ref) => {
 
     if (buttonType === 'internal') return (
       <Link
-        href="/"
+        href={`/${pageReference}`}
         ref={ref}
         className={cn('group', buttonVariants({ variant, size, className }))}
         {...props}
@@ -50,7 +61,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
 
     if (buttonType === 'external') return (
       <a 
-        href="https://sanity.io"
+        href={`${externalUrl}`}
         rel="noopener noreferrer" target="_blank"
         className={cn('group', buttonVariants({ variant, size, className }))}
       >

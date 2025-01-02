@@ -79,15 +79,19 @@ function FeatureCard({ feature }: {
           </li>
         ))}
       </ul>
-      <div className='px-4 py-4 border-t border-dashed'>
-        <Button 
-          variant="tertiary" 
-          buttonType="internal" 
-          className='h-12 w-full'
-        >
-          Get Started
-        </Button>
-      </div>
+      {feature?.button.showButton && (
+        <div className='px-4 py-4 border-t border-dashed'>
+          <Button 
+            variant={feature?.button.buttonVariant}
+            buttonType={feature?.button.buttonType}
+            pageReference={feature?.button.buttonPageReference?.slug ?? ''}
+            externalUrl={feature?.button.buttonExternalUrl ?? ''}
+            className='h-12 w-full'
+          >
+            {feature.button.buttonText}
+          </Button>
+        </div>
+      )}
     </div>
   )
 }

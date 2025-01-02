@@ -66,10 +66,17 @@ export const featureCardsBlockQuery = `
       image { 
         asset->{ url },
       },
-      pageReference->{
-        _id,
-        title,
-        "slug": slug.current
+      button {
+        showButton,
+        buttonText,
+        buttonVariant,
+        buttonType,
+        buttonPageReference->{
+          _id,
+          title,
+          "slug": slug.current
+        },
+        buttonExternalUrl
       },
     },
     ${paddingQuery}
@@ -163,6 +170,12 @@ export const freeformBlockQuery = `
         buttonText,
         buttonVariant,
         buttonType,
+        buttonPageReference->{
+          _id,
+          title,
+          "slug": slug.current
+        },
+        buttonExternalUrl,
         spacing
       },
     }
@@ -209,6 +222,12 @@ export const servicesBlockQuery = `
         altText 
       },
       "slug": slug.current,
+    },
+    showButton,
+    buttonPageReference->{
+      _id,
+      title,
+      "slug": slug.current
     },
     background,
     topCornerRadius,

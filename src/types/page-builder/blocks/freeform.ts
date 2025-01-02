@@ -1,3 +1,4 @@
+import { PageType } from '@/types/page';
 import type { PortableTextBlock } from '@portabletext/types';
 
 export type FreeformBlockType = {
@@ -30,6 +31,8 @@ export type FreeformBlockType = {
       buttonText?: string;
       buttonVariant?: 'primary' | 'underline';
       buttonType?: 'internal' | 'external' | 'fileDownload';
+      buttonPageReference?: PageType;
+      buttonExternalUrl?: string;
       spacing?: 'none' | 'small' | 'medium' | 'large';
     }[]
   }[]

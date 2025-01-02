@@ -1,4 +1,4 @@
-import { PageType } from "@/types/page";
+import { ButtonType } from "@/types/button";
 
 export type FeatureCardsBlockType = {
   _id: string;
@@ -20,5 +20,5 @@ export type FeatureItem = {
       url: string;
     }
   };
-  pageReference: PageType;
+  button: ButtonType;
 }

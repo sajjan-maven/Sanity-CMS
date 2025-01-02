@@ -7,10 +7,20 @@ import Heading from '@/components/ui/heading';
 import Container from '@/components/global/container';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import { ServicesBlockType } from '@/types/page-builder/blocks/services';
+import { Button } from '@/components/ui/button';
 
 export default function ServicesBlock(props: ServicesBlockType) {
 
-  const { heading, services, background, topCornerRadius, paddingTop, paddingBottom } = props;
+  const { 
+    heading, 
+    services, 
+    background, 
+    topCornerRadius, 
+    showButton,
+    buttonPageReference,
+    paddingTop, 
+    paddingBottom 
+  } = props;
 
   return (
     <section 
@@ -24,11 +34,19 @@ export default function ServicesBlock(props: ServicesBlockType) {
         paddingBottom={paddingBottom}
         className='space-y-10 border-x border-dashed'
       >
-        <div className='flex items-center justify-between'>
-          {heading && (
-            <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
-              {heading}
-            </Heading>
+        <div className='py-4 flex items-center justify-between gap-6 border-y border-dashed'>
+          <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
+            {heading}
+          </Heading>
+          {showButton && (
+            <Button 
+              variant="tertiary" 
+              size="default" 
+              buttonType="internal"
+              pageReference={buttonPageReference.slug}
+            >
+              Explore Services
+            </Button>
           )}
         </div>
         <ul className='grid md:grid-cols-3 gap-x-6 gap-y-10'>

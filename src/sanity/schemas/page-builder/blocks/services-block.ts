@@ -3,6 +3,7 @@ import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { paddingFields } from "../../misc/padding-fields";
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { pageReferenceTypes } from "../../misc/page-reference-types";
 
 export default defineType({
   name: 'servicesBlock',
@@ -50,6 +51,19 @@ export default defineType({
         ],
       },
       initialValue: 'straight',
+    }),
+    defineField({
+      name: 'showButton',
+      title: 'Show Button',
+      type: 'boolean',
+      initialValue: false
+    }),
+    defineField({
+      name: 'buttonPageReference',
+      title: 'Button Page Reference',
+      description: 'The page that the button will link to.',
+      type: 'reference',
+      to: [ ...pageReferenceTypes ]
     }),
     ...paddingFields
   ],

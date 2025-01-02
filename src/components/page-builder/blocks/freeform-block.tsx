@@ -81,6 +81,8 @@ export default function FreeformBlock(props: FreeformBlockType) {
                       size="sm"
                       variant={item?.buttonVariant}
                       buttonType={item?.buttonType}
+                      pageReference={item?.buttonPageReference?.slug ?? ''}
+                      externalUrl={item?.buttonExternalUrl ?? ''}
                     >
                       {item?.buttonText}
                     </Button>

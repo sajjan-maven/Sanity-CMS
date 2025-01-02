@@ -3,6 +3,7 @@ import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { paddingFields } from "../../misc/padding-fields";
+import { buttonFields } from "../../misc/button-fields";
 
 export default defineType({
   name: 'featureCardsBlock',
@@ -47,12 +48,11 @@ export default defineType({
               type: 'image',
             }),
             defineField({
-              name: 'pageReference',
-              title: 'Link to a page',
-              description: 'Optional',
-              type: 'reference',
-              to: [{ type: 'page' }],
-            }),
+              name: 'button',
+              title: 'Button',
+              type: 'object',
+              fields: buttonFields
+            })
           ],
         },
       ],

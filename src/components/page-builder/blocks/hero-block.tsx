@@ -46,7 +46,7 @@ export default function HeroBlock(props: HeroBlockType) {
               <Button variant="primary" buttonType="internal">
                 View Demo
               </Button>
-              <Button variant="outline" buttonType="external">
+              <Button variant="outline" buttonType="external" externalUrl='https://github.com/jamesreaco'>
                 Star on GitHub
               </Button>
             </div>
