@@ -4,16 +4,17 @@ import { CircleCheck } from 'lucide-react';
 import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
+import ButtonRenderer from '@/components/shared/button-renderer';
 import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/feature-cards';
 
 export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 
-  const { heading, features, paddingTop, paddingBottom } = props
+  const { heading, buttons, features, paddingTop, paddingBottom } = props;
 
   return (
     <section className='px-4 xl:px-10'>
       <Container 
-        className='px-4 space-y-10 md:space-y-14 border-x border-dashed'
+        className='px-4 space-y-8 md:space-y-14 border-x border-dashed'
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
@@ -24,9 +25,9 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
             </span>
             <EdgeBlur />
           </Heading>
-          <Button variant="primary" buttonType="internal" className='hidden md:flex bg-black'>
-            Get Started
-          </Button>
+          {buttons && buttons.length > 0 && (
+            <ButtonRenderer buttons={buttons} />  
+          )}
         </div>
         <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {features?.map((feature: FeatureItem) => (

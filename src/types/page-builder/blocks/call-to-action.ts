@@ -1,3 +1,4 @@
+import { ButtonType } from '@/types/button';
 import type { PortableTextBlock } from '@portabletext/types';
 
 export type CallToActionBlockType = {
@@ -6,6 +7,7 @@ export type CallToActionBlockType = {
   _type: 'callToActionBlock';
   heading: string;
   content: PortableTextBlock;
+  buttons: ButtonType[];
   paddingTop: string;
   paddingBottom: string;
 }

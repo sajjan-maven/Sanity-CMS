@@ -18,6 +18,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'buttonObject' }],
+    }),
+    defineField({
       name: 'features',
       title: 'Features',
       type: 'array',

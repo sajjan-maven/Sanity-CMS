@@ -53,17 +53,10 @@ export default defineType({
       initialValue: 'straight',
     }),
     defineField({
-      name: 'showButton',
-      title: 'Show Button',
-      type: 'boolean',
-      initialValue: false
-    }),
-    defineField({
-      name: 'buttonPageReference',
-      title: 'Button Page Reference',
-      description: 'The page that the button will link to.',
-      type: 'reference',
-      to: [ ...pageReferenceTypes ]
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'buttonObject' }],
     }),
     ...paddingFields
   ],

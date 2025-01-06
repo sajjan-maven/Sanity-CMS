@@ -19,10 +19,15 @@ const buttonVariants = cva(
         default: "h-9 md:h-10",
         sm: "h-9 px-4",
       },
+      width: {
+        auto: "w-auto",
+        fullWidth: "w-full"
+      }
     },
     defaultVariants: {
       variant: "primary",
       size: "default",
+      width: "auto"
     },
   }
 )
@@ -33,6 +38,7 @@ export interface ButtonProps
       disableIcon?: boolean;
       pageReference?: string;
       externalUrl?: string;
+      buttonFileUrl?: string | { asset: { url: string } };
       buttonType?: 'internal' | 'external' | 'fileDownload';
     }
 
@@ -40,11 +46,13 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
   children, 
   className, 
   variant, 
+  size, 
+  width,
   disableIcon, 
   pageReference, 
   externalUrl, 
+  buttonFileUrl,
   buttonType, 
-  size, 
   ...props 
 }, ref) => {
 
@@ -52,7 +60,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
       <Link
         href={`/${pageReference}`}
         ref={ref}
-        className={cn('group', buttonVariants({ variant, size, className }))}
+        className={cn('group', buttonVariants({ variant, size, width, className }))}
         {...props}
       >
         {children} {!disableIcon && (<ButtonIcon />)}
@@ -63,7 +71,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
       <a 
         href={`${externalUrl}`}
         rel="noopener noreferrer" target="_blank"
-        className={cn('group', buttonVariants({ variant, size, className }))}
+        className={cn('group', buttonVariants({ variant, size, width, className }))}
       >
         {children} {!disableIcon && (<ButtonIcon />)}
       </a>
@@ -71,9 +79,9 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
 
     if (buttonType === 'fileDownload') return (
       <a 
-        href=""
-        download
-        className={cn('group', buttonVariants({ variant, size, className }))}
+        href={typeof buttonFileUrl === 'object' ? buttonFileUrl.asset.url : buttonFileUrl}
+        download rel="noopener noreferrer" target="_blank"
+        className={cn('group', buttonVariants({ variant, size, width, className }))}
       >
         {children} {!disableIcon && (<ButtonIcon />)}
       </a>

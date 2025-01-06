@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+import { buttonQuery } from "../fragments/misc";
 
 export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] {
   "navbar": {
@@ -30,9 +31,9 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
         "slug": slug.current
       },
     },
-    showSlideOutMenuCallToAction,
-    slideOutMenuCallToActionText,
-    slideOutMenuCallToActionPageReference
+    slideOutMenuButtons[] {
+      ${buttonQuery}
+    },
   },
   "footer": {
     footerColumns[] {

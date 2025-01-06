@@ -1,6 +1,6 @@
-import { Button } from "../ui/button";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
+import ButtonRenderer from "../shared/button-renderer";
 import AnimatedUnderline from "../ui/animated-underline";
 import { MenuItemType, NavigationSettingsType } from "@/types/navigation";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
@@ -16,9 +16,7 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
 
   const { 
     slideOutMenuItems: menuItems,
-    showSlideOutMenuCallToAction,
-    slideOutMenuCallToActionText,
-    slideOutMenuCallToActionPageReference 
+    slideOutMenuButtons
   } = settings;
 
   return(
@@ -52,15 +50,9 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
             </li>
           ))}
         </ul>
-        {showSlideOutMenuCallToAction && (
+        {slideOutMenuButtons && slideOutMenuButtons.length > 0 && (
           <div className='fixed bottom-1 right-0 w-[380px] px-4 pb-4'>
-            <Button 
-              variant="secondary" 
-              buttonType="internal" 
-              className='w-full py-6'
-            >
-              {slideOutMenuCallToActionText}
-            </Button> 
+            <ButtonRenderer buttons={slideOutMenuButtons} />  
           </div>
         )}
       </SheetContent>

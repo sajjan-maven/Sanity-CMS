@@ -17,6 +17,13 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      description: 'Buttons will be displayed below the main heading.',
+      of: [{ type: 'buttonObject' }],
+    }),
+    defineField({
       name: 'features',
       title: 'Features',
       type: 'array',

@@ -112,31 +112,13 @@ export default defineType({
       hidden: ({ parent }) => !parent.showSlideOutMenu
     }),
     defineField({
-      name: 'showSlideOutMenuCallToAction',
-      title: 'Show Call To Action',
-      type: 'boolean',
+      name: 'slideOutMenuButtons',
+      title: 'Buttons',
+      type: 'array',
       group: 'slideOutMenu',
       fieldset: 'slideOutMenu',
-      initialValue: false,
-      description: 'Display a call to action button in the footer of the slide-out menu.'
-    }),
-    defineField({
-      name: 'slideOutMenuCallToActionText',
-      title: 'Call To Action Text',
-      type: 'string',
-      group: 'slideOutMenu',
-      fieldset: 'slideOutMenu',
-      hidden: ({ parent }) => !parent.showSlideOutMenuCallToAction
-    }),
-    defineField({
-      name: 'slideOutMenuCallToActionPageReference',
-      title: 'Call To Action Page',
-      description: 'The page that the call to action button will link to.',
-      type: 'reference',
-      to: [ ...pageReferenceTypes ],
-      group: 'slideOutMenu',
-      fieldset: 'slideOutMenu',
-      hidden: ({ parent }) => !parent.showSlideOutMenuCallToAction
+      of: [{ type: 'buttonObject' }],
+      description: 'Display buttons in the footer of the slide-out menu.'
     }),
     defineField({
       name: 'footerColumns',

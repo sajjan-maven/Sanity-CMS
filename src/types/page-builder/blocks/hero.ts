@@ -1,3 +1,4 @@
+import { ButtonType } from '@/types/button';
 import type { PortableTextBlock } from '@portabletext/types';
 
 export type HeroBlockType = {
@@ -8,6 +9,7 @@ export type HeroBlockType = {
   content: PortableTextBlock;
   mediaType: 'image' | 'none';
   showBackButton: boolean;
+  buttons: ButtonType[];
   image: {
     asset: {
       url: string;

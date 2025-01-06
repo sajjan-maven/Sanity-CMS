@@ -5,9 +5,9 @@ import { cn } from '@/lib/utils';
 import { ServiceType } from '@/types/service';
 import Heading from '@/components/ui/heading';
 import Container from '@/components/global/container';
+import ButtonRenderer from '@/components/shared/button-renderer';
 import AnimatedUnderline from '@/components/ui/animated-underline';
 import { ServicesBlockType } from '@/types/page-builder/blocks/services';
-import { Button } from '@/components/ui/button';
 
 export default function ServicesBlock(props: ServicesBlockType) {
 
@@ -16,8 +16,7 @@ export default function ServicesBlock(props: ServicesBlockType) {
     services, 
     background, 
     topCornerRadius, 
-    showButton,
-    buttonPageReference,
+    buttons,
     paddingTop, 
     paddingBottom 
   } = props;
@@ -38,15 +37,10 @@ export default function ServicesBlock(props: ServicesBlockType) {
           <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
             {heading}
           </Heading>
-          {showButton && (
-            <Button 
-              variant="tertiary" 
-              size="default" 
-              buttonType="internal"
-              pageReference={buttonPageReference.slug}
-            >
-              Explore Services
-            </Button>
+          {buttons && buttons.length > 0 && (
+            <div className='hidden md:block'>
+              <ButtonRenderer buttons={buttons} />  
+            </div>
           )}
         </div>
         <ul className='grid md:grid-cols-3 gap-x-6 gap-y-10'>
@@ -56,6 +50,11 @@ export default function ServicesBlock(props: ServicesBlockType) {
             </li>
           ))}
         </ul>
+        {buttons && buttons.length > 0 && (
+          <div className='md:hidden pt-4'>
+            <ButtonRenderer buttons={buttons} />  
+          </div>
+        )}
       </Container>
     </section>
   )

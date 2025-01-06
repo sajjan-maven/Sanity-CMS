@@ -1,14 +1,15 @@
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 import Heading from '@/components/ui/heading';
-import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
+import ButtonRenderer from '@/components/shared/button-renderer';
 import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
 
 export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
   const { 
     heading, 
+    buttons,
     features, 
     enableBorderTop,
     cornerRadiusTop,
@@ -16,7 +17,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
     cornerRadiusBottom,
     paddingTop, 
     paddingBottom 
-  } = props
+  } = props;
 
   return (
     <section 
@@ -37,9 +38,9 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
             <Heading tag="h2" size="xl" className='-ml-3 relative px-4 text-balance leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
               {heading}
             </Heading>
-            <Button variant="tertiary" buttonType="internal">
-              Get Started
-            </Button>
+            {buttons && buttons.length > 0 && (
+              <ButtonRenderer buttons={buttons} />  
+            )}
           </div>
           <div className='col-span-12 xl:col-span-7'>
             <ul className='grid md:grid-cols-2 gap-y-3 md:gap-x-10'>

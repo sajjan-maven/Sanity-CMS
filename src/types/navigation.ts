@@ -1,3 +1,4 @@
+import { ButtonType } from "./button";
 import { PageType } from "./page";
 
 export type NavigationSettingsType = {
@@ -7,9 +8,7 @@ export type NavigationSettingsType = {
   slideOutMenu: {
     showSlideOutMenu: boolean;
     slideOutMenuItems: MenuItemType[];
-    showSlideOutMenuCallToAction: boolean;
-    slideOutMenuCallToActionText: string;
-    slideOutMenuCallToActionPageReference: PageType;
+    slideOutMenuButtons: ButtonType[];
   }
   footer: {
     footerColumns: {

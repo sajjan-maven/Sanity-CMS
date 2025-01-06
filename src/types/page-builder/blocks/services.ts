@@ -1,4 +1,4 @@
-import { PageType } from "@/types/page";
+import { ButtonType } from "@/types/button";
 import { ServiceType } from "@/types/service";
 
 export type ServicesBlockType = {
@@ -9,8 +9,7 @@ export type ServicesBlockType = {
   services: ServiceType[];
   background: 'white' | 'pattern';
   topCornerRadius: 'straight' | 'rounded';
-  showButton: boolean;
-  buttonPageReference: PageType;
+  buttons: ButtonType[];
   paddingTop: string;
   paddingBottom: string;
 }

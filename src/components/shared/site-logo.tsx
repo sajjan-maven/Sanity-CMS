@@ -15,8 +15,8 @@ export default function SiteLogo({ siteTitle, logo, location, theme }: {
   theme?: 'light' | 'dark';
 }) {
 
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <button 

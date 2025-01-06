@@ -1,13 +1,4 @@
-const baseQuery = `
-  _id,
-  _key,
-  _type
-`
-
-const paddingQuery = `
-  paddingTop,
-  paddingBottom
-`
+import { baseQuery, buttonQuery, paddingQuery } from "../misc";
 
 export const heroBlockQuery = `
   _type == "heroBlock" => {
@@ -17,6 +8,9 @@ export const heroBlockQuery = `
     content[],
     mediaType,
     bottomCornerRadius,
+    buttons[]{
+      ${buttonQuery}
+    },
     image { 
       asset->{ url }, 
       cornerRadius,
@@ -58,6 +52,9 @@ export const featureCardsBlockQuery = `
   _type == "featureCardsBlock" => {
     ${baseQuery},
     heading,
+    buttons[]{
+      ${buttonQuery}
+    },
     features[] {
       _key,
       title,
@@ -67,16 +64,7 @@ export const featureCardsBlockQuery = `
         asset->{ url },
       },
       button {
-        showButton,
-        buttonText,
-        buttonVariant,
-        buttonType,
-        buttonPageReference->{
-          _id,
-          title,
-          "slug": slug.current
-        },
-        buttonExternalUrl
+        ${buttonQuery}
       },
     },
     ${paddingQuery}
@@ -87,6 +75,9 @@ export const featuresMinimalBlockQuery = `
   _type == "featuresMinimalBlock" => {
     ${baseQuery},
     heading,
+    buttons[] {
+      ${buttonQuery}
+    },
     features,
     enableBorderTop,
     cornerRadiusTop,
@@ -101,6 +92,9 @@ export const callToActionBlockQuery = `
     ${baseQuery},
     heading,
     content,
+    buttons[] {
+      ${buttonQuery}
+    },
     ${paddingQuery}
   }
 `
@@ -223,11 +217,8 @@ export const servicesBlockQuery = `
       },
       "slug": slug.current,
     },
-    showButton,
-    buttonPageReference->{
-      _id,
-      title,
-      "slug": slug.current
+    buttons[]{
+      ${buttonQuery}
     },
     background,
     topCornerRadius,

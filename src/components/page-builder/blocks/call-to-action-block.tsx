@@ -1,12 +1,12 @@
 import Heading from '@/components/ui/heading';
-import { Button } from '@/components/ui/button';
 import Container from '@/components/global/container';
+import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 import { CallToActionBlockType } from '@/types/page-builder/blocks/call-to-action';
 
 export default function CallToActionBlock(props: CallToActionBlockType) {
 
-  const { heading, content, paddingTop, paddingBottom } = props
+  const { heading, content, buttons, paddingTop, paddingBottom } = props;
 
   return (
     <section className='xl:px-10 pattern-bg--2 border-t border-t-gray-200/60'>
@@ -25,16 +25,11 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
               classNames='mt-6 md:mt-8 text-balance text-gray-600'
             />
           </div>
-          <div>
-            <div className='flex items-center gap-3 mt-8 md:mt-10'>
-              <Button variant="primary" buttonType="internal">
-                View Demo
-              </Button>
-              <Button variant="outline" buttonType="internal">
-                View on GitHub
-              </Button>
+          {buttons && buttons.length > 0 && (
+            <div className='mt-8 md:mt-10'>
+              <ButtonRenderer buttons={buttons} />  
             </div>
-          </div>
+          )}
         </div>
       </Container>
     </section>

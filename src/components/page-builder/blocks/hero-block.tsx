@@ -1,15 +1,16 @@
+"use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Heading from '@/components/ui/heading';
-import { Button } from '@/components/ui/button';
 import BackButton from '@/components/ui/back-button';
 import Container from '@/components/global/container';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
+import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function HeroBlock(props: HeroBlockType) {
 
-  const { heading, content, mediaType, showBackButton, bottomCornerRadius, image } = props;
+  const { heading, content, mediaType, showBackButton, bottomCornerRadius, buttons, image } = props;
 
   return (
     <section 
@@ -42,26 +43,23 @@ export default function HeroBlock(props: HeroBlockType) {
               data={content}
               classNames='mt-3 md:text-lg md:text-balance text-gray-600'
             />
-            <div className='mt-8 md:mt-10 flex items-center gap-3'>
-              <Button variant="primary" buttonType="internal">
-                View Demo
-              </Button>
-              <Button variant="outline" buttonType="external" externalUrl='https://github.com/jamesreaco'>
-                Star on GitHub
-              </Button>
-            </div>
+            {buttons && buttons.length > 0 && (
+              <div className='mt-8 md:mt-10'>
+                <ButtonRenderer buttons={buttons} />  
+              </div>
+            )}
           </div>
         </div>
         {mediaType === 'image' && image && (
           <div className='p-4 md:p-6 rounded-3xl md:rounded-4xl border border-dashed'>
             <Image
-              src={image.asset.url}
+              src={image?.asset.url}
               width={1400}
               height={800}
-              alt={image.alt ?? ''}
+              alt={image?.alt ?? ''}
               className={cn('object-cover rounded-2xl md:rounded-3xl', {
-                'rounded-none': image.cornerRadius === 'straight',
-                'max-h-[30rem]': image.height === 'short'
+                'rounded-none': image?.cornerRadius === 'straight',
+                'max-h-[30rem]': image?.height === 'short'
               })}
             />
           </div>

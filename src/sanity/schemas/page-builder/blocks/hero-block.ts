@@ -95,6 +95,12 @@ export default defineType({
       ],
       hidden: ({ parent }) => parent?.mediaType !== 'image',
     }),
+    defineField({
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'buttonObject' }],
+    }),
   ],
   preview: {
     select: {
