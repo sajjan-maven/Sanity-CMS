@@ -7,7 +7,7 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function FormBlock(props: FormBlockType) {
 
-  const { heading, content, formFields, paddingTop, paddingBottom } = props;
+  const { heading, content, form, paddingTop, paddingBottom } = props;
 
   return (
     <section className='px-10 pattern-bg'>
@@ -24,7 +24,7 @@ export default function FormBlock(props: FormBlockType) {
             data={content}
             classNames='mt-8 md:text-xl text-balance text-center text-gray-600'
           />
-          <Form formFields={formFields} />
+          <Form form={form} />
         </div>
       </Container>
     </section>

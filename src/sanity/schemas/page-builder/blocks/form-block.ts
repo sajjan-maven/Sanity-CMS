@@ -29,46 +29,11 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'formFields',
-      title: 'Form Fields',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'name',
-              title: 'Name/Label',
-              type: 'string',
-            }),
-            defineField({
-              name: 'placeholder',
-              title: 'Placeholder',
-              type: 'string',
-            }),
-            defineField({
-              name: "inputType",
-              title: "Input Type",
-              type: "string",
-              options: {
-                list: [
-                  { title: "Text", value: "text" },
-                  { title: "Text Area", value: "textarea" },
-                  { title: "Email", value: "email" },
-                  { title: "Telephone", value: "tel" },
-                ],
-              },
-              initialValue: 'text',
-            }),
-            defineField({
-              name: 'isRequired',
-              title: 'Required',
-              type: 'boolean',
-              initialValue: false
-            }),
-          ],
-        },
-      ],
+      name: 'form',
+      title: 'Form',
+      type: 'reference',
+      to: [{ type: 'form' }],
+      validation: (Rule) => Rule.required(),
     }),
     ...paddingFields
   ],

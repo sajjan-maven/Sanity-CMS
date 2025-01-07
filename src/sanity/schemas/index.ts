@@ -34,11 +34,13 @@ import project from "./documents/project";
 import projectCategory from "./documents/project-category";
 import projectsPage from "./singletons/pages/projects-page";
 import formBlock from "./page-builder/blocks/form-block";
+import form from "./documents/form";
 
 const coreSchema = [
   page,
   post,
   author,
+  form,
   postCategory,
   generalSettings,
   navigationSettings,

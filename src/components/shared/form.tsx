@@ -1,14 +1,16 @@
 "use client"
 import { z } from 'zod';
 import { formatFieldId } from '@/lib/utils';
+import { FormField, FormType } from '@/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormRegister } from 'react-hook-form';
-import { FormBlockType, FormField } from '@/types/page-builder/blocks/form';
 
-export default function Form({ formFields }: { formFields: FormBlockType['formFields'] }) {
+export default function Form({ form }: { form: FormType; }) {
   
+  const { fields } = form;
+
   const formSchema = z.object(
-    formFields.reduce((acc, field) => {
+    fields.reduce((acc, field) => {
       let validator = z.string();
       if (field.isRequired) validator = validator.min(1, `${field.name} is required`);
       if (field.inputType === 'email') validator = validator.email('Invalid email address');
@@ -35,7 +37,7 @@ export default function Form({ formFields }: { formFields: FormBlockType['formFi
       onSubmit={handleSubmit(onSubmit)} 
       className="mt-10 w-full max-w-xl p-8 space-y-6 border backdrop-blur-sm rounded-3xl"
     >
-      {formFields.map((field) => (
+      {fields.map((field) => (
         <div key={field.name} className="space-y-2">
           <label htmlFor={formatFieldId(field.name)} className="text-sm font-medium">
             {field.name} {field.isRequired && <span className="text-red-500">*</span>}

@@ -1,3 +1,4 @@
+import { FormType } from '@/types/form';
 import type { PortableTextBlock } from '@portabletext/types';
 
 export type FormBlockType = {
@@ -6,16 +7,7 @@ export type FormBlockType = {
   _type: 'formBlock';
   heading: string;
   content: PortableTextBlock;
-  formFields: FormField[];
+  form: FormType;
   paddingTop: string;
   paddingBottom: string;
 }
-
-export type FormField = {
-  _key: string;
-  inputType: 'text' | 'email' | 'tel' | 'textarea';
-  name: string;
-  label: string;
-  placeholder: string;
-  isRequired: boolean;
-};

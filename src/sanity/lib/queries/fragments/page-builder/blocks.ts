@@ -231,7 +231,10 @@ export const formBlockQuery = `
     ${baseQuery},
     heading,
     content[],
-    formFields[],
+    form->{
+      title,
+      fields
+    },
     ${paddingQuery}
   }
 `
