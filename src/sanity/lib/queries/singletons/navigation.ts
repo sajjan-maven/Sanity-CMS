@@ -34,6 +34,21 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
     slideOutMenuButtons[] {
       ${buttonQuery}
     },
+    showCompanyDetailsSlideOutMenu,
+    "slideOutMenuSettings": *[_type == 'generalSettings'][0] {
+      companyEmailAddress,
+      companyPhoneNumber,
+      companySocialMediaLinks[] {
+        _key,
+        title,
+        profileUrl,
+        icon {
+          asset->{
+            url
+          }
+        }
+      }
+    }
   },
   "footer": {
     footerColumns[] {

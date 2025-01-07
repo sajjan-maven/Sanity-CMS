@@ -1,5 +1,6 @@
-import { ButtonType } from "./button";
 import { PageType } from "./page";
+import { ButtonType } from "./button";
+import { SettingsType } from "./settings";
 
 export type NavigationSettingsType = {
   navbar: {
@@ -9,6 +10,12 @@ export type NavigationSettingsType = {
     showSlideOutMenu: boolean;
     slideOutMenuItems: MenuItemType[];
     slideOutMenuButtons: ButtonType[];
+    showCompanyDetailsSlideOutMenu: boolean;
+    slideOutMenuSettings: {
+      companyEmailAddress: SettingsType['companyEmailAddress'];
+      companyPhoneNumber: SettingsType['companyPhoneNumber'];
+      companySocialMediaLinks: SettingsType['companySocialMediaLinks'];
+    };
   }
   footer: {
     footerColumns: {

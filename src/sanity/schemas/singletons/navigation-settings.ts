@@ -121,6 +121,15 @@ export default defineType({
       description: 'Display buttons in the footer of the slide-out menu.'
     }),
     defineField({
+      name: 'showCompanyDetailsSlideOutMenu',
+      title: 'Show Company Details',
+      type: 'boolean',
+      group: 'slideOutMenu',
+      fieldset: 'slideOutMenu',
+      description: 'When enabled, company details (email, phone & socials) added in general settings will be displayed in the slide-out menu below the menu items.',
+      initialValue: false
+    }),
+    defineField({
       name: 'footerColumns',
       title: 'Footer Columns',
       type: 'array',

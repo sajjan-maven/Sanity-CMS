@@ -8,4 +8,5 @@ export const fieldGroups = [
   { name: 'footer', title: 'Footer' },
   { name: 'layout', title: 'Layout' },
   { name: 'mobileMenu', title: 'Mobile Menu' },
+  { name: 'companyDetails', title: 'Company Details' },
 ]

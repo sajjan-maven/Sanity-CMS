@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
 import ButtonRenderer from "../shared/button-renderer";
@@ -16,7 +17,9 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
 
   const { 
     slideOutMenuItems: menuItems,
-    slideOutMenuButtons
+    slideOutMenuButtons,
+    slideOutMenuSettings,
+    showCompanyDetailsSlideOutMenu
   } = settings;
 
   return(
@@ -50,6 +53,37 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
             </li>
           ))}
         </ul>
+        {showCompanyDetailsSlideOutMenu && (
+          <>
+            <SheetTitle className='border-t border-dashed mt-8 px-0 pt-8 antialiased font-normal text-gray-400'>
+              Say Hello
+            </SheetTitle>
+            <ul className="mt-2 space-y-4">
+              <a 
+                href={`mailto:${slideOutMenuSettings.companyEmailAddress}`} 
+                className="relative w-fit block text-2xl tracking-tight group"
+              >
+                {slideOutMenuSettings.companyEmailAddress}
+                <AnimatedUnderline className='h-[2px]' />
+              </a>
+            </ul>
+            <ul className="mt-8 py-4 flex items-center gap-3 border-y border-dashed">
+              {slideOutMenuSettings.companySocialMediaLinks.map((item) => (
+                <li key={item._key} className="p-3 border rounded-full hover:bg-black group transition-all duration-300">
+                  <a href={item.profileUrl} target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={item.icon.asset.url}
+                      width={16}
+                      height={16}
+                      alt={`Follow us on ${item.title}`}
+                      className="group-hover:invert"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         {slideOutMenuButtons && slideOutMenuButtons.length > 0 && (
           <div className='fixed bottom-1 right-0 w-[380px] px-4 pb-4'>
             <ButtonRenderer buttons={slideOutMenuButtons} />  
