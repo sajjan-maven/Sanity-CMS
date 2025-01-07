@@ -61,3 +61,7 @@ export function copyToClipboard(id: string) {
   copyHeadingUrl(id);
   toast.success('Copied to clipboard');
 };
+
+export function formatFieldId(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}

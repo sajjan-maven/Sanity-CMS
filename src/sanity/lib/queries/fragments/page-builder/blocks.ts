@@ -225,3 +225,13 @@ export const servicesBlockQuery = `
     ${paddingQuery}
   }
 `
+
+export const formBlockQuery = `
+  _type == "formBlock" => {
+    ${baseQuery},
+    heading,
+    content[],
+    formFields[],
+    ${paddingQuery}
+  }
+`

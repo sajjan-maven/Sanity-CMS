@@ -33,6 +33,7 @@ import portableTextBlock from "./page-builder/blocks/portable-text-block";
 import project from "./documents/project";
 import projectCategory from "./documents/project-category";
 import projectsPage from "./singletons/pages/projects-page";
+import formBlock from "./page-builder/blocks/form-block";
 
 const coreSchema = [
   page,
@@ -63,7 +64,8 @@ const pageBuilderSchema = [
   callToActionBlock,
   logoBlock,
   testimonialBlock,
-  servicesBlock
+  servicesBlock,
+  formBlock
 ]
 
 const objectSchema = [

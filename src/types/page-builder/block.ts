@@ -8,6 +8,7 @@ import { FeatureCardsBlockType } from "./blocks/feature-cards";
 import { CallToActionBlockType } from "./blocks/call-to-action";
 import { ServicesBlockType } from "./blocks/services";
 import { PortableTextBlockType } from "./blocks/portable-text";
+import { FormBlockType } from "./blocks/form";
 
 export type BlockType = 
   HeroBlockType |
@@ -19,4 +20,5 @@ export type BlockType =
   LogoBlockType |
   CallToActionBlockType |
   TestimonialBlockType |
-  ServicesBlockType;
+  ServicesBlockType |
+  FormBlockType;

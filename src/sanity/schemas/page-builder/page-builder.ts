@@ -14,6 +14,7 @@ export const pageBuilder = defineType({
     { name: 'logoBlock', type: 'logoBlock' },
     { name: 'testimonialBlock', type: 'testimonialBlock' },
     { name: 'servicesBlock', type: 'servicesBlock' },
+    { name: 'formBlock', type: 'formBlock' },
   ],
   options: {
     insertMenu: {
@@ -36,7 +37,7 @@ export const pageBuilder = defineType({
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 'callToActionBlock', 'servicesBlock' ]
+          of: [ 'callToActionBlock', 'servicesBlock', 'formBlock' ]
         },
         {
           name: 'socialProof',
