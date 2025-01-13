@@ -1,14 +1,14 @@
 'use client'
 import Link from 'next/link';
 import { useRef } from 'react';
-import { PostType } from '@/types/post';
 import { Search, X } from 'lucide-react';
+import { ProjectType } from '@/types/project';
 import { Input } from '@/components/ui/input';
 import { useSearch } from '@/hooks/use-search';
 import { useClickOutside } from '@/hooks/use-click-outside';
 
-export function BlogSearch({ posts }: {
-  posts: PostType[];
+export function ProjectSearch({ projects }: {
+  projects: ProjectType[];
 }) {
 
   const {
@@ -17,7 +17,7 @@ export function BlogSearch({ posts }: {
     searchResults,
     isDropdownOpen,
     clearSearch
-  } = useSearch(posts);
+  } = useSearch(projects);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   useClickOutside(dropdownRef, clearSearch);
@@ -32,7 +32,7 @@ export function BlogSearch({ posts }: {
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
         <Input
           type="text"
-          placeholder="Search posts..."
+          placeholder="Search projects..."
           value={searchTerm}
           onChange={handleInputChange}
           className="h-10 pl-9 pr-10 w-full rounded-full shadow-none bg-gray-50 placeholder:text-gray-500"
@@ -51,12 +51,12 @@ export function BlogSearch({ posts }: {
       {isDropdownOpen && (
         <div className="absolute -left-8 max-h-[290px] overflow-y-scroll z-50 w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
-            {searchResults.map((post, index) => (
+            {searchResults.map((project, index) => (
               <>
-                <li key={post._id} className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-sm font-medium text-balance">{post.title}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{post.excerpt}</p>
+                <li key={project._id} className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
+                  <Link href={`/projects/${project.slug}`}>
+                    <h3 className="text-sm font-medium text-balance">{project.title}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{project.excerpt}</p>
                   </Link>
                 </li>
                 {index !== searchResults.length - 1 && (

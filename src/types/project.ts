@@ -5,7 +5,7 @@ export type ProjectType = {
   title: string;
   slug: string;
   category: ProjectCategoryType;
-  shortDescription: string;
+  excerpt: string;
   image: {
     asset: {
       url: string;

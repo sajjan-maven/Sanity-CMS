@@ -4,14 +4,17 @@ import Heading from '@/components/ui/heading';
 import { usePathname } from 'next/navigation';
 import ProjectCategories from './project-categories';
 import Container from '@/components/global/container';
-import { ProjectCategoryType } from '@/types/project';
+import { ProjectCategoryType, ProjectType } from '@/types/project';
+import ProjectToolbar from './project-toolbar';
 
 export default function ProjectsLayout({
   children,
-  categories
+  categories,
+  projects
 }: Readonly<{
   children: React.ReactNode;
   categories: ProjectCategoryType[];
+  projects: ProjectType[];
 }>) {
 
   const pathname = usePathname();
@@ -23,7 +26,7 @@ export default function ProjectsLayout({
           Projects
         </Heading>
         {(pathname === '/projects' || pathname.includes('/projects/category/')) && (
-          <ProjectCategories categories={categories} />
+          <ProjectToolbar categories={categories} projects={projects} />
         )}
         {children}
       </Container>

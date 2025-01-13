@@ -33,7 +33,7 @@ export const allProjectsQuery = groq`*[_type == 'project'] {
   _type,
   title,
   'slug': slug.current,
-  shortDescription,
+  excerpt,
   category->{
     _id,
     title,
@@ -62,7 +62,7 @@ export const projectsByCategoryQuery = groq`*[_type == 'project' && category->sl
   _createdAt,
   title,
   'slug': slug.current,
-  shortDescription,
+  excerpt,
   category->{
     _id,
     title,

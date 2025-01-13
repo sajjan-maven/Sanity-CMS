@@ -8,7 +8,7 @@ export default function ProjectCategories({ categories }: {
   categories: ProjectCategoryType[]
 }) {
   return (
-    <ul className='py-4 mt-16 mb-12 flex items-center justify-start gap-2 border-y border-dashed backdrop-blur-md backdrop-opacity-50'>
+    <ul className='flex items-center justify-start gap-2'>
       <li>
         <CategoryLink
           href={`/projects`}

@@ -9,7 +9,7 @@ export default function ProjectCard({ project }: {
   project: ProjectType;
 }) {
 
-  const { title, category, slug, shortDescription, image } = project;
+  const { title, category, slug, excerpt, image } = project;
 
   return (
     <article aria-label={title} className='relative group pb-10 border-b border-dashed'>
@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: {
           {title}   
         </Heading>
         <Excerpt>
-          {shortDescription}
+          {excerpt}
         </Excerpt>
       </Link>
       <AnimatedUnderline className='-translate-y-0.5' />

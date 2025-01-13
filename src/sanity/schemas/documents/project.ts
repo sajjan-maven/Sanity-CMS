@@ -33,10 +33,10 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
-      name: 'shortDescription',
-      title: 'Short Description',
+      name: 'excerpt',
+      title: 'Excerpt',
       type: 'text',
-      rows: 4
+      rows: 4  
     }),
     defineField({
       name: 'image',
