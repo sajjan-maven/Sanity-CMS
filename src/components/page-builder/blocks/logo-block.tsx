@@ -28,8 +28,8 @@ export default function LogoBlock(props: LogoBlockType) {
                     height={100}
                     src={item.image.asset.url}
                     alt={`${item.title} Logo` ?? ''}
-                    className={cn('w-20 md:w-32 object-contain', {
-                      'w-36 md:w-56': item.size === 'large'
+                    className={cn('w-20 md:w-28 object-contain', {
+                      'w-36 md:w-40': item.size === 'large'
                     })}
                   />  
                 </li>

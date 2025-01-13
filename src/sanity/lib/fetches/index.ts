@@ -4,13 +4,13 @@ import { PageType } from '@/types/page';
 import { sanityFetch } from './utils/sanity-fetch';
 import { PostCategoryType, PostType } from '@/types/post';
 import { NavigationSettingsType } from '@/types/navigation';
-import { pageBySlugQuery, servicesPageQuery } from '../queries/documents/page';
+import { pageBySlugQuery } from '../queries/documents/page';
 import { BlogSettingsType, SettingsType } from '@/types/settings';
 import { navigationSettingsQuery } from '../queries/singletons/navigation';
 import { blogSettingsQuery, generalSettingsQuery } from '../queries/singletons/settings';
 import { allPostCategoriesQuery, allPostsQuery, postBySlugQuery, postsByCategoryQuery } from '../queries/documents/post';
 import { ServiceType } from '@/types/service';
-import { allServicesQuery, serviceBySlugQuery } from '../queries/documents/service';
+import { allServicesQuery, serviceBySlugQuery, servicesPageQuery } from '../queries/documents/service';
 import { allProjectCategoriesQuery, allProjectsQuery, projectBySlugQuery, projectsByCategoryQuery } from '../queries/documents/project';
 import { ProjectCategoryType, ProjectType } from '@/types/project';
 

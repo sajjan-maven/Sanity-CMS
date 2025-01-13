@@ -132,7 +132,10 @@ function Category({ category }: {
       href={`/blog/category/${category.slug}`} 
       className='flex items-center gap-1 px-1.5 rounded-full bg-black'
     >
-      <span className='h-2 w-2 rounded bg-violet-300' />
+      <span 
+        className='h-2 w-2 rounded bg-violet-300' 
+        style={{ backgroundColor: category?.categoryColor?.value ?? '#FFFFFF' }} 
+      />
       <span className='pr-[1.5px] text-sm text-white'>
         {category.title}
       </span>

@@ -172,7 +172,8 @@ export const freeformBlockQuery = `
         buttonExternalUrl,
         spacing
       },
-    }
+    },
+    border
   }
 `
 
@@ -233,6 +234,7 @@ export const formBlockQuery = `
     content[],
     form->{
       title,
+      submitButtonText,
       fields
     },
     ${paddingQuery}

@@ -2,6 +2,14 @@ import { groq } from "next-sanity";
 import { seo } from "../fragments/seo";
 import { pageBuilder } from "../fragments/page-builder";
 
+export const projectsPageQuery = groq`*[_type == 'projectsPage'][0] {
+  _type,
+  title,
+  'slug': slug.current,
+  ${pageBuilder},
+  ${seo}
+}`
+
 export const projectPathsQuery = groq`*[_type == "project" && defined(slug.current)][] {
   'params': { 'slug': slug.current }
 }`;

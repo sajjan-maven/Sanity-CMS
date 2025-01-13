@@ -35,5 +35,6 @@ export type FreeformBlockType = {
       buttonExternalUrl?: string;
       spacing?: 'none' | 'small' | 'medium' | 'large';
     }[]
-  }[]
+  }[],
+  border: 'none' | 'topBottom' | 'top' | 'bottom';
 }

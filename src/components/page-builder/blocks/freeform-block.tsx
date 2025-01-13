@@ -8,11 +8,17 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
-  const { columnsPerRow, columns } = props;
+  const { columnsPerRow, columns, border } = props;
 
   return (
     <section className='px-4 md:px-10'>
-      <Container className='py-16 md:py-28 border-x border-dashed border-t'>
+      <Container
+        className={cn('py-16 md:py-28 border-x border-dashed', {
+          'border-y': border === 'topBottom',
+          'border-t': border === 'top',
+          'border-b': border === 'bottom',
+        })}
+      >
         <div 
           className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6', {
             'md:grid-cols-3': columnsPerRow === '3',

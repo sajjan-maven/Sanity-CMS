@@ -23,6 +23,11 @@ export default defineType({
         source: 'title',
       },
     }),
+    defineField({
+      name: 'pageBuilder',
+      title: 'Page Builder',
+      type: 'pageBuilder',
+    }),
     ...seoFields,
   ]
 })

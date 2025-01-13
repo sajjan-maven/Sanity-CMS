@@ -28,6 +28,12 @@ export default defineType({
       },
       validation: rule => rule.required()
     }),
+    defineField({
+      name: 'categoryColor',
+      title: 'Category color',
+      type: 'simplerColor',
+      description: 'Defaults to white.'
+    }),
     orderRankField({ 
       type: 'postCategory' 
     }),

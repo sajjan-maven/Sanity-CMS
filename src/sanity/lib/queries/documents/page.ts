@@ -13,11 +13,3 @@ export const pageBySlugQuery = groq`*[_type == 'page' && slug.current == $slug][
   ${pageBuilder},
   ${seo}
 }`
-
-export const servicesPageQuery = groq`*[_type == 'servicesPage'][0] {
-  _type,
-  title,
-  'slug': slug.current,
-  ${pageBuilder},
-  ${seo}
-}`

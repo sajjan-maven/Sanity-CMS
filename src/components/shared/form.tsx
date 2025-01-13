@@ -4,10 +4,11 @@ import { formatFieldId } from '@/lib/utils';
 import { FormField, FormType } from '@/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormRegister } from 'react-hook-form';
+import { ArrowRight } from 'lucide-react';
 
 export default function Form({ form }: { form: FormType; }) {
   
-  const { fields } = form;
+  const { fields, submitButtonText } = form;
 
   const formSchema = z.object(
     fields.reduce((acc, field) => {
@@ -52,9 +53,9 @@ export default function Form({ form }: { form: FormType; }) {
       ))}
       <button
         type="submit"
-        className="w-full px-6 py-3 text-white bg-blue-700 rounded-full hover:bg-blue-700"
+        className="group w-full flex items-center justify-between gap-2 px-6 py-3 rounded-full text-white bg-blue-700 hover:bg-blue-600 transition-all duration-300"
       >
-        Submit
+        <span className='font-medium'>{submitButtonText}</span> <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform duration-300' />
       </button>
     </form>
   )

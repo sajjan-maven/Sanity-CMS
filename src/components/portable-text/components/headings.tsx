@@ -18,7 +18,7 @@ export const portableTextHeadings = {
       <Heading 
         id={id} size="xl" tag="h2" 
         onClick={() => copyToClipboard(id)}
-        className='mt-12 flex items-center gap-3 group cursor-pointer'  
+        className='flex items-center gap-3 group cursor-pointer'  
       >
         {value.children[0].text}
         <LinkIcon />

@@ -3,6 +3,7 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from '@/sanity/schemas';
 import { structureTool } from 'sanity/structure';
 import { structure } from '@/sanity/config/structure';
+import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/config/sanity-api';
 
 const title = 'SiteEngine';
@@ -19,6 +20,7 @@ const config = defineConfig({
       structure
     }),
     visionTool(),
+    simplerColorInput()
   ],
   schema: { types: schemaTypes },
 })

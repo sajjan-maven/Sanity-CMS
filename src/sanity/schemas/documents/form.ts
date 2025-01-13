@@ -13,13 +13,19 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Form Title',
+      type: 'string',
+      validation: rule => rule.required()
+    }),
+    defineField({
+      name: 'submitButtonText',
+      title: 'Submit Button Text',
       type: 'string',
       validation: rule => rule.required()
     }),
     defineField({
       name: 'fields',
-      title: 'Fields',
+      title: 'Form Fields',
       type: 'array',
       of: [
         {

@@ -101,6 +101,21 @@ export default defineType({
         ],
       }]
     }),
+    defineField({
+      title: "Border",
+      name: "border",
+      type: "string",
+      description: 'Display a border to seperate this block with blocks above and below.',
+      options: {
+        list: [
+          { title: "None", value: "none" },
+          { title: "Top & Bottom", value: "topBottom" },
+          { title: "Top Only", value: "top" },
+          { title: "Bottom Only", value: "bottom" },
+        ],
+      },
+      initialValue: 'none',
+    }),
   ],
   preview: {
     select: {

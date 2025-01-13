@@ -34,5 +34,8 @@ export type PostType = {
 export type PostCategoryType = {
   _id: string;
   title: string;
+  categoryColor: {
+    value: string;
+  };
   slug: string;
 }

@@ -23,7 +23,7 @@ export default function CallToAction({ data }: {
         </p>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <Button variant="primary" buttonType="internal">
+        <Button variant="primary" buttonType="internal" className="decoration-transparent">
           Get Started
         </Button>
       </div>

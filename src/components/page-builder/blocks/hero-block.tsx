@@ -34,7 +34,7 @@ export default function HeroBlock(props: HeroBlockType) {
             })}
           >
             {showBackButton && <BackButton />}
-            <Heading size="xxxl" tag="h1" className='md:max-w-[40rem] text-balance'>
+            <Heading size="xxxl" tag="h1" className='md:max-w-[40rem] text-balance leading-tight'>
               {heading}
             </Heading>
           </div>

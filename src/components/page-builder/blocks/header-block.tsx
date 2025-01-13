@@ -10,18 +10,18 @@ export default function HeaderBlock(props: HeaderBlockType) {
 
   return (
     <section 
-      className={cn('px-10 pattern-bg border-b', {
+      className={cn('px-4 md:px-10 pattern-bg border-b', {
         'rounded-4xl': bottomCornerRadius === 'rounded'
       })}
     >
       <Container className='border-x border-dashed'>
-        <div className='pt-52 pb-20 md:pb-36'>
+        <div className='pt-36 md:pt-52 pb-20 md:pb-36'>
           <Heading tag="h1" size="xxl" className='text-balance leading-normal'>
             {heading}
           </Heading>
           <PortableTextEditor 
             data={content}
-            classNames='mt-8 md:text-xl text-balance text-gray-600'
+            classNames='mt-6 md:mt-8 md:text-xl text-balance text-gray-600'
           />
         </div>
       </Container>

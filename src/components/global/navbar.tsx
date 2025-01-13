@@ -27,7 +27,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
 
   const { navbarMenuItems } = navigationSettings['navbar'];
   const { showSlideOutMenu } = navigationSettings['slideOutMenu'];
-
+  
   return (
     <header 
       className={cn('z-20 fixed top-0 left-0 w-full py-6 rounded-b-xl border-b border-b-gray-100 bg-white/80 backdrop-blur-lg transition-all duration-300 ease-in-out', {

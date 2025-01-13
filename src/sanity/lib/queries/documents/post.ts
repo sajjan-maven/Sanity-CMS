@@ -13,6 +13,9 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
   category->{
     _id,
     title,
+    categoryColor {
+      value
+    },
     'slug': slug.current,
   },
   author->{
@@ -41,6 +44,9 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
       category->{
         _id,
         title,
+        categoryColor->{
+          value
+        },
         'slug': slug.current,
       },
       author->{
@@ -66,6 +72,9 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
       category->{
         _id,
         title,
+        categoryColor->{
+          value
+        },
         'slug': slug.current,
       },
       author->{
