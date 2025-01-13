@@ -1,17 +1,19 @@
 "use client"
 import React from 'react';
+import BlogToolbar from './blog-toolbar';
 import Heading from '@/components/ui/heading';
 import { usePathname } from 'next/navigation';
-import PostCategories from './post-categories';
-import { PostCategoryType } from '@/types/post';
 import Container from '@/components/global/container';
+import { PostCategoryType, PostType } from '@/types/post';
 
 export default function BlogLayout({
   children,
-  categories
+  categories,
+  posts
 }: Readonly<{
   children: React.ReactNode;
   categories: PostCategoryType[];
+  posts: PostType[];
 }>) {
 
   const pathname = usePathname();
@@ -23,7 +25,7 @@ export default function BlogLayout({
           Blog
         </Heading>
         {(pathname === '/blog' || pathname.includes('/blog/category/')) && (
-          <PostCategories categories={categories} />
+          <BlogToolbar categories={categories} posts={posts} />
         )}
         {children}
       </Container>

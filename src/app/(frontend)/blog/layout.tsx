@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogLayout from './_components/blog-layout';
-import { fetchPostCategories } from '@/sanity/lib/fetches';
+import { fetchAllPosts, fetchPostCategories } from '@/sanity/lib/fetches';
 
 export const revalidate = 0;
 
@@ -11,9 +11,10 @@ export default async function BlogArchiveLayout({
 }>) {
   
   const categories = await fetchPostCategories();
+  const posts = await fetchAllPosts();
   
   return (
-    <BlogLayout categories={categories}>
+    <BlogLayout categories={categories} posts={posts}>
       {children}
     </BlogLayout>
   )
