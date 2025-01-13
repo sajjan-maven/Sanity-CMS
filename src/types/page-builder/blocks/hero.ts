@@ -19,4 +19,5 @@ export type HeroBlockType = {
     alt: string;
   };
   bottomCornerRadius: 'rounded' | 'straight';
+  anchorId?: string;
 }

@@ -10,6 +10,7 @@ export type ServicesBlockType = {
   background: 'white' | 'pattern';
   topCornerRadius: 'straight' | 'rounded';
   buttons: ButtonType[];
+  anchorId?: string;
   paddingTop: string;
   paddingBottom: string;
 }

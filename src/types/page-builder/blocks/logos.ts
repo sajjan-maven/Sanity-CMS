@@ -14,4 +14,5 @@ export type LogoBlockType = {
     size: 'default' | 'large';
     link?: string;
   }[];
+  anchorId?: string;
 }

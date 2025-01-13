@@ -37,4 +37,5 @@ export type FreeformBlockType = {
     }[]
   }[],
   border: 'none' | 'topBottom' | 'top' | 'bottom';
+  anchorId?: string;
 }

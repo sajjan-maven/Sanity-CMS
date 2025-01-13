@@ -34,6 +34,11 @@ export default defineType({
       type: 'array',
       of: [{ type: 'buttonObject' }],
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

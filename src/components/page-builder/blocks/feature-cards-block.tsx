@@ -9,10 +9,13 @@ import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/
 
 export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 
-  const { heading, buttons, features, paddingTop, paddingBottom } = props;
+  const { heading, buttons, features, anchorId, paddingTop, paddingBottom } = props;
 
   return (
-    <section className='px-4 xl:px-10'>
+    <section 
+      {...(anchorId ? { id: anchorId } : {})}
+      className='px-4 xl:px-10'
+    >
       <Container 
         className='px-4 space-y-8 md:space-y-14 border-x border-dashed'
         paddingTop={paddingTop}

@@ -17,12 +17,14 @@ export default function ServicesBlock(props: ServicesBlockType) {
     background, 
     topCornerRadius, 
     buttons,
+    anchorId,
     paddingTop, 
     paddingBottom 
   } = props;
 
   return (
     <section 
+      {...(anchorId ? { id: anchorId } : {})}
       className={cn('px-4 xl:px-10', {
         'pattern-bg': background === 'pattern',
         'rounded-t-4xl border-t border-t-gray-200/60': topCornerRadius === 'rounded'

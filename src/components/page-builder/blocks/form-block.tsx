@@ -7,23 +7,30 @@ import PortableTextEditor from '@/components/portable-text/portable-text-editor'
 
 export default function FormBlock(props: FormBlockType) {
 
-  const { heading, content, form, paddingTop, paddingBottom } = props;
+  const { heading, content, form, anchorId, paddingTop, paddingBottom } = props;
 
   return (
-    <section className='px-10 pattern-bg'>
+    <section 
+      {...(anchorId ? { id: anchorId } : {})} 
+      className='px-4 xl:px-10 pattern-bg'
+    >
       <Container 
         className='border-x border-dashed'
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <div className='flex flex-col justify-center items-center'>
-          <Heading tag="h2" size="xxl" className='text-balance text-center leading-normal'>
-            {heading}
-          </Heading>
-          <PortableTextEditor 
-            data={content}
-            classNames='mt-8 md:text-xl text-balance text-center text-gray-600'
-          />
+        <div className='flex flex-col justify-center items-center gap-4 md:gap-6'>
+          {heading && (
+            <Heading tag="h2" size="xxl" className='text-balance text-center leading-normal'>
+              {heading}
+            </Heading>
+          )}
+          {content && (
+            <PortableTextEditor 
+              data={content}
+              classNames='mb-4 md:text-xl text-balance text-center text-gray-600'
+            />
+          )}
           <Form form={form} />
         </div>
       </Container>

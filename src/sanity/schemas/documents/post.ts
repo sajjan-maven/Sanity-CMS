@@ -53,7 +53,7 @@ export default defineType({
       type: 'array',
       of: [
         { type: 'block' },
-        { type: 'callToActionObject' }
+        { type: 'callToActionObject' },
       ],
     }),
     defineField({

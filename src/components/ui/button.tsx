@@ -1,7 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
-import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { cn, getAnchorHref } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
@@ -38,8 +38,11 @@ export interface ButtonProps
       disableIcon?: boolean;
       pageReference?: string;
       externalUrl?: string;
-      buttonFileUrl?: string | { asset: { url: string } };
-      buttonType?: 'internal' | 'external' | 'fileDownload';
+      fileUrl?: string | { asset: { url: string } };
+      buttonType?: 'internal' | 'anchor' | 'external' | 'fileDownload' | 'emailAddress';
+      emailAddress?: string;
+      anchorLocation?: 'currentPage' | 'choosePage';
+      anchorId?: string;
     }
 
 const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({ 
@@ -51,44 +54,73 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
   disableIcon, 
   pageReference, 
   externalUrl, 
-  buttonFileUrl,
+  emailAddress,
+  fileUrl,
   buttonType, 
+  anchorLocation,
+  anchorId,
   ...props 
 }, ref) => {
 
-    if (buttonType === 'internal') return (
-      <Link
-        href={`/${pageReference}`}
-        ref={ref}
-        className={cn('group', buttonVariants({ variant, size, width, className }))}
-        {...props}
-      >
-        {children} {!disableIcon && (<ButtonIcon />)}
-      </Link>
-    )
-
-    if (buttonType === 'external') return (
-      <a 
-        href={`${externalUrl}`}
-        rel="noopener noreferrer" target="_blank"
-        className={cn('group', buttonVariants({ variant, size, width, className }))}
-      >
-        {children} {!disableIcon && (<ButtonIcon />)}
-      </a>
-    )
-
-    if (buttonType === 'fileDownload') return (
-      <a 
-        href={typeof buttonFileUrl === 'object' ? buttonFileUrl.asset.url : buttonFileUrl}
-        download rel="noopener noreferrer" target="_blank"
-        className={cn('group', buttonVariants({ variant, size, width, className }))}
-      >
-        {children} {!disableIcon && (<ButtonIcon />)}
-      </a>
-    )
-    
+  switch (buttonType) {
+    case 'internal':
+      return (
+        <Link
+          href={`/${pageReference}`}
+          ref={ref}
+          className={cn('group', buttonVariants({ variant, size, width, className }))}
+          {...props}
+        >
+          {children} {!disableIcon && (<ButtonIcon />)}
+        </Link>
+      );
+    case 'anchor':
+      return (
+        <Link
+          href={getAnchorHref({ 
+            anchorLocation, 
+            anchorId, 
+            pageReference 
+          })}
+          ref={ref}
+          className={cn('group', buttonVariants({ variant, size, width, className }))}
+          {...props}
+        >
+          {children} {!disableIcon && (<ButtonIcon />)}
+        </Link>
+      );
+    case 'external':
+      return (
+        <a 
+          href={`${externalUrl}`}
+          rel="noopener noreferrer" target="_blank"
+          className={cn('group', buttonVariants({ variant, size, width, className }))}
+        >
+          {children} {!disableIcon && (<ButtonIcon />)}
+        </a>
+      );
+    case 'fileDownload':
+      return (
+        <a 
+          href={typeof fileUrl === 'object' ? fileUrl.asset.url : fileUrl}
+          download rel="noopener noreferrer" target="_blank"
+          className={cn('group', buttonVariants({ variant, size, width, className }))}
+        >
+          {children} {!disableIcon && (<ButtonIcon />)}
+        </a>
+      );
+    case 'emailAddress':
+      return (
+        <a 
+          href={`mailto:${emailAddress}`}
+          rel="noopener noreferrer" target="_blank"
+          className={cn('group', buttonVariants({ variant, size, width, className }))}
+        >
+          {children} {!disableIcon && (<ButtonIcon />)}
+        </a>
+      );
   }
-)
+});
 
 Button.displayName = "Button";
 

@@ -36,7 +36,7 @@ export default function Form({ form }: { form: FormType; }) {
   return(
     <form 
       onSubmit={handleSubmit(onSubmit)} 
-      className="mt-10 w-full max-w-xl p-8 space-y-6 border backdrop-blur-sm rounded-3xl"
+      className="w-full max-w-xl p-8 space-y-6 border backdrop-blur-sm rounded-3xl"
     >
       {fields.map((field) => (
         <div key={field.name} className="space-y-2">
@@ -75,7 +75,7 @@ function FieldRenderer({ field, register }: {
           {...register(field.name)}
           type={field.inputType}
           placeholder={field.placeholder}
-          className="w-full px-4 py-2 border rounded-md"
+          className="w-full px-4 py-2 border rounded-md bg-gray-50/60"
         />
       );
     case 'textarea':
@@ -85,7 +85,7 @@ function FieldRenderer({ field, register }: {
           {...register(field.name)}
           placeholder={field.placeholder}
           rows={4}
-          className="w-full px-4 py-2 border rounded-lg"
+          className="w-full px-4 py-2 border rounded-lg bg-gray-50/60"
         />
       );
     default:

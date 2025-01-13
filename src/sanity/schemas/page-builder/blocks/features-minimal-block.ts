@@ -66,6 +66,11 @@ export default defineType({
       initialValue: 'rounded',
       hidden: ({ parent }) => parent?.enableBorderBottom === false,
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

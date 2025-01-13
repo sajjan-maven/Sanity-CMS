@@ -17,6 +17,7 @@ export const heroBlockQuery = `
       altText,
       height 
     },
+    anchorId
   }
 `
 
@@ -26,6 +27,7 @@ export const headerBlockQuery = `
     heading,
     content[],
     bottomCornerRadius,
+    anchorId
   }
 `
 
@@ -44,7 +46,8 @@ export const featureBlockQuery = `
         title,
         "slug": slug.current
       },
-    }
+    },
+    anchorId
   }
 `
 
@@ -67,6 +70,7 @@ export const featureCardsBlockQuery = `
         ${buttonQuery}
       },
     },
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -83,6 +87,7 @@ export const featuresMinimalBlockQuery = `
     cornerRadiusTop,
     enableBorderBottom,
     cornerRadiusBottom,
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -95,6 +100,7 @@ export const callToActionBlockQuery = `
     buttons[] {
       ${buttonQuery}
     },
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -111,7 +117,8 @@ export const logoBlockQuery = `
       },
       size,
       link
-    }
+    },
+    anchorId
   }
 `
 export const testimonialBlockQuery = `
@@ -132,6 +139,7 @@ export const testimonialBlockQuery = `
         asset->{ url }, 
       },
     },
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -173,6 +181,7 @@ export const freeformBlockQuery = `
         spacing
       },
     },
+    anchorId,
     border
   }
 `
@@ -183,6 +192,7 @@ export const portableTextBlockQuery = `
     title,
     content[],
     alignment,
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -196,6 +206,7 @@ export const blogArchiveBlockQuery = `
       title,
       "slug": slug.current,
     },
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -223,6 +234,7 @@ export const servicesBlockQuery = `
     },
     background,
     topCornerRadius,
+    anchorId,
     ${paddingQuery}
   }
 `
@@ -237,6 +249,7 @@ export const formBlockQuery = `
       submitButtonText,
       fields
     },
+    anchorId,
     ${paddingQuery}
   }
 `

@@ -15,12 +15,14 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
     cornerRadiusTop,
     enableBorderBottom,
     cornerRadiusBottom,
+    anchorId,
     paddingTop, 
     paddingBottom 
   } = props;
 
   return (
-    <section 
+    <section
+      {...(anchorId ? { id: anchorId } : {})} 
       className={cn('px-4 xl:px-10', {
         'border-t': enableBorderTop,
         'rounded-t-4xl': cornerRadiusTop,

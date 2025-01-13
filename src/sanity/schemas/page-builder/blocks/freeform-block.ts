@@ -116,6 +116,11 @@ export default defineType({
       },
       initialValue: 'none',
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

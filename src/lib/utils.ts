@@ -65,3 +65,16 @@ export function copyToClipboard(id: string) {
 export function formatFieldId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-');
 }
+
+export function getAnchorHref(params: {
+  anchorLocation?: 'currentPage' | 'choosePage';
+  anchorId?: string;
+  pageReference?: string;
+}) {
+
+  const { anchorLocation, anchorId, pageReference } = params;
+  
+  return anchorLocation === 'currentPage'
+    ? `#${anchorId}`
+    : `/${pageReference}#${anchorId}`;
+}

@@ -8,6 +8,7 @@ export type CallToActionBlockType = {
   heading: string;
   content: PortableTextBlock;
   buttons: ButtonType[];
+  anchorId?: string;
   paddingTop: string;
   paddingBottom: string;
 }

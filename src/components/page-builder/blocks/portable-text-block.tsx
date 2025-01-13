@@ -6,10 +6,13 @@ import { PortableTextBlockType } from '@/types/page-builder/blocks/portable-text
 
 export default function PortableTextBlock(props: PortableTextBlockType) {
 
-  const { content, alignment, paddingTop, paddingBottom } = props;
+  const { content, alignment, anchorId, paddingTop, paddingBottom } = props;
 
   return (
-    <section className='px-4 md:px-10'>
+    <section 
+      {...(anchorId ? { id: anchorId } : {})}
+      className='px-4 md:px-10'
+    >
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}

@@ -7,4 +7,5 @@ export type HeaderBlockType = {
   heading: string;
   content: PortableTextBlock;
   bottomCornerRadius: 'rounded' | 'straight';
+  anchorId?: string;
 }

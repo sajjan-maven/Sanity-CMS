@@ -8,10 +8,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 export default function TestimonialBlock(props: TestimonialBlockType) {
 
-  const { heading, eyebrow, testimonials, paddingTop, paddingBottom } = props;
+  const { heading, eyebrow, testimonials, anchorId, paddingTop, paddingBottom } = props;
 
   return (
-    <section className='pb-10 md:pb-0 xl:px-10 pattern-bg border-y border-dashed rounded-3xl'>
+    <section 
+      {...(anchorId ? { id: anchorId } : {})}
+      className='pb-10 md:pb-0 xl:px-10 pattern-bg border-y border-dashed rounded-3xl'
+    >
       <Container 
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}

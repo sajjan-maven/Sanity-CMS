@@ -24,5 +24,8 @@ export const buttonQuery = `
     title,
     "slug": slug.current
   },
-  buttonExternalUrl
+  buttonEmailAddress,
+  buttonExternalUrl,
+  buttonAnchorLocation,
+  buttonAnchorId
 `

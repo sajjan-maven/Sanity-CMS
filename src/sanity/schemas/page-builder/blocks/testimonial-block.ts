@@ -28,6 +28,11 @@ export default defineType({
       of: [{ type: 'reference', to: [{ type: 'testimonial' }] }],
       description: 'Select testimonials to display.'
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

@@ -5,12 +5,15 @@ import { cn } from '@/lib/utils';
 
 export default function LogoBlock(props: LogoBlockType) {
 
-  const { heading, logos } = props;
+  const { heading, logos, anchorId } = props;
   
   const items = [...logos, ...logos];
   
   return (
-    <section className='border-b'>
+    <section 
+      {...(anchorId ? { id: anchorId } : {})}
+      className='border-b'
+    >
       <Container className='px-0'>
         <div className='py-10 md:py-20 border-x border-x-slate-200/60 border-dashed bg-slate-50'>
           <div className='relative w-fit mx-auto py-2 px-10 mt-5 bg-white pattern-bg border-y border-y-gray-100'>

@@ -63,6 +63,11 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

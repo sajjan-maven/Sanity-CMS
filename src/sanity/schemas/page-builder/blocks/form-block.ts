@@ -35,6 +35,11 @@ export default defineType({
       to: [{ type: 'form' }],
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

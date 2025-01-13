@@ -37,6 +37,11 @@ export default defineType({
       components: { input: AlignmentInput },
       initialValue: 'center',
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
     ...paddingFields
   ],
   preview: {

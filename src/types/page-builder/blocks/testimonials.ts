@@ -5,6 +5,7 @@ export type TestimonialBlockType = {
   heading: string;
   eyebrow: string;
   testimonials: TestimonialType[];
+  anchorId?: string;
   paddingTop: string;
   paddingBottom: string;
 }

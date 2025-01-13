@@ -7,6 +7,7 @@ export type FeatureCardsBlockType = {
   heading: string;
   buttons: ButtonType[];
   features: FeatureItem[];
+  anchorId?: string;
   paddingTop: string;
   paddingBottom: string;
 }

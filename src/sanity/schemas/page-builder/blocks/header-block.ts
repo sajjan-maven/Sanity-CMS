@@ -39,6 +39,11 @@ export default defineType({
       },
       initialValue: 'straight',
     }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

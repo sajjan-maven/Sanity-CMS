@@ -5,10 +5,13 @@ export type ButtonType = {
   showButton?: boolean;
   buttonText?: string;
   buttonVariant?: 'primary' | 'underline' | 'outline' | 'tertiary' | 'underline';
-  buttonType: 'internal' | 'external' | 'fileDownload';
+  buttonType: 'internal' | 'anchor' | 'external' | 'fileDownload' | 'emailAddress';
   buttonWidth: 'auto' | 'fullWidth';
   buttonPageReference?: PageType;
+  buttonAnchorLocation?: 'currentPage' | 'choosePage';
+  buttonAnchorId?: string;
   buttonExternalUrl?: string;
+  buttonEmailAddress?: string;
   buttonFileUrl?: {
     asset: {
       url: string;
