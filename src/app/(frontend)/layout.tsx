@@ -1,8 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity";
 import ClientLayout from "@/components/global/client-layout";
 import { sanityFetch, SanityLive } from "@/sanity/config/live";
+import { DisableDraftMode } from "@/components/global/disable-draft-mode";
 import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
 
@@ -47,6 +50,12 @@ export default async function RootLayout({
           {children}
         </ClientLayout>
         <SanityLive />
+        {(await draftMode()).isEnabled && (
+          <>
+            <DisableDraftMode />
+            <VisualEditing />
+          </>
+        )}
       </body>
     </html>
   );

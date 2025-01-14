@@ -3,6 +3,8 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from '@/sanity/schemas';
 import { structureTool } from 'sanity/structure';
 import { structure } from '@/sanity/config/structure';
+import { presentationTool } from 'sanity/presentation';
+import { resolve } from '@/sanity/presentation/resolve';
 import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/config/sanity-api';
 
@@ -18,6 +20,14 @@ const config = defineConfig({
   plugins: [
     structureTool({
       structure
+    }),
+    presentationTool({
+      resolve,
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
     }),
     visionTool(),
     simplerColorInput()
