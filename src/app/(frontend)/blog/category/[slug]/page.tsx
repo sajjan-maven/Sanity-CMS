@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import PostGrid from '../../_components/post-grid';
 import { postsByCategoryQuery } from '@/sanity/lib/queries/documents/post';
 

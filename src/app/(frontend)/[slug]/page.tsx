@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
-import { client } from '@/sanity/config/sanity-client';
+import { client } from '@/sanity/lib/sanity-client';
 import { pageBySlugQuery, pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 
 export async function generateStaticParams() {

@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import ProjectGrid from './_components/project-grid';
 import { allProjectsQuery } from '@/sanity/lib/queries/documents/project';
 

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
 import { servicesPageQuery } from '@/sanity/lib/queries/documents/service';
 

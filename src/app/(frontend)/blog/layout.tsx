@@ -1,6 +1,6 @@
 import React from 'react';
+import { sanityFetch } from '@/sanity/lib/live';
 import BlogLayout from './_components/blog-layout';
-import { sanityFetch } from '@/sanity/config/live';
 import { allPostCategoriesQuery, allPostsQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function BlogArchiveLayout({

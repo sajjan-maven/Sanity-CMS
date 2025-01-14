@@ -1,5 +1,5 @@
 import PostGrid from './_components/post-grid';
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import { allPostsQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function BlogArchivePage() {

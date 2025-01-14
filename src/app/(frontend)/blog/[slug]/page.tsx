@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import PostContent from '../_components/post-content';
 import RelatedPosts from '../_components/related-posts';
 import { postBySlugQuery } from '@/sanity/lib/queries/documents/post';

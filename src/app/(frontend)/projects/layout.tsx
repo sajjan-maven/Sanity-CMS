@@ -1,5 +1,5 @@
 import React from 'react';
-import { sanityFetch } from '@/sanity/config/live';
+import { sanityFetch } from '@/sanity/lib/live';
 import ProjectsLayout from './_components/projects-layout';
 import { allProjectCategoriesQuery, allProjectsQuery } from '@/sanity/lib/queries/documents/project';
 
