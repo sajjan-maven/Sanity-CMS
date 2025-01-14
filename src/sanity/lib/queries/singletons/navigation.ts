@@ -8,11 +8,13 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
       title,
       pageReference->{
         _id,
+        _type,
         title,
         "slug": slug.current
       },
       pageReferences[]->{
         _id,
+        _type,
         title,
         "slug": slug.current
       },
@@ -25,6 +27,7 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
     slideOutMenuItems[] {
       _key,
       title,
+      _type,
       pageReference->{
         _id,
         title,

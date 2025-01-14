@@ -1,6 +1,6 @@
+import toast from "react-hot-toast";
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import toast from "react-hot-toast";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -77,4 +77,25 @@ export function getAnchorHref(params: {
   return anchorLocation === 'currentPage'
     ? `#${anchorId}`
     : `/${pageReference}#${anchorId}`;
+}
+
+export function getPageHref(page: { slug: string; _type?: string }) {
+  return `/${page._type ? `${page._type}/` : ''}${page.slug}`;
+}
+
+export function resolveHref(documentType?: string, slug?: string): string | undefined {
+  switch (documentType) {
+    case 'home':
+      return '/';
+    case 'page':
+      return slug ? `/${slug}` : undefined;
+    case 'service':
+      return slug ? `/services/${slug}` : undefined;
+    case 'project':
+      return slug ? `/projects/${slug}` : undefined;
+    case 'post':
+      return slug ? `/blog/${slug}` : undefined;
+    default:
+      return `/${slug}`;
+  }
 }

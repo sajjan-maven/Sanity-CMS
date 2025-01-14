@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import Container from './container';
 import { Button } from '../ui/button';
 import { PageType } from '@/types/page';
@@ -7,6 +6,7 @@ import useScroll from '@/hooks/use-scroll';
 import SiteLogo from '../shared/site-logo';
 import SlideOutMenu from './slide-out-menu';
 import { usePathname } from 'next/navigation';
+import { cn, resolveHref } from '@/lib/utils';
 import AnimatedText from '../ui/animated-text';
 import { SettingsType } from '@/types/settings';
 import { ChevronRight, Menu } from 'lucide-react';
@@ -52,7 +52,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                             {item.pageReferences?.map((page: PageType) => (
                               <Link 
                                 key={page.slug} 
-                                href={`/${page.slug}`} 
+                                href={resolveHref(page._type, page.slug) ?? '/'}
                                 className='group py-1 pl-3 pr-2 flex items-center justify-between gap-2 rounded-md border border-dashed hover:bg-gray-50'
                               >
                                 {page.title}
@@ -67,7 +67,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       ): (
                         <NavigationMenuItem key={item._key}>
                           <Link 
-                            href={`/${item.pageReference.slug}`}
+                            href={resolveHref(item?.pageReference?._type, item?.pageReference?.slug) ?? '/'}
                             className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
                               'hover:underline underline-offset-[38px]': !item.isButton,
                               'py-2 px-4 rounded-full text-white bg-blue-600': item.isButton,

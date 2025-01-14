@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { resolveHref } from "@/lib/utils";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
 import ButtonRenderer from "../shared/button-renderer";
@@ -43,7 +44,9 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
             <li key={item?._key}>
               <SheetClose>
                 <button 
-                  onClick={() => router.push(item?.pageReference?.slug)}
+                  onClick={() => (
+                    router.push(resolveHref(item.pageReference._type, item.pageReference.slug) ?? '/')
+                  )}
                   className='relative block text-3xl tracking-tight group'
                 >
                   {item.title}
