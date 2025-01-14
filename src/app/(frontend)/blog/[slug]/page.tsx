@@ -1,10 +1,9 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/config/live';
 import PostContent from '../_components/post-content';
-import { fetchPostBySlug } from '@/sanity/lib/fetches';
 import RelatedPosts from '../_components/related-posts';
-
-export const revalidate = 0;
+import { postBySlugQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function PostPage(props: {
   params: Promise<{ slug: string; }>
@@ -12,7 +11,11 @@ export default async function PostPage(props: {
   
   const params = await props.params;
 
-  const post = await fetchPostBySlug(params.slug);
+  const { data: post } = await sanityFetch({ 
+    query: postBySlugQuery, 
+    params: params
+  });
+
   if (post === null) notFound();
 
   const showRelatedPosts = post.relatedPosts?.length > 0 && post.settings.showRelatedPosts;

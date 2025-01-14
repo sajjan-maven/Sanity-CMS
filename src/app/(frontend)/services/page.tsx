@@ -1,12 +1,14 @@
 import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/config/live';
 import PageBuilder from '@/components/page-builder';
-import { fetchServicesPage } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { servicesPageQuery } from '@/sanity/lib/queries/documents/service';
 
 export default async function ServicesPage() {
 
-  const page = await fetchServicesPage();
+  const { data: page } = await sanityFetch({
+    query: servicesPageQuery,
+  });
+
   if (page === null) notFound();
 
   return (

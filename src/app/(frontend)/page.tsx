@@ -1,12 +1,14 @@
 import PageBuilder from "@/components/page-builder";
 import Container from "@/components/global/container";
-import { fetchPageBySlug, fetchSettings } from "@/sanity/lib/fetches";
-
-export const revalidate = 0;
+import { fetchPageBySlug } from "@/sanity/lib/fetches";
+import { sanityFetch } from "@/sanity/config/live";
+import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 
 export default async function Home() {
 
-  const settings = await fetchSettings();
+  const { data: settings } = await sanityFetch({
+    query: generalSettingsQuery,
+  });
 
   if (settings.homePage === null) return (
     <Container className="py-16">

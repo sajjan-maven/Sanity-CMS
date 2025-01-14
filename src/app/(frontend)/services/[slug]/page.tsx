@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/config/live';
 import PageBuilder from '@/components/page-builder';
 import { client } from '@/sanity/config/sanity-client';
-import { fetchServiceBySlug } from '@/sanity/lib/fetches';
-import { servicePathsQuery } from '@/sanity/lib/queries/documents/service';
-
-export const revalidate = 0;
+import { serviceBySlugQuery, servicePathsQuery } from '@/sanity/lib/queries/documents/service';
 
 export async function generateStaticParams() {
   const services = await client.fetch(servicePathsQuery);
@@ -16,8 +14,12 @@ export default async function ServicePage(props: {
 }) {
 
   const params = await props.params;
+
+  const { data: service } = await sanityFetch({ 
+    query: serviceBySlugQuery, 
+    params: params
+  });
   
-  const service = await fetchServiceBySlug(params.slug);
   if (service === null) notFound();
 
   return (

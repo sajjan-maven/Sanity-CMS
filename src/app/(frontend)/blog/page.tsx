@@ -1,11 +1,12 @@
 import PostGrid from './_components/post-grid';
-import { fetchAllPosts } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { sanityFetch } from '@/sanity/config/live';
+import { allPostsQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function BlogArchivePage() {
 
-  const posts = await fetchAllPosts();  
+  const { data: posts } = await sanityFetch({
+    query: allPostsQuery,
+  });
 
   return (
     <PostGrid posts={posts} />

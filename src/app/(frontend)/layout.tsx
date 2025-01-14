@@ -2,7 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import ClientLayout from "@/components/global/client-layout";
-import { fetchNavigationSettings, fetchSettings } from "@/sanity/lib/fetches";
+import { sanityFetch, SanityLive } from "@/sanity/config/live";
+import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
+import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
 
 export const metadata: Metadata = {
   title: "SiteEngine",
@@ -27,9 +29,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const navigationSettings = await fetchNavigationSettings();
-  const settings = await fetchSettings();
+  const { data: settings } = await sanityFetch({
+    query: generalSettingsQuery,
+  });
 
+  const { data: navigationSettings } = await sanityFetch({
+    query: navigationSettingsQuery
+  });
+  
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased`}>
@@ -39,6 +46,7 @@ export default async function RootLayout({
         >
           {children}
         </ClientLayout>
+        <SanityLive />
       </body>
     </html>
   );

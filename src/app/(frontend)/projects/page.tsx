@@ -1,11 +1,12 @@
+import { sanityFetch } from '@/sanity/config/live';
 import ProjectGrid from './_components/project-grid';
-import { fetchAllProjects } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { allProjectsQuery } from '@/sanity/lib/queries/documents/project';
 
 export default async function ProjectsPage() {
 
-  const projects = await fetchAllProjects();  
+  const { data: projects } = await sanityFetch({
+    query: allProjectsQuery,
+  });
 
   return (
     <ProjectGrid projects={projects} />

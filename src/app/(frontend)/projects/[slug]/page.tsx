@@ -1,9 +1,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/config/live';
 import PageBuilder from '@/components/page-builder';
-import { fetchProjectBySlug } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { projectBySlugQuery } from '@/sanity/lib/queries/documents/project';
 
 export default async function ProjectPage(props: {
   params: Promise<{ slug: string; }>
@@ -11,7 +10,11 @@ export default async function ProjectPage(props: {
   
   const params = await props.params;
 
-  const project = await fetchProjectBySlug(params.slug);
+  const { data: project } = await sanityFetch({ 
+    query: projectBySlugQuery, 
+    params: params
+  });
+
   if (project === null) notFound();
   
   return (

@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/config/live';
 import PageBuilder from '@/components/page-builder';
 import { client } from '@/sanity/config/sanity-client';
-import { fetchPageBySlug } from '@/sanity/lib/fetches';
-import { pagePathsQuery } from '@/sanity/lib/queries/documents/page';
-
-export const revalidate = 0;
+import { pageBySlugQuery, pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 
 export async function generateStaticParams() {
   const pages = await client.fetch(pagePathsQuery);
@@ -16,8 +14,12 @@ export default async function Page(props: {
 }) {
 
   const params = await props.params;
-  
-  const page = await fetchPageBySlug(params.slug);
+
+  const { data: page } = await sanityFetch({ 
+    query: pageBySlugQuery, 
+    params: params
+  });
+
   if (page === null) notFound();
 
   return (

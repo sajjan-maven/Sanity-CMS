@@ -1,8 +1,7 @@
 import React from 'react';
+import { sanityFetch } from '@/sanity/config/live';
 import ProjectsLayout from './_components/projects-layout';
-import { fetchAllProjects, fetchProjectCategories } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { allProjectCategoriesQuery, allProjectsQuery } from '@/sanity/lib/queries/documents/project';
 
 export default async function Layout({
   children,
@@ -10,8 +9,13 @@ export default async function Layout({
   children: React.ReactNode;
 }>) {
   
-  const categories = await fetchProjectCategories();
-  const projects = await fetchAllProjects();
+  const { data: categories } = await sanityFetch({
+    query: allProjectCategoriesQuery,
+  });
+
+  const { data: projects } = await sanityFetch({
+    query: allProjectsQuery,
+  });
   
   return (
     <ProjectsLayout categories={categories} projects={projects}>

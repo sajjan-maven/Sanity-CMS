@@ -1,14 +1,17 @@
+import { sanityFetch } from '@/sanity/config/live';
 import PostGrid from '../../_components/post-grid';
-import { fetchPostsByCategory } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { postsByCategoryQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function PostsByCategoryPage(props: {
   params: Promise<{ slug: string }>
 }) {
 
   const params = await props.params;
-  const posts = await fetchPostsByCategory(params.slug);
+
+  const { data: posts } = await sanityFetch({ 
+    query: postsByCategoryQuery, 
+    params: params
+  });
 
   if (posts.length === 0) {
     return (

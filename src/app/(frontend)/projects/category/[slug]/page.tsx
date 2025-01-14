@@ -1,14 +1,17 @@
+import { sanityFetch } from '@/sanity/config/live';
 import ProjectGrid from '../../_components/project-grid';
-import { fetchProjectsByCategory } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { projectsByCategoryQuery } from '@/sanity/lib/queries/documents/project';
 
 export default async function ProjectsByCategoryPage(props: {
   params: Promise<{ slug: string }>
 }) {
 
   const params = await props.params;
-  const projects = await fetchProjectsByCategory(params.slug);
+
+  const { data: projects } = await sanityFetch({
+    query: projectsByCategoryQuery,
+    params: params
+  });
 
   if (projects.length === 0) {
     return (

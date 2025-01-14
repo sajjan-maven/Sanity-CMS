@@ -48,12 +48,12 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                           <NavigationMenuTrigger>
                             {item.title}
                           </NavigationMenuTrigger>
-                          <NavigationMenuContent className='min-w-[180px] py-3 px-3 flex flex-col gap-2 bg-white'>
+                          <NavigationMenuContent className='min-w-[180px] text-nowrap py-3 px-3 flex flex-col gap-2 bg-white'>
                             {item.pageReferences?.map((page: PageType) => (
                               <Link 
                                 key={page.slug} 
                                 href={resolveHref(page._type, page.slug) ?? '/'}
-                                className='group py-1 pl-3 pr-2 flex items-center justify-between gap-2 rounded-md border border-dashed hover:bg-gray-50'
+                                className='group py-1 pl-3 pr-2 flex items-center justify-between gap-6 rounded-md border border-dashed hover:bg-gray-50'
                               >
                                 {page.title}
                                 <ChevronRight 

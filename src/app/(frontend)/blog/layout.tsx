@@ -1,8 +1,7 @@
 import React from 'react';
 import BlogLayout from './_components/blog-layout';
-import { fetchAllPosts, fetchPostCategories } from '@/sanity/lib/fetches';
-
-export const revalidate = 0;
+import { sanityFetch } from '@/sanity/config/live';
+import { allPostCategoriesQuery, allPostsQuery } from '@/sanity/lib/queries/documents/post';
 
 export default async function BlogArchiveLayout({
   children,
@@ -10,9 +9,14 @@ export default async function BlogArchiveLayout({
   children: React.ReactNode;
 }>) {
   
-  const categories = await fetchPostCategories();
-  const posts = await fetchAllPosts();
-  
+  const { data: categories } = await sanityFetch({
+    query: allPostCategoriesQuery,
+  });
+
+  const { data: posts } = await sanityFetch({
+    query: allPostsQuery,
+  });
+
   return (
     <BlogLayout categories={categories} posts={posts}>
       {children}
