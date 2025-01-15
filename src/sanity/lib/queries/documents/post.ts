@@ -1,7 +1,7 @@
-import { groq } from "next-sanity";
 import { seo } from "../fragments/seo";
+import { defineQuery } from "next-sanity";
 
-export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][0] {
+export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current == $slug][0] {
   _id,
   _type,
   _createdAt,
@@ -105,9 +105,9 @@ export const postBySlugQuery = groq`*[_type == 'post' && slug.current == $slug][
     'slug': slug.current,
   },
   ${seo}
-}`
+}`);
 
-export const allPostsQuery = groq`*[_type == 'post'] {
+export const allPostsQuery = defineQuery(`*[_type == 'post'] {
   _id,
   _type,
   _createdAt,
@@ -133,16 +133,16 @@ export const allPostsQuery = groq`*[_type == 'post'] {
     cornerRadius,
     altText 
   },
-}`
+}`);
 
-export const allPostCategoriesQuery = groq`*[_type == 'postCategory'] | order(orderRank asc) {
+export const allPostCategoriesQuery = defineQuery(`*[_type == 'postCategory'] | order(orderRank asc) {
   _id,
   _type,
   title,
   'slug': slug.current,
-}`
+}`);
 
-export const postsByCategoryQuery = groq`*[_type == 'post' && category->slug.current == $slug] {
+export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->slug.current == $slug] {
   _id,
   _type,
   _createdAt,
@@ -168,4 +168,4 @@ export const postsByCategoryQuery = groq`*[_type == 'post' && category->slug.cur
     cornerRadius,
     altText 
   },
-}`
+}`);

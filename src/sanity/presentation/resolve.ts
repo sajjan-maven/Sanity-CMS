@@ -13,7 +13,6 @@ export const resolve: PresentationPluginOptions['resolve'] = {
             title: doc?.title || 'Untitled',
             href: `/${doc?.slug}`,
           },
-          { title: 'Page index', href: `/home` },
         ],
       }),
     }),

@@ -1,7 +1,7 @@
-import { groq } from "next-sanity";
+import { defineQuery} from "next-sanity";
 import { buttonQuery } from "../fragments/misc";
 
-export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] {
+export const navigationSettingsQuery = defineQuery(`*[_type == 'navigationSettings'][0] {
   "navbar": {
     navbarMenuItems[] {
       _key,
@@ -77,4 +77,4 @@ export const navigationSettingsQuery = groq`*[_type == 'navigationSettings'][0] 
       },
     },
   }
-}` 
+}`); 
