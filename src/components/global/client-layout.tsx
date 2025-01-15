@@ -18,8 +18,8 @@ export default function ClientLayout({
   navigationSettings,
 }: ClientLayoutProps) {
 
-  const pathname = usePathname()
-  if (pathname.includes('/studio')) return (children)
+  const pathname = usePathname();
+  if (pathname.includes('/studio')) return (children);
   
   return (
     <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>

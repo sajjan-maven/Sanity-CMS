@@ -31,6 +31,10 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
           .component(Iframe)
           .options({
             url: (doc: SanityDocument) => getPreviewUrl(doc),
+            reload: {
+              button: true, 
+            },
+            draftMode: '/api/draft-mode/enable'
           })
           .title('Preview'),
       ])

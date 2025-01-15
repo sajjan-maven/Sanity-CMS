@@ -5,9 +5,9 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import ClientLayout from "@/components/global/client-layout";
-import { DisableDraftMode } from "@/components/global/disable-draft-mode";
 import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
+import { DisableDraftMode } from "@/components/global/disable-draft-mode";
 
 export const metadata: Metadata = {
   title: "SiteEngine",
@@ -32,6 +32,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  const { isEnabled: isDraftMode } = await draftMode();
+
   const { data: settings } = await sanityFetch({
     query: generalSettingsQuery,
   });
@@ -50,7 +52,7 @@ export default async function RootLayout({
           {children}
         </ClientLayout>
         <SanityLive />
-        {(await draftMode()).isEnabled && (
+        {isDraftMode && (
           <>
             <DisableDraftMode />
             <VisualEditing />

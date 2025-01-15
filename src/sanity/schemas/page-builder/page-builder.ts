@@ -1,20 +1,20 @@
-import { defineType } from "sanity";
+import { defineArrayMember, defineType } from "sanity";
 
 export const pageBuilder = defineType({
   name: 'pageBuilder',
   type: 'array',
   of: [
-    { name: 'heroBlock', type: 'heroBlock' },
-    { name: 'headerBlock', type: 'headerBlock' },
-    { name: 'featureCardsBlock', type: 'featureCardsBlock' },
-    { name: 'featuresMinimalBlock', type: 'featuresMinimalBlock' },
-    { name: 'freeformBlock', type: 'freeformBlock' },
-    { name: 'portableTextBlock', type: 'portableTextBlock' },
-    { name: 'callToActionBlock', type: 'callToActionBlock' },
-    { name: 'logoBlock', type: 'logoBlock' },
-    { name: 'testimonialBlock', type: 'testimonialBlock' },
-    { name: 'servicesBlock', type: 'servicesBlock' },
-    { name: 'formBlock', type: 'formBlock' },
+    defineArrayMember({ name: 'heroBlock', type: 'heroBlock' }),
+    defineArrayMember({ name: 'headerBlock', type: 'headerBlock' }),
+    defineArrayMember({ name: 'featureCardsBlock', type: 'featureCardsBlock' }),
+    defineArrayMember({ name: 'featuresMinimalBlock', type: 'featuresMinimalBlock' }),
+    defineArrayMember({ name: 'freeformBlock', type: 'freeformBlock' }),
+    defineArrayMember({ name: 'portableTextBlock', type: 'portableTextBlock' }),
+    defineArrayMember({ name: 'callToActionBlock', type: 'callToActionBlock' }),
+    defineArrayMember({ name: 'logoBlock', type: 'logoBlock' }),
+    defineArrayMember({ name: 'testimonialBlock', type: 'testimonialBlock' }),
+    defineArrayMember({ name: 'servicesBlock', type: 'servicesBlock' }),
+    defineArrayMember({ name: 'formBlock', type: 'formBlock' }),
   ],
   options: {
     insertMenu: {
