@@ -140,6 +140,8 @@ export const testimonialBlockQuery = `
       },
     },
     anchorId,
+    cornerRadiusTop,
+    cornerRadiusBottom,
     ${paddingQuery}
   }
 `

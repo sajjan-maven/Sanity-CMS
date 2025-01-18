@@ -8,7 +8,7 @@ export default function ProjectCategories({ categories }: {
   categories: ProjectCategoryType[]
 }) {
   return (
-    <ul className='flex items-center justify-start gap-2'>
+    <ul className='flex items-center justify-start gap-21'>
       <li>
         <CategoryLink
           href={`/projects`}

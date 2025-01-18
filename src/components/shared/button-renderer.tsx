@@ -3,11 +3,12 @@ import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 import { ButtonType } from '@/types/button';
 
-export default function ButtonRenderer({ buttons }: {
+export default function ButtonRenderer({ buttons, classNames }: {
   buttons: ButtonType[];
+  classNames?: string;
 }) {
   return (
-    <ul className='flex items-center gap-3'>
+    <ul className={cn('flex items-center gap-3', classNames)}>
       {buttons.map((button) => (
         <li 
           key={button?._key}

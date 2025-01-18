@@ -40,7 +40,7 @@ export default function Container(props: ContainerProps) {
     'pt-7': paddingTop === 'small',
     'pt-14 md:pt-16': paddingTop === 'medium',
     'pt-16 md:pt-28': paddingTop === 'default', 
-    'pt-24 lg:pt-44': paddingTop === 'large', 
+    'pt-16 lg:pt-36': paddingTop === 'large', 
   }
 
   const paddingBottomStyles = {
@@ -48,7 +48,7 @@ export default function Container(props: ContainerProps) {
     'pb-7': paddingBottom === 'small', 
     'pt-14 md:pb-16': paddingTop === 'medium',
     'pb-16 md:pb-28': paddingBottom === 'default', 
-    'pb-24 lg:pb-44': paddingBottom === 'large'
+    'pb-16 lg:pb-36': paddingBottom === 'large'
   }
  
   return (

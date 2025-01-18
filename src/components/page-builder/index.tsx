@@ -16,7 +16,7 @@ const blockMap: Record<BlockType["_type"], ComponentType<any>> = {
   formBlock: dynamic(() => import('./blocks/form-block')),
 }
 
-type PageBuilderProps = { blocks: BlockType[] }
+type PageBuilderProps = { blocks: BlockType[] };
 
 export default function PageBuilder({ blocks }: PageBuilderProps) {
   return (

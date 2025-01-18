@@ -8,12 +8,24 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 export default function TestimonialBlock(props: TestimonialBlockType) {
 
-  const { heading, eyebrow, testimonials, anchorId, paddingTop, paddingBottom } = props;
+  const { 
+    heading, 
+    eyebrow, 
+    testimonials, 
+    anchorId, 
+    cornerRadiusTop,
+    cornerRadiusBottom,
+    paddingTop, 
+    paddingBottom 
+  } = props;
 
   return (
     <section 
       {...(anchorId ? { id: anchorId } : {})}
-      className='pb-10 md:pb-0 xl:px-10 pattern-bg border-y border-dashed rounded-3xl'
+      className={cn('pb-10 md:pb-0 xl:px-10 pattern-bg border-y border-dashed', {
+        'rounded-t-4xl': cornerRadiusTop === 'rounded',
+        'rounded-b-4xl': cornerRadiusBottom === 'rounded'
+      })}
     >
       <Container 
         paddingTop={paddingTop}
@@ -24,12 +36,12 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
           <div className='w-fit mx-auto px-2 h-6 flex items-center justify-between rounded-full text-center text-sm font-medium tracking-tight text-white bg-black'>
             {eyebrow}
           </div>
-          <h2 className='mt-6 py-2 text-center text-xl md:text-2xl font-semibold border-y w-fit mx-auto bg-gradient-to-r from-white/0 via-yellow-500/15 to-white/0'>
+          <h2 className='mt-6 py-2 text-center text-xl md:text-2xl font-semibold border-y w-fit mx-auto bg-gradient-to-r from-white/0 via-green-400/15 to-white/0'>
             {heading}
           </h2>
         </div>
         {testimonials.length > 1 ? (
-          <Carousel className="w-full max-w-[44rem] mx-auto">
+          <Carousel className="w-full max-w-[38rem] xl:max-w-[44rem] mx-auto">
             <CarouselContent>
               {testimonials?.map((testimonial: TestimonialType) => (
                 <CarouselItem key={testimonial._id}>
@@ -56,7 +68,7 @@ function TestimonialCard({ testimonial, classNames }: {
   classNames?: string;
 }) {
   return (
-    <div className={cn('h-full mx-auto md:w-[44rem] p-8 md:p-12 space-y-10 md:space-y-20 flex flex-col justify-between bg-white', classNames)}>
+    <div className={cn('h-full mx-auto max-w-[38rem] md:max-w-[44rem] p-8 md:p-12 space-y-10 md:space-y-20 flex flex-col justify-between bg-white', classNames)}>
       <h2 className='text-base md:text-xl text-pretty'>
         {testimonial?.quote}
       </h2>

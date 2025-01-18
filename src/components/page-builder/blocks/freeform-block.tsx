@@ -23,7 +23,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
         })}
       >
         <div 
-          className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6', {
+          className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8', {
             'md:grid-cols-3': columnsPerRow === '3',
             'md:grid-cols-4': columnsPerRow === '4',
           })}

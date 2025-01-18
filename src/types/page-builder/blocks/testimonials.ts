@@ -6,6 +6,8 @@ export type TestimonialBlockType = {
   eyebrow: string;
   testimonials: TestimonialType[];
   anchorId?: string;
+  cornerRadiusTop: 'rounded' | 'straight';
+  cornerRadiusBottom: 'rounded' | 'straight';
   paddingTop: string;
   paddingBottom: string;
 }

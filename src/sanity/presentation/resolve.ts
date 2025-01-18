@@ -1,4 +1,4 @@
-import { defineLocations, PresentationPluginOptions } from 'sanity/presentation';
+import { defineDocuments, defineLocations, PresentationPluginOptions } from 'sanity/presentation';
 
 export const resolve: PresentationPluginOptions['resolve'] = {
   locations: {
@@ -27,7 +27,7 @@ export const resolve: PresentationPluginOptions['resolve'] = {
             title: doc?.title || 'Untitled',
             href: `/blog/${doc?.slug}`,
           },
-          { title: 'Posts Index', href: `/blog` },
+          { title: 'Blog', href: `/blog` },
         ],
       }),
     }),
@@ -42,7 +42,7 @@ export const resolve: PresentationPluginOptions['resolve'] = {
             title: doc?.title || 'Untitled',
             href: `/services/${doc?.slug}`,
           },
-          { title: 'Services Index', href: `/services` },
+          { title: 'Services', href: `/services` },
         ],
       }),
     }),
@@ -62,4 +62,26 @@ export const resolve: PresentationPluginOptions['resolve'] = {
       }),
     }),
   },
+  mainDocuments: defineDocuments([
+    {
+      route: "/",
+      filter: `_type == 'page' && slug.current == 'home'`,
+    },
+    {
+      route: "/:slug",
+      filter: `_type == 'page' && slug.current == $slug`,
+    },
+    {
+      route: "/projects/:slug",
+      filter: `_type == 'project' && slug.current == $slug`,
+    },
+    {
+      route: "/services/:slug",
+      filter: `_type == 'service' && slug.current == $slug`,
+    },
+    {
+      route: "/blog/:slug",
+      filter: `_type == 'post' && slug.current == $slug`,
+    },
+  ]),
 }

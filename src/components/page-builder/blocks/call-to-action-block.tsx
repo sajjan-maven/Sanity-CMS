@@ -18,7 +18,7 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
         paddingBottom={paddingBottom}
         className='border-x border-dashed'
       >
-        <div className='flex flex-col md:flex-row md:items-center justify-between'>
+        <div className='flex flex-col lg:flex-row lg:items-center justify-between gap-x-16'>
           <div>
             <Heading tag="h2" size="xl" className='max-w-[40rem] text-balance leading-tight'>
               {heading}
@@ -29,7 +29,7 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
             />
           </div>
           {buttons && buttons.length > 0 && (
-            <div className='mt-8 md:mt-10'>
+            <div className='mt-10'>
               <ButtonRenderer buttons={buttons} />  
             </div>
           )}

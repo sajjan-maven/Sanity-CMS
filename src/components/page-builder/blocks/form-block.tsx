@@ -21,14 +21,14 @@ export default function FormBlock(props: FormBlockType) {
       >
         <div className='flex flex-col justify-center items-center gap-4 md:gap-6'>
           {heading && (
-            <Heading tag="h2" size="xxl" className='text-balance text-center leading-normal'>
+            <Heading tag="h2" size="xl" className='text-balance text-center leading-normal'>
               {heading}
             </Heading>
           )}
           {content && (
             <PortableTextEditor 
               data={content}
-              classNames='mb-4 md:text-xl text-balance text-center text-gray-600'
+              classNames='max-w-[320px] mb-4 md:text-xl text-balance text-center text-gray-600'
             />
           )}
           <Form form={form} />

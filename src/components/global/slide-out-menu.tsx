@@ -29,12 +29,9 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
         {children}
       </SheetTrigger>
       <SheetContent className='overflow-y-scroll'>
-        <SheetHeader className='z-20 fixed top-0 pt-[26px] right-7 w-[330px] h-20 border-b border-dashed border-b-gray-200 bg-white/95'>
-          <div className=' pb-6'>
-            <SheetClose>
+        <SheetHeader className='z-20 fixed top-0 pt-[26px] right-7 w-[338px] md:w-[330px] h-20 border-b border-dashed border-b-gray-200 bg-white/95'>
               <SiteLogo siteTitle={siteTitle} logo={logo} theme='dark' />
-            </SheetClose>
-          </div>
+          
         </SheetHeader>
         <SheetTitle className='mt-16 px-0 py-6 antialiased font-normal text-gray-400'>
           Explore
@@ -88,8 +85,8 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
           </>
         )}
         {slideOutMenuButtons && slideOutMenuButtons.length > 0 && (
-          <div className='fixed bottom-1 right-0 w-[380px] px-4 pb-4'>
-            <ButtonRenderer buttons={slideOutMenuButtons} />  
+          <div className='fixed bottom-1 right-0 w-full md:w-[380px] px-4 pb-4'>
+            <ButtonRenderer buttons={slideOutMenuButtons} classNames="flex-col md:flex-row" />  
           </div>
         )}
       </SheetContent>

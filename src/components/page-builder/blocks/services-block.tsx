@@ -70,7 +70,7 @@ function ServiceCard({ service }: {
 
   return (
     <div aria-label={title} className='relative pb-8 group border-b border-dashed'>
-      <Link href={`/services/${slug}`} className='relative space-y-6'>
+      <Link href={`/services/${slug}`} className='relative space-y-4 md:space-y-6'>
         <div className='p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
           <Image
             src={image?.asset?.url}
@@ -80,7 +80,7 @@ function ServiceCard({ service }: {
             className='aspect-[3/2] rounded-2xl'
           />
         </div>
-        <Heading tag="h2" size="md" className='text-balance'>
+        <Heading tag="h2" size="md" className='pt-1 md:pt-0 text-balance'>
           {title}
         </Heading>
         <p className='text-sm md:text-base md:text-balance text-neutral-500'>

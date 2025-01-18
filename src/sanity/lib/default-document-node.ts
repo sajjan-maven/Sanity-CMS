@@ -36,7 +36,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
             },
             draftMode: '/api/draft-mode/enable'
           })
-          .title('Preview'),
+          .title('Preview'),          
       ])
     default:
       return S.document().views([ S.view.form() ])

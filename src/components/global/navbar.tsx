@@ -36,8 +36,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
     >
       <Container className='flex items-center justify-between'>
         <SiteLogo siteTitle={siteTitle} logo={logo} />
-        <div className='hidden md:flex items-center gap-3'>
-          <NavigationMenu>
+        <div className='flex items-center gap-3'>
+          <NavigationMenu className='hidden md:block'>
             <NavigationMenuList className='space-x-8 group/nav'>
               {navbarMenuItems.map((item: MenuItemType) => (
                 <>

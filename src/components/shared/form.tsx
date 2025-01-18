@@ -36,7 +36,7 @@ export default function Form({ form }: { form: FormType; }) {
   return(
     <form 
       onSubmit={handleSubmit(onSubmit)} 
-      className="w-full max-w-xl p-8 space-y-6 border backdrop-blur-sm rounded-3xl"
+      className="w-full max-w-xl p-6 md:p-8 space-y-6 border backdrop-blur-sm rounded-xl md:rounded-3xl"
     >
       {fields.map((field) => (
         <div key={field.name} className="space-y-2">
@@ -55,7 +55,7 @@ export default function Form({ form }: { form: FormType; }) {
         type="submit"
         className="group w-full flex items-center justify-between gap-2 px-6 py-3 rounded-full text-white bg-blue-700 hover:bg-blue-600 transition-all duration-300"
       >
-        <span className='font-medium'>{submitButtonText}</span> <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform duration-300' />
+        <span className='font-medium text-sm'>{submitButtonText}</span> <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform duration-300' />
       </button>
     </form>
   )

@@ -29,6 +29,30 @@ export default defineType({
       description: 'Select testimonials to display.'
     }),
     defineField({
+      name: "cornerRadiusTop",
+      title: "Corner Radius Top",
+      type: "string",
+      options: {
+        list: [
+          { title: "Rounded", value: "rounded" },
+          { title: "Straight", value: "straight" },
+        ],
+      },
+      initialValue: 'straight',
+    }),
+    defineField({
+      name: "cornerRadiusBottom",
+      title: "Corner Radius Bottom",
+      type: "string",
+      options: {
+        list: [
+          { title: "Rounded", value: "rounded" },
+          { title: "Straight", value: "straight" },
+        ],
+      },
+      initialValue: 'straight',
+    }),
+    defineField({
       name: 'anchorId',
       title: 'Anchor ID',
       type: 'string',

@@ -1,12 +1,35 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { sanityFetch } from '@/sanity/lib/live';
-import { client } from '@/sanity/lib/sanity-client';
 import PageBuilder from '@/components/page-builder';
 import { pageBySlugQuery, pagePathsQuery } from '@/sanity/lib/queries/documents/page';
 
 export async function generateStaticParams() {
-  const pages = await client.fetch(pagePathsQuery);
+  const { data: pages } = await sanityFetch({
+    query: pagePathsQuery,
+    perspective: "published",
+    stega: false,
+  });
+  
   return pages;
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+
+  const params = await props.params;
+  
+  const { data: page } = await sanityFetch({
+    query: pageBySlugQuery,
+    params,
+    stega: false,
+  });
+
+  return {
+    title: page?.metaTitle ?? page?.title,
+    description: page?.metaDescription ?? '',
+  } satisfies Metadata;
 }
 
 export default async function Page(props: {
@@ -14,10 +37,10 @@ export default async function Page(props: {
 }) {
 
   const params = await props.params;
-
+  
   const { data: page } = await sanityFetch({ 
     query: pageBySlugQuery, 
-    params: params
+    params: params,
   });
 
   if (page === null) notFound();

@@ -8,6 +8,7 @@ export const pagePathsQuery = defineQuery(`*[_type == "page" && defined(slug.cur
 
 export const pageBySlugQuery = defineQuery(`*[_type == 'page' && slug.current == $slug][0] {
   _type,
+  _id,
   title,
   'slug': slug.current,
   ${pageBuilder},

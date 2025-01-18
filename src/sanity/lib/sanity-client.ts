@@ -1,10 +1,14 @@
 import { createClient } from "next-sanity";
-import { dataset, projectId } from "./sanity-api";
+import { apiVersion, dataset, projectId } from "./sanity-api";
+import { token } from "./token";
 
 export const client = createClient({
   projectId: projectId,
   dataset: dataset,
-  apiVersion: "vX",
+  apiVersion: apiVersion,
   useCdn: true,
-  stega: { studioUrl: "http://localhost:3000/studio" },
+  token: token,
+  stega: { 
+    studioUrl: "/studio" 
+  },
 });
