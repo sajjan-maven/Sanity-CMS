@@ -1,8 +1,8 @@
 "use client"
 import React from 'react';
 import BlogToolbar from './blog-toolbar';
-import Heading from '@/components/ui/heading';
 import { usePathname } from 'next/navigation';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { PostCategoryType, PostType } from '@/types/post';
 

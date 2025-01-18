@@ -75,6 +75,7 @@ export default defineType({
       name: 'videoUrl',
       title: 'Video URL',
       type: 'string',
+      hidden: ({ parent }) => parent?.dialogType !== 'video',
     }),
     defineField({
       name: 'anchorId',

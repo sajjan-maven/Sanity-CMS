@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import Heading from '@/components/ui/heading';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { HeaderBlockType } from '@/types/page-builder/blocks/header';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';

@@ -1,5 +1,5 @@
 import { Link } from 'lucide-react';
-import Heading from "@/components/ui/heading";
+import Heading from "@/components/shared/heading";
 import { copyToClipboard, slugify } from "@/lib/utils";
 import { PortableTextBlock } from '@portabletext/types';
 

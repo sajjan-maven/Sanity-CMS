@@ -1,11 +1,11 @@
 'use client'
 import Link from 'next/link';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { PostType } from '@/types/post';
 import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useSearch } from '@/hooks/use-search';
 import { useClickOutside } from '@/hooks/use-click-outside';
+import { highlightMatch, useSearch } from '@/hooks/use-search';
 
 export function BlogSearch({ posts }: {
   posts: PostType[];
@@ -52,17 +52,21 @@ export function BlogSearch({ posts }: {
         <div className="absolute -left-8 max-h-[290px] overflow-y-scroll z-50 w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
             {searchResults.map((post, index) => (
-              <>
-                <li key={post._id} className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
+              <React.Fragment key={post._id}>
+                <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
                   <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-sm font-medium text-balance">{post.title}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{post.excerpt}</p>
+                    <h3 className="text-sm font-medium text-balance">
+                      {highlightMatch(post.title, searchTerm)}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                      {highlightMatch(post.excerpt, searchTerm)}
+                    </p>
                   </Link>
                 </li>
                 {index !== searchResults.length - 1 && (
                   <div className='mt-1 mb-1 border-b border-dashed'></div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </ul>
         </div>

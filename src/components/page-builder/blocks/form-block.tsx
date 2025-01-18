@@ -1,6 +1,6 @@
 "use client"
 import Form from '@/components/shared/form';
-import Heading from '@/components/ui/heading';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { FormBlockType } from '@/types/page-builder/blocks/form';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';

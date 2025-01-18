@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Container from './container';
-import Heading from '../ui/heading';
+import Heading from '../shared/heading';
 import SiteLogo from '../shared/site-logo';
 import { SettingsType } from '@/types/settings';
-import AnimatedUnderline from '../ui/animated-underline';
+import AnimatedUnderline from '../shared/animated-underline';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 
 interface FooterProps {

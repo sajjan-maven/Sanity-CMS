@@ -1,11 +1,10 @@
 "use client"
 import React from 'react';
-import Heading from '@/components/ui/heading';
 import { usePathname } from 'next/navigation';
-import ProjectCategories from './project-categories';
+import ProjectToolbar from './project-toolbar';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { ProjectCategoryType, ProjectType } from '@/types/project';
-import ProjectToolbar from './project-toolbar';
 
 export default function ProjectsLayout({
   children,

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 interface Searchable {
   title: string;
   excerpt: string;
-}
+};
 
 export function useSearch<T extends Searchable>(items: T[], debounceMs: number = 300) {
   
@@ -43,4 +43,14 @@ export function useSearch<T extends Searchable>(items: T[], debounceMs: number =
     isDropdownOpen,
     clearSearch
   };
-}
+};
+
+export function highlightMatch(text: string, searchTerm: string) {
+  if (!searchTerm) return text;
+  const regex = new RegExp(`(${searchTerm})`, 'gi');
+  return text.split(regex).map((part, i) => 
+    regex.test(part) ? (
+      <span key={i} className="bg-green-200">{part}</span>
+    ) : part
+  );
+};

@@ -4,11 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Date from '@/components/ui/date';
 import Author from '@/components/ui/author';
-import Heading from '@/components/ui/heading';
+import Heading from '@/components/shared/heading';
 import { Tag, Text, ImageIcon } from 'lucide-react';
-import BackButton from '@/components/ui/back-button';
+import BackButton from '@/components/shared/back-button';
 import { PostCategoryType, PostType } from '@/types/post';
-import AnimatedUnderline from '@/components/ui/animated-underline';
+import AnimatedUnderline from '@/components/shared/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 

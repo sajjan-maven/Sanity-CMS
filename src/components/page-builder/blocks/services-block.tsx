@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ServiceType } from '@/types/service';
-import Heading from '@/components/ui/heading';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
-import AnimatedUnderline from '@/components/ui/animated-underline';
+import AnimatedUnderline from '@/components/shared/animated-underline';
 import { ServicesBlockType } from '@/types/page-builder/blocks/services';
 
 export default function ServicesBlock(props: ServicesBlockType) {

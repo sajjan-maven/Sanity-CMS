@@ -1,7 +1,7 @@
 import PostGrid from './post-grid';
 import { PostType } from '@/types/post';
-import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
+import Heading from '@/components/shared/heading';
 
 export default function RelatedPosts({ posts }: {
   posts: PostType[]

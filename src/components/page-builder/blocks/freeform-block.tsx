@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import Heading from '@/components/ui/heading';
 import { Button } from '@/components/ui/button';
+import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { FreeformBlockType } from '@/types/page-builder/blocks/freeform';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';

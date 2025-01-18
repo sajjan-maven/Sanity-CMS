@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { LogoBlockType } from '@/types/page-builder/blocks/logos';
-import Container from '@/components/global/container';
 import { cn } from '@/lib/utils';
+import Container from '@/components/global/container';
+import { LogoBlockType } from '@/types/page-builder/blocks/logos';
 
 export default function LogoBlock(props: LogoBlockType) {
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Heading from '@/components/ui/heading';
 import { ProjectType } from '@/types/project';
-import AnimatedUnderline from '@/components/ui/animated-underline';
+import Heading from '@/components/shared/heading';
+import AnimatedUnderline from '@/components/shared/animated-underline';
 
 export default function ProjectCard({ project }: {
   project: ProjectType;

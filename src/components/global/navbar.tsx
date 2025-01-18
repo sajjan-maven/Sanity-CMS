@@ -7,7 +7,7 @@ import SiteLogo from '../shared/site-logo';
 import SlideOutMenu from './slide-out-menu';
 import { usePathname } from 'next/navigation';
 import { cn, resolveHref } from '@/lib/utils';
-import AnimatedText from '../ui/animated-text';
+import AnimatedText from '../shared/animated-text';
 import { SettingsType } from '@/types/settings';
 import { ChevronRight, Menu } from 'lucide-react';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';

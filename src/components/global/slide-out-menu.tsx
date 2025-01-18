@@ -3,7 +3,7 @@ import { resolveHref } from "@/lib/utils";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
 import ButtonRenderer from "../shared/button-renderer";
-import AnimatedUnderline from "../ui/animated-underline";
+import AnimatedUnderline from "../shared/animated-underline";
 import { MenuItemType, NavigationSettingsType } from "@/types/navigation";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 

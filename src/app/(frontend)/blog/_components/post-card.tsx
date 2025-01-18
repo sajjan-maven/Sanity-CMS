@@ -5,8 +5,8 @@ import { PostType } from '@/types/post';
 import Date from '@/components/ui/date';
 import { ChevronRight } from 'lucide-react';
 import Author from '@/components/ui/author';
-import Heading from '@/components/ui/heading';
-import AnimatedUnderline from '@/components/ui/animated-underline';
+import Heading from '@/components/shared/heading';
+import AnimatedUnderline from '@/components/shared/animated-underline';
 
 export default function PostCard({ post }: {
   post: PostType;

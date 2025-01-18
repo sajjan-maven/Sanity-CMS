@@ -1,7 +1,7 @@
 import React from "react";
 import { TableOfContentsType } from "@/types/misc";
 import { slugify, truncateText } from "@/lib/utils";
-import AnimatedUnderline from "../ui/animated-underline";
+import AnimatedUnderline from "../shared/animated-underline";
 
 export default function TableOfContents({ content }: {
   content: TableOfContentsType[];
