@@ -265,7 +265,9 @@ export const mediaBlockQuery = `
       asset->{ url }, 
       altText,
     },
+    overlayType,
     dialogType,
+    videoUrl,
     anchorId
   }
 `

@@ -4,6 +4,7 @@ export type MediaBlockType = {
   _type: 'mediaBlock';
   backgroundType: 'image' | 'video';
   backgroundWidth: 'full' | 'contained';
+  overlayType: 'none' | 'dark';
   dialogType: 'none' | 'video';
   image: {
     asset: {
@@ -11,5 +12,6 @@ export type MediaBlockType = {
     };
     alt: string;
   };
+  videoUrl?: string;
   anchorId?: string;
 }

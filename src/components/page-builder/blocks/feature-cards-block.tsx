@@ -21,8 +21,8 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <div className='max-w-[60rem] mx-auto py-2 md:py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between border-y border-dashed'>
-          <Heading tag="h2" size="xl" className='relative col-span-7 md:px-4 py-1.5 text-balance leading-normal border-y border-t-slate-100/60 border-b-slate-100/60 bg-white pattern-bg'>
+        <div className='max-w-[60rem] mx-auto py-2 md:py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between border-y border-dashed pattern-bg'>
+          <Heading tag="h2" size="xl" className='relative col-span-7 py-1.5 text-balance leading-normal'>
             <span className='relative z-10'>
               {heading}
             </span>
@@ -43,7 +43,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
               <div className="font-medium text-xl text-balance">
                 Want to take SiteEngine for a spin?
               </div>
-              <p className="text-balance text-gray-500">
+              <p className="text-balance text-sm md:text-base text-gray-500">
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
               </p>
             </div>
@@ -90,12 +90,12 @@ function FeatureCard({ feature }: {
         {feature.items.map((item, index) => (
           <li 
             key={item} 
-            className={cn('flex items-center gap-2.5 px-6 md:px-8 py-4 border-b border-dashed', {
+            className={cn('flex items-start md:items-center gap-2.5 px-6 md:px-8 py-4 border-b border-dashed', {
               'border-none pb-6': index === feature.items.length  - 1
             })}
           >
             <CircleCheck className='h-4 w-4 text-green-600' />
-            <span className='text-balance text-sm'>
+            <span className='-translate-y-0.5 md:-translate-x-0 text-balance text-sm'>
               {item}
             </span>
           </li>

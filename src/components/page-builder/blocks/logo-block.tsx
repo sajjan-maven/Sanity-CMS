@@ -49,8 +49,8 @@ export default function LogoBlock(props: LogoBlockType) {
 function EdgeBlur() {
   return (
     <div className='absolute inset-0 flex items-center justify-between'>
-      <div className='relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[100px]'></div>
-      <div className='bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[100px]'></div>
+      <div className='relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
+      <div className='bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
     </div>
   )
 }
