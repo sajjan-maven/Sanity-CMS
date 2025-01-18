@@ -255,3 +255,17 @@ export const formBlockQuery = `
     ${paddingQuery}
   }
 `
+
+export const mediaBlockQuery = `
+  _type == "mediaBlock" => {
+    ${baseQuery},
+    backgroundType,
+    backgroundWidth,
+    image { 
+      asset->{ url }, 
+      altText,
+    },
+    dialogType,
+    anchorId
+  }
+`

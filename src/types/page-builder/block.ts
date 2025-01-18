@@ -9,6 +9,7 @@ import { CallToActionBlockType } from "./blocks/call-to-action";
 import { ServicesBlockType } from "./blocks/services";
 import { PortableTextBlockType } from "./blocks/portable-text";
 import { FormBlockType } from "./blocks/form";
+import { MediaBlockType } from "./blocks/media";
 
 export type BlockType = 
   HeroBlockType |
@@ -21,4 +22,5 @@ export type BlockType =
   CallToActionBlockType |
   TestimonialBlockType |
   ServicesBlockType |
-  FormBlockType;
+  FormBlockType | 
+  MediaBlockType;

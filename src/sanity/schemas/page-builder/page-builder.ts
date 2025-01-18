@@ -15,6 +15,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'testimonialBlock', type: 'testimonialBlock' }),
     defineArrayMember({ name: 'servicesBlock', type: 'servicesBlock' }),
     defineArrayMember({ name: 'formBlock', type: 'formBlock' }),
+    defineArrayMember({ name: 'mediaBlock', type: 'mediaBlock' }),
   ],
   options: {
     insertMenu: {
@@ -37,7 +38,7 @@ export const pageBuilder = defineType({
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 'callToActionBlock', 'servicesBlock', 'formBlock' ]
+          of: [ 'callToActionBlock', 'servicesBlock', 'formBlock', 'mediaBlock' ]
         },
         {
           name: 'socialProof',

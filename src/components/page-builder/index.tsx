@@ -14,6 +14,7 @@ const blockMap: Record<BlockType["_type"], ComponentType<any>> = {
   featuresMinimalBlock: dynamic(() => import('./blocks/features-minimal-block')),
   servicesBlock: dynamic(() => import('./blocks/services-block')),
   formBlock: dynamic(() => import('./blocks/form-block')),
+  mediaBlock: dynamic(() => import('./blocks/media-block')),
 }
 
 type PageBuilderProps = { blocks: BlockType[] };

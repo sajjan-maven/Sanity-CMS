@@ -35,6 +35,7 @@ import projectCategory from "./documents/project-category";
 import projectsPage from "./singletons/pages/projects-page";
 import formBlock from "./page-builder/blocks/form-block";
 import form from "./documents/form";
+import mediaBlock from "./page-builder/blocks/media-block";
 
 const coreSchema = [
   page,
@@ -65,6 +66,7 @@ const pageBuilderSchema = [
   portableTextBlock,
   callToActionBlock,
   logoBlock,
+  mediaBlock,
   testimonialBlock,
   servicesBlock,
   formBlock
