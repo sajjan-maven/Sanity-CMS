@@ -54,6 +54,7 @@ export default defineType({
       of: [
         { type: 'block' },
         { type: 'callToActionObject' },
+        {type: 'singleImageObject'}
       ],
     }),
     defineField({

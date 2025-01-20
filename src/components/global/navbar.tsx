@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import Container from './container';
 import { Button } from '../ui/button';
@@ -7,9 +8,9 @@ import SiteLogo from '../shared/site-logo';
 import SlideOutMenu from './slide-out-menu';
 import { usePathname } from 'next/navigation';
 import { cn, resolveHref } from '@/lib/utils';
-import AnimatedText from '../shared/animated-text';
 import { SettingsType } from '@/types/settings';
 import { ChevronRight, Menu } from 'lucide-react';
+import AnimatedText from '../shared/animated-text';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
@@ -40,11 +41,11 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
           <NavigationMenu className='hidden md:block'>
             <NavigationMenuList className='space-x-8 group/nav'>
               {navbarMenuItems.map((item: MenuItemType) => (
-                <>
+                <React.Fragment key={item._key}>
                   {!item.isButton ? (
                     <>
                       {item.menuItemType === 'group' ? (
-                        <NavigationMenuItem key={item._key}>
+                        <NavigationMenuItem>
                           <NavigationMenuTrigger>
                             {item.title}
                           </NavigationMenuTrigger>
@@ -65,7 +66,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       ): (
-                        <NavigationMenuItem key={item._key}>
+                        <NavigationMenuItem>
                           <Link 
                             href={resolveHref(item?.pageReference?._type, item?.pageReference?.slug) ?? '/'}
                             className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
@@ -86,11 +87,12 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       variant="primary" 
                       disableIcon={true}
                       buttonType="internal"
+                      pageReference={item.pageReference.slug}
                     >
                       {item.title}
                     </Button>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </NavigationMenuList>
           </NavigationMenu>

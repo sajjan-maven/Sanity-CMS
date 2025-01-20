@@ -3,6 +3,7 @@ import { Iframe } from 'sanity-plugin-iframe-pane';
 import { type DefaultDocumentNodeResolver } from 'sanity/structure';
 
 function getPreviewUrl(doc: SanityDocument & { slug?: { current: string } }) {
+  
   if (!doc?.slug?.current) {
     return `${process.env.NEXT_PUBLIC_SITE_URL}`
   }
@@ -30,11 +31,18 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
         S.view
           .component(Iframe)
           .options({
-            url: (doc: SanityDocument) => getPreviewUrl(doc),
+            url: {
+              origin: 'same-origin',
+              preview: (doc: SanityDocument) => getPreviewUrl(doc),
+              draftMode: '/api/draft-mode/enable'
+            },
             reload: {
               button: true, 
             },
-            draftMode: '/api/draft-mode/enable'
+            defaultWidth: 'desktop',
+            draftMode: {
+              enable: '/api/draft-mode/enable'
+            }
           })
           .title('Preview'),          
       ])

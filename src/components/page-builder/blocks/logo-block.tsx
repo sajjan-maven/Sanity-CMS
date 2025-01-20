@@ -12,10 +12,10 @@ export default function LogoBlock(props: LogoBlockType) {
   return (
     <section 
       {...(anchorId ? { id: anchorId } : {})}
-      className='border-b border-b-gray-200/60 rounded-b-4xl bg-gray-50'
+      className='px-4 md:px-10 border-b border-b-gray-200/60 rounded-b-4xl bg-gray-50'
     >
-      <Container className='px-0'>
-        <div className='py-6 md:py-10 border-x border-x-gray-200 border-dashed'>
+      <Container className='px-0 border-x border-x-gray-200 border-dashed'>
+        <div className='py-6 md:py-10'>
           <div className='relative w-fit mx-auto py-2 px-10 mt-4 md:mt-7 bg-white pattern-bg border-y border-y-gray-100'>
             <h2 className='text-center font-geistMono text-xs md:text-sm uppercase font-medium text-gray-500'> 
               {heading}

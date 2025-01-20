@@ -29,8 +29,8 @@ export default function HeroBlock(props: HeroBlockType) {
       })}
     >
       <Container 
-        className={cn('space-y-14 xl:space-y-0 border-x border-dashed', {
-          'pb-7 md:pb-10': mediaType === 'image'
+        className={cn('space-y-10 xl:-space-y-6 border-x border-dashed', {
+          'pb-7 md:pb-12': mediaType === 'image'
         })}
       >
         <div 
@@ -61,14 +61,13 @@ export default function HeroBlock(props: HeroBlockType) {
           </div>
         </div>
         {mediaType === 'image' && image && (
-          <div className='p-4 md:p-6 border  border-dashed'>
+          <div className='p-4 md:p-6 border border-dashed rounded-3xl md:rounded-4xl'>
             <Image
               src={image?.asset.url}
               width={1400}
               height={800}
               alt={image?.alt ?? ''}
-              className={cn('object-cover', {
-                'rounded-none': image?.cornerRadius === 'straight',
+              className={cn('object-cover rounded-2xl md:rounded-3xl', {
                 'max-h-[30rem]': image?.height === 'short'
               })}
             />

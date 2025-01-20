@@ -5,7 +5,7 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import ClientLayout from "@/components/global/client-layout";
-import { DisableDraftMode } from "@/components/global/disable-draft-mode";
+import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
 
