@@ -30,11 +30,11 @@ export default function PostContent({ post }: {
   } = post;
   
   return (
-    <div className='grid grid-cols-12 gap-20'>
-      <aside className='col-span-2 sticky top-28 h-fit'>
+    <div className='order-0 grid grid-cols-12 gap-y-10 xl:gap-20'>
+      <aside className='col-span-12 xl:col-span-2 xl:sticky xl:top-28 h-fit -translate-x-1 md:-translate-x-0'>
         <BackButton />
       </aside>
-      <div className='pl-10 border-l border-dashed col-span-7'>
+      <div className='order-2 xl:order-1 col-span-12 xl:col-span-7 xl:pl-10 xl:border-l xl:border-dashed'>
         <div className='flex items-center gap-3'>
           <Author author={author} />
           <Category category={category} /> 
@@ -44,14 +44,14 @@ export default function PostContent({ post }: {
           {title}
         </Heading>
         <Thumbnail image={image} />
-        <p className='text-xl my-14 py-8 border-y border-dashed'>
+        <p className='text-lg xl:text-xl my-10 xl:my-14 py-8 border-y border-dashed'>
           {excerpt}
         </p>
         <div>
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <aside className='col-span-3 sticky top-28 h-fit space-y-6'>
+      <aside className='order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-6'>
         {settings.showTableOfContents && (
           <div className='space-y-4'>
             <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">

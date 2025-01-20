@@ -8,8 +8,8 @@ export default function ProjectCategories({ categories }: {
   categories: ProjectCategoryType[]
 }) {
   return (
-    <ul className='flex items-center justify-start gap-21'>
-      <li>
+    <ul className='flex items-center justify-start gap-0 md:gap-2'>
+      <li className="text-nowrap">
         <CategoryLink
           href={`/projects`}
         >
@@ -17,7 +17,7 @@ export default function ProjectCategories({ categories }: {
         </CategoryLink>
       </li>
       {categories.map((category: ProjectCategoryType) => (
-        <li key={category._id}>
+        <li key={category._id} className="text-nowrap">
           <CategoryLink
             href={`/projects/category/${category.slug}`}
             category={category}
@@ -46,7 +46,7 @@ function CategoryLink({ href, category, children }: {
     <Link 
       href={href}
       className={cn('py-2 px-3.5 rounded-full border border-transparent backdrop-blur-md transition-all duration-300', {
-        'border-black bg-black text-white': isActive,
+        'mr-2 md:mr-0 border-black bg-black text-white': isActive,
         'hover:bg-neutral-100': !isActive
       })}
     >

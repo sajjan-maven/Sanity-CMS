@@ -13,12 +13,12 @@ export default function CallToAction({ data }: {
   } = data
 
   return (
-    <div className='mt-16 w-full p-8 flex gap-8 border rounded-2xl pattern-bg--2'>
+    <div className='mt-16 w-full p-8 flex flex-col md:flex-row items-start md:items-center gap-8 border rounded-2xl pattern-bg--2'>
       <div className="space-y-3">
-        <div className="font-medium text-xl">
+        <div className="font-medium text-xl text-balance">
           {title}
         </div>
-        <p className="my-0 text-pretty text-gray-500">
+        <p className="text-pretty text-gray-500">
           {paragrapgh}
         </p>
       </div>

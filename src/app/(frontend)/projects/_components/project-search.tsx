@@ -1,14 +1,16 @@
 'use client'
 import Link from 'next/link';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { cn } from '@/lib/utils';
 import { Search, X } from 'lucide-react';
 import { ProjectType } from '@/types/project';
 import { Input } from '@/components/ui/input';
-import { useSearch } from '@/hooks/use-search';
+import { highlightMatch, useSearch } from '@/hooks/use-search';
 import { useClickOutside } from '@/hooks/use-click-outside';
 
-export function ProjectSearch({ projects }: {
+export function ProjectSearch({ projects, classNames }: {
   projects: ProjectType[];
+  classNames?: string;
 }) {
 
   const {
@@ -27,7 +29,7 @@ export function ProjectSearch({ projects }: {
   }
 
   return (
-    <div className="relative w-full max-w-[260px]" ref={dropdownRef}>
+    <div ref={dropdownRef} className={cn('relative w-full md:max-w-[260px]', classNames)}>
       <div className="relative">
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
         <Input
@@ -49,20 +51,24 @@ export function ProjectSearch({ projects }: {
         )}
       </div>
       {isDropdownOpen && (
-        <div className="absolute -left-8 max-h-[290px] overflow-y-scroll z-50 w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
+        <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
             {searchResults.map((project, index) => (
-              <>
-                <li key={project._id} className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
+              <React.Fragment key={project._id}>
+                <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
                   <Link href={`/projects/${project.slug}`}>
-                    <h3 className="text-sm font-medium text-balance">{project.title}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{project.excerpt}</p>
+                    <h3 className="text-sm font-medium text-balance">
+                      {highlightMatch(project.title, searchTerm)}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                      {highlightMatch(project.excerpt, searchTerm)}
+                    </p>
                   </Link>
                 </li>
                 {index !== searchResults.length - 1 && (
                   <div className='mt-1 mb-1 border-b border-dashed'></div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </ul>
         </div>

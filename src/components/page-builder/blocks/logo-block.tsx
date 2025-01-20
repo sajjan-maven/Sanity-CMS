@@ -23,7 +23,7 @@ export default function LogoBlock(props: LogoBlockType) {
             <EdgeBlur />
           </div>
           <div className="mt-10 md:mt-16 mb-6 md:mb-8 relative overflow-clip">
-            <ul className="flex items-center pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed py-10">
+            <ul className="flex items-center pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed py-4 md:py-10">
               {items.map((item, index) => (
                 <li key={item._key + index}>
                   <Image

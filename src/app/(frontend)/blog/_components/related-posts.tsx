@@ -7,7 +7,7 @@ export default function RelatedPosts({ posts }: {
   posts: PostType[]
 }) {
   return (
-    <section className='mt-24 pt-16 pb-24 space-y-8 border-y border-dashed'>
+    <section className='mt-12 md:mt-24 pt-16 pb-24 space-y-8 border-y border-dashed'>
       <div className='py-4 flex items-center justify-between gap-6 border-y border-dashed'>
         <Heading tag="h2" size="xl">
           Related Posts

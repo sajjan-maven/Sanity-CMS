@@ -15,7 +15,7 @@ export default async function PostsByCategoryPage(props: {
 
   if (posts.length === 0) {
     return (
-      <p className="py-8 text-center text-gray-600">
+      <p className="pt-8 md:pt-14 text-center text-gray-600">
         No posts found in this category.
       </p>
     )

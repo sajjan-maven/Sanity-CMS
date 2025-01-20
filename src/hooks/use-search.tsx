@@ -50,7 +50,7 @@ export function highlightMatch(text: string, searchTerm: string) {
   const regex = new RegExp(`(${searchTerm})`, 'gi');
   return text.split(regex).map((part, i) => 
     regex.test(part) ? (
-      <span key={i} className="bg-green-200">{part}</span>
+      <span key={i} className="search-highlight">{part}</span>
     ) : part
   );
-};
+}

@@ -19,8 +19,8 @@ export default function ProjectsLayout({
   const pathname = usePathname();
 
   if (pathname === '/projects' || pathname.includes('/projects/category/')) return (
-    <main className='px-10 pattern-bg'>
-      <Container className='pt-40 pb-28 border-x border-dashed'>
+    <main className='px-4 xl:px-10 pattern-bg overflow-hidden md:overflow-auto'>
+      <Container className='px-4 pt-32 md:pt-40 pb-14 md:pb-28 border-x border-dashed'>
         <Heading tag="h1" size="xxxl">
           Projects
         </Heading>

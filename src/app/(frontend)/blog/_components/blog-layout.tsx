@@ -19,8 +19,8 @@ export default function BlogLayout({
   const pathname = usePathname();
 
   if (pathname === '/blog' || pathname.includes('/blog/category/')) return (
-    <main className='px-10 pattern-bg'>
-      <Container className='pt-40 pb-28 border-x border-dashed'>
+    <main className='px-4 xl:px-10 pattern-bg overflow-hidden md:overflow-auto'>
+      <Container className='px-4 pt-32 md:pt-40 pb-14 md:pb-28 border-x border-dashed'>
         <Heading tag="h1" size="xxxl">
           Blog
         </Heading>
@@ -33,7 +33,7 @@ export default function BlogLayout({
   )
 
   return (
-    <main className='pt-40 pb-28 pattern-bg'>
+    <main className='pt-32 md:pt-40 pb-20 xl:pb-28 pattern-bg'>
       <Container>
         {children}
       </Container>

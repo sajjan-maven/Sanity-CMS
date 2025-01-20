@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Loading() {
   return (
-    <ul className='grid grid-cols-3 gap-8'>
+    <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
       {Array.from({ length: 6 }).map((_, index) => (
         <li key={index}>
           <CardSkeleton />
