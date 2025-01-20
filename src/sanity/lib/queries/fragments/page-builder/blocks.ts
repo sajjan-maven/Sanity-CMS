@@ -17,6 +17,9 @@ export const heroBlockQuery = `
       altText,
       height 
     },
+    dialogType,
+    videoUrl,
+    overlayType,
     anchorId
   }
 `

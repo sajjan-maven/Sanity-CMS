@@ -12,6 +12,7 @@ import freeformBlock from "./page-builder/blocks/freeform-block";
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
 import spacerObject from './objects/spacer';
+import videoObject from './objects/video';
 
 import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
@@ -78,7 +79,8 @@ const objectSchema = [
   buttonObject,
   singleImageObject,
   spacerObject,
-  callToActionObject
+  callToActionObject,
+  videoObject
 ]
 
 export const schemaTypes = [

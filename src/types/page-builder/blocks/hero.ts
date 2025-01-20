@@ -18,6 +18,9 @@ export type HeroBlockType = {
     height: 'full' | 'short';
     alt: string;
   };
+  dialogType: 'none' | 'video';
+  videoUrl?: string;
+  overlayType: 'none' | 'dark';
   bottomCornerRadius: 'rounded' | 'straight';
   anchorId?: string;
 }

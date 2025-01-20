@@ -54,7 +54,8 @@ export default defineType({
       of: [
         { type: 'block' },
         { type: 'callToActionObject' },
-        {type: 'singleImageObject'}
+        { type: 'singleImageObject' },
+        { type: 'videoObject' }
       ],
     }),
     defineField({
@@ -110,7 +111,6 @@ export default defineType({
       validation: rule => rule.max(3),
       hidden: ({ parent }) => parent?.relatedPosts !== 'custom'
     }),
-    
     ...seoFields
   ]
 })

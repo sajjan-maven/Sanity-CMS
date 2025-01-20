@@ -33,7 +33,7 @@ export default function BlogLayout({
   )
 
   return (
-    <main className='pt-32 md:pt-40 pb-20 xl:pb-28 pattern-bg'>
+    <main className='pt-32 md:pt-40 pb-10 xl:pb-16 pattern-bg'>
       <Container>
         {children}
       </Container>

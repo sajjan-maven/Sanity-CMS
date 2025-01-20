@@ -7,6 +7,7 @@ import Container from '@/components/global/container';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import PlayVideo from '@/components/shared/play-video';
 
 export default function HeroBlock(props: HeroBlockType) {
 
@@ -18,6 +19,9 @@ export default function HeroBlock(props: HeroBlockType) {
     bottomCornerRadius, 
     buttons, 
     image, 
+    dialogType,
+    videoUrl,
+    overlayType,
     anchorId 
   } = props;
 
@@ -62,18 +66,35 @@ export default function HeroBlock(props: HeroBlockType) {
         </div>
         {mediaType === 'image' && image && (
           <div className='p-4 md:p-6 border border-dashed rounded-3xl md:rounded-4xl'>
-            <Image
-              src={image?.asset.url}
-              width={1400}
-              height={800}
-              alt={image?.alt ?? ''}
-              className={cn('object-cover rounded-2xl md:rounded-3xl', {
-                'max-h-[30rem]': image?.height === 'short'
-              })}
-            />
+            <div className='overflow-hidden relative h-full w-full rounded-3xl md:rounded-4xl'>
+              <Image
+                src={image?.asset.url}
+                width={1400}
+                height={800}
+                alt={image?.alt ?? ''}
+                className={cn('object-cover rounded-2xl md:rounded-3xl', {
+                  'max-h-[30rem]': image?.height === 'short'
+                })}
+              />
+              {overlayType === 'dark' && (
+                <DarkOverlay />
+              )}
+              {dialogType === 'video' && videoUrl && (
+                <PlayVideo videoUrl={videoUrl} />
+              )}
+            </div>
           </div>
         )}
       </Container>
     </section>
+  )
+}
+
+function DarkOverlay() {
+  return (
+    <>
+      <div className='absolute inset-0 bg-black/20' />
+      <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent h-[50%] w-full' />
+    </>
   )
 }
