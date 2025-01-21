@@ -16,16 +16,10 @@ export default function SingleImage({ data }: {
     };
   }
 }) {
-  
   return (
     <div>
       {data.image?.asset._ref && (
-        <div 
-          className={cn('mt-12 md:mt-14', {
-            'p-4 md:p-4 border border-dashed': data?.image?.enableBorder,
-            'rounded-3xl md:rounded-3xl': data?.image?.cornerRadius === 'rounded',
-          })}
-        >
+        <div className='mt-12 md:mt-14 p-4 md:p-4 border border-dashed rounded-3xl'>
           <Image
             src={
               urlForImage(data.image)
@@ -36,8 +30,7 @@ export default function SingleImage({ data }: {
             width={800}
             height={800}
             alt={data.image?.alt ?? ''}
-            className={cn('my-0 object-cover aspect-auto h-auto w-full', {
-              'rounded-2xl': data?.image?.cornerRadius === 'rounded',
+            className={cn('h-auto w-full my-0 object-cover aspect-auto rounded-2xl', {
               'aspect-[3/2]': data?.image?.aspectRatio === 'rectangle',
               'aspect-[3/4]': data?.image?.aspectRatio === 'portrait',
             })}

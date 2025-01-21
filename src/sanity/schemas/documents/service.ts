@@ -48,18 +48,6 @@ export default defineType({
           title: 'Caption',
           type: 'string'
         }),
-        defineField({
-          title: "Corner Radius",
-          name: "cornerRadius",
-          type: "string",
-          options: {
-            list: [
-              { title: "Rounded", value: "rounded" },
-              { title: "Straight", value: "straight" },
-            ],
-          },
-          initialValue: 'rounded',
-        }),
       ],
     }),
     defineField({

@@ -41,7 +41,6 @@ export const allProjectsQuery = defineQuery(`*[_type == 'project'] {
   },
   image { 
     asset->{ url }, 
-    cornerRadius,
     height,
     altText 
   },
@@ -70,7 +69,6 @@ export const projectsByCategoryQuery = defineQuery(`*[_type == 'project' && cate
   },
   image { 
     asset->{ url }, 
-    cornerRadius,
     height,
     altText 
   },

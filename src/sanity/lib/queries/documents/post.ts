@@ -31,7 +31,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
     asset->{ url }, 
     altText,
     caption, 
-    cornerRadius,
   },
   relatedPostsType,
   "relatedPosts": select(
@@ -60,7 +59,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
       },
       image { 
         asset->{ url }, 
-        cornerRadius,
         altText 
       }
     },
@@ -89,7 +87,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
       excerpt,
       image { 
         asset->{ url }, 
-        cornerRadius,
         altText 
       }
     },
@@ -130,7 +127,6 @@ export const allPostsQuery = defineQuery(`*[_type == 'post'] {
   },
   image { 
     asset->{ url }, 
-    cornerRadius,
     altText 
   },
 }`);
@@ -165,7 +161,6 @@ export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->
   },
   image { 
     asset->{ url }, 
-    cornerRadius,
     altText 
   },
 }`);

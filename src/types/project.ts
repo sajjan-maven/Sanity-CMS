@@ -12,7 +12,6 @@ export type ProjectType = {
     };
     alt: string;
     caption: string;
-    cornerRadius: 'rounded' | 'straight';
   };
   pageBuilder: BlockType[];
   seo: {

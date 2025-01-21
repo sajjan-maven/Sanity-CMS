@@ -19,7 +19,6 @@ export type PostType = {
     };
     alt: string;
     caption: string;
-    cornerRadius: 'rounded' | 'straight';
   };
   relatedPosts: PostType[];
   settings: BlogSettingsType;

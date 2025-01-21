@@ -66,18 +66,14 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   {item._type === 'singleImage' && item?.image?.asset?.url && (
                     <div 
                       key={item._key}
-                      className={cn({
-                        'p-3 border border-dashed rounded-3xl': item?.image?.enableBorder,
-                        'border-solid': item?.image?.borderStyle === 'solid',
-                      })}
+                      className='p-3 border border-dashed rounded-3xl'
                     >
                       <Image
                         src={item?.image?.asset?.url ?? ''}
                         width={800}
                         height={800}
                         alt={item?.image?.alt ?? ''}
-                        className={cn('object-cover aspect-square', {
-                          'rounded-2xl': item?.image?.cornerRadius === 'rounded',
+                        className={cn('object-cover aspect-square rounded-2xl', {
                           'aspect-[3/2]': item?.image?.aspectRatio === 'rectangle',
                           'aspect-[3/4]': item?.image?.aspectRatio === 'portrait',
                         })}

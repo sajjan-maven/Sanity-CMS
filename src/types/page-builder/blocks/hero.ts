@@ -14,7 +14,6 @@ export type HeroBlockType = {
     asset: {
       url: string;
     };
-    cornerRadius: 'rounded' | 'straight';
     height: 'full' | 'short';
     alt: string;
   };

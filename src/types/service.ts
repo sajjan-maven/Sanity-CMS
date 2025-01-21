@@ -11,7 +11,6 @@ export type ServiceType = {
     };
     alt: string;
     caption: string;
-    cornerRadius: 'rounded' | 'straight';
   };
   pageBuilder: BlockType[];
   seo: {

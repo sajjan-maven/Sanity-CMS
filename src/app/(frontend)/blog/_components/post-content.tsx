@@ -1,16 +1,18 @@
 "use client"
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
 import Date from '@/components/ui/date';
 import Author from '@/components/ui/author';
 import Heading from '@/components/shared/heading';
-import { Tag, Text, ImageIcon } from 'lucide-react';
 import BackButton from '@/components/shared/back-button';
 import { PostCategoryType, PostType } from '@/types/post';
+import { Tag, Text, ImageIcon, ChevronDown } from 'lucide-react';
 import AnimatedUnderline from '@/components/shared/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 export default function PostContent({ post }: {
   post: PostType;
@@ -51,47 +53,12 @@ export default function PostContent({ post }: {
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <aside className='order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-6'>
+      <aside className='order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-5'>
         {settings.showTableOfContents && (
-          <div className='space-y-4'>
-            <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">
-              <span className='h-5 w-5 flex items-center justify-center rounded bg-gray-200 text-black'>
-                <Text size={12} />
-              </span>
-              <span className='font-medium text-sm'>
-                Table Of Contents
-              </span>
-            </div>
-            <TableOfContents content={tableOfContents} />
-          </div>
+          <TableOfContents content={tableOfContents} />
         )}
         {settings.showPostsByCategory && (
-          <div className='space-y-4'>
-            <div className="py-1.5 pl-2 flex items-center gap-2 border border-dashed rounded-lg">
-              <span className='h-5 w-5 flex items-center justify-center rounded bg-gray-200 text-black'>
-                <Tag size={12} />
-              </span>
-              <span className='font-medium text-sm'>
-                Explore Categories
-              </span>
-            </div>
-            <ul role="list" className="space-y-2 border-l border-dashed">
-              {categories.map((category: PostCategoryType) => (
-                <li key={category.slug}>
-                  <Link 
-                    href={`/blog/category/${category.slug}`}
-                    className="flex items-center gap-2 scroll-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                  >
-                    <span className="block w-2.5 border-t border-dashed text-gray-300" /> 
-                      <span className="relative group w-fit">
-                        {category.title}
-                        <AnimatedUnderline />
-                      </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <PostCategories categories={categories}/>
         )}
       </aside>
     </div>
@@ -140,5 +107,57 @@ function Category({ category }: {
         {category.title}
       </span>
     </Link>
+  )
+}
+
+function PostCategories({ categories }: {
+  categories: PostCategoryType[];
+}) {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Collapsible 
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      className="space-y-4"
+    >
+      <CollapsibleTrigger className="w-full">
+        <div className="py-1.5 pl-2 flex items-center justify-between border border-dashed rounded-lg">
+          <div className="flex items-center gap-2">
+            <span className='h-5 w-5 flex items-center justify-center rounded bg-gray-200 text-black'>
+              <Tag size={12} />
+            </span>
+            <span className='font-medium text-sm'>
+              Explore Categories
+            </span>
+          </div>
+          <ChevronDown 
+            size={15} 
+            className={cn('mr-2.5 -rotate-90 transition-transform duration-200', {
+              '-rotate-0': isOpen
+            })}
+          />
+        </div>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
+        <ul role="list" className="space-y-2 border-l border-dashed">
+          {categories.map((category: PostCategoryType) => (
+            <li key={category.slug}>
+              <Link 
+                href={`/blog/category/${category.slug}`}
+                className="flex items-center gap-2 scroll-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+              >
+                <span className="block w-2.5 border-t border-dashed text-gray-300" /> 
+                <span className="relative group w-fit">
+                  {category.title}
+                  <AnimatedUnderline />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </CollapsibleContent>
+    </Collapsible>
   )
 }

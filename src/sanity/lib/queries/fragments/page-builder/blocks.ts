@@ -13,7 +13,6 @@ export const heroBlockQuery = `
     },
     image { 
       asset->{ url }, 
-      cornerRadius,
       altText,
       height 
     },
@@ -82,6 +81,7 @@ export const featuresMinimalBlockQuery = `
   _type == "featuresMinimalBlock" => {
     ${baseQuery},
     heading,
+    content,
     buttons[] {
       ${buttonQuery}
     },
@@ -166,10 +166,7 @@ export const freeformBlockQuery = `
         image { 
           asset->{ url }, 
           aspectRatio,
-          cornerRadius,
-          enableBorder,
-          borderStyle,
-          altText 
+          altText
         },
         headingText,
         headingSize,
@@ -227,9 +224,6 @@ export const servicesBlockQuery = `
       image { 
         asset->{ url }, 
         aspectRatio,
-        cornerRadius,
-        enableBorder,
-        borderStyle,
         altText 
       },
       "slug": slug.current,

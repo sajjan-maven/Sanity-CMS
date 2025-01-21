@@ -4,11 +4,13 @@ import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
+import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 
   const { 
-    heading, 
+    heading,
+    content, 
     buttons,
     features, 
     enableBorderTop,
@@ -41,9 +43,12 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
               <Heading tag="h2" size="xl" className=' max-w-[420px] relative pr-2.5 py-3 text-balance leading-normal border-y border-dashed border-t-gray-200 border-b-gray-200 bg-gray-50'>
                 {heading}
               </Heading>
-              <p className='max-w-[400px] mt-8 text-balance text-gray-500'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae lectus non metus.
-              </p>
+              {content && (
+                <PortableTextEditor 
+                  data={content}
+                  classNames='max-w-[400px] mt-8 text-balance text-gray-500'
+                />
+              )}
             </div>
             {buttons && buttons.length > 0 && (
               <ButtonRenderer buttons={buttons} />  

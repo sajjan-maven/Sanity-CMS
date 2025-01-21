@@ -28,37 +28,6 @@ export default defineType({
           components: { input: RatioInput },
           initialValue: 'square',
         }),
-        defineField({
-          title: "Corner Radius",
-          name: "cornerRadius",
-          type: "string",
-          options: {
-            list: [
-              { title: "Rounded", value: "rounded" },
-              { title: "Straight", value: "straight" },
-            ],
-          },
-          initialValue: 'rounded',
-        }),
-        defineField({
-          name: 'enableBorder',
-          type: 'boolean',
-          title: 'Enable Border',
-          initialValue: false
-        }),
-        defineField({
-          title: "Border Style",
-          name: "borderStyle",
-          type: "string",
-          options: {
-            list: [
-              { title: "Solid", value: "solid" },
-              { title: "Dashed", value: "dashed" },
-            ],
-          },
-          initialValue: 'dashed',
-          hidden: ({ parent }) => parent?.enableBorder === false,
-        }),
       ],
     }),
   ],

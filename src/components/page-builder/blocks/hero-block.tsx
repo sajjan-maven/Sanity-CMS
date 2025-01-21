@@ -2,12 +2,12 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Heading from '@/components/shared/heading';
-import BackButton from '@/components/shared/back-button';
 import Container from '@/components/global/container';
+import PlayVideo from '@/components/shared/play-video';
+import BackButton from '@/components/shared/back-button';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import PlayVideo from '@/components/shared/play-video';
 
 export default function HeroBlock(props: HeroBlockType) {
 
