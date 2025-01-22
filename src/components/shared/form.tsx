@@ -1,10 +1,11 @@
 "use client"
 import { z } from 'zod';
+import toast from 'react-hot-toast';
+import { ArrowRight } from 'lucide-react';
 import { formatFieldId } from '@/lib/utils';
 import { FormField, FormType } from '@/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormRegister } from 'react-hook-form';
-import { ArrowRight } from 'lucide-react';
 
 export default function Form({ form }: { form: FormType; }) {
   
@@ -24,13 +25,33 @@ export default function Form({ form }: { form: FormType; }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const onSubmit = async (data: FormValues) => {
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      await response.json();
+      reset();
+      toast.success('Message Sent');
+      
+    } catch (error) {
+      toast.error('Failed to Send Message');
+    }
   };
 
   return(
