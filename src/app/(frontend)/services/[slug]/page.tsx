@@ -1,12 +1,34 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { client } from '@/sanity/lib/client';
 import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
-import { serviceBySlugQuery, servicePathsQuery } from '@/sanity/lib/queries/documents/service';
+import { serviceBySlugQuery, serviceSlugsQuery } from '@/sanity/lib/queries/documents/service';
 
 export async function generateStaticParams() {
-  const services = await client.fetch(servicePathsQuery);
-  return services;
+  const { data } = await sanityFetch({
+    query: serviceSlugsQuery,
+    perspective: "published",
+    stega: false,
+  });
+  return data;
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+
+  const params = await props.params;
+  
+  const { data: service } = await sanityFetch({
+    query: serviceBySlugQuery,
+    params,
+    stega: false,
+  });
+
+  return {
+    title: service?.metaTitle ?? service?.title,
+    description: service?.metaDescription ?? '',
+  } satisfies Metadata;
 }
 
 export default async function ServicePage(props: {

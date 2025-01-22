@@ -15,11 +15,4 @@ export const seoFields = [
     group: 'seo',
     fieldset: 'seo'
   }),
-  defineField({
-    name: 'metaKeywords',
-    title: 'Meta Keywords',
-    type: 'string',
-    group: 'seo',
-    fieldset: 'seo'
-  }),
 ]

@@ -2,7 +2,7 @@ import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
-export const servicePathsQuery = defineQuery(`*[_type == "service" && defined(slug.current)][] {
+export const serviceSlugsQuery = defineQuery(`*[_type == "service" && defined(slug.current)] {
   'params': { 'slug': slug.current }
 }`);
 

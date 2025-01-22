@@ -1,5 +1,18 @@
+import { pageBuilder } from "../fragments/page-builder";
 import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
+
+export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.current)] {
+  'params': { 'slug': slug.current }
+}`);
+
+export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
+  _type,
+  title,
+  'slug': slug.current,
+  ${pageBuilder},
+  ${seo}
+}`);
 
 export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current == $slug][0] {
   _id,

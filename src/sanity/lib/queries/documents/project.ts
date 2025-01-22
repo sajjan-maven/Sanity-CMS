@@ -2,6 +2,10 @@ import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
+export const projectSlugsQuery = defineQuery(`*[_type == "project" && defined(slug.current)] {
+  'params': { 'slug': slug.current }
+}`);
+
 export const projectsPageQuery = defineQuery(`*[_type == 'projectsPage'][0] {
   _type,
   title,

@@ -30,8 +30,7 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
       </SheetTrigger>
       <SheetContent className='overflow-y-scroll'>
         <SheetHeader className='z-20 fixed top-0 pt-[26px] right-7 w-[338px] md:w-[330px] h-20 border-b border-dashed border-b-gray-200 bg-white/95'>
-              <SiteLogo siteTitle={siteTitle} logo={logo} theme='dark' />
-          
+          <SiteLogo siteTitle={siteTitle} logo={logo} theme='dark' />
         </SheetHeader>
         <SheetTitle className='mt-16 px-0 py-6 antialiased font-normal text-gray-400'>
           Explore

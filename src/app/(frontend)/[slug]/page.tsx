@@ -2,15 +2,14 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
-import { pageBySlugQuery, pagePathsQuery } from '@/sanity/lib/queries/documents/page';
+import { pageBySlugQuery, pageSlugsQuery } from '@/sanity/lib/queries/documents/page';
 
 export async function generateStaticParams() {
   const { data: pages } = await sanityFetch({
-    query: pagePathsQuery,
+    query: pageSlugsQuery,
     perspective: "published",
     stega: false,
   });
-  
   return pages;
 }
 

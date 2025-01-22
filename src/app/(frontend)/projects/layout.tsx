@@ -1,24 +1,20 @@
 import React from 'react';
 import { sanityFetch } from '@/sanity/lib/live';
 import ProjectsLayout from './_components/projects-layout';
-import { allProjectCategoriesQuery, allProjectsQuery } from '@/sanity/lib/queries/documents/project';
+import { allProjectCategoriesQuery, allProjectsQuery, projectsPageQuery } from '@/sanity/lib/queries/documents/project';
 
-export default async function Layout({
-  children,
-}: Readonly<{
+export default async function Layout({ children }: {
   children: React.ReactNode;
-}>) {
+}) {
   
-  const { data: categories } = await sanityFetch({
-    query: allProjectCategoriesQuery,
-  });
+  const [{ data: categories }, { data: projects }, { data: page }] = await Promise.all([
+    sanityFetch({ query: allProjectCategoriesQuery }),
+    sanityFetch({ query: allProjectsQuery }),
+    sanityFetch({ query: projectsPageQuery }),
+  ]);
 
-  const { data: projects } = await sanityFetch({
-    query: allProjectsQuery,
-  });
-  
   return (
-    <ProjectsLayout categories={categories} projects={projects}>
+    <ProjectsLayout categories={categories} projects={projects} page={page}>
       {children}
     </ProjectsLayout>
   )

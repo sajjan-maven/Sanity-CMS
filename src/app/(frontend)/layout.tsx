@@ -34,13 +34,10 @@ export default async function RootLayout({
 
   const { isEnabled: isDraftMode } = await draftMode();
 
-  const { data: settings } = await sanityFetch({
-    query: generalSettingsQuery,
-  });
-
-  const { data: navigationSettings } = await sanityFetch({
-    query: navigationSettingsQuery
-  });
+  const [{ data: settings }, { data: navigationSettings }] = await Promise.all([
+    sanityFetch({ query: generalSettingsQuery }),
+    sanityFetch({ query: navigationSettingsQuery })
+  ]);
   
   return (
     <html lang="en">

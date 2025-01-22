@@ -27,6 +27,7 @@ export default defineType({
       name: 'pageBuilder',
       title: 'Page Builder',
       type: 'pageBuilder',
+      description: 'These blocks will be displayed below the main content.'
     }),
     ...seoFields,
   ]
