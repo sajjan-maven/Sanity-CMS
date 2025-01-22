@@ -1,6 +1,5 @@
-import { pageBuilder } from "../fragments/page-builder";
-import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
+import { pageBuilder } from "../fragments/page-builder";
 
 export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.current)] {
   'params': { 'slug': slug.current }
@@ -11,7 +10,11 @@ export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);
 
 export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current == $slug][0] {
@@ -114,7 +117,11 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
     title,
     'slug': slug.current,
   },
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);
 
 export const allPostsQuery = defineQuery(`*[_type == 'post'] {

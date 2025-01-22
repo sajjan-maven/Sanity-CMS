@@ -1,3 +1,4 @@
+import { SeoType } from './seo';
 import { AuthorType } from './author';
 import { TableOfContentsType } from './misc';
 import { BlogSettingsType } from './settings';
@@ -23,11 +24,7 @@ export type PostType = {
   relatedPosts: PostType[];
   settings: BlogSettingsType;
   categories: PostCategoryType[];
-  seo: {
-    metaTitle: string
-    metaDescription: string
-    metaKeywords: string
-  }
+  seo: SeoType;
 }
 
 export type PostCategoryType = {

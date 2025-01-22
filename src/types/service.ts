@@ -1,4 +1,5 @@
 import { BlockType } from "./page-builder/block";
+import { SeoType } from "./seo";
 
 export type ServiceType = {
   _id: string;
@@ -13,9 +14,5 @@ export type ServiceType = {
     caption: string;
   };
   pageBuilder: BlockType[];
-  seo: {
-    metaTitle: string
-    metaDescription: string
-    metaKeywords: string
-  }
+  seo: SeoType;
 }

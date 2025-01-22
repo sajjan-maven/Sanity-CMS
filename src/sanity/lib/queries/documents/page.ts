@@ -12,5 +12,9 @@ export const pageBySlugQuery = defineQuery(`*[_type == 'page' && slug.current ==
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);

@@ -1,4 +1,3 @@
-import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
@@ -11,7 +10,11 @@ export const serviceBySlugQuery = defineQuery(`*[_type == 'service' && slug.curr
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);
 
 export const allServicesQuery = defineQuery(`*[_type == 'service'] {
@@ -19,7 +22,6 @@ export const allServicesQuery = defineQuery(`*[_type == 'service'] {
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
 }`);
 
 export const servicesPageQuery = defineQuery(`*[_type == 'servicesPage'][0] {
@@ -27,5 +29,9 @@ export const servicesPageQuery = defineQuery(`*[_type == 'servicesPage'][0] {
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);

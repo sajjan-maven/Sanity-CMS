@@ -1,6 +1,5 @@
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
-import { seoFields } from "../../misc/seo-fields";
 import { fieldGroups } from "../../misc/field-groups";
 
 export default defineType({
@@ -29,6 +28,10 @@ export default defineType({
       type: 'pageBuilder',
       description: 'These blocks will be displayed below the main content.'
     }),
-    ...seoFields,
+    defineField({
+      name: "seo",
+      title: 'SEO',
+      type: "seoObject",
+    }),
   ]
 })

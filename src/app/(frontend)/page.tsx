@@ -5,22 +5,28 @@ import Container from "@/components/global/container";
 import { pageBySlugQuery } from "@/sanity/lib/queries/documents/page";
 import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
-
-  const params = await props.params;
-  
+export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
     query: generalSettingsQuery,
-    params,
     stega: false,
   });
 
-  return {
-    title: settings?.homePage?.metaTitle ?? settings.homePage?.title,
-    description: settings?.homePage?.metaDescription ?? '',
-  } satisfies Metadata;
+  const page = settings.homePage;
+
+  if (!page) {
+    return {}
+  };
+
+  const metadata: Metadata = {
+    title: page.seo.title,
+    description: page.seo.description,
+  };
+
+  if (page.seo.noIndex) {
+    metadata.robots = "noindex";
+  }
+
+  return metadata;
 }
 
 export default async function Home() {

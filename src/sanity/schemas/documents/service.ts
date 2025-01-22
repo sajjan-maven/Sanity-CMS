@@ -55,6 +55,11 @@ export default defineType({
       title: 'Page Builder',
       type: 'pageBuilder',
     }),
+    defineField({
+      name: "seo",
+      title: 'SEO',
+      type: "seoObject",
+    }),
     orderRankField({ 
       type: 'service' 
     }),

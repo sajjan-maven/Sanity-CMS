@@ -1,4 +1,3 @@
-import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
@@ -11,7 +10,11 @@ export const projectsPageQuery = defineQuery(`*[_type == 'projectsPage'][0] {
   title,
   'slug': slug.current,
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);
 
 export const projectPathsQuery = defineQuery(`*[_type == "project" && defined(slug.current)][] {
@@ -29,7 +32,11 @@ export const projectBySlugQuery = defineQuery(`*[_type == 'project' && slug.curr
     'slug': slug.current,
   },
   ${pageBuilder},
-  ${seo}
+  "seo": {
+    "title": coalesce(seo.title, title, ""),
+    "description": coalesce(seo.description,  ""),
+    "noIndex": seo.noIndex == true
+  },
 }`);
 
 export const allProjectsQuery = defineQuery(`*[_type == 'project'] {
@@ -49,7 +56,6 @@ export const allProjectsQuery = defineQuery(`*[_type == 'project'] {
     altText 
   },
   ${pageBuilder},
-  ${seo}
 }`);
 
 export const allProjectCategoriesQuery = defineQuery(`*[_type == 'projectCategory'] | order(orderRank asc) {

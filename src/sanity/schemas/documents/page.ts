@@ -1,6 +1,5 @@
 import { File } from "lucide-react";
 import { fieldsets } from "../misc/fieldsets";
-import { seoFields } from "../misc/seo-fields";
 import { defineField, defineType } from "sanity";
 import { fieldGroups } from "../misc/field-groups";
 
@@ -32,6 +31,10 @@ export default defineType({
       title: 'Page Builder',
       type: 'pageBuilder',
     }),
-    ...seoFields
+    defineField({
+      name: "seo",
+      title: 'SEO',
+      type: "seoObject",
+    }),
   ]
 })

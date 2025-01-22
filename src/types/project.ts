@@ -1,4 +1,5 @@
 import { BlockType } from "./page-builder/block";
+import { SeoType } from "./seo";
 
 export type ProjectType = {
   _id: string;
@@ -14,11 +15,7 @@ export type ProjectType = {
     caption: string;
   };
   pageBuilder: BlockType[];
-  seo: {
-    metaTitle: string
-    metaDescription: string
-    metaKeywords: string
-  }
+  seo: SeoType;
 }
 
 export type ProjectCategoryType = {

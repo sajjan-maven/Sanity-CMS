@@ -1,6 +1,5 @@
 import { FiFile } from "react-icons/fi";
 import { fieldsets } from "../misc/fieldsets";
-import { seoFields } from "../misc/seo-fields";
 import { defineField, defineType } from "sanity";
 import { fieldGroups } from "../misc/field-groups";
 
@@ -99,6 +98,10 @@ export default defineType({
       validation: rule => rule.max(3),
       hidden: ({ parent }) => parent?.relatedPosts !== 'custom'
     }),
-    ...seoFields
+    defineField({
+      name: "seo",
+      title: 'SEO',
+      type: "seoObject",
+    }),
   ]
 })

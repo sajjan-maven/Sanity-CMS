@@ -1,6 +1,6 @@
 import { defineConfig } from 'sanity';
 import { visionTool } from '@sanity/vision';
-import { schemaTypes } from '@/sanity/schemas';
+import { schema } from '@/sanity/schemas';
 import { structureTool } from 'sanity/structure';
 import { structure } from '@/sanity/lib/structure';
 import { presentationTool } from 'sanity/presentation';
@@ -35,7 +35,7 @@ const config = defineConfig({
     visionTool(),
     simplerColorInput()
   ],
-  schema: { types: schemaTypes },
+  schema: schema,
 })
 
 export default config

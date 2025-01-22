@@ -6,6 +6,11 @@ export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0
   homePage->{
     title,
     'slug': slug.current,
+    "seo": {
+      "title": coalesce(seo.title, title, ""),
+      "description": coalesce(seo.description,  ""),
+      "noIndex": seo.noIndex == true
+    },
   }
 }`); 
 

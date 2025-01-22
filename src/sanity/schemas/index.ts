@@ -1,3 +1,5 @@
+import { SchemaTypeDefinition } from "sanity";
+
 import generalSettings from "./singletons/general-settings";
 import navigationSettings from "./singletons/navigation-settings";
 import blogSettings from "./singletons/blog-settings";
@@ -62,6 +64,7 @@ const pageBuilderSchema = [
   formBlock
 ];
 
+import seoObject from './objects/seo';
 import headingObject from './objects/heading';
 import richTextObject from './objects/rich-text';
 import spacerObject from './objects/spacer';
@@ -70,7 +73,9 @@ import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
 import callToActionObject from "./objects/call-to-action";
 
+
 const objectSchema = [
+  seoObject,
   headingObject,
   richTextObject,
   buttonObject,
@@ -80,8 +85,10 @@ const objectSchema = [
   videoObject
 ];
 
-export const schemaTypes = [
-  ...coreSchema,
-  ...pageBuilderSchema,
-  ...objectSchema
-];
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [
+    ...coreSchema,
+    ...pageBuilderSchema,
+    ...objectSchema
+  ],
+};

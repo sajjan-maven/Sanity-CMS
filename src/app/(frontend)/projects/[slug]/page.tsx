@@ -5,6 +5,10 @@ import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
 import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/lib/queries/documents/project';
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
     query: projectSlugsQuery,
@@ -14,33 +18,33 @@ export async function generateStaticParams() {
   return data;
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
-
-  const params = await props.params;
-  
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {  
   const { data: project } = await sanityFetch({
     query: projectBySlugQuery,
-    params,
+    params: await params,
     stega: false,
   });
 
-  return {
-    title: project?.metaTitle ?? project?.title,
-    description: project?.metaDescription ?? '',
-  } satisfies Metadata;
+  if (!project) {
+    return {}
+  }
+
+  const metadata: Metadata = {
+    title: project.seo.title,
+    description: project.seo.description,
+  };
+
+  if (project.seo.noIndex) {
+    metadata.robots = "noindex";
+  }
+
+  return metadata;
 }
 
-export default async function ProjectPage(props: {
-  params: Promise<{ slug: string; }>
-}) {
-  
-  const params = await props.params;
-
+export default async function ProjectPage({ params }: PageProps) {
   const { data: project } = await sanityFetch({ 
     query: projectBySlugQuery, 
-    params: params
+    params: await params
   });
 
   if (project === null) notFound();
