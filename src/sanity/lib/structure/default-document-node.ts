@@ -3,11 +3,8 @@ import { Iframe } from 'sanity-plugin-iframe-pane';
 import { type DefaultDocumentNodeResolver } from 'sanity/structure';
 
 function getPreviewUrl(doc: SanityDocument & { slug?: { current: string } }) {
+  if (!doc?.slug?.current) { return `${process.env.NEXT_PUBLIC_SITE_URL}` }
   
-  if (!doc?.slug?.current) {
-    return `${process.env.NEXT_PUBLIC_SITE_URL}`
-  }
-
   switch (doc._type) {
     case 'post':
       return `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${doc.slug.current}`

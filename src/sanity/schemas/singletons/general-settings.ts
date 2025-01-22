@@ -1,7 +1,7 @@
-import { defineField, defineType } from "sanity";
-import { pageReferenceTypes } from "../misc/page-reference-types";
 import { fieldsets } from "../misc/fieldsets";
+import { defineField, defineType } from "sanity";
 import { fieldGroups } from "../misc/field-groups";
+import { pageReferenceTypes } from "../misc/page-reference-types";
 
 export default defineType({
   name: 'generalSettings',

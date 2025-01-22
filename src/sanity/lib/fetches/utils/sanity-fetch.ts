@@ -1,5 +1,5 @@
-import { client } from '@/sanity/lib/sanity-client'
-import type { QueryParams } from '@sanity/client'
+import { client } from '@/sanity/lib/client';
+import type { QueryParams } from '@sanity/client';
 
 export async function sanityFetch<QueryResponse>({ 
   query, 

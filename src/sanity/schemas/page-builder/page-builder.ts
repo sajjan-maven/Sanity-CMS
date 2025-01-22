@@ -28,17 +28,12 @@ export const pageBuilder = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'portableTextBlock', 'featureCardsBlock', 'featuresMinimalBlock' ]
-        },
-        {
-          name: 'socialProof',
-          title: 'Social Proof',
-          of: [ 'logoBlock', 'testimonialBlock' ]
+          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock' ]
         },
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 'callToActionBlock', 'servicesBlock', 'formBlock', 'mediaBlock' ]
+          of: [ 'featureCardsBlock', 'featuresMinimalBlock', 'callToActionBlock', 'servicesBlock', 'formBlock' ]
         },
         {
           name: 'socialProof',
@@ -47,8 +42,11 @@ export const pageBuilder = defineType({
         }
       ],
       views: [
-        { name: 'grid' },
-      ]
+        {
+          name: 'grid', 
+          previewImageUrl: (schemaTypeName) => `/sanity/preview-${schemaTypeName}.png`
+        },
+      ],
     }
   }
 })

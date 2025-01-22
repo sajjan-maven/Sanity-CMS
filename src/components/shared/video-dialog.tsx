@@ -11,7 +11,7 @@ export default function VideoDialog({ children, videoUrl }: {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="inset-10 max-w-full">
+      <DialogContent className="inset-10 max-w-full max-h-[740px]">
         <ReactPlayer 
           url={videoUrl} 
           width="100%"

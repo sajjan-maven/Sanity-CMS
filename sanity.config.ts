@@ -6,8 +6,8 @@ import { structure } from '@/sanity/lib/structure';
 import { presentationTool } from 'sanity/presentation';
 import { resolve } from '@/sanity/presentation/resolve';
 import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
-import { defaultDocumentNode } from '@/sanity/lib/default-document-node';
-import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/lib/sanity-api';
+import { defaultDocumentNode } from '@/sanity/lib/structure/default-document-node';
+import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/lib/api';
 
 const title = 'SiteEngine';
 
