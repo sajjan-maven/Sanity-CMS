@@ -46,6 +46,7 @@ export const pageBuilder = defineType({
           name: 'grid', 
           previewImageUrl: (schemaTypeName) => `/sanity/preview-${schemaTypeName}.png`
         },
+        { name: 'list' },
       ],
     }
   }
