@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
-import { serviceBySlugQuery, serviceSlugsQuery } from '@/sanity/lib/queries/documents/service';
+import { SERVICE_BY_SLUG_QUERY, SERVICE_SLUGS_QUERY } from '@/sanity/lib/queries/documents/service';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -11,7 +11,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
-    query: serviceSlugsQuery,
+    query: SERVICE_SLUGS_QUERY,
     perspective: "published",
     stega: false,
   });
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { data: service } = await sanityFetch({
-    query: serviceBySlugQuery,
+    query: SERVICE_BY_SLUG_QUERY,
     params: await params,
     stega: false,
   });
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServicePage({ params }: PageProps) {
   const { data: service } = await sanityFetch({ 
-    query: serviceBySlugQuery, 
+    query: SERVICE_BY_SLUG_QUERY, 
     params: await params
   });
   

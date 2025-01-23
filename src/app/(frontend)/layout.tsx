@@ -6,8 +6,8 @@ import { VisualEditing } from "next-sanity";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import ClientLayout from "@/components/global/client-layout";
 import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
-import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
-import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
+import { GENERAL_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/settings";
+import { NAVIGATION_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/navigation";
 
 export const metadata: Metadata = {
   title: "SiteEngine",
@@ -35,8 +35,8 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   const [{ data: settings }, { data: navigationSettings }] = await Promise.all([
-    sanityFetch({ query: generalSettingsQuery }),
-    sanityFetch({ query: navigationSettingsQuery })
+    sanityFetch({ query: GENERAL_SETTINGS_QUERY }),
+    sanityFetch({ query: NAVIGATION_SETTINGS_QUERY })
   ]);
   
   return (

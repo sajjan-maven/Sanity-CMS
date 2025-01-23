@@ -1,6 +1,6 @@
 import { sanityFetch } from '@/sanity/lib/live';
 import PostGrid from '../../_components/post-grid';
-import { postsByCategoryQuery } from '@/sanity/lib/queries/documents/post';
+import { POSTS_BY_CATEGORY_QUERY } from '@/sanity/lib/queries/documents/post';
 
 export default async function PostsByCategoryPage(props: {
   params: Promise<{ slug: string }>
@@ -9,7 +9,7 @@ export default async function PostsByCategoryPage(props: {
   const params = await props.params;
 
   const { data: posts } = await sanityFetch({ 
-    query: postsByCategoryQuery, 
+    query: POSTS_BY_CATEGORY_QUERY, 
     params: params
   });
 

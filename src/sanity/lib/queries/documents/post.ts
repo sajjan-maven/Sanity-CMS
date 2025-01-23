@@ -1,11 +1,11 @@
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
-export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.current)] {
+export const POST_SLUGS_QUERY = defineQuery(`*[_type == "post" && defined(slug.current)] {
   'params': { 'slug': slug.current }
 }`);
 
-export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
+export const BLOG_PAGE_QUERY = defineQuery(`*[_type == 'blogPage'][0] {
   _type,
   title,
   'slug': slug.current,
@@ -18,7 +18,7 @@ export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
   },
 }`);
 
-export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current == $slug][0] {
+export const POST_BY_SLUG_QUERY = defineQuery(`*[_type == 'post' && slug.current == $slug][0] {
   _id,
   _type,
   _createdAt,
@@ -126,7 +126,7 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
   },
 }`);
 
-export const allPostsQuery = defineQuery(`*[_type == 'post'] {
+export const ALL_POSTS_QUERY = defineQuery(`*[_type == 'post'] {
   _id,
   _type,
   _createdAt,
@@ -153,14 +153,14 @@ export const allPostsQuery = defineQuery(`*[_type == 'post'] {
   },
 }`);
 
-export const allPostCategoriesQuery = defineQuery(`*[_type == 'postCategory'] | order(orderRank asc) {
+export const ALL_POST_CATEGORIES_QUERY = defineQuery(`*[_type == 'postCategory'] | order(orderRank asc) {
   _id,
   _type,
   title,
   'slug': slug.current,
 }`);
 
-export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->slug.current == $slug] {
+export const POSTS_BY_CATEGORY_QUERY = defineQuery(`*[_type == 'post' && category->slug.current == $slug] {
   _id,
   _type,
   _createdAt,

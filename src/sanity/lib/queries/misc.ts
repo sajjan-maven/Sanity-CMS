@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const sitemapQuery = defineQuery(`
+export const SITEMAP_QUERY = defineQuery(`
   *[_type in ["page", "post", "project", "service", "blogPage", "projectsPage", "servicesPage"] && defined(slug.current)] {
     "href": select(
       _type == "page" => "/" + slug.current,

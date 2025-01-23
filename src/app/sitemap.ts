@@ -1,10 +1,10 @@
 import { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
-import { sitemapQuery } from "@/sanity/lib/queries/misc";
+import { SITEMAP_QUERY } from "@/sanity/lib/queries/misc";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
-    const paths = await client.fetch(sitemapQuery);
+    const paths = await client.fetch(SITEMAP_QUERY);
 
     if (!paths) return [];
 

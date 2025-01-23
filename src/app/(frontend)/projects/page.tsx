@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import ProjectGrid from './_components/project-grid';
-import { allProjectsQuery, projectsPageQuery } from '@/sanity/lib/queries/documents/project';
+import { ALL_PROJECTS_QUERY, PROJECTS_PAGE_QUERY } from '@/sanity/lib/queries/documents/project';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: page } = await sanityFetch({
-    query: projectsPageQuery,
+    query: PROJECTS_PAGE_QUERY,
     stega: false
   });
 
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ProjectsPage() {
   const { data: projects } = await sanityFetch({
-    query: allProjectsQuery,
+    query: ALL_PROJECTS_QUERY,
   });
 
   return (

@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0] {
+export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings'][0] {
   siteTitle,
   copyright,
   homePage->{
@@ -14,7 +14,7 @@ export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0
   }
 }`); 
 
-export const blogSettingsQuery = defineQuery(`*[_type == 'blogSettings'][0] {
+export const BLOG_SETTINGS_QUERY = defineQuery(`*[_type == 'blogSettings'][0] {
   showRelatedPosts,
   showTableOfContents,
   showPostsByCategory
