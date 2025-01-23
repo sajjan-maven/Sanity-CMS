@@ -40,8 +40,6 @@ export default async function ProjectPage({ params }: PageProps) {
   if (project === null) notFound();
   
   return (
-    <main className="overflow-hidden">
-      <PageBuilder blocks={project?.pageBuilder} />
-    </main>
+    <PageBuilder blocks={project?.pageBuilder} />
   )
 }

@@ -39,8 +39,6 @@ export default async function ServicePage({ params }: PageProps) {
   if (service === null) notFound();
 
   return (
-    <main className="overflow-hidden">
-      <PageBuilder blocks={service?.pageBuilder} />
-    </main>
+    <PageBuilder blocks={service?.pageBuilder} />
   )
 }

@@ -39,8 +39,6 @@ export default async function Page({ params }: PageProps) {
   if (page === null) notFound();
 
   return (
-    <main className="overflow-hidden">
-      <PageBuilder blocks={page?.pageBuilder} />
-    </main>
+    <PageBuilder blocks={page?.pageBuilder} />
   )
 }

@@ -27,7 +27,9 @@ export default function ClientLayout({
         settings={settings}
         navigationSettings={navigationSettings}
       />
-      {children}
+      <main className='overflow-hidden'>
+        {children}
+      </main>
       <Footer 
         settings={settings} 
         navigationSettings={navigationSettings}

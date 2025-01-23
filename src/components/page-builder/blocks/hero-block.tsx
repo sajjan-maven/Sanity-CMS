@@ -38,7 +38,7 @@ export default function HeroBlock(props: HeroBlockType) {
         })}
       >
         <div 
-          className={cn('pt-36 md:pt-52 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed', {
+          className={cn('pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed', {
             'pt-44 md:pt-56': showBackButton,
           })}
         >

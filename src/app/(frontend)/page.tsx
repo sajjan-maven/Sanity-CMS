@@ -3,12 +3,12 @@ import { processMetadata } from "@/lib/utils";
 import { sanityFetch } from "@/sanity/lib/live";
 import PageBuilder from "@/components/page-builder";
 import Container from "@/components/global/container";
-import { pageBySlugQuery } from "@/sanity/lib/queries/documents/page";
-import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
+import { PAGE_BY_SLUG_QUERY } from "@/sanity/lib/queries/documents/page";
+import { GENERAL_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/settings";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
-    query: generalSettingsQuery,
+    query: GENERAL_SETTINGS_QUERY,
     stega: false,
   });
 
@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
 
   const { data: settings } = await sanityFetch({
-    query: generalSettingsQuery,
+    query: GENERAL_SETTINGS_QUERY,
   });
 
   if (settings.homePage === null) return (
@@ -32,15 +32,13 @@ export default async function Home() {
   )
 
   const { data: page } = await sanityFetch({ 
-    query: pageBySlugQuery, 
+    query: PAGE_BY_SLUG_QUERY, 
     params: { slug: settings?.homePage?.slug },
   });
   
   return(
-    <main id="home" className="overflow-hidden">
-      <PageBuilder
-        blocks={page?.pageBuilder} 
-      />
-    </main>
+    <div id="home">
+      <PageBuilder blocks={page?.pageBuilder} />
+    </div>
   )
 }
