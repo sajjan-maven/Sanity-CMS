@@ -1,6 +1,8 @@
+import { Metadata } from 'next';
 import toast from "react-hot-toast";
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { urlForImage } from '@/sanity/lib/utils';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -98,4 +100,38 @@ export function resolveHref(documentType?: string, slug?: string): string | unde
     default:
       return `/${slug}`;
   }
+}
+
+export function processMetadata({ data }: {
+  data: {
+    id?: string
+    title: string
+    description: string
+    image?: any
+    noIndex?: boolean
+  }
+}): Metadata {
+
+  const { id, title, description, image, noIndex } = data;
+
+  const metadata: Metadata = {
+    title,
+    description,
+  };
+
+  metadata.openGraph = {
+    images: {
+      url: image
+        ? urlForImage(image)?.width(1200).height(630).url() as string
+        : `/api/og?id=${id}`,
+      width: 1200,
+      height: 630,
+    },
+  };
+
+  if (noIndex) {
+    metadata.robots = 'noindex'
+  };
+
+  return metadata;
 }

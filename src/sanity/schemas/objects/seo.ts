@@ -21,5 +21,11 @@ export default defineType({
       initialValue: false,
       description: "Enable this for pages you don't want appearing in search results.",
     }),
+    defineField({
+      name: "image",
+      type: "image",
+      options: { hotspot: true },
+      description: "If left blank, an OG image will be auto-generated.",
+    }),
   ],
 });

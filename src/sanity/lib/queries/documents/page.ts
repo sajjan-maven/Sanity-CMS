@@ -1,4 +1,3 @@
-import { seo } from "../fragments/seo";
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
@@ -15,6 +14,7 @@ export const pageBySlugQuery = defineQuery(`*[_type == 'page' && slug.current ==
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);

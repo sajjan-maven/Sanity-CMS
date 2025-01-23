@@ -13,7 +13,8 @@ export const projectsPageQuery = defineQuery(`*[_type == 'projectsPage'][0] {
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);
 
@@ -35,7 +36,8 @@ export const projectBySlugQuery = defineQuery(`*[_type == 'project' && slug.curr
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);
 

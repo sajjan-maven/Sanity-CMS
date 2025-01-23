@@ -13,7 +13,8 @@ export const serviceBySlugQuery = defineQuery(`*[_type == 'service' && slug.curr
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);
 
@@ -32,6 +33,7 @@ export const servicesPageQuery = defineQuery(`*[_type == 'servicesPage'][0] {
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);

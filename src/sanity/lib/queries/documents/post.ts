@@ -13,7 +13,8 @@ export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);
 
@@ -120,7 +121,8 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
-    "noIndex": seo.noIndex == true
+    "noIndex": seo.noIndex == true,
+    "image": seo.image,
   },
 }`);
 

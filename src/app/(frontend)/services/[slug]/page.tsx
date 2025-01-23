@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
 import { serviceBySlugQuery, serviceSlugsQuery } from '@/sanity/lib/queries/documents/service';
@@ -24,20 +25,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     stega: false,
   });
 
-  if (!service) {
-    return {}
-  };
+  if (!service) { return {} };
 
-  const metadata: Metadata = {
-    title: service.seo.title,
-    description: service.seo.description,
-  };
-
-  if (service.seo.noIndex) {
-    metadata.robots = "noindex";
-  };
-
-  return metadata;
+  return processMetadata({ data: service });
 }
 
 export default async function ServicePage({ params }: PageProps) {

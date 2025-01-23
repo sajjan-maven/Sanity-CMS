@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import PostContent from '../_components/post-content';
 import RelatedPosts from '../_components/related-posts';
@@ -26,20 +27,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     stega: false,
   });
 
-  if (!post) {
-    return {}
-  }
+  if (!post) { return {} };
 
-  const metadata: Metadata = {
-    title: post.seo.title,
-    description: post.seo.description,
-  };
-
-  if (post.seo.noIndex) {
-    metadata.robots = "noindex";
-  };
-
-  return metadata;
+  return processMetadata({ data: post });
 }
 
 export default async function PostPage({ params }: PageProps) {
