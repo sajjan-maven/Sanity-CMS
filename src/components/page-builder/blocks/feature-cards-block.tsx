@@ -4,12 +4,26 @@ import { CircleCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
+import type { PortableTextBlock } from '@portabletext/types';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/feature-cards';
+import { ButtonType } from '@/types/button';
+import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
 export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 
-  const { heading, buttons, features, anchorId, paddingTop, paddingBottom } = props;
+  const { 
+    heading, 
+    buttons, 
+    features, 
+    showCallToAction,
+    callToActionHeading,
+    callToActionContent,
+    callToActionButtons,
+    anchorId, 
+    paddingTop, 
+    paddingBottom 
+  } = props;
 
   return (
     <section 
@@ -38,24 +52,13 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
               <FeatureCard feature={feature} />
             </li>
           ))}
-          <div className='col-span-2 w-full p-8 flex flex-col md:flex-row gap-8 border rounded-3xl pattern-bg--2'>
-            <div className="space-y-5 md:space-y-3">
-              <div className="font-medium text-xl text-balance">
-                Want to take SiteEngine for a spin?
-              </div>
-              <p className="text-balance text-sm md:text-base text-gray-500">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
-              </p>
-            </div>
-            <div className="flex items-center md:justify-center gap-2.5">
-              <Button variant="outline" buttonType="internal" className="decoration-transparent">
-                Learn More
-              </Button>
-              <Button variant="primary" buttonType="internal" className="decoration-transparent">
-                View Demo
-              </Button>
-            </div>
-          </div>
+          {showCallToAction && (
+            <CallToAction 
+              heading={callToActionHeading}
+              content={callToActionContent}
+              buttons={callToActionButtons}
+            />
+          )}
         </ul>
       </Container>
     </section>
@@ -112,6 +115,31 @@ function FeatureCard({ feature }: {
           >
             {feature.button.buttonText}
           </Button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function CallToAction({ heading, content, buttons }: {
+  heading: string;
+  content: PortableTextBlock;
+  buttons: ButtonType[];
+}) {
+  return (
+    <div className='col-span-2 w-full p-8 flex flex-col md:flex-row items-center gap-8 border rounded-3xl pattern-bg--2'>
+      <div className="space-y-5 md:space-y-3">
+        <div className="font-medium text-xl text-balance">
+          {heading}
+        </div>
+        <PortableTextEditor 
+          data={content}
+          classNames='text-balance text-sm md:text-base text-gray-500'
+        />
+      </div>
+      {buttons && buttons.length > 0 && (
+        <div className='items-center md:justify-center gap-2.5'>
+          <ButtonRenderer buttons={buttons} />  
         </div>
       )}
     </div>

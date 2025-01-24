@@ -64,6 +64,34 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'showCallToAction',
+      title: 'Show Call To Action',
+      type: 'boolean',
+    }),
+    defineField({
+      name: 'callToActionHeading',
+      title: 'CTA Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'callToActionContent',
+      title: 'CTA Content',
+      type: 'array',
+      of: [
+        { 
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        },
+      ],
+    }),
+    defineField({
+      name: 'callToActionButtons',
+      title: 'CTA Buttons',
+      type: 'array',
+      of: [{ type: 'buttonObject' }],
+    }),
+    defineField({
       name: 'anchorId',
       title: 'Anchor ID',
       type: 'string',

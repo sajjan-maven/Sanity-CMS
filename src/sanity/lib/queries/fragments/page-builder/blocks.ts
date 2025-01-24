@@ -72,6 +72,12 @@ export const FEATURE_CARDS_BLOCK_QUERY = `
         ${BUTTON_QUERY}
       },
     },
+    showCallToAction,
+    callToActionHeading,
+    callToActionContent,
+    callToActionButtons[] {
+      ${BUTTON_QUERY}
+    },
     anchorId,
     ${PADDING_QUERY}
   }

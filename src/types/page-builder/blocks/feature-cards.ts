@@ -1,4 +1,5 @@
 import { ButtonType } from "@/types/button";
+import type { PortableTextBlock } from '@portabletext/types';
 
 export type FeatureCardsBlockType = {
   _id: string;
@@ -7,6 +8,10 @@ export type FeatureCardsBlockType = {
   heading: string;
   buttons: ButtonType[];
   features: FeatureItem[];
+  showCallToAction: boolean;
+  callToActionHeading: string;
+  callToActionContent: PortableTextBlock;
+  callToActionButtons: ButtonType[];
   anchorId?: string;
   paddingTop: string;
   paddingBottom: string;
