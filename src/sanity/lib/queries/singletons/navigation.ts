@@ -28,8 +28,15 @@ export const NAVIGATION_SETTINGS_QUERY = defineQuery(`*[_type == 'navigationSett
       _key,
       title,
       _type,
+      menuItemType,
       pageReference->{
         _id,
+        title,
+        "slug": slug.current
+      },
+      pageReferences[]->{
+        _id,
+        _type,
         title,
         "slug": slug.current
       },

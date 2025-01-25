@@ -1,10 +1,13 @@
 import Image from "next/image";
-import { resolveHref } from "@/lib/utils";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
+import { cn, resolveHref } from "@/lib/utils";
 import ButtonRenderer from "../shared/button-renderer";
 import AnimatedUnderline from "../shared/animated-underline";
 import { MenuItemType, NavigationSettingsType } from "@/types/navigation";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 
 export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
@@ -36,21 +39,63 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
           Explore
         </SheetTitle>
         <ul className='px-0 space-y-4 text-black'>
-          {menuItems?.map((item: MenuItemType) => (
-            <li key={item?._key}>
-              <SheetClose>
-                <button 
-                  onClick={() => (
-                    router.push(resolveHref(item.pageReference._type, item.pageReference.slug) ?? '/')
-                  )}
-                  className='relative block text-3xl tracking-tight group'
-                >
-                  {item.title}
-                  <AnimatedUnderline className='h-[2px]' />
-                </button>
-              </SheetClose>
-            </li>
-          ))}
+          {menuItems?.map((item: MenuItemType) => {
+            const [isOpen, setIsOpen] = useState(false);
+            return (
+              <>
+                {item.menuItemType === 'group' ? (
+                  <div>
+                    <Collapsible 
+                      open={isOpen}
+                      onOpenChange={setIsOpen}
+                      className="space-y-3.5"
+                    >
+                      <CollapsibleTrigger className="relative flex items-center gap-2 text-3xl tracking-tight group">
+                        <span className="relative">
+                          {item.title} 
+                          <AnimatedUnderline className='h-[2px]' />
+                        </span>
+                        <ChevronDown 
+                          size={23} 
+                          className={cn('translate-y-0.5 rotate-0 transition-transform duration-200', {
+                            'rotate-180': isOpen
+                          })}
+                        />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="space-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
+                        {item.pageReferences.map((item) => (
+                          <SheetClose>
+                            <button 
+                              onClick={() => {
+                                router.push(resolveHref(item._type, item.slug) ?? '/');
+                                setIsOpen(false);
+                              }}
+                              className='relative block text-xl tracking-tight text-gray-500 group'
+                            >
+                              {item.title}
+                              <AnimatedUnderline className='h-[1.5px] bg-gray-500' />
+                            </button>
+                          </SheetClose>
+                        ))}                        
+                      </CollapsibleContent>
+                    </Collapsible>
+                  </div>
+                ): (
+                  <SheetClose>
+                    <button 
+                      onClick={() => (
+                        router.push(resolveHref(item.pageReference._type, item.pageReference.slug) ?? '/')
+                      )}
+                      className='relative block text-3xl tracking-tight group'
+                    >
+                      {item.title}
+                      <AnimatedUnderline className='h-[2px]' />
+                    </button>
+                  </SheetClose>
+                )}
+              </>
+            )
+          })}
         </ul>
         {showCompanyDetailsSlideOutMenu && (
           <>
