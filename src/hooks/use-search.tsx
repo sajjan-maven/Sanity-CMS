@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 interface Searchable {
   title: string;
@@ -11,13 +11,13 @@ export function useSearch<T extends Searchable>(items: T[], debounceMs: number =
   const [searchResults, setSearchResults] = useState<T[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  function searchItems(query: string): T[] {
+  const searchItems = useCallback((query: string): T[] => {
     const lowercaseQuery = query.toLowerCase();
     return items.filter(
       item => item.title.toLowerCase().includes(lowercaseQuery) || 
               item.excerpt.toLowerCase().includes(lowercaseQuery)
     );
-  }
+  }, [items]);
 
   function clearSearch() {
     setSearchTerm('');
@@ -34,7 +34,7 @@ export function useSearch<T extends Searchable>(items: T[], debounceMs: number =
 
     const debounceTimer = setTimeout(handleSearch, debounceMs);
     return () => clearTimeout(debounceTimer);
-  }, [searchTerm, items, debounceMs]);
+  }, [searchTerm, items, debounceMs, searchItems]);
 
   return {
     searchTerm,

@@ -8,7 +8,7 @@ import Author from '@/components/ui/author';
 import Heading from '@/components/shared/heading';
 import BackButton from '@/components/shared/back-button';
 import { PostCategoryType, PostType } from '@/types/post';
-import { Tag, Text, ImageIcon, ChevronDown } from 'lucide-react';
+import { Tag, ImageIcon, ChevronDown } from 'lucide-react';
 import AnimatedUnderline from '@/components/shared/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';

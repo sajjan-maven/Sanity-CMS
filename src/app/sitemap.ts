@@ -2,6 +2,11 @@ import { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
 import { SITEMAP_QUERY } from "@/sanity/lib/queries/misc";
 
+interface SitemapPath {
+  href: string;
+  _updatedAt: string;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const paths = await client.fetch(SITEMAP_QUERY);
@@ -19,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency: "weekly",
           priority: 1,
         },
-        ...paths.map((path: any) => ({
+        ...paths.map((path: SitemapPath) => ({
           url: new URL(path.href!, baseUrl).toString(),
           lastModified: new Date(path._updatedAt),
           changeFrequency: "weekly",

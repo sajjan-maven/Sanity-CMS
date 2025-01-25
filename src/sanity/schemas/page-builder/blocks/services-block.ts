@@ -3,7 +3,6 @@ import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { paddingFields } from "../../misc/padding-fields";
 import { defineArrayMember, defineField, defineType } from "sanity";
-import { pageReferenceTypes } from "../../misc/page-reference-types";
 
 export default defineType({
   name: 'servicesBlock',

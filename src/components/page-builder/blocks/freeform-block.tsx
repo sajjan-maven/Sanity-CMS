@@ -5,6 +5,7 @@ import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { FreeformBlockType } from '@/types/page-builder/blocks/freeform';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import React from 'react';
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
@@ -40,9 +41,9 @@ export default function FreeformBlock(props: FreeformBlockType) {
               })}
             >
               {column.items.map((item) => (
-                <>
+                <React.Fragment key={item._key}>
                   {item._type === 'heading' && item?.headingText && (
-                    <Heading tag="h3" size="md" key={item._key}>
+                    <Heading tag="h3" size="md">
                       {item?.headingText}
                     </Heading>
                   )}
@@ -58,16 +59,12 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   )}
                   {item._type === 'richText' && item?.richTextContent && (
                     <PortableTextEditor 
-                      key={item._key}
                       data={item?.richTextContent} 
                       classNames='text-balance'
                     />
                   )}
                   {item._type === 'singleImage' && item?.image?.asset?.url && (
-                    <div 
-                      key={item._key}
-                      className='p-3 border border-dashed rounded-3xl'
-                    >
+                    <div className='p-3 border border-dashed rounded-3xl'>
                       <Image
                         src={item?.image?.asset?.url ?? ''}
                         width={800}
@@ -82,7 +79,6 @@ export default function FreeformBlock(props: FreeformBlockType) {
                   )}
                   {item._type === 'button' && item?.buttonText && (
                     <Button 
-                      key={item._key}
                       size="sm"
                       variant={item?.buttonVariant}
                       buttonType={item?.buttonType}
@@ -92,7 +88,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                       {item?.buttonText}
                     </Button>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </div>
           ))}

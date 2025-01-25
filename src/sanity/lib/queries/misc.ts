@@ -15,3 +15,11 @@ export const SITEMAP_QUERY = defineQuery(`
     _updatedAt
   }
 `)
+
+export const REDIRECTS_QUERY = defineQuery(`
+  *[_type == "redirect" && isEnabled == true] {
+      source,
+      destination,
+      permanent
+  }
+`);
