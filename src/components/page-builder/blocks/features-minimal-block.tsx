@@ -3,8 +3,8 @@ import { Check } from 'lucide-react';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
-import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
 
 export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
 

@@ -10,10 +10,10 @@ import { MenuItemType, NavigationSettingsType } from "@/types/navigation";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 
-export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
+export default function SlideOutMenu({ children, siteLogo, siteTitle, settings  }: {
   siteTitle: string;
   children: React.ReactNode;
-  logo?: { asset: { url: string; } };
+  siteLogo?: { asset: { url: string; } };
   settings: NavigationSettingsType['slideOutMenu'];
 }) {
 
@@ -31,14 +31,14 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
       <SheetTrigger asChild>
         {children}
       </SheetTrigger>
-      <SheetContent className='overflow-y-scroll'>
+      <SheetContent className='overflow-y-scroll pb-44'>
         <SheetHeader className='z-20 fixed top-0 pt-[26px] right-7 w-[338px] md:w-[330px] h-20 border-b border-dashed border-b-gray-200 bg-white/95'>
-          <SiteLogo siteTitle={siteTitle} logo={logo} theme='dark' />
+          <SiteLogo siteTitle={siteTitle} siteLogo={siteLogo} theme='dark' />
         </SheetHeader>
         <SheetTitle className='mt-16 px-0 py-6 antialiased font-normal text-gray-400'>
           Explore
         </SheetTitle>
-        <ul className='px-0 space-y-4 text-black'>
+        <ul className='px-0 flex flex-col gap-4 text-black'>
           {menuItems?.map((item: MenuItemType) => {
             const [isOpen, setIsOpen] = useState(false);
             return (
@@ -70,10 +70,10 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
                                 router.push(resolveHref(item._type, item.slug) ?? '/');
                                 setIsOpen(false);
                               }}
-                              className='relative block text-xl tracking-tight text-gray-500 group'
+                              className='relative block text-xl tracking-tight text-gray-500 hover:text-black group'
                             >
                               {item.title}
-                              <AnimatedUnderline className='h-[1.5px] bg-gray-500' />
+                              <AnimatedUnderline className='h-[1.5px] bg-gray-500 group-hover:bg-black' />
                             </button>
                           </SheetClose>
                         ))}                        
@@ -129,7 +129,7 @@ export default function SlideOutMenu({ children, logo, siteTitle, settings  }: {
           </>
         )}
         {slideOutMenuButtons && slideOutMenuButtons.length > 0 && (
-          <div className='fixed bottom-1 right-0 w-full md:w-[380px] px-4 pb-4'>
+          <div className='pt-10 fixed bottom-1 right-0 w-full md:w-[380px] px-4 pb-4 bg-gradient-to-t from-white via-white to-transparent'>
             <ButtonRenderer buttons={slideOutMenuButtons} classNames="flex-col md:flex-row" />  
           </div>
         )}

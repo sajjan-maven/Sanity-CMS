@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -5,7 +6,6 @@ import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { FreeformBlockType } from '@/types/page-builder/blocks/freeform';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import React from 'react';
 
 export default function FreeformBlock(props: FreeformBlockType) {
 
@@ -82,7 +82,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                       size="sm"
                       variant={item?.buttonVariant}
                       buttonType={item?.buttonType}
-                      pageReference={item?.buttonPageReference?.slug ?? ''}
+                      pageReference={item?.buttonPageReference}
                       externalUrl={item?.buttonExternalUrl ?? ''}
                     >
                       {item?.buttonText}

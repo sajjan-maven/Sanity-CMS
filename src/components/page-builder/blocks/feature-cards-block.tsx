@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { CircleCheck } from 'lucide-react';
+import { ButtonType } from '@/types/button';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import type { PortableTextBlock } from '@portabletext/types';
 import ButtonRenderer from '@/components/shared/button-renderer';
-import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/feature-cards';
-import { ButtonType } from '@/types/button';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/feature-cards';
 
 export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 
@@ -93,12 +93,12 @@ function FeatureCard({ feature }: {
         {feature.items.map((item, index) => (
           <li 
             key={item} 
-            className={cn('flex items-start md:items-center gap-2.5 px-6 md:px-8 py-4 border-b border-dashed', {
+            className={cn('flex items-start md:items-center gap-2 px-6 md:px-8 py-4 border-b border-dashed', {
               'border-none pb-6': index === feature.items.length  - 1
             })}
           >
             <CircleCheck className='h-4 w-4 text-green-600' />
-            <span className='-translate-y-0.5 md:-translate-x-0 text-balance text-sm'>
+            <span className='text-balance text-sm'>
               {item}
             </span>
           </li>
@@ -109,7 +109,7 @@ function FeatureCard({ feature }: {
           <Button 
             variant={feature?.button.buttonVariant}
             buttonType={feature?.button.buttonType}
-            pageReference={feature?.button.buttonPageReference?.slug ?? ''}
+            pageReference={feature?.button.buttonPageReference}
             externalUrl={feature?.button.buttonExternalUrl ?? ''}
             className='h-12 w-full'
           >

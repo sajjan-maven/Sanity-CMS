@@ -1,15 +1,19 @@
+import ButtonRenderer from "@/components/shared/button-renderer";
 import { Button } from "@/components/ui/button";
+import { ButtonType } from "@/types/button";
 
 export default function CallToAction({ data }: {
   data: {
     callToActionTitle: string;
     callToActionParagraph: string;
+    buttons: ButtonType[];
   }
 }) {
 
   const { 
     callToActionTitle: title,
-    callToActionParagraph: paragrapgh
+    callToActionParagraph: paragrapgh,
+    buttons
   } = data
 
   return (
@@ -22,11 +26,9 @@ export default function CallToAction({ data }: {
           {paragrapgh}
         </p>
       </div>
-      <div className="flex flex-col justify-center items-center">
-        <Button variant="primary" buttonType="internal" className="decoration-transparent">
-          Get Started
-        </Button>
-      </div>
+      {buttons && buttons.length > 0 && (
+        <ButtonRenderer buttons={buttons} />  
+      )}
     </div>
   )
 }

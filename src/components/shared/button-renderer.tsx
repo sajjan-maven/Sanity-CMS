@@ -8,7 +8,7 @@ export default function ButtonRenderer({ buttons, classNames }: {
   classNames?: string;
 }) {
   return (
-    <ul className={cn('flex items-center gap-3', classNames)}>
+    <ul className={cn('flex items-center gap-3 list-none', classNames)}>
       {buttons.map((button) => (
         <li 
           key={button?._key}

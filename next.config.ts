@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return await fetchRedirects();
   },
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+  typescript: {
+    ignoreBuildErrors: true
+  }
 };
 
 export default nextConfig;

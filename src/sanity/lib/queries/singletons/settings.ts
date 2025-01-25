@@ -2,6 +2,9 @@ import { defineQuery } from "next-sanity";
 
 export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings'][0] {
   siteTitle,
+  siteLogo { 
+    asset->{ url },
+  },
   copyright,
   homePage->{
     title,

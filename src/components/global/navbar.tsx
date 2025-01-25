@@ -24,7 +24,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   const pathname = usePathname();
   const hasScrolled = useScroll();
 
-  const { siteTitle, logo } = settings;
+  const { siteTitle, siteLogo } = settings;
 
   const { navbarMenuItems } = navigationSettings['navbar'];
   const { showSlideOutMenu } = navigationSettings['slideOutMenu'];
@@ -36,7 +36,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
       })}
     >
       <Container className='flex items-center justify-between'>
-        <SiteLogo siteTitle={siteTitle} logo={logo} />
+        <SiteLogo siteTitle={siteTitle} siteLogo={siteLogo} />
         <div className='flex items-center gap-3'>
           <NavigationMenu className='hidden md:block'>
             <NavigationMenuList className='space-x-8 group/nav'>
@@ -98,7 +98,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
           </NavigationMenu>
           {showSlideOutMenu && (
             <SlideOutMenu 
-              logo={logo}
+              siteLogo={siteLogo}
               siteTitle={siteTitle} 
               settings={navigationSettings['slideOutMenu']}
             >

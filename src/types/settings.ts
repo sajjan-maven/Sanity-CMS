@@ -1,7 +1,7 @@
 export type SettingsType = {
   siteTitle: string;
   copyright: string;
-  logo?: {
+  siteLogo?: {
     asset: { 
       url: string
     }, 

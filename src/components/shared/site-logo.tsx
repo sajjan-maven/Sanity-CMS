@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { cn, scrollToElement } from '@/lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
 
-export default function SiteLogo({ siteTitle, logo, location, theme }: {
+export default function SiteLogo({ siteTitle, siteLogo, location, theme }: {
   siteTitle: string;
-  logo?: {
+  siteLogo?: {
     asset: {
       url: string;
     }
@@ -26,7 +26,7 @@ export default function SiteLogo({ siteTitle, logo, location, theme }: {
         'text-white': theme === 'light'
       })}
     >
-      {!logo ? ( 
+      {!siteLogo ? ( 
         <span 
           className={cn('font-semibold tracking-tighter text-xl', {
             'text-3xl': location === 'footer'
@@ -36,10 +36,12 @@ export default function SiteLogo({ siteTitle, logo, location, theme }: {
         </span>
       ): (
         <Image
-          src={logo.asset.url}
-          width={200}
-          height={200}
+          priority
+          width={140}
+          height={140}
+          src={siteLogo.asset.url}
           alt={`${siteTitle} Logo` ?? ''}
+          className='w-[140px] h-auto object-contain'
         />
       )}
     </button>

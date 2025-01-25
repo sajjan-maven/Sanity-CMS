@@ -22,19 +22,36 @@ export default function LogoBlock(props: LogoBlockType) {
             </h2>
             <EdgeBlur />
           </div>
-          <div className="mt-10 md:mt-16 mb-6 md:mb-8 relative overflow-clip">
-            <ul className="flex items-center pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed py-4 md:py-10">
+          <div className="relative mt-10 md:mt-16 mb-6 md:mb-8 overflow-clip">
+            <ul className="flex items-center py-4 md:py-10 pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed">
               {items.map((item, index) => (
                 <li key={item._key + index}>
-                  <Image
-                    width={200}
-                    height={100}
-                    src={item.image.asset.url}
-                    alt={`${item.title} Logo` ?? ''}
-                    className={cn('w-20 md:w-28 object-contain', {
-                      'w-36 md:w-40': item.size === 'large'
-                    })}
-                  />  
+                  {item.link ? (
+                    <a 
+                      href={item.link}
+                      target="_blank" rel="noopener noreferrer" 
+                    >
+                      <Image
+                        width={200}
+                        height={100}
+                        src={item.image.asset.url}
+                        alt={`${item.title} Logo` ?? ''}
+                        className={cn('w-20 md:w-28 object-contain', {
+                          'w-36 md:w-40': item.size === 'large'
+                        })}
+                      />
+                    </a>
+                  ): (
+                    <Image
+                      width={200}
+                      height={100}
+                      src={item.image.asset.url}
+                      alt={`${item.title} Logo` ?? ''}
+                      className={cn('w-20 md:w-28 object-contain', {
+                        'w-36 md:w-40': item.size === 'large'
+                      })}
+                    />  
+                  )}
                 </li>
               ))}
             </ul>
@@ -49,7 +66,7 @@ export default function LogoBlock(props: LogoBlockType) {
 function EdgeBlur() {
   return (
     <div className='absolute inset-0 flex items-center justify-between'>
-      <div className='relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
+      <div className='z-30 relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
       <div className='bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
     </div>
   )

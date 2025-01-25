@@ -40,10 +40,8 @@ export default function ProjectsLayout({
   )
 
   return (
-    <main className='pt-40 pb-28 pattern-bg'>
-      <Container>
-        {children}
-      </Container>
-    </main>
+    <>
+      {children}
+    </>
   )
 }

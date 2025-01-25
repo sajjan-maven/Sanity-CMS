@@ -68,9 +68,10 @@ export default function HeroBlock(props: HeroBlockType) {
           <div className='p-4 md:p-6 border border-dashed rounded-3xl md:rounded-4xl'>
             <div className='overflow-hidden relative h-full w-full rounded-3xl md:rounded-4xl'>
               <Image
-                src={image?.asset.url}
+                priority
                 width={1400}
                 height={800}
+                src={image?.asset.url}
                 alt={image?.alt ?? ''}
                 className={cn('object-cover rounded-2xl md:rounded-3xl', {
                   'max-h-[30rem]': image?.height === 'short'

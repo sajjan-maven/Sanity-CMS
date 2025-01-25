@@ -17,6 +17,12 @@ export default defineType({
       title: 'Paragraph',
       rows: 4
     }),
+    defineField({
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'buttonObject' }],
+    }),
   ],
   preview: {
     select: {
