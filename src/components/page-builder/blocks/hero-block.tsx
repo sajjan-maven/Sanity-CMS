@@ -65,7 +65,7 @@ export default function HeroBlock(props: HeroBlockType) {
           </div>
         </div>
         {mediaType === 'image' && image && (
-          <div className='p-4 md:p-6 border border-dashed rounded-3xl md:rounded-4xl'>
+          <div className='p-4 md:p-6 border border-dashed rounded-3xl md:rounded-4xl pattern-bg--2'>
             <div className='overflow-hidden relative h-full w-full rounded-3xl md:rounded-4xl'>
               <Image
                 priority

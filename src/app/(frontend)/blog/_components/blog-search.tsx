@@ -30,7 +30,7 @@ export function BlogSearch({ posts, classNames }: {
 
   return (
     <div ref={dropdownRef} className={cn('relative w-full md:max-w-[260px]', classNames)}>
-      <div className="relative">
+      <div className="relative z-20">
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
         <Input
           type="text"

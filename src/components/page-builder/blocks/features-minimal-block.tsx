@@ -40,8 +40,11 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
         <div className='grid grid-cols-12 gap-y-12 md:gap-y-20 xl:gap-x-20'>
           <div className='col-span-12 xl:col-span-5 max-w-[400px] md:max-w-full space-y-10 md:space-y-10'>
             <div>
-              <Heading tag="h2" size="xl" className=' max-w-[420px] relative pr-2.5 py-3 text-balance leading-normal border-y border-dashed border-t-gray-200 border-b-gray-200 bg-gray-50'>
-                {heading}
+              <Heading tag="h2" size="xl" className='max-w-[420px] relative pr-2.5 py-3 text-balance leading-normal border-y border-dashed border-t-gray-200 border-b-gray-200 bg-gray-50 pattern-bg--2'>
+                <span className='relative z-20'>
+                  {heading}
+                </span>
+                <EdgeBlur />
               </Heading>
               {content && (
                 <PortableTextEditor 
@@ -69,5 +72,14 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
         </div>
       </Container>
     </section>
+  )
+}
+
+function EdgeBlur() {
+  return (
+    <div className='absolute inset-0 flex items-center justify-between'>
+      <div className='relative bg-gradient-to-r from-gray-50 to-transparent h-full w-[100px]'></div>
+      <div className='bg-gradient-to-l from-gray-50 to-transparent h-full w-[100px]'></div>
+    </div>
   )
 }

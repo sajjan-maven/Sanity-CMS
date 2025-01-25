@@ -64,7 +64,7 @@ export default function FreeformBlock(props: FreeformBlockType) {
                     />
                   )}
                   {item._type === 'singleImage' && item?.image?.asset?.url && (
-                    <div className='p-3 border border-dashed rounded-3xl'>
+                    <div className='p-3 border border-dashed rounded-3xl pattern-bg--2'>
                       <Image
                         src={item?.image?.asset?.url ?? ''}
                         width={800}

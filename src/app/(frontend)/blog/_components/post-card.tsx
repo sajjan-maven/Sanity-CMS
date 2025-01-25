@@ -16,7 +16,7 @@ export default function PostCard({ post }: {
 
   return (
     <article aria-label={title} className='relative group pb-10 border-b border-dashed'>
-      <Link href={`/blog/${slug}`} className='relative space-y-6'>
+      <Link href={`/blog/${slug}`} className='relative space-y-6 '>
         <Category>
           {category.title}
         </Category>
@@ -50,7 +50,7 @@ function Thumbnail({ image }: {
   }
 }) {
   return (
-    <div className='p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
+    <div className='p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50 pattern-bg--2'>
       <Image
         src={image?.asset?.url}
         width={800}

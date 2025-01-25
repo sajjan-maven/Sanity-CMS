@@ -35,16 +35,16 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <div className='max-w-[60rem] mx-auto py-2 md:py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between border-y border-dashed pattern-bg'>
+        <div className='relative max-w-[60rem] mx-auto py-2 md:py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between border-y border-dashed pattern-bg--2'>
           <Heading tag="h2" size="xl" className='relative col-span-7 py-1.5 text-balance leading-normal'>
             <span className='relative z-10'>
               {heading}
             </span>
-            <EdgeBlur />
           </Heading>
           {buttons && buttons.length > 0 && (
-            <ButtonRenderer classNames='hidden md:flex' buttons={buttons} />  
+            <ButtonRenderer classNames='z-20 hidden md:flex' buttons={buttons} />  
           )}
+          <EdgeBlur />
         </div>
         <ul className='max-w-[60rem] mx-auto grid md:grid-cols-2 gap-6'>
           {features?.map((feature: FeatureItem) => (
