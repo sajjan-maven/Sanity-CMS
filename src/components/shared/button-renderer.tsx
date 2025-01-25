@@ -20,7 +20,7 @@ export default function ButtonRenderer({ buttons, classNames }: {
             variant={button?.buttonVariant} 
             buttonType={button?.buttonType}
             width={button?.buttonWidth}
-            pageReference={button?.buttonPageReference?.slug ?? ''}
+            pageReference={button?.buttonPageReference}
             externalUrl={button?.buttonExternalUrl ?? ''}
             emailAddress={button?.buttonEmailAddress ?? ''}
             fileUrl={button?.buttonFileUrl ?? ''}

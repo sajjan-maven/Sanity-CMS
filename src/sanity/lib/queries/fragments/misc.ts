@@ -21,6 +21,7 @@ export const BUTTON_QUERY = `
   },
   buttonPageReference->{
     _id,
+    _type,
     title,
     "slug": slug.current
   },

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import * as React from "react";
+import { PageType } from "@/types/page";
 import { ArrowRight } from "lucide-react";
-import { cn, getAnchorHref } from "@/lib/utils";
+import { cn, getAnchorHref, resolveHref } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
@@ -36,7 +37,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof buttonVariants> {
       disableIcon?: boolean;
-      pageReference?: string;
+      pageReference?: PageType;
       externalUrl?: string;
       fileUrl?: string | { asset: { url: string } };
       buttonType?: 'internal' | 'anchor' | 'external' | 'fileDownload' | 'emailAddress';
@@ -64,9 +65,10 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
 
   switch (buttonType) {
     case 'internal':
+      if (!pageReference) return null;
       return (
         <Link
-          href={`/${pageReference}`}
+          href={resolveHref(pageReference._type, pageReference.slug) ?? '/'}
           ref={ref}
           className={cn('group', buttonVariants({ variant, size, width, className }))}
           {...props}

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import toast from "react-hot-toast";
+import { PageType } from '@/types/page';
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { urlForImage } from '@/sanity/lib/utils';
@@ -68,17 +69,19 @@ export function formatFieldId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-');
 }
 
-export function getAnchorHref(params: {
+export function getAnchorHref({ 
+  anchorLocation, 
+  anchorId, 
+  pageReference 
+}: { 
   anchorLocation?: 'currentPage' | 'choosePage';
   anchorId?: string;
-  pageReference?: string;
+  pageReference?: PageType;
 }) {
-
-  const { anchorLocation, anchorId, pageReference } = params;
-  
-  return anchorLocation === 'currentPage'
-    ? `#${anchorId}`
-    : `/${pageReference}#${anchorId}`;
+  if (anchorLocation === 'currentPage') {
+    return `#${anchorId}`;
+  }
+  return `/${pageReference?.slug}#${anchorId}`;
 }
 
 export function getPageHref(page: { slug: string; _type?: string }) {

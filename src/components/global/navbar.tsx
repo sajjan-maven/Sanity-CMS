@@ -87,7 +87,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       variant="primary" 
                       disableIcon={true}
                       buttonType="internal"
-                      pageReference={item.pageReference.slug}
+                      pageReference={item.pageReference}
                     >
                       {item.title}
                     </Button>
