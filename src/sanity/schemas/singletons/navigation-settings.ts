@@ -182,11 +182,32 @@ export default defineType({
                       description: 'The title of the menu item.'
                     }),
                     defineField({
+                      title: "Link Type",
+                      name: "linkType",
+                      type: "string",
+                      options: {
+                        list: [
+                          { title: "Internal", value: "internal" },
+                          { title: "External URL", value: "external" },
+                        ],
+                      },
+                      initialValue: 'internal',
+                    }),
+                    defineField({
                       name: 'pageReference',
                       title: 'Page',
                       description: 'The page that the menu item will link to.',
                       type: 'reference',
-                      to: [ ...pageReferenceTypes ]
+                      to: [ ...pageReferenceTypes ],
+                      hidden: ({ parent }) => parent?.linkType !== 'internal',
+                    }),
+                    defineField({
+                      name: 'externalUrl',
+                      title: 'External URL',
+                      description: 'The external URL that the menu item will link to.',
+                      type: 'url',
+                      validation: Rule => Rule.uri({ scheme: ['http', 'https', 'mailto', 'tel'] }),
+                      hidden: ({ parent }) => parent?.linkType !== 'external',
                     }),
                   ]
                 }

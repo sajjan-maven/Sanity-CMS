@@ -5,6 +5,8 @@ export const PROJECT_SLUGS_QUERY = defineQuery(`*[_type == "project" && defined(
   'params': { 'slug': slug.current }
 }`);
 
+
+
 export const PROJECTS_PAGE_QUERY = defineQuery(`*[_type == 'projectsPage'][0] {
   _type,
   title,
@@ -84,4 +86,12 @@ export const PROJECTS_BY_CATEGORY_QUERY = defineQuery(`*[_type == 'project' && c
     height,
     altText 
   },
+}`);
+
+export const PROJECT_CATEGORY_BY_SLUG_QUERY = defineQuery(`*[_type == 'projectCategory' && slug.current == $slug][0] {
+  _id,
+  _type,
+  title,
+  'slug': slug.current,
+  description,
 }`);

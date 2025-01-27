@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+type FormDataType = Record<string, string | number | boolean>;
+
 export function EmailTemplate({ formData }: { 
-  formData: Record<string, any> 
+  formData: FormDataType 
 }) {
   return (
     <div>

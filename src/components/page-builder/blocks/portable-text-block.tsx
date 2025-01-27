@@ -6,7 +6,7 @@ import { PortableTextBlockType } from '@/types/page-builder/blocks/portable-text
 
 export default function PortableTextBlock(props: PortableTextBlockType) {
 
-  const { content, alignment, anchorId, paddingTop, paddingBottom } = props;
+  const { content, alignment, anchorId } = props;
 
   return (
     <section 
@@ -14,9 +14,7 @@ export default function PortableTextBlock(props: PortableTextBlockType) {
       className='px-4 md:px-10'
     >
       <Container 
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-        className={cn('flex border-x border-dashed', {
+        className={cn('py-16 md:py-28 flex border-x border-dashed', {
           'justify-start': alignment === 'left',
           'justify-center': alignment === 'center',
           'justify-end': alignment === 'right',

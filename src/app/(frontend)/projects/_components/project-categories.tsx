@@ -8,7 +8,7 @@ export default function ProjectCategories({ categories }: {
   categories: ProjectCategoryType[]
 }) {
   return (
-    <ul className='flex items-center justify-start gap-0 md:gap-2'>
+    <ul className='relative z-20 flex items-center justify-start gap-0 md:gap-2'>
       <li className="text-nowrap">
         <CategoryLink
           href={`/projects`}
@@ -47,7 +47,7 @@ function CategoryLink({ href, category, children }: {
       href={href}
       className={cn('py-2 px-3.5 rounded-full border border-transparent backdrop-blur-md transition-all duration-300', {
         'mr-2 md:mr-0 border-black bg-black text-white': isActive,
-        'hover:bg-neutral-100': !isActive
+        'hover:bg-white hover:border-gray-200': !isActive
       })}
     >
       {children}

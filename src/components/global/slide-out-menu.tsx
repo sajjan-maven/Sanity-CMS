@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import SiteLogo from "../shared/site-logo";
 import { useRouter } from "next/navigation";
@@ -18,6 +18,7 @@ export default function SlideOutMenu({ children, siteLogo, siteTitle, settings  
 }) {
 
   const router = useRouter();
+  const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   const { 
     slideOutMenuItems: menuItems,
@@ -40,46 +41,45 @@ export default function SlideOutMenu({ children, siteLogo, siteTitle, settings  
         </SheetTitle>
         <ul className='px-0 flex flex-col gap-4 text-black'>
           {menuItems?.map((item: MenuItemType) => {
-            const [isOpen, setIsOpen] = useState(false);
             return (
-              <>
+              <React.Fragment key={item?._key}>
                 {item.menuItemType === 'group' ? (
-                  <div>
-                    <Collapsible 
-                      open={isOpen}
-                      onOpenChange={setIsOpen}
-                      className="space-y-3.5"
-                    >
-                      <CollapsibleTrigger className="relative flex items-center gap-2 text-3xl tracking-tight group">
-                        <span className="relative">
-                          {item.title} 
-                          <AnimatedUnderline className='h-[2px]' />
-                        </span>
-                        <ChevronDown 
-                          size={23} 
-                          className={cn('translate-y-0.5 rotate-0 transition-transform duration-200', {
-                            'rotate-180': isOpen
-                          })}
-                        />
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="space-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
-                        {item.pageReferences.map((item) => (
-                          <SheetClose>
-                            <button 
-                              onClick={() => {
-                                router.push(resolveHref(item._type, item.slug) ?? '/');
-                                setIsOpen(false);
-                              }}
-                              className='relative block text-xl tracking-tight text-gray-500 hover:text-black group'
-                            >
-                              {item.title}
-                              <AnimatedUnderline className='h-[1.5px] bg-gray-500 group-hover:bg-black' />
-                            </button>
-                          </SheetClose>
-                        ))}                        
-                      </CollapsibleContent>
-                    </Collapsible>
-                  </div>
+                  <Collapsible 
+                    open={openItems[item._key]}
+                    onOpenChange={(open) => (
+                      setOpenItems(prev => ({ ...prev, [item._key]: open }))
+                    )}
+                    className="space-y-3.5"
+                  >
+                    <CollapsibleTrigger className="relative flex items-center gap-2 text-3xl tracking-tight group">
+                      <span className="relative">
+                        {item.title} 
+                        <AnimatedUnderline className='h-[2px]' />
+                      </span>
+                      <ChevronDown 
+                        size={23} 
+                        className={cn('translate-y-0.5 rotate-0 transition-transform duration-200', {
+                          'rotate-180': openItems[item._key]
+                        })}
+                      />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
+                      {item.pageReferences.map((item) => (
+                        <SheetClose key={item.title}>
+                          <button 
+                            onClick={() => {
+                              router.push(resolveHref(item._type, item.slug) ?? '/');
+                              setOpenItems(prev => ({ ...prev, [item.title]: false }));
+                            }}
+                            className='relative block text-xl tracking-tight text-gray-500 hover:text-black group'
+                          >
+                            {item.title}
+                            <AnimatedUnderline className='h-[1.5px] bg-gray-500 group-hover:bg-black' />
+                          </button>
+                        </SheetClose>
+                      ))}                        
+                    </CollapsibleContent>
+                  </Collapsible>
                 ): (
                   <SheetClose>
                     <button 
@@ -93,7 +93,7 @@ export default function SlideOutMenu({ children, siteLogo, siteTitle, settings  
                     </button>
                   </SheetClose>
                 )}
-              </>
+              </React.Fragment>
             )
           })}
         </ul>

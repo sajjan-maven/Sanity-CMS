@@ -1,6 +1,17 @@
 import { sanityFetch } from '@/sanity/lib/live';
 import PostGrid from '../../_components/post-grid';
-import { POSTS_BY_CATEGORY_QUERY } from '@/sanity/lib/queries/documents/post';
+import { POST_SLUGS_QUERY, POSTS_BY_CATEGORY_QUERY } from '@/sanity/lib/queries/documents/post';
+
+export async function generateStaticParams() {
+  const { data } = await sanityFetch({
+    query: POST_SLUGS_QUERY,
+    perspective: "published",
+    stega: false,
+  });
+  return data;
+}
+
+
 
 export default async function PostsByCategoryPage(props: {
   params: Promise<{ slug: string }>

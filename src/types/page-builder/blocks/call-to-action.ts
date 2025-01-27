@@ -9,6 +9,4 @@ export type CallToActionBlockType = {
   content: PortableTextBlock;
   buttons: ButtonType[];
   anchorId?: string;
-  paddingTop: string;
-  paddingBottom: string;
 }

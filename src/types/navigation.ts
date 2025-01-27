@@ -31,7 +31,9 @@ export type MenuItemType = {
   _key: string;
   title: string;
   menuItemType: 'single' | 'group';
+  linkType: 'internal' | 'external';
   pageReference: PageType;
   pageReferences: PageType[];
+  externalUrl?: string;
   isButton?: boolean;
 }

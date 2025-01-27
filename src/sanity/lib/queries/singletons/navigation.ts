@@ -67,12 +67,14 @@ export const NAVIGATION_SETTINGS_QUERY = defineQuery(`*[_type == 'navigationSett
       menuItems[] {
         _key,
         title,
+        linkType,
         pageReference->{
           _id,
           title,
           "slug": slug.current
         },
-      }
+        externalUrl
+      },
     },
     footerLegalMenuItems[] {
       _key,

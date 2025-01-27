@@ -13,8 +13,6 @@ export type FeatureCardsBlockType = {
   callToActionContent: PortableTextBlock;
   callToActionButtons: ButtonType[];
   anchorId?: string;
-  paddingTop: string;
-  paddingBottom: string;
 }
 
 export type FeatureItem = {

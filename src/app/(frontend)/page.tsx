@@ -35,7 +35,7 @@ export default async function Home() {
     query: PAGE_BY_SLUG_QUERY, 
     params: { slug: settings?.homePage?.slug },
   });
-  
+
   return(
     <div id="home">
       <PageBuilder blocks={page?.pageBuilder} />

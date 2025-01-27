@@ -1,7 +1,7 @@
+import { GripHorizontal } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-import { GripHorizontal } from "lucide-react";
 
 export default defineType({
   name: 'logoBlock',

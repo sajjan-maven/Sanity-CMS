@@ -21,8 +21,6 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
     callToActionContent,
     callToActionButtons,
     anchorId, 
-    paddingTop, 
-    paddingBottom 
   } = props;
 
   return (
@@ -30,11 +28,7 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
       {...(anchorId ? { id: anchorId } : {})}
       className='px-4 xl:px-10'
     >
-      <Container 
-        className='px-4 space-y-8 md:space-y-6 border-x border-dashed'
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+      <Container className='py-16 md:py-28 px-4 space-y-8 md:space-y-6 border-x border-dashed'>
         <div className='relative max-w-[60rem] mx-auto py-2 md:py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between border-y border-dashed pattern-bg--2'>
           <Heading tag="h2" size="xl" className='relative col-span-7 py-1.5 text-balance leading-normal'>
             <span className='relative z-10'>

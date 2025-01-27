@@ -107,18 +107,31 @@ export function resolveHref(documentType?: string, slug?: string): string | unde
 
 export function processMetadata({ data }: {
   data: {
-    id?: string
+    id: string
     title: string
-    description: string
-    image?: any
-    noIndex?: boolean
+    seo: {
+      title?: string;
+      description: string
+      image?: {
+        _type: 'image'
+        asset: {
+          _ref: string
+          _type: 'reference'
+        }
+      }
+      noIndex?: boolean
+    }
   }
 }): Metadata {
 
-  const { id, title, description, image, noIndex } = data;
+  const { id, title: pageTitle } = data;
+  const { title, description, image, noIndex } = data.seo;
 
   const metadata: Metadata = {
-    title,
+    title: {
+      template: `${title ? title : pageTitle} | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
+      default: `${title ? title : pageTitle}`,
+    },
     description,
   };
 

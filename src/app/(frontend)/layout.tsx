@@ -11,7 +11,10 @@ import { NAVIGATION_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/navig
 import { GENERAL_SETTINGS_QUERY, MARKETING_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/settings";
 
 export const metadata: Metadata = {
-  title: "SiteEngine",
+  title: {
+    template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
+    default: `${process.env.NEXT_PUBLIC_SITE_NAME}`,
+  },
   description: "Open-Source Next.js & Sanity Marketing Website Template.",
 };
 

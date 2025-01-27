@@ -8,6 +8,4 @@ export type PortableTextBlockType = {
   content: PortableTextBlock;
   alignment?: 'left' | 'center' | 'right';
   anchorId?: string;
-  paddingTop: string;
-  paddingBottom: string;
 }

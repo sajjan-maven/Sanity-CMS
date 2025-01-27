@@ -7,6 +7,7 @@ export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings']
   },
   copyright,
   homePage->{
+    _id,
     title,
     'slug': slug.current,
     "seo": {

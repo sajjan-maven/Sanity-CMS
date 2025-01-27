@@ -14,6 +14,4 @@ export type FeaturesMinimalBlockType = {
   enableBorderBottom: boolean;
   cornerRadiusBottom: 'rounded' | 'straight';
   anchorId?: string;
-  paddingTop: string;
-  paddingBottom: string;
 }

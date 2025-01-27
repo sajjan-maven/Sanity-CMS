@@ -2,7 +2,6 @@ import { Clapperboard } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-import { paddingFields } from "../../misc/padding-fields";
 
 export default defineType({
   name: 'callToActionBlock',
@@ -39,7 +38,6 @@ export default defineType({
       title: 'Anchor ID',
       type: 'string',
     }),
-    ...paddingFields
   ],
   preview: {
     select: {

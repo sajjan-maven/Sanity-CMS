@@ -5,6 +5,8 @@ import SiteLogo from '../shared/site-logo';
 import { SettingsType } from '@/types/settings';
 import AnimatedUnderline from '../shared/animated-underline';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
+import { cn } from '@/lib/utils';
+import { ExternalLink } from 'lucide-react';
 
 interface FooterProps {
   settings: SettingsType;
@@ -22,14 +24,14 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
 
   return (
     <footer className='px-4 xl:px-10 border-t border-t-gray-200/60'>
-      <Container className='pt-14 md:pt-24 border-x border-dashed'>
-        <div className='w-full flex flex-col md:flex-row items-start gap-0 md:gap-28 xl:gap-60'>
+      <Container className='pt-14 md:pt-16 border-x border-dashed'>
+        <div className='w-full space-y-14 md:space-y-16'>
           <div className='flex-none py-4 md:py-0 border-y border-dashed md:border-none'>
             <SiteLogo siteTitle={siteTitle} siteLogo={siteLogo} location="footer" />
           </div>
           <FooterColumns columns={columns} />
         </div>
-        <div className='mt-10 md:mt-20 mb-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0 border-y border-dashed text-xs'>
+        <div className='relative mt-10 md:mt-20 mb-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0 border-y border-dashed text-xs pattern-bg--2'>
           <div className='z-20 relative'>
             {copyright} - Made by
             <a 
@@ -57,10 +59,14 @@ function FooterColumns({ columns }: {
   }[]
 }) {
   return (
-    <ul className='pt-10 md:pt-0 flex-1 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-2 border-y border-dashed pattern-bg--2'>
-      {columns.map((column) => (
-        <li key={column._key} className='md:py-10 px-10 w-full space-y-7 border-x border-dashed bg-gray-50'>
-          <Heading tag="h2" size="xs" className='relative py-2.5 font-semibold border-y border-dashed pattern-bg--2'>
+    <ul className='flex-1 grid md:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-2 border-y border-dashed pattern-bg--2'>
+      {columns.map((column, index) => (
+        <li 
+          key={column._key} 
+          className={cn('md:py-10 px-10 w-full space-y-7 border-x border-dashed bg-white', { 
+            'pb-8': index === columns.length - 1 
+          })}>
+          <Heading tag="h2" size="xs" className='relative mt-8 md:mt-0 py-2.5 font-semibold border-y border-dashed pattern-bg--2'>
             <span className='z-20 relative'>
               {column.title}
             </span>
@@ -69,13 +75,27 @@ function FooterColumns({ columns }: {
           <ul className='space-y-2'>
             {column.menuItems.map((item) => (
               <li key={item._key}>
-                <Link 
-                  href={`/${item.pageReference.slug}`}
-                  className='relative group text-sm md:text-base'
-                >
-                  {item.title}
-                  <AnimatedUnderline />
-                </Link>
+                {item.linkType === 'internal' ? (
+                  <Link 
+                    href={`/${item.pageReference.slug}`}
+                    className='relative group text-sm md:text-base'
+                  >
+                    {item.title}
+                    <AnimatedUnderline />
+                  </Link>
+                ): (
+                  <a 
+                    href={item.externalUrl}
+                    rel="noopener noreferrer" target="_blank"
+                    className='group flex items-center gap-2'
+                  >
+                    <span className='relative'>
+                      {item.title}
+                      <AnimatedUnderline />
+                    </span>
+                    <ExternalLink size={14} className='group-hover:rotate-12 group-hover:text-blue-500 transition-all duration-300' />
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -111,8 +131,8 @@ function LegalMenuItems({ legalMenuItems }: {
 function EdgeBlur() {
   return (
     <div className='absolute inset-0 flex items-center justify-between'>
-      <div className='relative bg-gradient-to-r from-gray-50 to-transparent h-full w-[100px]'></div>
-      <div className='bg-gradient-to-l from-gray-50 to-transparent h-full w-[100px]'></div>
+      <div className='relative bg-gradient-to-r from-white to-transparent h-full w-[100px]'></div>
+      <div className='bg-gradient-to-l from-white to-transparent h-full w-[100px]'></div>
     </div>
   )
 }

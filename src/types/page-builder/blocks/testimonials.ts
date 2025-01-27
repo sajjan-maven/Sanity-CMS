@@ -8,8 +8,6 @@ export type TestimonialBlockType = {
   anchorId?: string;
   cornerRadiusTop: 'rounded' | 'straight';
   cornerRadiusBottom: 'rounded' | 'straight';
-  paddingTop: string;
-  paddingBottom: string;
 }
 
 export type TestimonialType = {

@@ -18,8 +18,6 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
     enableBorderBottom,
     cornerRadiusBottom,
     anchorId,
-    paddingTop, 
-    paddingBottom 
   } = props;
 
   return (
@@ -32,11 +30,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
         'rounded-b-4xl': cornerRadiusBottom === 'rounded'
       })}
     >
-      <Container 
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-        className='border-x border-dashed space-y-10 md:space-y-14'
-      >
+      <Container className='py-16 md:py-28 border-x border-dashed space-y-10 md:space-y-14'>
         <div className='grid grid-cols-12 gap-y-12 md:gap-y-20 xl:gap-x-20'>
           <div className='col-span-12 xl:col-span-5 max-w-[400px] md:max-w-full space-y-10 md:space-y-10'>
             <div>

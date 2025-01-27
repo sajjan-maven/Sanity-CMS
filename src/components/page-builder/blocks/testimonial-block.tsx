@@ -15,8 +15,6 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
     anchorId, 
     cornerRadiusTop,
     cornerRadiusBottom,
-    paddingTop, 
-    paddingBottom 
   } = props;
 
   return (
@@ -27,11 +25,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
         'rounded-b-4xl': cornerRadiusBottom === 'rounded'
       })}
     >
-      <Container 
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-        className='space-y-10 border-x border-dashed'
-      >
+      <Container className='py-16 md:py-28 space-y-10 border-x border-dashed'>
         <div>
           <div className='w-fit mx-auto px-2 h-6 flex items-center justify-between rounded-full text-center text-sm font-medium tracking-tight text-white bg-black'>
             {eyebrow}

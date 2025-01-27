@@ -50,7 +50,7 @@ export default function Form({ form }: { form: FormType; }) {
       toast.success('Message Sent');
       
     } catch (error) {
-      toast.error('Failed to Send Message');
+      toast.error(error);
     }
   };
 

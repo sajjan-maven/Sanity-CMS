@@ -23,7 +23,7 @@ export default function LogoBlock(props: LogoBlockType) {
             <EdgeBlur />
           </div>
           <div className="relative mt-10 md:mt-16 mb-6 md:mb-8 overflow-clip">
-            <ul className="flex items-center py-4 md:py-10 pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed">
+            <ul className="relative z-30 flex items-center py-4 md:py-10 pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed">
               {items.map((item, index) => (
                 <li key={item._key + index}>
                   {item.link ? (
@@ -67,7 +67,8 @@ function EdgeBlur() {
   return (
     <div className='absolute inset-0 flex items-center justify-between'>
       <div className='z-30 relative bg-gradient-to-r from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
-      <div className='bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
+      <div className='z-30 relative bg-gradient-to-l from-slate-50 via-slate/80 to-transparent h-full w-[200px]'></div>
     </div>
   )
 }
+

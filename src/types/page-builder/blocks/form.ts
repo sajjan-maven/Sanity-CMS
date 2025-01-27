@@ -9,6 +9,4 @@ export type FormBlockType = {
   content: PortableTextBlock;
   form: FormType;
   anchorId?: string;
-  paddingTop: string;
-  paddingBottom: string;
 }
