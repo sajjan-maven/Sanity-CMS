@@ -186,3 +186,10 @@ export const POSTS_BY_CATEGORY_QUERY = defineQuery(`*[_type == 'post' && categor
     altText 
   },
 }`);
+
+export const POST_CATEGORY_BY_SLUG_QUERY = defineQuery(`*[_type == 'postCategory' && slug.current == $slug][0] {
+  _id,
+  _type,
+  title,
+  'slug': slug.current,
+}`);
