@@ -46,7 +46,7 @@ export default function Container(props: ContainerProps) {
   const paddingBottomStyles = {
     'pb-0': paddingBottom === 'none', 
     'pb-7': paddingBottom === 'small', 
-    'pt-14 md:pb-16': paddingTop === 'medium',
+    'pb-14 md:pb-16': paddingTop === 'medium',
     'pb-16 md:pb-28': paddingBottom === 'default', 
     'pb-16 lg:pb-36': paddingBottom === 'large'
   }

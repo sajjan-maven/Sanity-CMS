@@ -4,7 +4,6 @@ export const HERO_BLOCK_QUERY = `
   _type == "heroBlock" => {
     ${BASE_QUERY},
     heading,
-    showBackButton,
     content[],
     mediaType,
     bottomCornerRadius,

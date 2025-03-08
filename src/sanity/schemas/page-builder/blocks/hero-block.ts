@@ -16,13 +16,6 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'showBackButton',
-      title: 'Show Back Button',
-      description: 'When enabled, a back button will be displayed above the heading.',
-      type: 'boolean',
-      initialValue: false
-    }),
-    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',

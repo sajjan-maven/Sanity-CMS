@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import PlayVideo from '@/components/shared/play-video';
-import BackButton from '@/components/shared/back-button';
 import { HeroBlockType } from '@/types/page-builder/blocks/hero';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
@@ -15,7 +14,6 @@ export default function HeroBlock(props: HeroBlockType) {
     heading, 
     content, 
     mediaType, 
-    showBackButton, 
     bottomCornerRadius, 
     buttons, 
     image, 
@@ -37,17 +35,8 @@ export default function HeroBlock(props: HeroBlockType) {
           'pb-7 md:pb-12': mediaType === 'image'
         })}
       >
-        <div 
-          className={cn('pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed', {
-            'pt-44 md:pt-56': showBackButton,
-          })}
-        >
-          <div 
-            className={cn('col-span-12 xl:col-span-7', {
-              '-mt-12 space-y-8': showBackButton
-            })}
-          >
-            {showBackButton && <BackButton />}
+        <div className='pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed'>
+          <div className='col-span-12 xl:col-span-7'>
             <Heading size="xxxl" tag="h1" className='md:max-w-[40rem] text-balance leading-tight'>
               {heading}
             </Heading>

@@ -51,7 +51,7 @@ function Thumbnail({ image }: {
 
 function Category({ children }: { children: React.ReactNode }) {
   return (
-    <div className='z-10 absolute top-10 left-10 px-1.5 rounded-md text-sm font-medium bg-white'>
+    <div className='z-10 absolute top-16 left-10 px-1.5 rounded-md text-sm font-medium bg-white'>
       {children}
     </div>
   )

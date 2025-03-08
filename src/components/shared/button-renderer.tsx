@@ -7,30 +7,30 @@ export default function ButtonRenderer({ buttons, classNames }: {
   buttons: ButtonType[];
   classNames?: string;
 }) {
+
+  if (!buttons?.length) return null;
+
   return (
-    <ul className={cn('flex items-center gap-3 list-none', classNames)}>
+    <div className={cn('flex items-center gap-3 list-none', classNames)}>
       {buttons.map((button) => (
-        <li 
-          key={button?._key}
+        <Button
+          key={`button-${button?._key}`}
+          variant={button?.buttonVariant} 
+          buttonType={button?.buttonType}
+          width={button?.buttonWidth}
+          pageReference={button?.buttonPageReference}
+          externalUrl={button?.buttonExternalUrl ?? ''}
+          emailAddress={button?.buttonEmailAddress ?? ''}
+          fileUrl={button?.buttonFileUrl ?? ''}
+          anchorLocation={button?.buttonAnchorLocation}
+          anchorId={button?.buttonAnchorId ?? ''}
           className={cn('w-auto', { 
             'w-full': button.buttonWidth === 'fullWidth' 
           })}
         >
-          <Button
-            variant={button?.buttonVariant} 
-            buttonType={button?.buttonType}
-            width={button?.buttonWidth}
-            pageReference={button?.buttonPageReference}
-            externalUrl={button?.buttonExternalUrl ?? ''}
-            emailAddress={button?.buttonEmailAddress ?? ''}
-            fileUrl={button?.buttonFileUrl ?? ''}
-            anchorLocation={button?.buttonAnchorLocation}
-            anchorId={button?.buttonAnchorId ?? ''}
-          >
-            {button?.buttonText}
-          </Button>
-        </li>
+          {button?.buttonText}
+        </Button>
       ))}
-    </ul>
+    </div>
   )
 }

@@ -1,14 +1,14 @@
 import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId } from "./api";
-import { token } from "./token";
 
 export const client = createClient({
   projectId: projectId,
   dataset: dataset,
   apiVersion: apiVersion,
-  useCdn: true,
-  token: token,
+  useCdn: process.env.NODE_ENV === "production",
+  perspective: 'published',
   stega: { 
-    studioUrl: "/studio" 
+    studioUrl: "/studio",
+    enabled: true
   },
 });

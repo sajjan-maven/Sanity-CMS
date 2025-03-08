@@ -10,6 +10,38 @@ export const BLOG_PAGE_QUERY = defineQuery(`*[_type == 'blogPage'][0] {
   title,
   'slug': slug.current,
   ${pageBuilder},
+  "posts": *[_type == 'post'] | order(_createdAt asc) {
+    _id,
+    _type,
+    _createdAt,
+    title,
+    'slug': slug.current,
+    excerpt,
+    category->{
+      _id,
+      title,
+      'slug': slug.current,
+    },
+    author->{
+      _id,
+      name,
+      username,
+      bio,
+      avatar { 
+        asset->{ url }, 
+      },
+    },
+    image { 
+      asset->{ url }, 
+      altText 
+    },
+  },
+  "categories": *[_type == "postCategory"] | order(orderRank asc) {
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+  },
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
@@ -126,7 +158,7 @@ export const POST_BY_SLUG_QUERY = defineQuery(`*[_type == 'post' && slug.current
   },
 }`);
 
-export const ALL_POSTS_QUERY = defineQuery(`*[_type == 'post'] {
+export const ALL_POSTS_QUERY = defineQuery(`*[_type == 'post'] | order(_createdAt asc) {
   _id,
   _type,
   _createdAt,

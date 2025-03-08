@@ -1,12 +1,12 @@
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 import Container from './container';
 import Heading from '../shared/heading';
 import SiteLogo from '../shared/site-logo';
+import { ExternalLink } from 'lucide-react';
 import { SettingsType } from '@/types/settings';
 import AnimatedUnderline from '../shared/animated-underline';
 import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
-import { cn } from '@/lib/utils';
-import { ExternalLink } from 'lucide-react';
 
 interface FooterProps {
   settings: SettingsType;

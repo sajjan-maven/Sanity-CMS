@@ -71,5 +71,12 @@ export default defineType({
       title: "Copyright",
       description: 'This will be displayed in the footer.'
     }),
-  ]
+  ],
+  preview: {
+    prepare() {
+      return {
+        title: 'General Settings',
+      }
+    },
+  },
 })

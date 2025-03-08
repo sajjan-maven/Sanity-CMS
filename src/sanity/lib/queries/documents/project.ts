@@ -10,6 +10,30 @@ export const PROJECTS_PAGE_QUERY = defineQuery(`*[_type == 'projectsPage'][0] {
   title,
   'slug': slug.current,
   ${pageBuilder},
+  "projects": *[_type == "project"] | order(_createdAt asc) {
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+    excerpt,
+    category->{
+      _id,
+      title,
+      'slug': slug.current,
+    },
+    image { 
+      asset->{ url }, 
+      height,
+      altText 
+    },
+    ${pageBuilder},
+  },
+  "categories": *[_type == "projectCategory"] | order(orderRank asc) {
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+  },
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
@@ -41,7 +65,7 @@ export const PROJECT_BY_SLUG_QUERY = defineQuery(`*[_type == 'project' && slug.c
   },
 }`);
 
-export const ALL_PROJECTS_QUERY = defineQuery(`*[_type == 'project'] {
+export const ALL_PROJECTS_QUERY = defineQuery(`*[_type == 'project'] | order(_createdAt asc) {
   _id,
   _type,
   title,

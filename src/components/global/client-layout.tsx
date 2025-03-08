@@ -1,6 +1,7 @@
 "use client"
 import Navbar from './navbar';
 import Footer from './footer';
+import localFont from "next/font/local";
 import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
 import { SettingsType } from '@/types/settings';
@@ -12,6 +13,18 @@ interface ClientLayoutProps {
   navigationSettings: NavigationSettingsType;
 }
 
+const geistSans = localFont({
+  src: "../../app/(frontend)/fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+const geistMono = localFont({
+  src: "../../app/(frontend)/fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
 export default function ClientLayout({ 
   children,
   settings,
@@ -22,7 +35,7 @@ export default function ClientLayout({
   if (pathname.includes('/studio')) return (children);
   
   return (
-    <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
+    <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
       <Navbar 
         settings={settings}
         navigationSettings={navigationSettings}

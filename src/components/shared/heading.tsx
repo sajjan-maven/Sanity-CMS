@@ -18,7 +18,6 @@ const headingVariants = cva(
         sm: 'text-xl',
         xs: 'text-lg',
       },
-      
     },
     defaultVariants: {
       tag: 'h1',
