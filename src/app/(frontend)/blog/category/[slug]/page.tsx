@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { sanityFetch } from '@/sanity/lib/live';
 import PostGrid from '../../_components/post-grid';
-import { POST_CATEGORY_BY_SLUG_QUERY, POST_SLUGS_QUERY, POSTS_BY_CATEGORY_QUERY } from '@/sanity/lib/queries/documents/post';
+import { postCategoryBySlugQuery, postSlugsQuery, postsByCategoryQuery } from '@/sanity/lib/queries/documents/post';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -9,7 +9,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
-    query: POST_SLUGS_QUERY,
+    query: postSlugsQuery,
     perspective: "published",
     stega: false,
   });
@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 
   const { data: category } = await sanityFetch({
-    query: POST_CATEGORY_BY_SLUG_QUERY,
+    query: postCategoryBySlugQuery,
     params: await params,
     stega: false,
   });
@@ -39,7 +39,7 @@ export default async function PostsByCategoryPage(props: {
   const params = await props.params;
 
   const { data: posts } = await sanityFetch({ 
-    query: POSTS_BY_CATEGORY_QUERY, 
+    query: postsByCategoryQuery, 
     params: params
   });
 

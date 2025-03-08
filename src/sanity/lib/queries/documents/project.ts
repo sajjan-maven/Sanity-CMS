@@ -1,11 +1,11 @@
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
-export const PROJECT_SLUGS_QUERY = defineQuery(`*[_type == "project" && defined(slug.current)] {
+export const projectSlugsQuery = defineQuery(`*[_type == "project" && defined(slug.current)] {
   'params': { 'slug': slug.current }
 }`);
 
-export const PROJECTS_PAGE_QUERY = defineQuery(`*[_type == 'projectsPage'][0] {
+export const projectsPageQuery = defineQuery(`*[_type == 'projectsPage'][0] {
   _type,
   title,
   'slug': slug.current,
@@ -42,11 +42,11 @@ export const PROJECTS_PAGE_QUERY = defineQuery(`*[_type == 'projectsPage'][0] {
   },
 }`);
 
-export const PROJECT_PATHS_QUERY = defineQuery(`*[_type == "project" && defined(slug.current)][] {
+export const projectPathsQuery = defineQuery(`*[_type == "project" && defined(slug.current)][] {
   'params': { 'slug': slug.current }
 }`);
-
-export const PROJECT_BY_SLUG_QUERY = defineQuery(`*[_type == 'project' && slug.current == $slug][0] {
+  
+export const projectBySlugQuery = defineQuery(`*[_type == 'project' && slug.current == $slug][0] {
   _id,
   _type,
   title,
@@ -65,7 +65,7 @@ export const PROJECT_BY_SLUG_QUERY = defineQuery(`*[_type == 'project' && slug.c
   },
 }`);
 
-export const ALL_PROJECTS_QUERY = defineQuery(`*[_type == 'project'] | order(_createdAt asc) {
+export const allProjectsQuery = defineQuery(`*[_type == 'project'] | order(_createdAt asc) {
   _id,
   _type,
   title,
@@ -84,14 +84,14 @@ export const ALL_PROJECTS_QUERY = defineQuery(`*[_type == 'project'] | order(_cr
   ${pageBuilder},
 }`);
 
-export const ALL_PROJECT_CATEGORIES_QUERY = defineQuery(`*[_type == 'projectCategory'] | order(orderRank asc) {
+export const allProjectCategoriesQuery = defineQuery(`*[_type == 'projectCategory'] | order(orderRank asc) {
   _id,
   _type,
   title,
   'slug': slug.current,
 }`);
 
-export const PROJECTS_BY_CATEGORY_QUERY = defineQuery(`*[_type == 'project' && category->slug.current == $slug] {
+export const projectsByCategoryQuery = defineQuery(`*[_type == 'project' && category->slug.current == $slug] {
   _id,
   _type,
   _createdAt,
@@ -110,7 +110,7 @@ export const PROJECTS_BY_CATEGORY_QUERY = defineQuery(`*[_type == 'project' && c
   },
 }`);
 
-export const PROJECT_CATEGORY_BY_SLUG_QUERY = defineQuery(`*[_type == 'projectCategory' && slug.current == $slug][0] {
+export const projectCategoryBySlugQuery = defineQuery(`*[_type == 'projectCategory' && slug.current == $slug][0] {
   _id,
   _type,
   title,

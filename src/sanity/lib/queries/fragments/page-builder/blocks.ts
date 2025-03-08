@@ -1,14 +1,14 @@
-import { BASE_QUERY, BUTTON_QUERY, PADDING_QUERY } from "../misc";
+import { baseQuery, buttonQuery, paddingQuery } from "../misc";
 
-export const HERO_BLOCK_QUERY = `
+export const heroBlockQuery = `
   _type == "heroBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     content[],
     mediaType,
     bottomCornerRadius,
     buttons[]{
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     image { 
       asset->{ url }, 
@@ -22,9 +22,9 @@ export const HERO_BLOCK_QUERY = `
   }
 `
 
-export const HEADER_BLOCK_QUERY = `
+export const headerBlockQuery = `
   _type == "headerBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     content[],
     bottomCornerRadius,
@@ -32,9 +32,9 @@ export const HEADER_BLOCK_QUERY = `
   }
 `
 
-export const FEATURE_BLOCK_QUERY = `
+export const featureBlockQuery = `
   _type == "featureBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     features[] {
       title,
@@ -52,12 +52,12 @@ export const FEATURE_BLOCK_QUERY = `
   }
 `
 
-export const FEATURE_CARDS_BLOCK_QUERY = `
+export const featureCardsBlockQuery = `
   _type == "featureCardsBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     buttons[]{
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     features[] {
       _key,
@@ -68,27 +68,27 @@ export const FEATURE_CARDS_BLOCK_QUERY = `
         asset->{ url },
       },
       button {
-        ${BUTTON_QUERY}
-      },
+        ${buttonQuery}
+      },  
     },
     showCallToAction,
     callToActionHeading,
     callToActionContent,
     callToActionButtons[] {
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const FEATURES_MINIMAL_BLOCK_QUERY = `
+export const featuresMinimalBlockQuery = `
   _type == "featuresMinimalBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     content,
     buttons[] {
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     features,
     enableBorderTop,
@@ -96,26 +96,26 @@ export const FEATURES_MINIMAL_BLOCK_QUERY = `
     enableBorderBottom,
     cornerRadiusBottom,
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const CALL_TO_ACTION_BLOCK_QUERY = `
+export const callToActionBlockQuery = `
   _type == "callToActionBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     content,
     buttons[] {
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const LOGO_BLOCK_QUERY = `
+export const logoBlockQuery = `
   _type == "logoBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     logos[] {
       _key,
@@ -129,9 +129,9 @@ export const LOGO_BLOCK_QUERY = `
     anchorId
   }
 `
-export const TESTIMONIAL_BLOCK_QUERY = `
+export const testimonialBlockQuery = `
   _type == "testimonialBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     eyebrow,
     testimonials[]->{
@@ -150,13 +150,13 @@ export const TESTIMONIAL_BLOCK_QUERY = `
     anchorId,
     cornerRadiusTop,
     cornerRadiusBottom,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const FREEFORM_BLOCK_QUERY = `
+export const freeformBlockQuery = `
   _type == "freeformBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     title,
     columnsPerRow,
     columns[] {
@@ -193,20 +193,20 @@ export const FREEFORM_BLOCK_QUERY = `
   }
 `
 
-export const PORTABLE_TEXT_BLOCK_QUERY = `
+export const portableTextBlockQuery = `
   _type == "portableTextBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     title,
     content[],
     alignment,
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const BLOG_ARCHIVE_BLOCK_QUERY = `
+export const blogArchiveBlockQuery = `
   _type == "blogArchiveBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     "categories": *[_type == "postCategory"] {
       _id,
@@ -214,13 +214,13 @@ export const BLOG_ARCHIVE_BLOCK_QUERY = `
       "slug": slug.current,
     },
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const SERVICES_BLOCK_QUERY = `
+export const servicesBlockQuery = `
   _type == "servicesBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     services[]->{
       _id,
@@ -234,18 +234,18 @@ export const SERVICES_BLOCK_QUERY = `
       "slug": slug.current,
     },
     buttons[]{
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     background,
     topCornerRadius,
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const FORM_BLOCK_QUERY = `
+export const formBlockQuery = `
   _type == "formBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     heading,
     content[],
     form->{
@@ -254,13 +254,13 @@ export const FORM_BLOCK_QUERY = `
       fields
     },
     anchorId,
-    ${PADDING_QUERY}
+    ${paddingQuery}
   }
 `
 
-export const MEDIA_BLOCK_QUERY = `
+export const mediaBlockQuery = `
   _type == "mediaBlock" => {
-    ${BASE_QUERY},
+    ${baseQuery},
     backgroundType,
     backgroundWidth,
     image { 

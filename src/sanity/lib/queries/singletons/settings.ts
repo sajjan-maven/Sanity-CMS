@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings'][0] {
+export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0] {
   siteTitle,
   siteLogo { 
     asset->{ url },
@@ -8,6 +8,7 @@ export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings']
   copyright,
   homePage->{
     _id,
+    _type,
     title,
     'slug': slug.current,
     "seo": {
@@ -18,12 +19,12 @@ export const GENERAL_SETTINGS_QUERY = defineQuery(`*[_type == 'generalSettings']
   },
 }`); 
 
-export const MARKETING_SETTINGS_QUERY = defineQuery(`*[_type == 'marketingSettings'][0] {
+export const marketingSettingsQuery = defineQuery(`*[_type == 'marketingSettings'][0] {
   googleAnalyticsId,
   googleTagManagerId,
 }`);
 
-export const BLOG_SETTINGS_QUERY = defineQuery(`*[_type == 'blogSettings'][0] {
+export const blogSettingsQuery = defineQuery(`*[_type == 'blogSettings'][0] {
   showRelatedPosts,
   showTableOfContents,
   showPostsByCategory

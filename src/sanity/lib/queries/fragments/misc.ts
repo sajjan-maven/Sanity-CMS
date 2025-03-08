@@ -1,15 +1,15 @@
-export const BASE_QUERY = `
+export const baseQuery = `
   _id,
   _key,
   _type
 `
 
-export const PADDING_QUERY = `
+export const paddingQuery = `
   paddingTop,
   paddingBottom
 `
 
-export const BUTTON_QUERY = `
+export const buttonQuery = `
   _key,
   showButton,
   buttonText,

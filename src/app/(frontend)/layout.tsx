@@ -6,8 +6,8 @@ import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import ClientLayout from "@/components/global/client-layout";
 import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import { NAVIGATION_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/navigation";
-import { GENERAL_SETTINGS_QUERY, MARKETING_SETTINGS_QUERY } from "@/sanity/lib/queries/singletons/settings";
+import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
+import { generalSettingsQuery, marketingSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 
 export const metadata: Metadata = {
   title: {
@@ -26,9 +26,9 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   const [{ data: settings }, { data: marketingSettings }, { data: navigationSettings }] = await Promise.all([
-    sanityFetch({ query: GENERAL_SETTINGS_QUERY }),
-    sanityFetch({ query: MARKETING_SETTINGS_QUERY }),
-    sanityFetch({ query: NAVIGATION_SETTINGS_QUERY })
+    sanityFetch({ query: generalSettingsQuery }),
+    sanityFetch({ query: marketingSettingsQuery }),
+    sanityFetch({ query: navigationSettingsQuery })
   ]);
   
   return (

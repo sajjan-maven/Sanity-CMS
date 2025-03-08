@@ -3,11 +3,11 @@ import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import PageBuilder from '@/components/page-builder';
-import { SERVICES_PAGE_QUERY } from '@/sanity/lib/queries/documents/service';
+import { servicesPageQuery } from '@/sanity/lib/queries/documents/service';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: page } = await sanityFetch({
-    query: SERVICES_PAGE_QUERY,
+    query: servicesPageQuery,
     stega: false
   });
 
@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ServicesPage() {
 
   const { data: page } = await sanityFetch({
-    query: SERVICES_PAGE_QUERY,
+    query: servicesPageQuery,
   });
 
   if (page === null) notFound();

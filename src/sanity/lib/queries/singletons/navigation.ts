@@ -1,7 +1,7 @@
 import { defineQuery} from "next-sanity";
-import { BUTTON_QUERY } from "../fragments/misc";
+import { buttonQuery } from "../fragments/misc";
 
-export const NAVIGATION_SETTINGS_QUERY = defineQuery(`*[_type == 'navigationSettings'][0] {
+export const navigationSettingsQuery = defineQuery(`*[_type == 'navigationSettings'][0] {
   "navbar": {
     navbarMenuItems[] {
       _key,
@@ -42,7 +42,7 @@ export const NAVIGATION_SETTINGS_QUERY = defineQuery(`*[_type == 'navigationSett
       },
     },
     slideOutMenuButtons[] {
-      ${BUTTON_QUERY}
+      ${buttonQuery}
     },
     showCompanyDetailsSlideOutMenu,
     "slideOutMenuSettings": *[_type == 'generalSettings'][0] {
