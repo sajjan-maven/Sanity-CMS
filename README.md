@@ -1,21 +1,30 @@
-## Introduction
+## SiteEngine - Next.js & Sanity Template.
 
-Open-source marketing website made with [Next.js](https://nextjs.org/) + [Sanity](https://sanity.io/). 
+A fully-featured and open-source template made with [Next.js](https://nextjs.org/) + [Sanity](https://sanity.io/). 
 
 ### Tech Stack
 
-- [Next.js](https://nextjs.org/) – Framework
-- [TypeScript](https://www.typescriptlang.org/) – Language
-- [Tailwind](https://tailwindcss.com/) – CSS Framework
-- [Sanity](https://sanity.io/) – Headless CMS
-- [Resend](https://resend.com/) – Email API
-- [Vercel](https://vercel.com/) – Hosting
+- [Next.js](https://nextjs.org/) (App Router)
+- [Sanity](https://sanity.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Shadcn](https://ui.shadcn.com/)
+- [Resend](https://resend.com/)
+- [Vercel](https://vercel.com/)
 
+### Features
 
-## Required Environment Variables
+- Page Builder with 12 pre-made blocks to get you started.
+- Visual Editing, Live Preview and Live Content API integrations.
+- Form Builder to create custom forms without leaving the Studio.
+- Robust website settings implementation.
+- Fully-featured blog with table of contents generation, custom portable text blocks, search functionality and more.
 
+### Installation
+
+1. Clone the repository, open it in your code editor and add the following environment variables to a `.env.local` file:
 - `NEXT_PUBLIC_SITE_URL` – The public URL of your website (e.g., https://example.com).
-- `NEXT_PUBLIC_SITE_NAME` – The name of your website that appears in metadata and titles.
+- `NEXT_PUBLIC_SITE_NAME` – The name of your website.
 - `NEXT_PUBLIC_SANITY_DATASET` – The name of your Sanity dataset (usually "production").
 - `NEXT_PUBLIC_SANITY_PROJECT_ID` – Your Sanity project ID found in project settings.
 - `NEXT_PUBLIC_SANITY_API_VERSION` – The Sanity API version to use (e.g., "2023-05-03").
@@ -24,14 +33,13 @@ Open-source marketing website made with [Next.js](https://nextjs.org/) + [Sanity
 - `RESEND_API_KEY` – Your Resend API key for email functionality.
 - `SANITY_API_READ_TOKEN` – Read-only API token for accessing Sanity content.
 
-## Installation
-
-Run these commands in a terminal to get started.
+2. Run the commands below in your terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
+| `npm install --legacy-peer-deps`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at http://localhost:3000
+
 
 ## Author
 

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { sanityFetch } from '@/sanity/lib/live';
 import ProjectGrid from '../../_components/project-grid';
 import { projectCategoryBySlugQuery, projectSlugsQuery, projectsByCategoryQuery } from '@/sanity/lib/queries/documents/project';
+import { CircleSlash } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,9 +46,9 @@ export default async function ProjectsByCategoryPage(props: {
 
   if (projects.length === 0) {
     return (
-      <p className="pt-8 md:pt-14 text-center text-gray-600">
-        No projects found in this category.
-      </p>
+      <div className="py-20 flex items-center justify-center gap-2 border border-dashed rounded-3xl text-center text-gray-600 bg-white">
+        <CircleSlash size={20} className='text-red-500' /> <span className='font-medium antialiased'>No projects found in this category.</span>
+      </div>
     )
   }
 

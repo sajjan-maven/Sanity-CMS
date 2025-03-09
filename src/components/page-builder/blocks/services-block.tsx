@@ -7,6 +7,7 @@ import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import AnimatedUnderline from '@/components/shared/animated-underline';
+import { stegaClean } from 'next-sanity';
 
 export type ServicesBlockProps = PageBuilderType<"servicesBlock">;
 
@@ -27,13 +28,13 @@ export default function ServicesBlock(props: ServicesBlockProps) {
     <section 
       {...(anchorId ? { id: anchorId } : {})}
       className={cn('px-4 xl:px-10', {
-        'pattern-bg': background === 'pattern',
-        'rounded-t-4xl border-t border-t-gray-200/60': topCornerRadius === 'rounded'
+        'pattern-bg': stegaClean(background) === 'pattern',
+        'rounded-t-4xl border-t border-t-gray-200/60': stegaClean(topCornerRadius) === 'rounded'
       })}
     >
       <Container 
-        paddingTop={paddingTop ?? undefined}
-        paddingBottom={paddingBottom ?? undefined}
+        paddingTop={stegaClean(paddingTop) ?? undefined}
+        paddingBottom={stegaClean(paddingBottom) ?? undefined}
         className='space-y-10 border-x border-dashed'
       >
         <div className='py-4 flex items-center justify-between gap-6 border-y border-dashed'>

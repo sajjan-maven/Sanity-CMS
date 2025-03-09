@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { sanityFetch } from '@/sanity/lib/live';
 import PostGrid from '../../_components/post-grid';
 import { postCategoryBySlugQuery, postSlugsQuery, postsByCategoryQuery } from '@/sanity/lib/queries/documents/post';
+import { CircleSlash } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,9 +46,9 @@ export default async function PostsByCategoryPage(props: {
 
   if (posts.length === 0) {
     return (
-      <p className="pt-8 md:pt-14 text-center text-gray-600">
-        No posts found in this category.
-      </p>
+      <div className="py-20 flex items-center justify-center gap-2 border border-dashed rounded-3xl text-center text-gray-600 bg-white">
+        <CircleSlash size={20} className='text-red-500' /> <span className='font-medium antialiased'>No posts found in this category.</span>
+      </div>
     )
   }
 

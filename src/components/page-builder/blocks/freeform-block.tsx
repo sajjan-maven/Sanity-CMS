@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { stegaClean } from 'next-sanity';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
@@ -20,26 +21,26 @@ export default function FreeformBlock(props: FreeformBlockProps) {
     >
       <Container
         className={cn('py-16 md:py-28 border-x border-dashed', {
-          'border-y': border === 'topBottom',
-          'border-t': border === 'top',
-          'border-b': border === 'bottom',
+          'border-y': stegaClean(border) === 'topBottom',
+          'border-t': stegaClean(border) === 'top',
+          'border-b': stegaClean(border) === 'bottom',
         })}
       >
         <div 
           className={cn('grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8', {
-            'md:grid-cols-3': columnsPerRow === '3',
-            'md:grid-cols-4': columnsPerRow === '4',
+            'md:grid-cols-3': stegaClean(columnsPerRow) === '3',
+            'md:grid-cols-4': stegaClean(columnsPerRow) === '4',
           })}
         >
           {columns?.map((column) => (
             <div 
               key={column?._key} 
               className={cn('flex flex-col items-start justify-center gap-0', {
-                'gap-2': column?.spacing === 'small',
-                'gap-3': column?.spacing === 'medium',
-                'gap-4': column?.spacing === 'large',
-                'items-center': column?.alignment === 'center',
-                'items-end': column?.alignment === 'right',
+                'gap-2': stegaClean(column?.spacing) === 'small',
+                'gap-3': stegaClean(column?.spacing) === 'medium',
+                'gap-4': stegaClean(column?.spacing) === 'large',
+                'items-center': stegaClean(column?.alignment) === 'center',
+                'items-end': stegaClean(column?.alignment) === 'right',
               })}
             >
               {column?.items?.map((item) => (
@@ -53,9 +54,9 @@ export default function FreeformBlock(props: FreeformBlockProps) {
                     <div 
                       key={item?._key}
                       className={cn('h-0', {
-                        'h-4': item?.spacing === 'small',
-                        'h-6': item?.spacing === 'medium',
-                        'h-8': item?.spacing === 'large',
+                        'h-4': stegaClean(item?.spacing) === 'small',
+                        'h-6': stegaClean(item?.spacing) === 'medium',
+                        'h-8': stegaClean(item?.spacing) === 'large',
                       })}
                     />
                   )}
@@ -73,8 +74,8 @@ export default function FreeformBlock(props: FreeformBlockProps) {
                         height={800}
                         alt={item?.image?.altText ?? ''}
                         className={cn('object-cover aspect-square rounded-2xl', {
-                          'aspect-[3/2]': item?.image?.aspectRatio === 'rectangle',
-                          'aspect-[3/4]': item?.image?.aspectRatio === 'portrait',
+                          'aspect-[3/2]': stegaClean(item?.image?.aspectRatio) === 'rectangle',
+                          'aspect-[3/4]': stegaClean(item?.image?.aspectRatio) === 'portrait',
                         })}
                       />
                     </div>
@@ -82,7 +83,7 @@ export default function FreeformBlock(props: FreeformBlockProps) {
                   {(item?._type === 'buttonObject' && item?.buttonText) && (
                     <Button 
                       size="sm"
-                      variant={item?.buttonVariant}
+                      variant={stegaClean(item?.buttonVariant)}
                       buttonType={item?.buttonType}
                       pageReference={item?.buttonPageReference as ButtonType['buttonPageReference']}
                       externalUrl={item?.buttonExternalUrl ?? ''}

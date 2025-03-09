@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
+import { stegaClean } from 'next-sanity';
 
 export type PortableTextBlockProps = PageBuilderType<"portableTextBlock">;
 
@@ -17,15 +18,15 @@ export default function PortableTextBlock(props: PortableTextBlockProps) {
     >
       <Container 
         className={cn('py-16 md:py-28 flex border-x border-dashed', {
-          'justify-start': alignment === 'left',
-          'justify-center': alignment === 'center',
-          'justify-end': alignment === 'right',
+          'justify-start': stegaClean(alignment) === 'left',
+          'justify-center': stegaClean(alignment) === 'center',
+          'justify-end': stegaClean(alignment) === 'right',
         })}
       >
         <div 
           className={cn('max-w-[48rem]', {
-            'pl-10 border-l border-dashed': alignment === 'left',
-            'border-r border-dashed': alignment === 'right',
+            'pl-10 border-l border-dashed': stegaClean(alignment) === 'left',
+            'border-r border-dashed': stegaClean(alignment) === 'right',
           })}
         >
           <PortableTextEditor 

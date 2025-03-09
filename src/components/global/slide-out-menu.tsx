@@ -101,7 +101,7 @@ export default function SlideOutMenu({ children, settings, navigationSettings }:
             <SheetTitle className='border-t border-dashed mt-8 px-0 pt-8 antialiased font-normal text-gray-400'>
               Say Hello
             </SheetTitle>
-            <ul className="mt-2 space-y-4">
+            <div className="mt-2 space-y-4">
               <a 
                 href={`mailto:${slideOutMenuSettings?.companyEmailAddress ?? ''}`} 
                 className="relative w-fit block text-2xl tracking-tight group"
@@ -109,22 +109,24 @@ export default function SlideOutMenu({ children, settings, navigationSettings }:
                 {slideOutMenuSettings?.companyEmailAddress ?? ''}
                 <AnimatedUnderline className='h-[2px]' />
               </a>
-            </ul>
-            <ul className="mt-8 py-4 flex items-center gap-3 border-y border-dashed">
+            </div>
+            <div className="mt-8 py-4 flex items-center gap-3 border-y border-dashed">
               {slideOutMenuSettings?.companySocialMediaLinks?.map((item) => (
-                <li key={item._key} className="p-3 border rounded-full hover:bg-black group transition-all duration-300">
-                  <a href={item.profileUrl ?? ''} target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src={item.icon?.asset?.url ?? ''}
-                      width={16}
-                      height={16}
-                      alt={`Follow us on ${item.title ?? ''}`}
-                      className="group-hover:invert"
-                    />
-                  </a>
-                </li>
+                <a 
+                  href={item.profileUrl ?? ''} 
+                  target="_blank" rel="noopener noreferrer"
+                  className="key={item._key} p-3 border rounded-full hover:bg-black group transition-all duration-300"
+                >
+                  <Image
+                    src={item.icon?.asset?.url ?? ''}
+                    width={16}
+                    height={16}
+                    alt={`Follow us on ${item.title ?? ''}`}
+                    className="group-hover:invert"
+                  />
+                </a>
               ))}
-            </ul>
+            </div>
           </>
         )}
         {slideOutMenuButtons && slideOutMenuButtons.length > 0 && (
