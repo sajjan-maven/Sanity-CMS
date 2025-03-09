@@ -13,14 +13,14 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 
 ### Tech Stack
 
-- [Next.js](https://nextjs.org/) (App Router).
-- [Sanity](https://sanity.io/).
-- [TypeScript](https://www.typescriptlang.org/).
-- [Tailwind](https://tailwindcss.com/).
-- [Shadcn](https://ui.shadcn.com/).
-- [Resend](https://resend.com/).
-- [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/).
-- [Vercel](https://vercel.com/).
+- [Next.js](https://nextjs.org/) (App Router)
+- [Sanity](https://sanity.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Shadcn](https://ui.shadcn.com/)
+- [Resend](https://resend.com/)
+- [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+- [Vercel](https://vercel.com/)
 
 ### Features
 
@@ -35,7 +35,7 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 
 1. Create a new Sanity project, add `http://localhost:3000` to CORS origins (Settings > API > CORS origins) and create an API token with `Viewer` permissions (Settings > API > Tokens).
 
-1. Clone this repository, open it in your code editor and add the following environment variables to a `.env.local` file:
+2. Clone this repository, open it in your code editor, create a `.env.local` file and add the following environment variables:
 - `NEXT_PUBLIC_SITE_URL` – The public URL of your website (use `http://localhost:3000` during development).
 - `NEXT_PUBLIC_SITE_NAME` – The name of your website.
 - `NEXT_PUBLIC_SANITY_DATASET` – The name of your Sanity dataset (usually "production").
@@ -46,7 +46,7 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 - `RESEND_API_KEY` – Your Resend API key for email functionality.
 - `SANITY_API_READ_TOKEN` – API token for accessing Sanity content.
 
-2. Run these commands in your terminal at the root of your project:
+3. Run these commands in your terminal at the root of your project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
