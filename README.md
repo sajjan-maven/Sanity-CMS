@@ -2,6 +2,13 @@
 
 A fully-featured and open-source template made with [Next.js](https://nextjs.org/) & [Sanity](https://sanity.io/). 
 
+![The Open-Source Marketing Website](https://github.com/user-attachments/assets/cbb55175-7daa-4c60-ab11-a47f3576e676)
+
+<img width="1441" alt="Screenshot 2025-03-09 at 1 46 29 PM" src="https://github.com/user-attachments/assets/a3d1e768-f121-40ad-9ac4-8e65f9e7df83" />
+
+<img width="1440" alt="Screenshot 2025-03-09 at 1 46 46 PM" src="https://github.com/user-attachments/assets/2852e8d2-c58a-40fe-9335-3dc3263fc278" />
+
+
 ### Tech Stack
 
 - [Next.js](https://nextjs.org/) (App Router).
