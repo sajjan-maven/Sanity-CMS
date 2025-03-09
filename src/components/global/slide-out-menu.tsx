@@ -62,7 +62,7 @@ export default function SlideOutMenu({ children, settings, navigationSettings }:
                         })}
                       />
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
+                    <CollapsibleContent className="flex flex-col gap-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
                       {item?.pageReferences?.map((item) => (
                         <SheetClose key={item.title}>
                           <button 
@@ -113,9 +113,10 @@ export default function SlideOutMenu({ children, settings, navigationSettings }:
             <div className="mt-8 py-4 flex items-center gap-3 border-y border-dashed">
               {slideOutMenuSettings?.companySocialMediaLinks?.map((item) => (
                 <a 
+                  key={item._key} 
                   href={item.profileUrl ?? ''} 
                   target="_blank" rel="noopener noreferrer"
-                  className="key={item._key} p-3 border rounded-full hover:bg-black group transition-all duration-300"
+                  className="p-3 border rounded-full hover:bg-black group transition-all duration-300"
                 >
                   <Image
                     src={item.icon?.asset?.url ?? ''}

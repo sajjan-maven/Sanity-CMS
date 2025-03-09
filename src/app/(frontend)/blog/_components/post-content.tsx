@@ -51,6 +51,14 @@ export default function PostContent({ post }: PostGridProps) {
         <Heading tag="h1" size="xxl" className='mt-8'>
           {title}
         </Heading>
+        <aside className='xl:hidden mt-8 order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-5'>
+          {settings?.showTableOfContents && (
+            <TableOfContents content={tableOfContents} />
+          )}
+          {settings?.showPostsByCategory && (
+            <PostCategories categories={categories}/>
+          )}
+        </aside>
         <Thumbnail image={image} />
         <p className='text-lg xl:text-xl my-10 xl:my-14 py-8 border-y border-dashed'>
           {excerpt}
@@ -59,7 +67,7 @@ export default function PostContent({ post }: PostGridProps) {
           <PortableTextEditor data={content} />
         </div>
       </div>
-      <aside className='order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-5'>
+      <aside className='hidden xl:block order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-5'>
         {settings?.showTableOfContents && (
           <TableOfContents content={tableOfContents} />
         )}
@@ -85,7 +93,7 @@ function Thumbnail({ image }: {
           width={800}
           height={800}
           alt={image?.altText ?? ''}
-          className='aspect-[3/2] rounded-2xl'
+          className='aspect-[3/2] w-full rounded-2xl'
         />
       </div>
       <div className='flex items-center justify-center gap-1 mt-4 text-center text-gray-600'>

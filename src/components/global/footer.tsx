@@ -32,7 +32,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
         </div>
         <div className='relative mt-10 md:mt-20 mb-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0 border-y border-dashed text-xs pattern-bg--2'>
           <div className='z-20 relative'>
-            {copyright} - Made by
+          {copyright} © {new Date().getFullYear()}  - Made by
             <a 
               href="https://jamesrea.co" 
               rel="noopener noreferrer" target="_blank"
@@ -81,7 +81,7 @@ function FooterColumns({ columns }: {
             </span>
             <EdgeBlur />
           </Heading>
-          <ul className='space-y-2'>
+          <ul className='space-y-1 md:space-y-2'>
             {column?.menuItems?.map((item) => (
               <li key={item._key}>
                 {item.linkType === 'internal' ? (

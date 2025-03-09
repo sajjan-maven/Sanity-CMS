@@ -69,7 +69,7 @@ export default defineType({
       name: "copyright",
       type: "string",
       title: "Copyright",
-      description: 'This will be displayed in the footer.'
+      description: 'Current year and © symbol will be added automatically.'
     }),
   ],
   preview: {

@@ -37,7 +37,11 @@ export default function HeroBlock(props: HeroBlockProps) {
           'pb-7 md:pb-12': mediaType === 'image'
         })}
       >
-        <div className='pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed'>
+        <div 
+          className={cn('pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed', {
+            'pb-6': mediaType === 'image'
+          })}
+        >
           <div className='col-span-12 xl:col-span-7'>
             <Heading size="xxxl" tag="h1" className='md:max-w-[40rem] text-balance leading-tight'>
               {heading}
@@ -46,7 +50,7 @@ export default function HeroBlock(props: HeroBlockProps) {
           <div className='col-span-12 xl:col-span-5'>
             <PortableTextEditor 
               data={content ?? []}
-              classNames='mt-3 md:text-lg text-gray-600'
+              classNames='mt-3 md:text-lg text-gray-600 text-balance'
             />
             {buttons && buttons.length > 0 && (
               <div className='mt-8 md:mt-10'>

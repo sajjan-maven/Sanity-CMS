@@ -17,19 +17,19 @@ export default function PostCard({ post }: PostCardProps) {
   const { _createdAt, title, category, author, slug, excerpt, image } = post;
 
   return (
-    <article aria-label={title ?? ''} className='relative group pb-10 border-b border-dashed'>
-      <Link href={`/blog/${slug}`} className='relative space-y-6 '>
+    <article aria-label={title ?? ''} className='relative group pb-8 border-b border-dashed'>
+      <Link href={`/blog/${slug}`} className='relative'>
         <Category>
           {category?.title}
         </Category>
         <Thumbnail image={image} />
-        <Heading tag="h2" size="md" className='text-balance'>
+        <Heading tag="h2" size="md" className='mt-5 md:mt-6 text-balance'>
           {title}   
         </Heading>
         <Excerpt>
           {excerpt}
         </Excerpt>
-        <div className='pt-2 flex items-center justify-between'>
+        <div className='mt-5 md:mt-6 flex items-center justify-between'>
           <div className='flex items-center gap-3.5'>
             <Author author={author} classNames='-translate-y-0'/>
             <Date date={_createdAt} />
@@ -69,7 +69,7 @@ function Thumbnail({ image }: {
 
 function Category({ children }: { children: React.ReactNode }) {
   return (
-    <div className='z-10 absolute top-16 left-10 px-1.5 rounded-md text-sm font-medium bg-white'>
+    <div className='z-10 absolute top-10 left-10 px-1.5 rounded-md text-sm font-medium text-nowrap bg-white'>
       {children}
     </div>
   )
@@ -77,7 +77,7 @@ function Category({ children }: { children: React.ReactNode }) {
 
 function Excerpt({ children }: { children: React.ReactNode }) {
   return (
-    <p className='text-balance text-neutral-500'>
+    <p className='mt-4 text-balance text-neutral-500'>
       {children}
     </p>
   )

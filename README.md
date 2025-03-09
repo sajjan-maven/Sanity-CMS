@@ -1,16 +1,17 @@
 ## SiteEngine - Next.js & Sanity Template.
 
-A fully-featured and open-source template made with [Next.js](https://nextjs.org/) + [Sanity](https://sanity.io/). 
+A fully-featured and open-source template made with [Next.js](https://nextjs.org/) & [Sanity](https://sanity.io/). 
 
 ### Tech Stack
 
-- [Next.js](https://nextjs.org/) (App Router)
-- [Sanity](https://sanity.io/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [Shadcn](https://ui.shadcn.com/)
-- [Resend](https://resend.com/)
-- [Vercel](https://vercel.com/)
+- [Next.js](https://nextjs.org/) (App Router).
+- [Sanity](https://sanity.io/).
+- [TypeScript](https://www.typescriptlang.org/).
+- [Tailwind](https://tailwindcss.com/).
+- [Shadcn](https://ui.shadcn.com/).
+- [Resend](https://resend.com/).
+- [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/).
+- [Vercel](https://vercel.com/).
 
 ### Features
 
@@ -18,6 +19,7 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 - Visual Editing, Live Preview and Live Content API integrations.
 - Form Builder to create custom forms without leaving the Studio.
 - Robust website settings implementation.
+- Custom input components for an enchanced content editing experience.
 - Fully-featured blog with table of contents generation, custom portable text blocks, search functionality and more.
 
 ### Installation
@@ -33,17 +35,19 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 - `RESEND_API_KEY` – Your Resend API key for email functionality.
 - `SANITY_API_READ_TOKEN` – Read-only API token for accessing Sanity content.
 
-2. Run the commands below in your terminal:
+2. Run these commands in your terminal at the root of your project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install --legacy-peer-deps`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at http://localhost:3000
+| `npm install --legacy-peer-deps`| Installs dependencies.|
+| `npx sanity dataset import demo-content.tar.gz production`| Imports demo content (optional).|
+| `npm run dev`| Starts local dev server at http://localhost:3000
 
 
 ## Author
 
 #### James Rea
 
-- Twitter ([@jamesreaco](https://twitter.com/jamesreaco))
+- LinkedIn ([@jamesreaco](https://linkedin.com/in/jamesreaco))
 - Website ([jamesrea.co](https://jamesrea.co))
+- X (Twitter) ([@jamesreaco](https://x.com/jamesreaco))

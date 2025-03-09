@@ -35,7 +35,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockProps) {
       <Container className='py-16 md:py-28 border-x border-dashed space-y-10 md:space-y-14'>
         <div className='grid grid-cols-12 gap-y-12 md:gap-y-20 xl:gap-x-20'>
           <div className='col-span-12 xl:col-span-5 max-w-[400px] md:max-w-full space-y-10 md:space-y-10'>
-            <div>
+            <div className='lg:flex justify-between xl:flex-col'>
               <Heading tag="h2" size="xl" className='max-w-[420px] relative pr-2.5 py-3 text-balance leading-normal border-y border-dashed border-t-gray-200 border-b-gray-200 bg-gray-50 pattern-bg--2'>
                 <span className='relative z-20'>
                   {heading}

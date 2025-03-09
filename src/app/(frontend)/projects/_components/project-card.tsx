@@ -13,12 +13,12 @@ export default function ProjectCard({ project }: {
 
   return (
     <article aria-label={title ?? ''} className='relative group pb-10 border-b border-dashed'>
-      <Link href={`/projects/${slug}`} className='relative space-y-6'>
+      <Link href={`/projects/${slug}`} className='relative'>
         <Category>
           {category?.title}
         </Category>
         <Thumbnail image={image} />
-        <Heading tag="h2" size="md" className='text-balance'>
+        <Heading tag="h2" size="md" className='mt-5 md:mt-6 text-balance'>
           {title}   
         </Heading>
         <Excerpt>
@@ -51,7 +51,7 @@ function Thumbnail({ image }: {
 
 function Category({ children }: { children: React.ReactNode }) {
   return (
-    <div className='z-10 absolute top-16 left-10 px-1.5 rounded-md text-sm font-medium bg-white'>
+    <div className='z-10 absolute top-10 left-10 px-1.5 rounded-md text-sm font-medium text-nowrap bg-white'>
       {children}
     </div>
   )
@@ -59,7 +59,7 @@ function Category({ children }: { children: React.ReactNode }) {
 
 function Excerpt({ children }: { children: React.ReactNode }) {
   return (
-    <p className='text-balance text-neutral-500'>
+    <p className='mt-4 text-balance text-neutral-500'>
       {children}
     </p>
   )
