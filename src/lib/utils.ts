@@ -61,9 +61,19 @@ export async function copyHeadingUrl(id: string): Promise<boolean> {
   }
 };
 
-export function copyToClipboard(id: string) {
-  copyHeadingUrl(id);
-  toast.success('Copied to clipboard');
+export function copyToClipboard(input: string) {
+  
+  if (input.startsWith('#') || document.getElementById(input)) {
+    copyHeadingUrl(input.startsWith('#') ? input.substring(1) : input)
+      .then(() => toast.success('Copied link to clipboard'))
+      .catch(() => toast.error('Failed to copy link'));
+  } 
+  
+  else {
+    navigator.clipboard.writeText(input)
+      .then(() => toast.success('Copied to clipboard'))
+      .catch(() => toast.error('Failed to copy text'));
+  }
 };
 
 export function formatFieldId(name: string): string {

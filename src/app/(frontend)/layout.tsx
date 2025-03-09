@@ -2,8 +2,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity";
+import Container from "@/components/global/container";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import ClientLayout from "@/components/global/client-layout";
+import InstallDemoButton from "@/components/shared/install-demo-button";
 import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
@@ -30,6 +32,12 @@ export default async function RootLayout({
     sanityFetch({ query: marketingSettingsQuery }),
     sanityFetch({ query: navigationSettingsQuery })
   ]);
+
+  if (!settings) return (
+    <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
+      <InstallDemoButton />
+    </Container>
+  )
   
   return (
     <html lang="en">

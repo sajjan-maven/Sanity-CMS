@@ -31,8 +31,10 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 
 ### Installation
 
+1. Create a new Sanity project, add `http://localhost:3000` to CORS origins (Settings > API > CORS origins) and create an API token with `Viewer` permissions (Settings > API > Tokens).
+
 1. Clone the repository, open it in your code editor and add the following environment variables to a `.env.local` file:
-- `NEXT_PUBLIC_SITE_URL` – The public URL of your website (e.g., https://example.com).
+- `NEXT_PUBLIC_SITE_URL` – The public URL of your website (use `http://localhost:3000` during development).
 - `NEXT_PUBLIC_SITE_NAME` – The name of your website.
 - `NEXT_PUBLIC_SANITY_DATASET` – The name of your Sanity dataset (usually "production").
 - `NEXT_PUBLIC_SANITY_PROJECT_ID` – Your Sanity project ID found in project settings.
@@ -40,7 +42,7 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 - `RESEND_SENDER_EMAIL` – The email address used to send emails via Resend.
 - `RESEND_RECIEVER_EMAIL` – The email address that receives contact form submissions.
 - `RESEND_API_KEY` – Your Resend API key for email functionality.
-- `SANITY_API_READ_TOKEN` – Read-only API token for accessing Sanity content.
+- `SANITY_API_READ_TOKEN` – API token for accessing Sanity content.
 
 2. Run these commands in your terminal at the root of your project:
 
