@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
-import PageBuilder from '@/components/page-builder';
+import { PageBuilder } from '@/components/page-builder';
 import { pageBySlugQuery, pageSlugsQuery } from '@/sanity/lib/queries/documents/page';
 
 interface PageProps {
@@ -39,6 +39,10 @@ export default async function Page({ params }: PageProps) {
   if (page === null) notFound();
 
   return (
-    <PageBuilder blocks={page?.pageBuilder} />
+    <PageBuilder
+      id={page?._id ?? ''}
+      type="servicesPage"
+      pageBuilder={page?.pageBuilder ?? []}
+    />
   )
 }

@@ -1,12 +1,14 @@
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
+import { PageBuilderType } from '@/types';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { FeaturesMinimalBlockType } from '@/types/page-builder/blocks/features-minimal';
 
-export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
+export type FeaturesMinimalBlockProps = PageBuilderType<"featuresMinimalBlock">;
+
+export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockProps) {
 
   const { 
     heading,
@@ -53,7 +55,7 @@ export default function FeaturesMinimalBlock(props: FeaturesMinimalBlockType) {
           </div>
           <div className='col-span-12 xl:col-span-7'>
             <ul className='grid md:grid-cols-2 gap-y-3 md:gap-x-10'>
-              {features.map((feature: string) => (
+              {features?.map((feature: string) => (
                 <li key={feature} className='pb-3.5 flex items-center gap-3.5 border-b border-dashed border-b-slate-200/80'>
                   <Check size={18} />
                   <span className='text-sm md:text-base'>

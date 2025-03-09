@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import toast from "react-hot-toast";
-import { PageType } from '@/types/page';
+import { ButtonType } from '@/types';
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { urlForImage } from '@/sanity/lib/utils';
+import { BlogPageQueryResult, PageBySlugQueryResult, PostBySlugQueryResult, ProjectBySlugQueryResult, ProjectsPageQueryResult, ServiceBySlugQueryResult, ServicesPageQueryResult } from '../../sanity.types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -74,9 +75,9 @@ export function getAnchorHref({
   anchorId, 
   pageReference 
 }: { 
-  anchorLocation?: 'currentPage' | 'choosePage';
-  anchorId?: string;
-  pageReference?: PageType;
+  anchorLocation: ButtonType['buttonAnchorLocation'];
+  anchorId: ButtonType['buttonAnchorId'];
+  pageReference: ButtonType['buttonPageReference'];
 }) {
   if (anchorLocation === 'currentPage') {
     return `#${anchorId}`;
@@ -105,27 +106,21 @@ export function resolveHref(documentType?: string, slug?: string): string | unde
   }
 }
 
+export type PageQueryResult = 
+  | PageBySlugQueryResult 
+  | ServicesPageQueryResult 
+  | ServiceBySlugQueryResult 
+  | BlogPageQueryResult 
+  | PostBySlugQueryResult
+  | ProjectsPageQueryResult
+  | ProjectBySlugQueryResult;
+  
 export function processMetadata({ data }: {
-  data: {
-    id: string
-    title: string
-    seo: {
-      title?: string;
-      description: string
-      image?: {
-        _type: 'image'
-        asset: {
-          _ref: string
-          _type: 'reference'
-        }
-      }
-      noIndex?: boolean
-    }
-  }
+  data: PageQueryResult;
 }): Metadata {
 
-  const { id, title: pageTitle } = data;
-  const { title, description, image, noIndex } = data.seo;
+  const { _id: id, title: pageTitle } = data ?? {};
+  const { title, description, image, noIndex } = data?.seo ?? {};
 
   const metadata: Metadata = {
     title: {

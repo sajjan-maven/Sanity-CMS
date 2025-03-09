@@ -6,6 +6,7 @@ export const projectSlugsQuery = defineQuery(`*[_type == "project" && defined(sl
 }`);
 
 export const projectsPageQuery = defineQuery(`*[_type == 'projectsPage'][0] {
+  _id,
   _type,
   title,
   'slug': slug.current,
@@ -108,6 +109,7 @@ export const projectsByCategoryQuery = defineQuery(`*[_type == 'project' && cate
     height,
     altText 
   },
+  ${pageBuilder},
 }`);
 
 export const projectCategoryBySlugQuery = defineQuery(`*[_type == 'projectCategory' && slug.current == $slug][0] {

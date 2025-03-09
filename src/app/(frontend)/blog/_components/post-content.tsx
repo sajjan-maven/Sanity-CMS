@@ -7,16 +7,22 @@ import Date from '@/components/ui/date';
 import Author from '@/components/ui/author';
 import Heading from '@/components/shared/heading';
 import BackButton from '@/components/shared/back-button';
-import { PostCategoryType, PostType } from '@/types/post';
 import { Tag, ImageIcon, ChevronDown } from 'lucide-react';
+import { PostBySlugQueryResult } from '../../../../../sanity.types';
 import AnimatedUnderline from '@/components/shared/animated-underline';
 import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
-export default function PostContent({ post }: {
-  post: PostType;
-}) {
+type Post = NonNullable<
+  NonNullable<PostBySlugQueryResult>
+>;
+
+interface PostGridProps {
+  post: Post;
+}
+
+export default function PostContent({ post }: PostGridProps) {
 
   const { 
     title, 
@@ -54,10 +60,10 @@ export default function PostContent({ post }: {
         </div>
       </div>
       <aside className='order-1 xl:order-2 col-span-12 xl:col-span-3 xl:sticky xl:top-28 h-fit space-y-5'>
-        {settings.showTableOfContents && (
+        {settings?.showTableOfContents && (
           <TableOfContents content={tableOfContents} />
         )}
-        {settings.showPostsByCategory && (
+        {settings?.showPostsByCategory && (
           <PostCategories categories={categories}/>
         )}
       </aside>
@@ -66,37 +72,36 @@ export default function PostContent({ post }: {
 }
 
 function Thumbnail({ image }: {
-  image: {
-    asset: { url: string; },
-    alt: string;
-    caption: string;
-  }
+  image?: {
+    asset?: { url?: string | null } | null;
+    altText?: string | null;
+  } | null;
 }) {
   return (
     <>
       <div className='mt-10 p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50'>
         <Image
-          src={image?.asset?.url}
+          src={image?.asset?.url ?? ''}
           width={800}
           height={800}
-          alt={image?.alt ?? ''}
+          alt={image?.altText ?? ''}
           className='aspect-[3/2] rounded-2xl'
         />
       </div>
       <div className='flex items-center justify-center gap-1 mt-4 text-center text-gray-600'>
         <ImageIcon size={15} />
-        {image.caption}
+        {image?.altText}
       </div>
     </>
   )
 }
 
 function Category({ category }: {
-  category: PostCategoryType;
+  category: Post['category'];
 }) {
   return (
     <Link 
-      href={`/blog/category/${category.slug}`} 
+      href={`/blog/category/${category?.slug}`} 
       className='flex items-center gap-1 px-1.5 rounded-full bg-black'
     >
       <span 
@@ -104,14 +109,14 @@ function Category({ category }: {
         style={{ backgroundColor: category?.categoryColor?.value ?? '#FFFFFF' }} 
       />
       <span className='pr-[1.5px] text-sm text-white'>
-        {category.title}
+        {category?.title}
       </span>
     </Link>
   )
 }
 
 function PostCategories({ categories }: {
-  categories: PostCategoryType[];
+  categories: Post['categories'];
 }) {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -142,15 +147,15 @@ function PostCategories({ categories }: {
       </CollapsibleTrigger>
       <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
         <ul role="list" className="space-y-2 border-l border-dashed">
-          {categories.map((category: PostCategoryType) => (
-            <li key={category.slug}>
+          {categories?.map((category) => (
+            <li key={category?.slug}>
               <Link 
-                href={`/blog/category/${category.slug}`}
+                href={`/blog/category/${category?.slug}`}
                 className="flex items-center gap-2 scroll-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
                 <span className="block w-2.5 border-t border-dashed text-gray-300" /> 
                 <span className="relative group w-fit">
-                  {category.title}
+                  {category?.title}
                   <AnimatedUnderline />
                 </span>
               </Link>

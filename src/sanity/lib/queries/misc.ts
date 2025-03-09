@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const SITEMAP_QUERY = defineQuery(`
+export const sitemapQuery = defineQuery(`
   *[_type in ["page", "post", "project", "service", "blogPage", "projectsPage", "servicesPage"] && defined(slug.current)] {
     "href": select(
       _type == "page" => "/" + slug.current,
@@ -16,7 +16,7 @@ export const SITEMAP_QUERY = defineQuery(`
   }
 `)
 
-export const REDIRECTS_QUERY = defineQuery(`
+export const redirectsQuery = defineQuery(`
   *[_type == "redirect" && isEnabled == true] {
       source,
       destination,

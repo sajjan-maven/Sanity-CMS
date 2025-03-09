@@ -6,6 +6,7 @@ export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.cur
 }`);
 
 export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
+  _id,
   _type,
   title,
   'slug': slug.current,

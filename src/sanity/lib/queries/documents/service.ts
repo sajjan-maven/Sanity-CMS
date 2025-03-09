@@ -6,6 +6,7 @@ export const serviceSlugsQuery = defineQuery(`*[_type == "service" && defined(sl
 }`);
 
 export const serviceBySlugQuery = defineQuery(`*[_type == 'service' && slug.current == $slug][0] {
+  _id,
   _type,
   title,
   'slug': slug.current,
@@ -26,6 +27,7 @@ export const allServicesQuery = defineQuery(`*[_type == 'service'] {
 }`);
 
 export const servicesPageQuery = defineQuery(`*[_type == 'servicesPage'][0] {
+  _id,
   _type,
   title,
   'slug': slug.current,

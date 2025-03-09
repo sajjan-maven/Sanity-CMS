@@ -1,10 +1,12 @@
+import { PageBuilderType } from '@/types';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { CallToActionBlockType } from '@/types/page-builder/blocks/call-to-action';
 
-export default function CallToActionBlock(props: CallToActionBlockType) {
+export type CallToActionBlockProps = PageBuilderType<"callToActionBlock">;
+
+export default function CallToActionBlock(props: CallToActionBlockProps) {
 
   const { heading, content, buttons, anchorId } = props;
 
@@ -20,13 +22,13 @@ export default function CallToActionBlock(props: CallToActionBlockType) {
               {heading}
             </Heading>
             <PortableTextEditor 
-              data={content}
+              data={content ?? []}
               classNames='mt-6 md:mt-8 text-balance text-gray-600'
             />
           </div>
           {buttons && buttons.length > 0 && (
             <div className='mt-10'>
-              <ButtonRenderer buttons={buttons} />  
+              <ButtonRenderer buttons={buttons} />
             </div>
           )}
         </div>

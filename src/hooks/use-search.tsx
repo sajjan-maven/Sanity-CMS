@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 
 interface Searchable {
-  title: string;
-  excerpt: string;
+  _id: string;
+  title: string | null;
+  excerpt: string | null;
+  slug: string | null;
 };
 
 export function useSearch<T extends Searchable>(items: T[], debounceMs: number = 300) {
@@ -14,8 +16,8 @@ export function useSearch<T extends Searchable>(items: T[], debounceMs: number =
   const searchItems = useCallback((query: string): T[] => {
     const lowercaseQuery = query.toLowerCase();
     return items.filter(
-      item => item.title.toLowerCase().includes(lowercaseQuery) || 
-              item.excerpt.toLowerCase().includes(lowercaseQuery)
+      item => item.title?.toLowerCase().includes(lowercaseQuery) || 
+              item.excerpt?.toLowerCase().includes(lowercaseQuery)
     );
   }, [items]);
 

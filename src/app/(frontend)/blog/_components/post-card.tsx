@@ -1,24 +1,26 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PostType } from '@/types/post';
 import Date from '@/components/ui/date';
 import { ChevronRight } from 'lucide-react';
 import Author from '@/components/ui/author';
 import Heading from '@/components/shared/heading';
+import { AllPostsQueryResult } from "../../../../../sanity.types";
 import AnimatedUnderline from '@/components/shared/animated-underline';
 
-export default function PostCard({ post }: {
-  post: PostType;
-}) {
+interface PostCardProps {
+  post: AllPostsQueryResult[number];
+}
+
+export default function PostCard({ post }: PostCardProps) {
 
   const { _createdAt, title, category, author, slug, excerpt, image } = post;
 
   return (
-    <article aria-label={title} className='relative group pb-10 border-b border-dashed'>
+    <article aria-label={title ?? ''} className='relative group pb-10 border-b border-dashed'>
       <Link href={`/blog/${slug}`} className='relative space-y-6 '>
         <Category>
-          {category.title}
+          {category?.title}
         </Category>
         <Thumbnail image={image} />
         <Heading tag="h2" size="md" className='text-balance'>
@@ -44,18 +46,21 @@ export default function PostCard({ post }: {
 }
 
 function Thumbnail({ image }: {
-  image: {
-    asset: { url: string; },
-    alt: string;
-  }
+  image?: {
+    asset?: { url?: string | null } | null;
+    altText?: string | null;
+  } | null;
 }) {
+  
+  if (!image?.asset?.url) return null;
+  
   return (
     <div className='p-4 rounded-3xl border border-dashed backdrop-blur-md backdrop-opacity-50 pattern-bg--2'>
       <Image
-        src={image?.asset?.url}
+        src={image.asset.url}
         width={800}
         height={800}
-        alt={image?.alt ?? ''}
+        alt={image.altText ?? ''}
         className='aspect-[3/2] rounded-2xl'
       />
     </div>

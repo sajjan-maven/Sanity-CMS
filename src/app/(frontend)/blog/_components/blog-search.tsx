@@ -2,16 +2,22 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import React, { useRef } from 'react';
-import { PostType } from '@/types/post';
 import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { highlightMatch, useSearch } from '@/hooks/use-search';
+import { BlogPageQueryResult } from '../../../../../sanity.types';
 
-export function BlogSearch({ posts, classNames }: {
-  posts: PostType[];
+type Blog = NonNullable<
+  NonNullable<BlogPageQueryResult>
+>;
+
+interface BlogSearchProps {
+  posts: Blog['posts'];
   classNames?: string;
-}) {
+}
+
+export function BlogSearch({ posts, classNames }: BlogSearchProps) {
 
   const {
     searchTerm,
@@ -56,12 +62,12 @@ export function BlogSearch({ posts, classNames }: {
             {searchResults.map((post, index) => (
               <React.Fragment key={post._id}>
                 <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
-                  <Link href={`/blog/${post.slug}`}>
+                  <Link href={`/blog/${post.slug ?? ''}`}>
                     <h3 className="text-sm font-medium text-balance">
-                      {highlightMatch(post.title, searchTerm)}
+                      {highlightMatch(post.title ?? '', searchTerm)}
                     </h3>
                     <p className="text-xs text-gray-500 mt-2">
-                      {highlightMatch(post.excerpt, searchTerm)}
+                      {highlightMatch(post.excerpt ?? '', searchTerm)}
                     </p>
                   </Link>
                 </li>

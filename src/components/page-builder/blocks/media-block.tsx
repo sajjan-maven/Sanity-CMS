@@ -1,11 +1,13 @@
 "use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
 import PlayVideo from '@/components/shared/play-video';
-import { MediaBlockType } from '@/types/page-builder/blocks/media';
 
-export default function MediaBlock(props: MediaBlockType) {
+export type MediaBlockProps = PageBuilderType<"mediaBlock">;
+
+export default function MediaBlock(props: MediaBlockProps) {
 
   const { 
     backgroundType,
@@ -32,10 +34,10 @@ export default function MediaBlock(props: MediaBlockType) {
         {backgroundType === 'image' && image && (
           <div className='absolute inset-0'>
             <Image
-              src={image.asset.url}
+              src={image?.asset?.url ?? ''}
               width={2400}
               height={1200}
-              alt={image.alt ?? ''}
+              alt={image?.altText ?? ''}
               className='w-full h-full object-cover'
             />
             {overlayType === 'dark' && (

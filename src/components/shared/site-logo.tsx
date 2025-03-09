@@ -3,20 +3,18 @@ import React from 'react';
 import Image from 'next/image';
 import { cn, scrollToElement } from '@/lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
+import { GeneralSettingsQueryResult } from '../../../sanity.types';
 
-export default function SiteLogo({ siteTitle, siteLogo, location, theme }: {
-  siteTitle: string;
-  siteLogo?: {
-    asset: {
-      url: string;
-    }
-  };
+export default function SiteLogo({ settings, location, theme }: {
+  settings: GeneralSettingsQueryResult;
   location?: 'footer' | 'navbar';
   theme?: 'light' | 'dark';
 }) {
 
   const pathname = usePathname();
   const router = useRouter();
+
+  const { siteTitle, siteLogo } = settings ?? {};
 
   return (
     <button 
@@ -39,8 +37,8 @@ export default function SiteLogo({ siteTitle, siteLogo, location, theme }: {
           priority
           width={140}
           height={140}
-          src={siteLogo.asset.url}
-          alt={`${siteTitle} Logo` ?? ''}
+          src={siteLogo?.asset?.url ?? ''}
+          alt={`${siteTitle} Logo`}
           className='w-[140px] h-auto object-contain'
         />
       )}

@@ -1,33 +1,27 @@
 "use client"
 import React from 'react';
-import { PageType } from '@/types/page';
 import BlogToolbar from './blog-toolbar';
 import { usePathname } from 'next/navigation';
 import Heading from '@/components/shared/heading';
-import PageBuilder from '@/components/page-builder';
 import Container from '@/components/global/container';
-import { PostCategoryType, PostType } from '@/types/post';
+import { PageBuilder } from '@/components/page-builder';
+import { BlogPageQueryResult } from '../../../../../sanity.types';
 
-export default function BlogLayout({
-  children,
-  categories,
-  posts,
-  page
-}: Readonly<{
+export default function BlogLayout({ children, page }: Readonly<{
   children: React.ReactNode;
-  categories: PostCategoryType[];
-  posts: PostType[];
-  page: PageType;
+  page: BlogPageQueryResult;
 }>) {
 
   const pathname = usePathname();
+
+  const { categories, posts, title } = page ?? {};
 
   if (pathname === '/blog' || pathname.includes('/blog/category/')) return (
     <main className='overflow-hidden md:overflow-auto'>
       <div className='px-4 xl:px-10 pattern-bg'>
         <Container className='px-4 pt-32 md:pt-40 pb-14 md:pb-28 border-x border-dashed'>
-          <Heading tag="h1" size="xxxl">
-            Blog
+          <Heading tag="h1" size="xxxl" className='w-fit'>
+            {title}
           </Heading>
           {(pathname === '/blog' || pathname.includes('/blog/category/')) && (
             <BlogToolbar categories={categories} posts={posts} />
@@ -35,7 +29,11 @@ export default function BlogLayout({
           {children}
         </Container>
       </div>
-      <PageBuilder blocks={page?.pageBuilder} />
+      <PageBuilder
+        id={page?._id ?? ''}
+        type={page?._type ?? ''}
+        pageBuilder={page?.pageBuilder ?? []}
+      />
     </main>
   )
 

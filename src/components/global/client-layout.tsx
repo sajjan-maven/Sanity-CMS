@@ -4,13 +4,12 @@ import Footer from './footer';
 import localFont from "next/font/local";
 import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
-import { SettingsType } from '@/types/settings';
-import { NavigationSettingsType } from '@/types/navigation';
+import { GeneralSettingsQueryResult, NavigationSettingsQueryResult } from '../../../sanity.types';
 
 interface ClientLayoutProps {
   children: React.ReactNode;
-  settings: SettingsType;
-  navigationSettings: NavigationSettingsType;
+  settings: GeneralSettingsQueryResult;
+  navigationSettings: NavigationSettingsQueryResult;
 }
 
 const geistSans = localFont({

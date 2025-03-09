@@ -72,27 +72,27 @@ export default defineType({
             type: 'array',
             of: [
               defineField({ 
-                name: 'spacer', 
+                name: 'spacerObject', 
                 type: 'spacerObject', 
                 title: 'Spacer', 
               }),
               defineField({ 
-                name: 'heading', 
+                name: 'headingObject', 
                 type: 'headingObject', 
                 title: 'Heading', 
               }),
               defineField({ 
-                name: 'richText', 
+                name: 'richTextObject', 
                 type: 'richTextObject', 
                 title: 'Rich Text', 
               }),
               defineField({ 
-                name: 'button', 
+                name: 'buttonObject', 
                 type: 'buttonObject', 
                 title: 'Button', 
               }),
               defineField({ 
-                name: 'singleImage', 
+                name: 'singleImageObject', 
                 type: 'singleImageObject', 
                 title: 'Image', 
               }),

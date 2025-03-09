@@ -6,6 +6,7 @@ import { sanityFetch } from '@/sanity/lib/live';
 import PostContent from '../_components/post-content';
 import RelatedPosts from '../_components/related-posts';
 import { postBySlugQuery, postSlugsQuery } from '@/sanity/lib/queries/documents/post';
+import { AllPostsQueryResult, PostBySlugQueryResult } from '../../../../../sanity.types';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) { return {} };
 
-  return processMetadata({ data: post });
+  return processMetadata({ data: post as PostBySlugQueryResult });
 }
 
 export default async function PostPage({ params }: PageProps) {
@@ -40,13 +41,15 @@ export default async function PostPage({ params }: PageProps) {
 
   if (post === null) notFound();
 
-  const showRelatedPosts = post.relatedPosts?.length > 0 && post.settings.showRelatedPosts;
+  const showRelatedPosts = post?.relatedPosts && 
+    post.relatedPosts.length > 0 && 
+    post.settings?.showRelatedPosts;
 
   return (
     <>
       <PostContent post={post} />
       {showRelatedPosts && (
-        <RelatedPosts posts={post.relatedPosts} />
+        <RelatedPosts posts={post.relatedPosts as AllPostsQueryResult} />
       )}
     </>
   )

@@ -2,11 +2,17 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { ProjectCategoryType } from "@/types/project";
+import { ProjectsPageQueryResult } from "../../../../../sanity.types";
 
-export default function ProjectCategories({ categories }: {
-  categories: ProjectCategoryType[]
-}) {
+type Project = NonNullable<
+  NonNullable<ProjectsPageQueryResult>
+>;
+
+interface ProjectCategoriesProps {
+  categories: Project['categories'];
+}
+
+export default function ProjectCategories({ categories }: ProjectCategoriesProps) {
   return (
     <ul className='relative z-20 flex items-center justify-start gap-0 md:gap-2'>
       <li className="text-nowrap">
@@ -16,7 +22,7 @@ export default function ProjectCategories({ categories }: {
           All Projects
         </CategoryLink>
       </li>
-      {categories.map((category: ProjectCategoryType) => (
+      {categories?.map((category) => (
         <li key={category._id} className="text-nowrap">
           <CategoryLink
             href={`/projects/category/${category.slug}`}
@@ -32,8 +38,8 @@ export default function ProjectCategories({ categories }: {
 
 function CategoryLink({ href, category, children }: {
   href: string;
-  category?: ProjectCategoryType;
   children: React.ReactNode;
+  category?: Project['categories'][number];
 }) {
 
   const pathname = usePathname();

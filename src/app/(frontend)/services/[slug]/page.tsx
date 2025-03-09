@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
-import PageBuilder from '@/components/page-builder';
+import { PageBuilder } from '@/components/page-builder';
 import { serviceBySlugQuery, serviceSlugsQuery } from '@/sanity/lib/queries/documents/service';
 
 interface PageProps {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!service) { return {} };
 
-  return processMetadata({ data: service });
+  return processMetadata({ data: service});
 }
 
 export default async function ServicePage({ params }: PageProps) {
@@ -39,6 +39,10 @@ export default async function ServicePage({ params }: PageProps) {
   if (service === null) notFound();
 
   return (
-    <PageBuilder blocks={service?.pageBuilder} />
+    <PageBuilder
+      id={service?._id ?? ''}
+      type="servicesPage"
+      pageBuilder={service?.pageBuilder ?? []}
+    />
   )
 }

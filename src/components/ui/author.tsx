@@ -1,16 +1,25 @@
 import Image from "next/image";
-import { AuthorType } from "@/types/author";
+import { PostBySlugQueryResult } from "../../../sanity.types";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 
-export default function Author({ author, classNames }: {
-  author: AuthorType;
-  classNames?: string;
-}) {
+type Author = NonNullable<
+  NonNullable<PostBySlugQueryResult>
+>;
+
+interface AuthorProps {
+  author: Author['author'];
+  classNames?: string;  
+}
+
+export default function Author({ author, classNames }: AuthorProps) {
+
+  if (!author) return null;
+
   return (
     <HoverCard>
       <HoverCardTrigger>
         <Image
-          src={author?.avatar?.asset?.url}
+          src={author?.avatar?.asset?.url ?? ''}
           width={26}
           height={26}
           alt={author.name ?? ''}

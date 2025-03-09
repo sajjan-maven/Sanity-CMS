@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { processMetadata } from "@/lib/utils";
 import { sanityFetch } from "@/sanity/lib/live";
-import PageBuilder from "@/components/page-builder";
 import Container from "@/components/global/container";
+import { PageBuilder } from "@/components/page-builder";
+import { PageBySlugQueryResult } from "../../../sanity.types";
 import { pageBySlugQuery } from "@/sanity/lib/queries/documents/page";
 import { generalSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!page) { return {} };
 
-  return processMetadata({ data: page });
+  return processMetadata({ data: page as PageBySlugQueryResult });
 }
 
 export default async function Home() {
@@ -38,7 +39,11 @@ export default async function Home() {
 
   return(
     <div id="home">
-      <PageBuilder blocks={page?.pageBuilder ?? []} />
+      <PageBuilder 
+        id={page?._id ?? ""} 
+        type={page?._type ?? ""} 
+        pageBuilder={page?.pageBuilder ?? []} 
+      />
     </div>
   )
 }

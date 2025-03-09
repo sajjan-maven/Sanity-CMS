@@ -31,6 +31,7 @@ export const navigationSettingsQuery = defineQuery(`*[_type == 'navigationSettin
       menuItemType,
       pageReference->{
         _id,
+        _type,
         title,
         "slug": slug.current
       },

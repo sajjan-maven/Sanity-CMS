@@ -2,11 +2,17 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { PostCategoryType } from "@/types/post";
+import { BlogPageQueryResult } from "../../../../../sanity.types";
 
-export default function PostCategories({ categories }: {
-  categories: PostCategoryType[];
-}) {
+type Blog = NonNullable<
+  NonNullable<BlogPageQueryResult>
+>;
+
+interface PostCategoriesProps {
+  categories: Blog['categories'];
+}
+
+export default function PostCategories({ categories }: PostCategoriesProps) {
   return (
     <ul className='relative z-20 flex items-center justify-start gap-0 md:gap-2'>
       <li className="text-nowrap">
@@ -32,8 +38,8 @@ export default function PostCategories({ categories }: {
 
 function CategoryLink({ href, category, children }: {
   href: string;
-  category?: PostCategoryType;
   children: React.ReactNode;
+  category?: Blog['categories'][number];
 }) {
 
   const pathname = usePathname();

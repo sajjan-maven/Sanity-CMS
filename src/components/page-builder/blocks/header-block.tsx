@@ -1,10 +1,12 @@
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
-import { HeaderBlockType } from '@/types/page-builder/blocks/header';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
-export default function HeaderBlock(props: HeaderBlockType) {
+export type HeaderBlockProps = PageBuilderType<"headerBlock">;
+
+export default function HeaderBlock(props: HeaderBlockProps) {
 
   const { heading, content, bottomCornerRadius, anchorId } = props;
 
@@ -21,7 +23,7 @@ export default function HeaderBlock(props: HeaderBlockType) {
             {heading}
           </Heading>
           <PortableTextEditor 
-            data={content}
+            data={content ?? []}
             classNames='mt-6 md:mt-8 md:text-xl text-balance text-gray-600'
           />
         </div>

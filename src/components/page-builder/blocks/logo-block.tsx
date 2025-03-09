@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
-import { LogoBlockType } from '@/types/page-builder/blocks/logos';
 
-export default function LogoBlock(props: LogoBlockType) {
+export type LogoBlockProps = PageBuilderType<"logoBlock">;
+
+export default function LogoBlock(props: LogoBlockProps) {
 
   const { heading, logos, anchorId } = props;
   
-  const items = [...logos, ...logos];
+  const items = logos ? [...logos, ...logos] : [];
   
   return (
     <section 
@@ -34,8 +36,8 @@ export default function LogoBlock(props: LogoBlockType) {
                       <Image
                         width={200}
                         height={100}
-                        src={item.image.asset.url}
-                        alt={`${item.title} Logo` ?? ''}
+                        src={item.image?.asset?.url ?? ''}
+                        alt={`${item.title} Logo`}
                         className={cn('w-20 md:w-28 object-contain', {
                           'w-36 md:w-40': item.size === 'large'
                         })}
@@ -45,8 +47,8 @@ export default function LogoBlock(props: LogoBlockType) {
                     <Image
                       width={200}
                       height={100}
-                      src={item.image.asset.url}
-                      alt={`${item.title} Logo` ?? ''}
+                      src={item.image?.asset?.url ?? ''}
+                      alt={`${item.title} Logo`}
                       className={cn('w-20 md:w-28 object-contain', {
                         'w-36 md:w-40': item.size === 'large'
                       })}
@@ -71,4 +73,3 @@ function EdgeBlur() {
     </div>
   )
 }
-

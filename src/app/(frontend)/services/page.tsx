@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
-import PageBuilder from '@/components/page-builder';
+import { PageBuilder } from '@/components/page-builder';
 import { servicesPageQuery } from '@/sanity/lib/queries/documents/service';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -25,6 +25,10 @@ export default async function ServicesPage() {
   if (page === null) notFound();
 
   return (
-    <PageBuilder blocks={page?.pageBuilder} />
+    <PageBuilder
+      id={page?._id ?? ''}
+      type="servicesPage"
+      pageBuilder={page?.pageBuilder ?? []}
+    />
   )
 }

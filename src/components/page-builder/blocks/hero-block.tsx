@@ -1,14 +1,16 @@
 "use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import PlayVideo from '@/components/shared/play-video';
-import { HeroBlockType } from '@/types/page-builder/blocks/hero';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
-export default function HeroBlock(props: HeroBlockType) {
+export type HeroBlockProps = PageBuilderType<"heroBlock">;
+
+export default function HeroBlock(props: HeroBlockProps) {
 
   const { 
     heading, 
@@ -43,7 +45,7 @@ export default function HeroBlock(props: HeroBlockType) {
           </div>
           <div className='col-span-12 xl:col-span-5'>
             <PortableTextEditor 
-              data={content}
+              data={content ?? []}
               classNames='mt-3 md:text-lg text-gray-600'
             />
             {buttons && buttons.length > 0 && (
@@ -60,8 +62,8 @@ export default function HeroBlock(props: HeroBlockType) {
                 priority
                 width={1400}
                 height={800}
-                src={image?.asset.url}
-                alt={image?.alt ?? ''}
+                src={image?.asset?.url ?? ''}
+                alt={image?.altText ?? ''}
                 className={cn('object-cover rounded-2xl md:rounded-3xl', {
                   'max-h-[30rem]': image?.height === 'short'
                 })}

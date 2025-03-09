@@ -12,11 +12,7 @@ export default async function Layout({ children }: {
   });
   
   return (
-    <ProjectsLayout 
-      categories={page.categories}
-      projects={page.projects}
-      page={page}
-    >
+    <ProjectsLayout page={page}>
       {children}
     </ProjectsLayout>
   )

@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
-import PageBuilder from '@/components/page-builder';
+import { PageBuilder } from '@/components/page-builder';
+import { ProjectBySlugQueryResult } from '../../../../../sanity.types';
 import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/lib/queries/documents/project';
 
 interface PageProps {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!project) { return {} };
 
-  return processMetadata({ data: project });
+  return processMetadata({ data: project as ProjectBySlugQueryResult });
 }
 
 export default async function ProjectPage({ params }: PageProps) {
@@ -40,6 +41,10 @@ export default async function ProjectPage({ params }: PageProps) {
   if (project === null) notFound();
   
   return (
-    <PageBuilder blocks={project?.pageBuilder} />
+    <PageBuilder
+      id={project?._id ?? ''}
+      type={project?._type ?? ''}
+      pageBuilder={project?.pageBuilder ?? []}
+    />
   )
 }

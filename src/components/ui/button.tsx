@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as React from "react";
-import { PageType } from "@/types/page";
+import { ButtonType } from "@/types";
 import { ArrowRight } from "lucide-react";
 import { cn, getAnchorHref, resolveHref } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -37,13 +37,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof buttonVariants> {
       disableIcon?: boolean;
-      pageReference?: PageType;
-      externalUrl?: string;
-      fileUrl?: string | { asset: { url: string } };
-      buttonType?: 'internal' | 'anchor' | 'external' | 'fileDownload' | 'emailAddress';
-      emailAddress?: string;
-      anchorLocation?: 'currentPage' | 'choosePage';
-      anchorId?: string;
+      pageReference?: ButtonType['buttonPageReference'];
+      externalUrl?: ButtonType['buttonExternalUrl'];
+      fileUrl?: ButtonType['buttonExternalUrl']
+      buttonType?: ButtonType['buttonType'];
+      emailAddress?: ButtonType['buttonEmailAddress'];
+      anchorLocation?: ButtonType['buttonAnchorLocation'];
+      anchorId?: ButtonType['buttonAnchorId'];
     }
 
 const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({ 
@@ -68,7 +68,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
       if (!pageReference) return null;
       return (
         <Link
-          href={resolveHref(pageReference._type, pageReference.slug) ?? '/'}
+          href={resolveHref(pageReference._type, pageReference.slug ?? '') ?? '/'}
           ref={ref}
           className={cn('group', buttonVariants({ variant, size, width, className }))}
           {...props}
@@ -80,9 +80,9 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
       return (
         <Link
           href={getAnchorHref({ 
-            anchorLocation, 
-            anchorId, 
-            pageReference 
+            anchorLocation: anchorLocation ?? 'currentPage', 
+            anchorId: anchorId ?? '', 
+            pageReference: pageReference ?? null
           })}
           ref={ref}
           className={cn('group', buttonVariants({ variant, size, width, className }))}
@@ -104,7 +104,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(({
     case 'fileDownload':
       return (
         <a 
-          href={typeof fileUrl === 'object' ? fileUrl.asset.url : fileUrl}
+          href={fileUrl ?? ''}
           download rel="noopener noreferrer" target="_blank"
           className={cn('group', buttonVariants({ variant, size, width, className }))}
         >

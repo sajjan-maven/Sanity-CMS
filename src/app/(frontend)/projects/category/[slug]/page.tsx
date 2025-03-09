@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!category) { return {} };
 
   return {
-    title: `${category.title} Projects`,
-    description: `Browse our collection of ${category.title.toLowerCase()} projects.`
+    title: `${category?.title} Projects`,
+    description: `Browse our collection of ${category?.title?.toLowerCase()} projects.`
   }
 }
 

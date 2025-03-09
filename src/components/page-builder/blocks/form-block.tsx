@@ -1,11 +1,13 @@
 "use client"
+import { PageBuilderType } from '@/types';
 import Form from '@/components/shared/form';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
-import { FormBlockType } from '@/types/page-builder/blocks/form';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 
-export default function FormBlock(props: FormBlockType) {
+export type FormBlockProps = PageBuilderType<"formBlock">;
+
+export default function FormBlock(props: FormBlockProps) {
 
   const { heading, content, form, anchorId } = props;
 
@@ -27,7 +29,9 @@ export default function FormBlock(props: FormBlockType) {
               classNames='max-w-[320px] mb-4 md:text-xl text-balance text-center text-gray-600'
             />
           )}
-          <Form form={form} />
+          {form && (
+            <Form form={form} />
+          )}
         </div>
       </Container>
     </section>

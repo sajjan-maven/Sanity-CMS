@@ -2,21 +2,19 @@ import React from 'react';
 import Link from 'next/link';
 import Container from './container';
 import { Button } from '../ui/button';
-import { PageType } from '@/types/page';
 import useScroll from '@/hooks/use-scroll';
 import SiteLogo from '../shared/site-logo';
 import SlideOutMenu from './slide-out-menu';
 import { usePathname } from 'next/navigation';
 import { cn, resolveHref } from '@/lib/utils';
-import { SettingsType } from '@/types/settings';
 import { ChevronRight, Menu } from 'lucide-react';
 import AnimatedText from '../shared/animated-text';
-import { MenuItemType, NavigationSettingsType } from '@/types/navigation';
+import { GeneralSettingsQueryResult, NavigationSettingsQueryResult } from '../../../sanity.types';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
 interface NavbarProps {
-  settings: SettingsType;
-  navigationSettings: NavigationSettingsType;
+  settings: GeneralSettingsQueryResult;
+  navigationSettings: NavigationSettingsQueryResult;
 }
 
 export default function Navbar({ settings, navigationSettings }: NavbarProps) {
@@ -24,10 +22,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
   const pathname = usePathname();
   const hasScrolled = useScroll();
 
-  const { siteTitle, siteLogo } = settings;
-
-  const { navbarMenuItems } = navigationSettings['navbar'];
-  const { showSlideOutMenu } = navigationSettings['slideOutMenu'];
+  const { navbarMenuItems } = navigationSettings?.navbar ?? {};
+  const { showSlideOutMenu } = navigationSettings?.slideOutMenu ?? {};
   
   return (
     <header 
@@ -36,11 +32,11 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
       })}
     >
       <Container className='flex items-center justify-between'>
-        <SiteLogo siteTitle={siteTitle} siteLogo={siteLogo} />
+        <SiteLogo settings={settings} />
         <div className='flex items-center gap-3'>
           <NavigationMenu className='hidden md:block'>
             <NavigationMenuList className='space-x-8 group/nav'>
-              {navbarMenuItems.map((item: MenuItemType) => (
+              {navbarMenuItems?.map((item) => (
                 <React.Fragment key={item._key}>
                   {!item.isButton ? (
                     <>
@@ -50,10 +46,10 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                             {item.title}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent className='min-w-[180px] text-nowrap py-3 px-3 flex flex-col gap-2 bg-white'>
-                            {item.pageReferences?.map((page: PageType) => (
+                            {item.pageReferences?.map((page) => (
                               <Link 
                                 key={page.slug} 
-                                href={resolveHref(page._type, page.slug) ?? '/'}
+                                href={resolveHref(page._type, page.slug ?? '') ?? '/'}
                                 className='group py-1 pl-3 pr-2 flex items-center justify-between gap-6 rounded-md border border-dashed hover:bg-gray-50'
                               >
                                 {page.title}
@@ -68,11 +64,11 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       ): (
                         <NavigationMenuItem>
                           <Link 
-                            href={resolveHref(item?.pageReference?._type, item?.pageReference?.slug) ?? '/'}
+                            href={resolveHref(item?.pageReference?._type ?? '', item?.pageReference?.slug ?? '') ?? '/'}
                             className={cn('relative overflow-hidden inline-flex transition-opacity duration-200 group-hover/nav:opacity-40 hover:!opacity-100', {
                               'hover:underline underline-offset-[38px]': !item.isButton,
                               'py-2 px-4 rounded-full text-white bg-blue-600': item.isButton,
-                              'text-blue-700': pathname.includes(`/${item.pageReference.slug}`)
+                              'text-blue-700': pathname.includes(`/${item.pageReference?.slug ?? ''}`)
                             })}
                           >
                             <AnimatedText>
@@ -98,9 +94,8 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
           </NavigationMenu>
           {showSlideOutMenu && (
             <SlideOutMenu 
-              siteLogo={siteLogo}
-              siteTitle={siteTitle} 
-              settings={navigationSettings['slideOutMenu']}
+              settings={settings} 
+              navigationSettings={navigationSettings}
             >
               <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
                 <Menu size={18} />

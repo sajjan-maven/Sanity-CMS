@@ -1,27 +1,18 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import { CircleCheck } from 'lucide-react';
-import { ButtonType } from '@/types/button';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
-import type { PortableTextBlock } from '@portabletext/types';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { FeatureCardsBlockType, FeatureItem } from '@/types/page-builder/blocks/feature-cards';
 
-export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
+export type FeatureCardsBlockProps = PageBuilderType<"featureCardsBlock">;
 
-  const { 
-    heading, 
-    buttons, 
-    features, 
-    showCallToAction,
-    callToActionHeading,
-    callToActionContent,
-    callToActionButtons,
-    anchorId, 
-  } = props;
+export default function FeatureCardsBlock(props: FeatureCardsBlockProps) {
+
+  const { heading, buttons, features, showCallToAction, anchorId } = props;
 
   return (
     <section 
@@ -41,16 +32,14 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
           <EdgeBlur />
         </div>
         <ul className='max-w-[60rem] mx-auto grid md:grid-cols-2 gap-6'>
-          {features?.map((feature: FeatureItem) => (
+          {features?.map((feature) => (
             <li key={feature._key} className='col-span-2 md:col-span-1'>
               <FeatureCard feature={feature} />
             </li>
           ))}
           {showCallToAction && (
             <CallToAction 
-              heading={callToActionHeading}
-              content={callToActionContent}
-              buttons={callToActionButtons}
+              {...props}
             />
           )}
         </ul>
@@ -60,13 +49,13 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockType) {
 }
 
 function FeatureCard({ feature }: {
-  feature: FeatureItem;
+  feature:  NonNullable<FeatureCardsBlockProps['features']>[number];
 }) {
   return (
     <div className='border border-dashed rounded-3xl'>
       <div className='p-3'>
         <Image
-          src={feature.image.asset.url}
+          src={feature.image?.asset?.url ?? ''}
           width={600}
           height={400}
           alt={feature.title ?? ''}
@@ -84,11 +73,11 @@ function FeatureCard({ feature }: {
         </div>
       </div>
       <ul className='mt-4 space-y-3 border-t border-dashed'>
-        {feature.items.map((item, index) => (
+        {feature?.items?.map((item, index) => (
           <li 
             key={item} 
             className={cn('flex items-start md:items-center gap-2 px-6 md:px-8 py-4 border-b border-dashed', {
-              'border-none pb-6': index === feature.items.length  - 1
+              'border-none pb-6': index === (feature?.items?.length ?? 0) - 1
             })}
           >
             <CircleCheck className='h-4 w-4 text-green-600' />
@@ -98,7 +87,7 @@ function FeatureCard({ feature }: {
           </li>
         ))}
       </ul>
-      {feature?.button.showButton && (
+      {feature?.button?.showButton && (
         <div className='px-4 py-4 border-t border-dashed'>
           <Button 
             variant={feature?.button.buttonVariant}
@@ -115,25 +104,28 @@ function FeatureCard({ feature }: {
   )
 }
 
-function CallToAction({ heading, content, buttons }: {
-  heading: string;
-  content: PortableTextBlock;
-  buttons: ButtonType[];
-}) {
+function CallToAction(props: FeatureCardsBlockProps) {
+
+  const { 
+    callToActionHeading,
+    callToActionContent,
+    callToActionButtons,
+  } = props;
+
   return (
     <div className='col-span-2 w-full p-8 flex flex-col md:flex-row items-center gap-8 border rounded-3xl pattern-bg--2'>
       <div className="space-y-5 md:space-y-3">
         <div className="font-medium text-xl text-balance">
-          {heading}
+          {callToActionHeading}
         </div>
         <PortableTextEditor 
-          data={content}
+          data={callToActionContent}
           classNames='text-balance text-sm md:text-base text-gray-500'
         />
       </div>
-      {buttons && buttons.length > 0 && (
+      {callToActionButtons && callToActionButtons.length > 0 && (
         <div className='items-center md:justify-center gap-2.5'>
-          <ButtonRenderer buttons={buttons} />  
+          <ButtonRenderer buttons={callToActionButtons} />  
         </div>
       )}
     </div>

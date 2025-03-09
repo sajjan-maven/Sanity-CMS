@@ -1,11 +1,14 @@
 import PostGrid from './post-grid';
-import { PostType } from '@/types/post';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/shared/heading';
+import { AllPostsQueryResult } from '../../../../../sanity.types';
 
-export default function RelatedPosts({ posts }: {
-  posts: PostType[]
-}) {
+interface RelatedPostsProps {
+  posts: AllPostsQueryResult;
+  classNames?: string;
+}
+
+export default function RelatedPosts({ posts }: RelatedPostsProps) {
   return (
     <section className='mt-12 md:mt-24 pt-10 md:pt-16 pb-10 md:pb-16 space-y-8 border-y border-dashed'>
       <div className='py-4 flex items-center justify-between gap-6 border-y border-dashed'>

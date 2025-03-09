@@ -1,12 +1,13 @@
 "use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
-import { TestimonialType } from '@/types/testimonial';
-import { TestimonialBlockType } from '@/types/page-builder/blocks/testimonials';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-export default function TestimonialBlock(props: TestimonialBlockType) {
+export type TestimonialBlockProps = PageBuilderType<"testimonialBlock">;
+
+export default function TestimonialBlock(props: TestimonialBlockProps) {
 
   const { 
     heading, 
@@ -34,10 +35,10 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
             {heading}
           </h2>
         </div>
-        {testimonials.length > 1 ? (
+        {testimonials && testimonials.length > 1 ? (
           <Carousel className="w-full max-w-[38rem] xl:max-w-[44rem] mx-auto">
             <CarouselContent>
-              {testimonials?.map((testimonial: TestimonialType) => (
+              {testimonials?.map((testimonial) => (
                 <CarouselItem key={testimonial._id}>
                   <TestimonialCard testimonial={testimonial} />
                 </CarouselItem>
@@ -48,7 +49,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
           </Carousel>
         ): (
           <TestimonialCard 
-            testimonial={testimonials[0]} 
+            testimonial={testimonials?.[0] ?? null} 
             classNames='border border-gray-200/70 rounded-xl'
           />
         )}       
@@ -58,7 +59,7 @@ export default function TestimonialBlock(props: TestimonialBlockType) {
 }
 
 function TestimonialCard({ testimonial, classNames }: {
-  testimonial: TestimonialType;
+  testimonial: NonNullable<TestimonialBlockProps['testimonials']>[number] | null;
   classNames?: string;
 }) {
   return (
@@ -69,7 +70,7 @@ function TestimonialCard({ testimonial, classNames }: {
       <div className='flex flex-col md:flex-row md:items-center justify-between'>
         <div className='flex items-center gap-4'>
           <Image
-            src={testimonial?.avatar?.asset?.url}
+            src={testimonial?.avatar?.asset?.url ?? ''}
             width={50}
             height={50}
             alt={testimonial?.name ?? ''}
@@ -86,10 +87,10 @@ function TestimonialCard({ testimonial, classNames }: {
         </div>
         <div>
           <Image
-            src={testimonial?.logo?.asset?.url}
+            src={testimonial?.logo?.asset?.url ?? ''}
             width={80}
             height={40}
-            alt={`${testimonial?.company} Logo` ?? ''}
+            alt={`${testimonial?.company} Logo`}
             className='hidden md:block'
           />
         </div>

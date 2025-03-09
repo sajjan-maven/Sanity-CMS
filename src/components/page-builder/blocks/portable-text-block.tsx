@@ -1,10 +1,12 @@
 "use client"
 import { cn } from '@/lib/utils';
+import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
-import { PortableTextBlockType } from '@/types/page-builder/blocks/portable-text';
 
-export default function PortableTextBlock(props: PortableTextBlockType) {
+export type PortableTextBlockProps = PageBuilderType<"portableTextBlock">;
+
+export default function PortableTextBlock(props: PortableTextBlockProps) {
 
   const { content, alignment, anchorId } = props;
 
@@ -27,7 +29,7 @@ export default function PortableTextBlock(props: PortableTextBlockType) {
           })}
         >
           <PortableTextEditor 
-            data={content}
+            data={content ?? []}
             classNames='text-balance text-gray-600'
           />
         </div>

@@ -1,17 +1,23 @@
 'use client'
 import Link from 'next/link';
-import React, { useRef } from 'react';
 import { cn } from '@/lib/utils';
+import React, { useRef } from 'react';
 import { Search, X } from 'lucide-react';
-import { ProjectType } from '@/types/project';
 import { Input } from '@/components/ui/input';
-import { highlightMatch, useSearch } from '@/hooks/use-search';
 import { useClickOutside } from '@/hooks/use-click-outside';
+import { highlightMatch, useSearch } from '@/hooks/use-search';
+import { ProjectsPageQueryResult } from '../../../../../sanity.types';
 
-export function ProjectSearch({ projects, classNames }: {
-  projects: ProjectType[];
+type Project = NonNullable<
+  NonNullable<ProjectsPageQueryResult>
+>;
+
+interface ProjectSearchProps {
+  projects: Project['projects'];
   classNames?: string;
-}) {
+}
+
+export function ProjectSearch({ projects, classNames }: ProjectSearchProps) {
 
   const {
     searchTerm,
@@ -53,15 +59,15 @@ export function ProjectSearch({ projects, classNames }: {
       {isDropdownOpen && (
         <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
-            {searchResults.map((project, index) => (
-              <React.Fragment key={project._id}>
+            {searchResults?.map((project, index) => (
+              <React.Fragment key={project?._id}>
                 <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
-                  <Link href={`/projects/${project.slug}`}>
+                  <Link href={`/projects/${project?.slug}`}>
                     <h3 className="text-sm font-medium text-balance">
-                      {highlightMatch(project.title, searchTerm)}
+                      {highlightMatch(project.title ?? '', searchTerm)}
                     </h3>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                      {highlightMatch(project.excerpt, searchTerm)}
+                      {highlightMatch(project.excerpt ?? '', searchTerm)}
                     </p>
                   </Link>
                 </li>

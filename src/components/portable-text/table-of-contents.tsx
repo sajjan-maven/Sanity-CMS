@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Text, ChevronDown } from "lucide-react";
-import { TableOfContentsType } from "@/types/misc";
 import { slugify, truncateText, cn } from "@/lib/utils";
 import AnimatedUnderline from "../shared/animated-underline";
+import { PostBySlugQueryResult } from "../../../sanity.types";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
+type Post = NonNullable<
+  NonNullable<PostBySlugQueryResult>
+>;
+
 interface TableOfContentsProps {
-  content: TableOfContentsType | TableOfContentsType[];
+  content: Post['tableOfContents'];
 }
 
 export default function TableOfContents({ content }: TableOfContentsProps) {
@@ -41,15 +45,15 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
       <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 transition-all duration-200">
         <nav aria-label="Table of contents" className="scroll-smooth">
           <ul role="list" className="space-y-2 border-l border-dashed">
-            {contentArray?.map((item: TableOfContentsType) => (
+            {contentArray?.map((item) => (
               <li key={item?._key}>
                 <a 
-                  href={`#${slugify(item.children[0].text)}`} 
+                  href={`#${slugify(item?.children?.[0]?.text ?? '')}`} 
                   className="flex items-center gap-2 scroll-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                 >
                   <span className="block w-2.5 border-t border-dashed text-gray-300" /> 
                   <span className="relative group w-fit">
-                    {truncateText(item.children[0].text, 33)}
+                    {truncateText(item?.children?.[0]?.text ?? '', 33)}
                     <AnimatedUnderline />
                   </span>
                 </a>

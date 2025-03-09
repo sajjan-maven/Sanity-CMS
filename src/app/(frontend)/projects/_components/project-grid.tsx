@@ -1,12 +1,14 @@
 import ProjectCard from './project-card';
-import { ProjectType } from '@/types/project';
+import { AllProjectsQueryResult } from '../../../../../sanity.types';
 
-export default function ProjectGrid({ projects }: {
-  projects: ProjectType[];
-}) {
+interface ProjectGridProps {
+  projects: AllProjectsQueryResult;
+}
+
+export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
     <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6'>
-      {projects.map((project: ProjectType) => (
+      {projects?.map((project) => (
         <ProjectCard 
           key={project._id} 
           project={project} 

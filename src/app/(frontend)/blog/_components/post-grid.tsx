@@ -1,10 +1,12 @@
 import React from 'react';
 import PostCard from './post-card';
-import { PostType } from '@/types/post';
+import { AllPostsQueryResult } from "../../../../../sanity.types";
 
-export default function PostGrid({ posts }: {
-  posts: PostType[];
-}) {
+interface PostGridProps {
+  posts: AllPostsQueryResult;
+}
+
+export default function PostGrid({ posts }: PostGridProps) {
   return (
     <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6'>
       {posts.map((post) => (

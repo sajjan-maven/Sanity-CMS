@@ -173,6 +173,7 @@ export const freeformBlockQuery = `
           aspectRatio,
           altText
         },
+        heading,
         headingText,
         headingSize,
         richTextContent,

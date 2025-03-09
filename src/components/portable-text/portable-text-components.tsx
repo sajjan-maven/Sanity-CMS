@@ -1,9 +1,8 @@
+import Video from './components/video';
 import CallToAction from './components/call-to-action';
+import SingleImage from './components/single-image';
 import { PortableTextComponents } from '@portabletext/react';
 import { portableTextHeadings } from './components/headings';
-import SingleImage from './components/single-image';
-import Video from './components/video';
-
 
 export const portableTextComponents: PortableTextComponents = {
   types: {

@@ -2,77 +2,76 @@ import { Link } from 'lucide-react';
 import Heading from "@/components/shared/heading";
 import { copyToClipboard, slugify } from "@/lib/utils";
 import { PortableTextBlock } from '@portabletext/types';
+import { PortableTextBlockComponent } from 'next-sanity';
+import { PortableTextComponentProps } from '@portabletext/react';
 
-interface HeadingProps {
-  value: PortableTextBlock & {
-    children: Array<{
-      text: string
-    }>
-  }
-}
-
-export const portableTextHeadings = {
-  h2: ({ value }: HeadingProps) => {
-    const id = slugify(value.children[0].text);
+export const portableTextHeadings: Record<string, PortableTextBlockComponent> = {
+  h2: (props: PortableTextComponentProps<PortableTextBlock>) => {
+    const text = props.value.children?.[0]?.text ?? '';
+    const id = slugify(text);
     return (
       <Heading 
         id={id} size="xl" tag="h2" 
         onClick={() => copyToClipboard(id)}
-        className='flex items-center gap-3 group cursor-pointer'  
+        className='flex items-center gap-3 group cursor-pointer'
       >
-        {value.children[0].text}
+        {text}
         <LinkIcon />
       </Heading>
     );
   },
-  h3: ({ value }: HeadingProps) => {
-    const id = slugify(value.children[0].text);
+  h3: (props: PortableTextComponentProps<PortableTextBlock>) => {
+    const text = props.value.children?.[0]?.text ?? '';
+    const id = slugify(text);
     return (
       <Heading 
         id={id} size="lg" tag="h3" 
         onClick={() => copyToClipboard(id)}
         className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
-        {value.children[0].text}
+        {text}
         <LinkIcon />
       </Heading>
     );
   },
-  h4: ({ value }: HeadingProps) => {
-    const id = slugify(value.children[0].text);
+  h4: (props: PortableTextComponentProps<PortableTextBlock>) => {
+    const text = props.value.children?.[0]?.text ?? '';
+    const id = slugify(text);
     return (
       <Heading 
         id={id} size="md" tag="h4" 
         onClick={() => copyToClipboard(id)}
         className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
-        {value.children[0].text}
+        {text}
         <LinkIcon />
       </Heading>
     );
   },
-  h5: ({ value }: HeadingProps) => {
-    const id = slugify(value.children[0].text);
+  h5: (props: PortableTextComponentProps<PortableTextBlock>) => {
+    const text = props.value.children?.[0]?.text ?? '';
+    const id = slugify(text);
     return (
       <Heading 
         id={id} size="sm" tag="h5" 
         onClick={() => copyToClipboard(id)}
         className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
-        {value.children[0].text}
+        {text}
         <LinkIcon />
       </Heading>
     );
   },
-  h6: ({ value }: HeadingProps) => {
-    const id = slugify(value.children[0].text);
+  h6: (props: PortableTextComponentProps<PortableTextBlock>) => {
+    const text = props.value.children?.[0]?.text ?? '';
+    const id = slugify(text);
     return (
       <Heading 
         id={id} size="xs" tag="h6" 
         onClick={() => copyToClipboard(id)}
         className='mt-12 flex items-center gap-3 group cursor-pointer'  
       >
-        {value.children[0].text}
+        {text}
         <LinkIcon />
       </Heading>
     );

@@ -1,9 +1,9 @@
 "use client"
 import { z } from 'zod';
+import { FormType } from '@/types';
 import toast from 'react-hot-toast';
 import { ArrowRight } from 'lucide-react';
 import { formatFieldId } from '@/lib/utils';
-import { FormField, FormType } from '@/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormRegister } from 'react-hook-form';
 
@@ -12,12 +12,12 @@ export default function Form({ form }: { form: FormType; }) {
   const { fields, submitButtonText } = form;
 
   const formSchema = z.object(
-    fields.reduce((acc, field) => {
+    fields?.reduce((acc, field) => {
       let validator = z.string();
       if (field.isRequired) validator = validator.min(1, `${field.name} is required`);
       if (field.inputType === 'email') validator = validator.email('Invalid email address');
-      return { ...acc, [field.name]: validator };
-    }, {})
+      return { ...acc, [field?.name ?? '']: validator };
+    }, {}) ?? {}
   );
 
   type FormValues = z.infer<typeof formSchema>;
@@ -59,9 +59,9 @@ export default function Form({ form }: { form: FormType; }) {
       onSubmit={handleSubmit(onSubmit)} 
       className="w-full max-w-xl p-6 md:p-8 space-y-6 border backdrop-blur-sm rounded-xl md:rounded-3xl"
     >
-      {fields.map((field) => (
+      {fields?.map((field) => (
         <div key={field.name} className="space-y-2">
-          <label htmlFor={formatFieldId(field.name)} className="text-sm font-medium">
+          <label htmlFor={formatFieldId(field.name ?? '')} className="text-sm font-medium">
             {field.name} {field.isRequired && <span className="text-red-500">*</span>}
           </label>
           <FieldRenderer field={field} register={register} />
@@ -83,7 +83,7 @@ export default function Form({ form }: { form: FormType; }) {
 }
 
 function FieldRenderer({ field, register }: { 
-  field: FormField;
+  field: NonNullable<FormType['fields']>[number];
   register: UseFormRegister<Record<string, string>>;
 }) {
   switch (field.inputType) {
@@ -92,8 +92,8 @@ function FieldRenderer({ field, register }: {
     case 'tel':
       return (
         <input
-          id={formatFieldId(field.name)}
-          {...register(field.name)}
+          id={formatFieldId(field.name ?? '')}
+          {...register(field.name ?? '')}
           type={field.inputType}
           placeholder={field.placeholder}
           className="w-full px-4 py-2 border rounded-md bg-gray-50/60"
@@ -102,8 +102,8 @@ function FieldRenderer({ field, register }: {
     case 'textarea':
       return (
         <textarea
-          id={formatFieldId(field.name)}
-          {...register(field.name)}
+          id={formatFieldId(field.name ?? '')}
+          {...register(field.name ?? '')}
           placeholder={field.placeholder}
           rows={4}
           className="w-full px-4 py-2 border rounded-lg bg-gray-50/60"

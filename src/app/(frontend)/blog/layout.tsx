@@ -12,11 +12,7 @@ export default async function BlogArchiveLayout({ children }: {
   });
 
   return (
-    <BlogLayout 
-      categories={page.categories} 
-      posts={page.posts} 
-      page={page}
-    >
+    <BlogLayout page={page}>
       {children}
     </BlogLayout>
   )

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
-import { OG_IMAGE_QUERY } from "@/sanity/lib/queries/singletons/og";
+import { ogImageQuery } from "@/sanity/lib/queries/singletons/og";
 
 export const runtime = "edge";
 
@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   const id = searchParams.get("id");
   if (!id) { notFound(); };
 
-  const data = await client.fetch(OG_IMAGE_QUERY, { id });
+  const data = await client.fetch(ogImageQuery, { id });
   if (!data) { notFound(); };
 
   const text = data.title || "";
