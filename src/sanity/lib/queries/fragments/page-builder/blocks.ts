@@ -175,6 +175,7 @@ export const freeformBlockQuery = `
         },
         heading,
         headingText,
+        headingTag,
         headingSize,
         richTextContent,
         buttonText,

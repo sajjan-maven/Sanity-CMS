@@ -12,12 +12,11 @@ export default defineType({
       title: 'Heading',
     }),
     defineField({
-      name: "headingSize",
+      name: "headingTag",
       type: "string",
-      title: "Size",
+      title: "Tag",
       options: {
         list: [
-          { title: "H1", value: "h1" },
           { title: "H2", value: "h2" },
           { title: "H3", value: "h3" },
           { title: "H4", value: "h4" },
@@ -26,6 +25,23 @@ export default defineType({
         ],
       },
       initialValue: 'h2',
+    }),
+    defineField({
+      name: "headingSize",
+      type: "string",
+      title: "Size",
+      options: {
+        list: [
+          { title: "XXXL", value: "xxxl" },
+          { title: "XXL", value: "xxl" },
+          { title: "XL", value: "xl" },
+          { title: "LG", value: "lg" },
+          { title: "MD", value: "md" },
+          { title: "SM", value: "sm" },
+          { title: "XS", value: "xs" },
+        ],
+      },
+      initialValue: 'xl',
     }),
   ],
   preview: {

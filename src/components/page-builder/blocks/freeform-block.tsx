@@ -46,7 +46,7 @@ export default function FreeformBlock(props: FreeformBlockProps) {
               {column?.items?.map((item) => (
                 <React.Fragment key={item?._key}>
                   {(item?._type === 'headingObject' && item?.headingText) && (
-                    <Heading tag="h3" size="md">
+                    <Heading tag={item?.headingTag} size={item?.headingSize}>
                       {item?.headingText}
                     </Heading>
                   )}

@@ -950,15 +950,11 @@
           },
           "optional": true
         },
-        "headingSize": {
+        "headingTag": {
           "type": "objectAttribute",
           "value": {
             "type": "union",
             "of": [
-              {
-                "type": "string",
-                "value": "h1"
-              },
               {
                 "type": "string",
                 "value": "h2"
@@ -978,6 +974,43 @@
               {
                 "type": "string",
                 "value": "h6"
+              }
+            ]
+          },
+          "optional": true
+        },
+        "headingSize": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "xxxl"
+              },
+              {
+                "type": "string",
+                "value": "xxl"
+              },
+              {
+                "type": "string",
+                "value": "xl"
+              },
+              {
+                "type": "string",
+                "value": "lg"
+              },
+              {
+                "type": "string",
+                "value": "md"
+              },
+              {
+                "type": "string",
+                "value": "sm"
+              },
+              {
+                "type": "string",
+                "value": "xs"
               }
             ]
           },
