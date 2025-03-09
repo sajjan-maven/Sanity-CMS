@@ -14,7 +14,8 @@ export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0
     "seo": {
       "title": coalesce(seo.title, title, ""),
       "description": coalesce(seo.description,  ""),
-      "noIndex": seo.noIndex == true
+      "noIndex": seo.noIndex == true,
+      "image": seo.image,
     },
   },
 }`); 
