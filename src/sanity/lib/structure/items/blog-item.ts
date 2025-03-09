@@ -1,4 +1,4 @@
-import { FiList, FiFileText } from "react-icons/fi";
+import { Folder, Tag, Users } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 import { orderableDocumentListDeskItem} from '@sanity/orderable-document-list';
 
@@ -8,7 +8,7 @@ export const BlogItem = (
 ) => (
   S.listItem()
     .title('Blog')
-    .icon(FiFileText)
+    .icon(Folder)
     .child(
       S.list()
         .title('Blog')
@@ -25,6 +25,7 @@ export const AllPosts = (
 ) => (
   S.listItem()
     .title('Posts')
+    .icon(Folder)
     .child(
       S.documentList()
       .title('All Posts')
@@ -39,7 +40,7 @@ export const PostCategories = (
   orderableDocumentListDeskItem({
     S, 
     context, 
-    icon: FiList, 
+    icon: Tag, 
     type: 'postCategory', 
     title: 'Categories', 
     id: 'orderable-post-categories'
@@ -51,6 +52,7 @@ export const Authors = (
 ) => (
   S.listItem()
     .title('Authors')
+    .icon(Users)
     .child(
       S.documentList()
       .title('Authors')

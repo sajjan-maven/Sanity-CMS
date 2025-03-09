@@ -1,5 +1,5 @@
+import { Folder } from "lucide-react";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import { BriefcaseBusiness } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 
 export const ServicesItem = (
@@ -9,7 +9,7 @@ export const ServicesItem = (
   orderableDocumentListDeskItem({
     S, 
     context, 
-    icon: BriefcaseBusiness, 
+    icon: Folder, 
     type: 'service', 
     title: 'Services', 
     id: 'orderable-services'

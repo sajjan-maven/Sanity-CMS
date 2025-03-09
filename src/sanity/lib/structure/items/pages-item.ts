@@ -11,24 +11,24 @@ export const PagesItem = (
       S.list()
         .title('Pages')
         .items([
-          CorePages(S),
           PageBuilder(S),
+          IndexPages(S)
         ])
     )
 )
 
-export const CorePages = (
+export const IndexPages = (
   S: StructureBuilder, 
 ) => (
   S.listItem()
-    .title('Core Pages')
+    .title('Index Pages')
     .child(
       S.list()
-        .title('Core Pages')
+        .title('Index Pages')
         .items([
-          ServicesItem(S),
           BlogItem(S),
-          ProjectsItem(S)
+          ProjectsItem(S),
+          ServicesItem(S)
         ])
     ) 
 )

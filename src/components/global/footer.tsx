@@ -32,7 +32,7 @@ export default function Footer({ settings, navigationSettings }: FooterProps) {
         </div>
         <div className='relative mt-10 md:mt-20 mb-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0 border-y border-dashed text-xs pattern-bg--2'>
           <div className='z-20 relative'>
-          {copyright} © {new Date().getFullYear()}  - Made by
+          {copyright} © {new Date().getFullYear()}  - Design + Code by
             <a 
               href="https://jamesrea.co" 
               rel="noopener noreferrer" target="_blank"
