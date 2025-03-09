@@ -8,6 +8,8 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 
 <img width="1440" alt="Screenshot 2025-03-09 at 1 46 46 PM" src="https://github.com/user-attachments/assets/2852e8d2-c58a-40fe-9335-3dc3263fc278" />
 
+<img width="1441" alt="Screenshot 2025-03-09 at 1 53 04 PM" src="https://github.com/user-attachments/assets/ed75ac90-b6d1-4754-a266-51c41de00bb6" />
+
 
 ### Tech Stack
 
@@ -33,7 +35,7 @@ A fully-featured and open-source template made with [Next.js](https://nextjs.org
 
 1. Create a new Sanity project, add `http://localhost:3000` to CORS origins (Settings > API > CORS origins) and create an API token with `Viewer` permissions (Settings > API > Tokens).
 
-1. Clone the repository, open it in your code editor and add the following environment variables to a `.env.local` file:
+1. Clone this repository, open it in your code editor and add the following environment variables to a `.env.local` file:
 - `NEXT_PUBLIC_SITE_URL` – The public URL of your website (use `http://localhost:3000` during development).
 - `NEXT_PUBLIC_SITE_NAME` – The name of your website.
 - `NEXT_PUBLIC_SANITY_DATASET` – The name of your Sanity dataset (usually "production").
