@@ -81,7 +81,7 @@ function TestimonialCard({ testimonial, classNames }: {
             <h3 className='text-sm md:text-base font-medium'>
               {testimonial?.name}
             </h3>
-            <p className='text-sm text-gray-400'>
+            <p className='text-sm text-gray-500'>
               {testimonial?.jobTitle}
             </p>
           </div>

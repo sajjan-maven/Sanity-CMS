@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Loading() {
   return (
-    <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
+    <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
       {Array.from({ length: 6 }).map((_, index) => (
-        <li key={index}>
+        <div key={index}>
           <CardSkeleton />
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   )
 }
 

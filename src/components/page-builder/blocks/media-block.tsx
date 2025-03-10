@@ -1,10 +1,10 @@
 "use client"
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { stegaClean } from 'next-sanity';
 import { PageBuilderType } from '@/types';
 import Container from '@/components/global/container';
 import PlayVideo from '@/components/shared/play-video';
-import { stegaClean } from 'next-sanity';
 
 export type MediaBlockProps = PageBuilderType<"mediaBlock">;
 
@@ -38,7 +38,7 @@ export default function MediaBlock(props: MediaBlockProps) {
               src={image?.asset?.url ?? ''}
               width={2400}
               height={1200}
-              alt={image?.altText ?? ''}
+              alt={image?.asset?.altText ?? ''}
               className='w-full h-full object-cover'
             />
             {overlayType === 'dark' && (

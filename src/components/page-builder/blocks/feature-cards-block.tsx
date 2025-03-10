@@ -31,18 +31,18 @@ export default function FeatureCardsBlock(props: FeatureCardsBlockProps) {
           )}
           <EdgeBlur />
         </div>
-        <ul className='max-w-[60rem] mx-auto grid md:grid-cols-2 gap-6'>
+        <div className='max-w-[60rem] mx-auto grid md:grid-cols-2 gap-6'>
           {features?.map((feature) => (
-            <li key={feature._key} className='col-span-2 md:col-span-1'>
+            <div key={feature._key} className='col-span-2 md:col-span-1'>
               <FeatureCard feature={feature} />
-            </li>
+            </div>
           ))}
           {showCallToAction && (
             <CallToAction 
               {...props}
             />
           )}
-        </ul>
+        </div>
       </Container>
     </section>
   )
@@ -72,9 +72,9 @@ function FeatureCard({ feature }: {
           </p>
         </div>
       </div>
-      <ul className='mt-4 space-y-3 border-t border-dashed'>
+      <div className='mt-4 space-y-3 border-t border-dashed'>
         {feature?.items?.map((item, index) => (
-          <li 
+          <div 
             key={item} 
             className={cn('flex items-start md:items-center gap-2 px-6 md:px-8 py-4 border-b border-dashed', {
               'border-none pb-6': index === (feature?.items?.length ?? 0) - 1
@@ -84,9 +84,9 @@ function FeatureCard({ feature }: {
             <span className='text-balance text-sm'>
               {item}
             </span>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       {feature?.button?.showButton && (
         <div className='px-4 py-4 border-t border-dashed'>
           <Button 

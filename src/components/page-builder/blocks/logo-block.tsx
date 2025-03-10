@@ -26,9 +26,9 @@ export default function LogoBlock(props: LogoBlockProps) {
             <EdgeBlur />
           </div>
           <div className="relative mt-10 md:mt-16 mb-6 md:mb-8 overflow-clip">
-            <ul className="relative z-30 flex items-center py-4 md:py-10 pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed">
+            <div className="relative z-30 flex items-center py-4 md:py-10 pl-[4.8rem] gap-16 md:gap-[10rem] w-max animate-logo-marquee border-y border-dashed">
               {items.map((item, index) => (
-                <li key={item._key + index}>
+                <div key={item._key + index}>
                   {item.link ? (
                     <a 
                       href={item.link}
@@ -55,9 +55,9 @@ export default function LogoBlock(props: LogoBlockProps) {
                       })}
                     />  
                   )}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
             <EdgeBlur />
           </div>
         </div>

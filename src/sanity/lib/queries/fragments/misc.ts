@@ -30,3 +30,15 @@ export const buttonQuery = `
   buttonAnchorLocation,
   buttonAnchorId
 `
+
+export const mediaQuery = `
+  asset->{ 
+    _ref,
+    _type,
+    url,
+    altText,
+    description,
+    "tags": opt.media.tags[]->name.current,
+    title,
+  }, 
+`

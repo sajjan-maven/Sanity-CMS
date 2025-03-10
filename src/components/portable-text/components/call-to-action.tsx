@@ -1,6 +1,5 @@
-
-import ButtonRenderer from "@/components/shared/button-renderer";
 import { ButtonType } from "@/types";
+import ButtonRenderer from "@/components/shared/button-renderer";
 
 export default function CallToAction({ data }: {
   data: {

@@ -2,12 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { stegaClean } from 'next-sanity';
 import { PageBuilderType } from '@/types';
 import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import ButtonRenderer from '@/components/shared/button-renderer';
 import AnimatedUnderline from '@/components/shared/animated-underline';
-import { stegaClean } from 'next-sanity';
 
 export type ServicesBlockProps = PageBuilderType<"servicesBlock">;
 
@@ -47,13 +47,11 @@ export default function ServicesBlock(props: ServicesBlockProps) {
             </div>
           )}
         </div>
-        <ul className='grid md:grid-cols-3 gap-x-6 gap-y-10'>
+        <div className='grid md:grid-cols-3 gap-x-6 gap-y-10'>
           {services && services.map((service) => (
-            <li key={service._id}>
-              <ServiceCard service={service} />
-            </li>
+            <ServiceCard key={service._id} service={service} />
           ))}
-        </ul>
+        </div>
         {buttons && buttons.length > 0 && (
           <div className='md:hidden pt-4'>
             <ButtonRenderer buttons={buttons} />  
@@ -78,7 +76,7 @@ function ServiceCard({ service }: {
             src={image?.asset?.url ?? ''}
             width={800}
             height={800}
-            alt={image?.altText ?? ''}
+            alt={image?.asset?.altText ?? ''}
             className='aspect-[3/2] rounded-2xl'
           />
         </div>

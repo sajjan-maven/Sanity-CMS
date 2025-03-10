@@ -1,4 +1,4 @@
-import { baseQuery, buttonQuery, paddingQuery } from "../misc";
+import { baseQuery, buttonQuery, mediaQuery, paddingQuery } from "../misc";
 
 export const heroBlockQuery = `
   _type == "heroBlock" => {
@@ -11,9 +11,8 @@ export const heroBlockQuery = `
       ${buttonQuery}
     },
     image { 
-      asset->{ url }, 
-      altText,
-      height 
+      height,
+      ${mediaQuery}
     },
     dialogType,
     videoUrl,
@@ -40,7 +39,7 @@ export const featureBlockQuery = `
       title,
       description,
       icon { 
-        asset->{ url }, 
+        ${mediaQuery}
       },
       pageReference->{
         _id,
@@ -65,7 +64,7 @@ export const featureCardsBlockQuery = `
       description,
       items,
       image { 
-        asset->{ url },
+        ${mediaQuery}
       },
       button {
         ${buttonQuery}
@@ -121,7 +120,7 @@ export const logoBlockQuery = `
       _key,
       title,
       image { 
-        asset->{ url }, 
+        ${mediaQuery}
       },
       size,
       link
@@ -141,10 +140,10 @@ export const testimonialBlockQuery = `
       company,
       quote,
       avatar { 
-        asset->{ url }, 
+        ${mediaQuery}
       },
       logo { 
-        asset->{ url }, 
+        ${mediaQuery}
       },
     },
     anchorId,
@@ -169,9 +168,8 @@ export const freeformBlockQuery = `
         _key,
         _type,
         image { 
-          asset->{ url }, 
           aspectRatio,
-          altText
+          ${mediaQuery}
         },
         heading,
         headingText,
@@ -229,9 +227,7 @@ export const servicesBlockQuery = `
       title,
       shortDescription,
       image { 
-        asset->{ url }, 
-        aspectRatio,
-        altText 
+        ${mediaQuery}
       },
       "slug": slug.current,
     },
@@ -266,8 +262,7 @@ export const mediaBlockQuery = `
     backgroundType,
     backgroundWidth,
     image { 
-      asset->{ url }, 
-      altText,
+      ${mediaQuery}
     },
     overlayType,
     dialogType,

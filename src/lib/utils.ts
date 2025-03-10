@@ -4,7 +4,16 @@ import { ButtonType } from '@/types';
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { urlForImage } from '@/sanity/lib/utils';
-import { BlogPageQueryResult, PageBySlugQueryResult, PostBySlugQueryResult, ProjectBySlugQueryResult, ProjectsPageQueryResult, ServiceBySlugQueryResult, ServicesPageQueryResult } from '../../sanity.types';
+
+import { 
+  BlogPageQueryResult, 
+  PageBySlugQueryResult, 
+  PostBySlugQueryResult, 
+  ProjectBySlugQueryResult, 
+  ProjectsPageQueryResult, 
+  ServiceBySlugQueryResult, 
+  ServicesPageQueryResult 
+} from '../../sanity.types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

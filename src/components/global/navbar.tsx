@@ -79,14 +79,16 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                       )}
                     </>
                   ): (
-                    <Button 
-                      variant="primary" 
-                      disableIcon={true}
-                      buttonType="internal"
-                      pageReference={item.pageReference}
-                    >
-                      {item.title}
-                    </Button>
+                    <NavigationMenuItem>
+                      <Button 
+                        variant="primary" 
+                        disableIcon={true}
+                        buttonType="internal"
+                        pageReference={item.pageReference}
+                      >
+                        {item.title}
+                      </Button>
+                    </NavigationMenuItem>
                   )}
                 </React.Fragment>
               ))}
@@ -97,7 +99,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
               settings={settings} 
               navigationSettings={navigationSettings}
             >
-              <button className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
+              <button aria-label='Open menu' className='p-2.5 border border-gray-200/60 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-300 ease-in-out'>
                 <Menu size={18} />
               </button>
             </SlideOutMenu>

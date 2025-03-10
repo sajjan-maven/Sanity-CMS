@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity';
-import { visionTool } from '@sanity/vision';
 import { schema } from '@/sanity/schemas';
+import { media } from 'sanity-plugin-media';
+import { visionTool } from '@sanity/vision';
 import { structureTool } from 'sanity/structure';
 import { structure } from '@/sanity/lib/structure';
 import { presentationTool } from 'sanity/presentation';
@@ -9,10 +10,8 @@ import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { defaultDocumentNode } from '@/sanity/lib/structure/default-document-node';
 import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/lib/api';
 
-const title = 'SiteEngine';
-
 const config = defineConfig({
-  title: title,
+  title: process.env.NEXT_PUBLIC_SITE_NAME,
   useCdn: useCdn,
   dataset: dataset,
   basePath: studioUrl,
@@ -32,6 +31,7 @@ const config = defineConfig({
         },
       },
     }),
+    media(),
     visionTool(),
     simplerColorInput()
   ],
