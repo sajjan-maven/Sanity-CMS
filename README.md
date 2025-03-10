@@ -2,7 +2,7 @@
 
 A fully-featured marketing website template made with [Next.js](https://nextjs.org/) & [Sanity](https://sanity.io/). 
 
-![The Open-Source Marketing Website](https://github.com/user-attachments/assets/cbb55175-7daa-4c60-ab11-a47f3576e676)
+![Frame 1](https://github.com/user-attachments/assets/c43aa710-6b0f-44a7-b337-d91985fe49d0)
 
 <img width="1381" alt="Screenshot 2025-03-10 at 6 39 05 PM" src="https://github.com/user-attachments/assets/ba0ddb66-3c19-458c-bd14-4689900de1d7" />
 
