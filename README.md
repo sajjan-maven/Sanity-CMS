@@ -1,21 +1,8 @@
 ## SiteEngine - Next.js & Sanity Template.
 
-A fully-featured marketing website template made with [Next.js](https://nextjs.org/) & [Sanity](https://sanity.io/). 
+A fully-featured marketing website template made with Next.js, Sanity, TypeScript, Tailwind & more.
 
 ![Frame 1 (1)](https://github.com/user-attachments/assets/d172a536-027e-4f8d-b1b6-fed47db5daf3)
-
-<img width="1334" alt="Screenshot 2025-03-11 at 8 14 53 AM-min" src="https://github.com/user-attachments/assets/d129b3e8-a81c-466c-af6d-5cf3979e8421" />
-
-<img width="1336" alt="Screenshot 2025-03-11 at 8 15 19 AM-min" src="https://github.com/user-attachments/assets/2058d5b4-0495-4756-80ab-35fc96a581a8" />
-
-<img width="1336" alt="Screenshot 2025-03-11 at 8 15 29 AM-min" src="https://github.com/user-attachments/assets/345f02dc-71b9-4f0e-8c6b-defd7af1406c" />
-
-<img width="1337" alt="Screenshot 2025-03-11 at 8 15 07 AM-min" src="https://github.com/user-attachments/assets/110ecdc2-186f-4870-972a-51c7c2feabb8" />
-
-<img width="1441" alt="Screenshot 2025-03-09 at 1 46 29 PM" src="https://github.com/user-attachments/assets/a3d1e768-f121-40ad-9ac4-8e65f9e7df83" />
-
-<img width="1441" alt="Screenshot 2025-03-09 at 1 53 04 PM" src="https://github.com/user-attachments/assets/ed75ac90-b6d1-4754-a266-51c41de00bb6" />
-
 
 ### Tech Stack
 
@@ -68,3 +55,17 @@ A fully-featured marketing website template made with [Next.js](https://nextjs.o
 - LinkedIn ([@jamesreaco](https://linkedin.com/in/jamesreaco))
 - Website ([jamesrea.co](https://jamesrea.co))
 - X (Twitter) ([@jamesreaco](https://x.com/jamesreaco))
+
+## Screenshots
+
+<img width="1334" alt="Screenshot 2025-03-11 at 8 14 53 AM-min" src="https://github.com/user-attachments/assets/d129b3e8-a81c-466c-af6d-5cf3979e8421" />
+
+<img width="1336" alt="Screenshot 2025-03-11 at 8 15 19 AM-min" src="https://github.com/user-attachments/assets/2058d5b4-0495-4756-80ab-35fc96a581a8" />
+
+<img width="1336" alt="Screenshot 2025-03-11 at 8 15 29 AM-min" src="https://github.com/user-attachments/assets/345f02dc-71b9-4f0e-8c6b-defd7af1406c" />
+
+<img width="1337" alt="Screenshot 2025-03-11 at 8 15 07 AM-min" src="https://github.com/user-attachments/assets/110ecdc2-186f-4870-972a-51c7c2feabb8" />
+
+<img width="1441" alt="Screenshot 2025-03-09 at 1 46 29 PM" src="https://github.com/user-attachments/assets/a3d1e768-f121-40ad-9ac4-8e65f9e7df83" />
+
+<img width="1441" alt="Screenshot 2025-03-09 at 1 53 04 PM" src="https://github.com/user-attachments/assets/ed75ac90-b6d1-4754-a266-51c41de00bb6" />
