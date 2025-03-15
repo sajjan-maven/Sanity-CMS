@@ -35,7 +35,7 @@ A fully-featured starter template made with Next.js, Sanity, TypeScript, Tailwin
 * Clone this repository and open it your code editor.
 * Create a `.env.local` file and add the following environment variables:
   
-| Env                   | Action                                           |
+| Environment Variable | Description                                           |
 | :------------------------ | :----------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`| The public URL of your website (use `http://localhost:3000` during development) |
 | `NEXT_PUBLIC_SITE_NAME`| The name of your website |
@@ -68,15 +68,3 @@ Next, run these commands in your terminal at the root of your project:
 - LinkedIn ([@jamesreaco](https://linkedin.com/in/jamesreaco))
 - Website ([jamesrea.co](https://jamesrea.co))
 - X (Twitter) ([@jamesreaco](https://x.com/jamesreaco))
-
-## Screenshots
-
-<img width="1336" alt="Screenshot 2025-03-11 at 8 15 19 AM-min" src="https://github.com/user-attachments/assets/2058d5b4-0495-4756-80ab-35fc96a581a8" />
-
-<img width="1336" alt="Screenshot 2025-03-11 at 8 15 29 AM-min" src="https://github.com/user-attachments/assets/345f02dc-71b9-4f0e-8c6b-defd7af1406c" />
-
-<img width="1337" alt="Screenshot 2025-03-11 at 8 15 07 AM-min" src="https://github.com/user-attachments/assets/110ecdc2-186f-4870-972a-51c7c2feabb8" />
-
-<img width="1441" alt="Screenshot 2025-03-09 at 1 46 29 PM" src="https://github.com/user-attachments/assets/a3d1e768-f121-40ad-9ac4-8e65f9e7df83" />
-
-<img width="1441" alt="Screenshot 2025-03-09 at 1 53 04 PM" src="https://github.com/user-attachments/assets/ed75ac90-b6d1-4754-a266-51c41de00bb6" />
