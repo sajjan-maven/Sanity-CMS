@@ -1,8 +1,8 @@
 ## SiteEngine - Next.js & Sanity Template.
 
-A fully-featured marketing website template made with Next.js, Sanity, TypeScript, Tailwind & more.
+A fully-featured starter template made with Next.js, Sanity, TypeScript, Tailwind & more.
 
-![Frame 1 (1)](https://github.com/user-attachments/assets/d172a536-027e-4f8d-b1b6-fed47db5daf3)
+![Frame 2](https://github.com/user-attachments/assets/ef83c368-8954-4ed3-b370-7025c25e0d99)
 
 ### Tech Stack
 
@@ -15,7 +15,7 @@ A fully-featured marketing website template made with Next.js, Sanity, TypeScrip
 - [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 - [Vercel](https://vercel.com/)
 
-### Features
+### Key Features
 
 - Page Builder with 12 pre-made blocks to get you started.
 - Visual Editing, Live Preview and Live Content API integrations.
@@ -24,7 +24,7 @@ A fully-featured marketing website template made with Next.js, Sanity, TypeScrip
 - Custom input components for an enchanced content editing experience.
 - Fully-featured blog with table of contents generation, custom portable text blocks, search functionality and more.
 
-### Installation
+### Getting Started
 
 1. Create a new Sanity project, add `http://localhost:3000` to CORS origins (Settings > API > CORS origins) and create an API token with `Viewer` permissions (Settings > API > Tokens).
 
@@ -57,8 +57,6 @@ A fully-featured marketing website template made with Next.js, Sanity, TypeScrip
 - X (Twitter) ([@jamesreaco](https://x.com/jamesreaco))
 
 ## Screenshots
-
-<img width="1334" alt="Screenshot 2025-03-11 at 8 14 53 AM-min" src="https://github.com/user-attachments/assets/d129b3e8-a81c-466c-af6d-5cf3979e8421" />
 
 <img width="1336" alt="Screenshot 2025-03-11 at 8 15 19 AM-min" src="https://github.com/user-attachments/assets/2058d5b4-0495-4756-80ab-35fc96a581a8" />
 
