@@ -42,7 +42,7 @@ export default function Navbar({ settings, navigationSettings }: NavbarProps) {
                     <>
                       {item.menuItemType === 'group' ? (
                         <NavigationMenuItem>
-                          <NavigationMenuTrigger>
+                          <NavigationMenuTrigger className='group-hover/nav:opacity-40 hover:!opacity-100'>
                             {item.title}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent className='min-w-[180px] text-nowrap py-3 px-3 flex flex-col gap-2 bg-white'>
