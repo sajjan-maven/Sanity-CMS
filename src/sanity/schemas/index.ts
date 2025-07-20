@@ -17,6 +17,9 @@ import projectCategory from "./documents/project-category";
 import servicesPage from "./singletons/pages/services-page";
 import blogPage from "./singletons/pages/blog-page";
 import projectsPage from "./singletons/pages/projects-page";
+import aboutPage from "./documents/aboutPage";
+import navbar from "./singletons/navbar";
+import footer from "./singletons/footer";
 
 const coreSchema = [
   generalSettings,
@@ -36,6 +39,9 @@ const coreSchema = [
   service,
   servicesPage,
   projectsPage,
+  aboutPage,
+  navbar,
+  footer
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
@@ -76,6 +82,14 @@ import videoObject from './objects/video';
 import buttonObject from './objects/button';
 import singleImageObject from "./objects/single-image";
 import callToActionObject from "./objects/call-to-action";
+import ctaButton from "./objects/cta-button";
+import navDropdownItem from "./objects/nav-dropdownItem";
+import navMenuItem from "./objects/nav-menuItem";
+import announcementBanner from "./objects/announcementBanner";
+import logo from "./objects/logo";
+import footerCTA from "./objects/footerCTA";
+import footerLinks from "./objects/footerLinks";
+import footerCoLinks from "./objects/footerCoLinks";
 
 const objectSchema = [
   seoObject,
@@ -85,7 +99,15 @@ const objectSchema = [
   singleImageObject,
   spacerObject,
   callToActionObject,
-  videoObject
+  videoObject,
+  ctaButton,
+  navDropdownItem,
+  navMenuItem,
+  announcementBanner,
+  logo,
+  footerCTA,
+  footerLinks,
+  footerCoLinks
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {

@@ -1,15 +1,17 @@
 "use client"
-import Navbar from './navbar';
-import Footer from './footer';
+import Navbar from '../ui/navbar';
+import Footer from '../ui/footer';
 import localFont from "next/font/local";
 import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
-import { GeneralSettingsQueryResult, NavigationSettingsQueryResult } from '../../../sanity.types';
+import { NavigationSettingsQueryResult } from '../../../sanity.types';
 
 interface ClientLayoutProps {
   children: React.ReactNode;
-  settings: GeneralSettingsQueryResult;
-  navigationSettings: NavigationSettingsQueryResult;
+  navbarSettings: NavigationSettingsQueryResult;
+  footerCTA: any;
+  footerLinks: any;
+  footerCoLinks: any;
 }
 
 const geistSans = localFont({
@@ -26,8 +28,10 @@ const geistMono = localFont({
 
 export default function ClientLayout({ 
   children,
-  settings,
-  navigationSettings,
+  navbarSettings,
+  footerCTA,
+  footerLinks,
+  footerCoLinks,
 }: ClientLayoutProps) {
 
   const pathname = usePathname();
@@ -36,15 +40,16 @@ export default function ClientLayout({
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
       <Navbar 
-        settings={settings}
-        navigationSettings={navigationSettings}
+        // settings={settings}
+        navbarSetting = {navbarSettings}
       />
       <main className='overflow-hidden'>
         {children}
       </main>
       <Footer 
-        settings={settings} 
-        navigationSettings={navigationSettings}
+        footerCTA={footerCTA}
+        footerLinks={footerLinks}
+        footerCoLinks={footerCoLinks}
       />
       <Toaster 
         position="bottom-right" 

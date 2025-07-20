@@ -11,6 +11,7 @@ export const PagesItem = (
       S.list()
         .title('Pages')
         .items([
+          AboutItem(S),
           PageBuilder(S),
           IndexPages(S)
         ])
@@ -84,5 +85,19 @@ export const ProjectsItem = (
       .schemaType('projectsPage')
       .documentId('projectsPage')
       .title('Projects')
+    )
+)
+
+export const AboutItem = (
+  S: StructureBuilder, 
+) => (
+  S.listItem()
+    .title('About Page')
+    .child(
+      S.document()
+      .id('aboutPage')
+      .schemaType('aboutPage')
+      .documentId('aboutPage')
+      .title('About')
     )
 )

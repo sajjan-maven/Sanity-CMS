@@ -1,0 +1,31 @@
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+    name: 'announcementBanner',
+    title: 'Announcement Banner',
+    type: 'object',
+    fields: [
+      defineField({
+        name: 'show',
+        title: 'Show Banner',
+        type: 'boolean',
+        initialValue: true,
+      }),
+      defineField({
+        name: 'text',
+        title: 'Banner Text',
+        type: 'string',
+        validation: Rule => Rule.required(),
+      }),
+      defineField({
+        name: 'linkText',
+        title: 'Link Text',
+        type: 'string',
+      }),
+      defineField({
+        name: 'link',
+        title: 'Link URL',
+        type: 'url',
+      }),
+    ],
+  });

@@ -8,8 +8,11 @@ import ClientLayout from "@/components/global/client-layout";
 import InstallDemoButton from "@/components/shared/install-demo-button";
 import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import { navigationSettingsQuery } from "@/sanity/lib/queries/singletons/navigation";
+import { navbarQuery } from "@/sanity/lib/queries/singletons/navbar";
 import { generalSettingsQuery, marketingSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
+import { footerCTAQuery } from "@/sanity/lib/queries/singletons/footer-cta";
+import { footerLinksQuery } from "@/sanity/lib/queries/singletons/footer-links";
+import { footerCoLinksQuery } from "@/sanity/lib/queries/singletons/footer-co-links";
 
 export const metadata: Metadata = {
   title: {
@@ -27,24 +30,42 @@ export default async function RootLayout({
 
   const { isEnabled: isDraftMode } = await draftMode();
 
-  const [{ data: settings }, { data: marketingSettings }, { data: navigationSettings }] = await Promise.all([
-    sanityFetch({ query: generalSettingsQuery }),
+  // const [{ data: settings }, { data: marketingSettings }, { data: navbarSettings }] = await Promise.all([
+  //   sanityFetch({ query: generalSettingsQuery }),
+  //   sanityFetch({ query: marketingSettingsQuery }),
+  //   sanityFetch({ query: navbarQuery })
+  // ]);
+  const sanityResults = await Promise.all([
     sanityFetch({ query: marketingSettingsQuery }),
-    sanityFetch({ query: navigationSettingsQuery })
+    sanityFetch({ query: navbarQuery }),
   ]);
 
-  if (!settings) return (
-    <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
-      <InstallDemoButton />
-    </Container>
-  )
-  
+  // const settings = sanityResults[0].data;
+  const marketingSettings = sanityResults[0].data;
+  const navbarSettings = sanityResults[1].data;
+
+  // if (!settings) return (
+  //   <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
+  //     <InstallDemoButton />
+  //   </Container>
+  // )
+  const sanityResultsa = await Promise.all([
+    sanityFetch({ query: footerCTAQuery, stega: false }),
+    sanityFetch({ query: footerLinksQuery, stega: false }),
+    sanityFetch({ query: footerCoLinksQuery, stega: false }),
+  ]);
+
+  const footerCTA = sanityResultsa[0].data;
+  const footerLinks = sanityResultsa[1].data;
+  const footerCoLinks = sanityResultsa[2].data;
   return (
     <html lang="en">
       <body>
         <ClientLayout 
-          settings={settings}
-          navigationSettings={navigationSettings}
+          navbarSettings={navbarSettings}
+          footerCTA={footerCTA}
+          footerLinks={footerLinks}
+          footerCoLinks={footerCoLinks}
         >
           {children}
         </ClientLayout>

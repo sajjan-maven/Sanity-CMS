@@ -6,6 +6,8 @@ import { TestimonialsItem } from "./items/testimonials-item";
 import { ServicesItem } from "./items/services-item";
 import { ProjectsItem } from "./items/projects-item";
 import { FormsItem } from "./items/forms-item";
+import { NavbarAndFooterItem } from "./items/nav-footer-item";
+import { AnnouncementBanner } from "./items/announcement-banner";
 
 export const structure: StructureResolver = (
   S: StructureBuilder, 
@@ -16,6 +18,9 @@ export const structure: StructureResolver = (
     .items([
       S.divider(),
       SettingsItem(S),
+      S.divider(),
+      AnnouncementBanner(S),
+      NavbarAndFooterItem(S),
       S.divider(),
       PagesItem(S),
       S.divider(),
