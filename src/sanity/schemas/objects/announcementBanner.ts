@@ -12,6 +12,11 @@ export default defineType({
         initialValue: true,
       }),
       defineField({
+        name: 'icon',
+        title: 'Icon',
+        type: 'image',
+      }),
+      defineField({
         name: 'text',
         title: 'Banner Text',
         type: 'string',

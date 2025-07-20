@@ -13,6 +13,7 @@ import { generalSettingsQuery, marketingSettingsQuery } from "@/sanity/lib/queri
 import { footerCTAQuery } from "@/sanity/lib/queries/singletons/footer-cta";
 import { footerLinksQuery } from "@/sanity/lib/queries/singletons/footer-links";
 import { footerCoLinksQuery } from "@/sanity/lib/queries/singletons/footer-co-links";
+import { announcementBannerQuery } from "@/sanity/lib/queries/singletons/announcement-banner";
 
 export const metadata: Metadata = {
   title: {
@@ -38,11 +39,13 @@ export default async function RootLayout({
   const sanityResults = await Promise.all([
     sanityFetch({ query: marketingSettingsQuery }),
     sanityFetch({ query: navbarQuery }),
+    sanityFetch({ query: announcementBannerQuery})
   ]);
 
   // const settings = sanityResults[0].data;
   const marketingSettings = sanityResults[0].data;
   const navbarSettings = sanityResults[1].data;
+  const announcementBannerSettings = sanityResults[2].data;
 
   // if (!settings) return (
   //   <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
@@ -66,6 +69,7 @@ export default async function RootLayout({
           footerCTA={footerCTA}
           footerLinks={footerLinks}
           footerCoLinks={footerCoLinks}
+          announcementBannerSettings={announcementBannerSettings}
         >
           {children}
         </ClientLayout>

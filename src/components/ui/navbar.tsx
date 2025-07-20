@@ -51,11 +51,17 @@ const DropdownContent = ({ items }: { items: { title: string; description: strin
 
 // Notification Banner Component
 const NotificationBanner = ({
+    icon,
     text,
     link,
     linkText,
     onClose,
 }: {
+    icon:  {
+        asset?: {
+            url?: string;
+        };
+    };
     text: string;
     link: string;
     linkText: string;
@@ -63,13 +69,13 @@ const NotificationBanner = ({
 }) => {
     return (
         <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full bg-[#000] min-h-9">
-            <Image
+            {icon.asset?.url && <Image
                 className="hidden md:block"
-                src={"/common-components/SparkleVector.svg"}
+                src={icon.asset?.url || '/dummy'}
                 width={20}
                 height={20}
-                alt={"spark icon"}
-            />
+                alt={"announcement icon"}
+            />}
             <p className="text-center p-1 text-white text-[14px] font-medium">
                 {text}
                 <Link
@@ -251,7 +257,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting }: { navbarSetting: any}) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: any}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -259,9 +265,6 @@ const NavbarComponent = ({ navbarSetting }: { navbarSetting: any}) => {
     const router = useRouter();
     const headerRef = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
-
-    // Use the default data (to be replaced with Sanity data)
-    // const { notificationBanner, logo, menuItems, ctaButton } = defaultHeaderData;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -294,17 +297,19 @@ const NavbarComponent = ({ navbarSetting }: { navbarSetting: any}) => {
     };
 
     const { logo, menuItems, ctaButton } = navbarSetting;
+    const { icon, show, text, link, linkText } = announcementBannerSettings
 
     return (
         <header className="sticky z-[999] top-0 inset-x-0">
-            {/* {notificationBanner?.show && showNotification && (
+            {show && showNotification && (
                 <NotificationBanner
-                    text={notificationBanner.text}
-                    link={notificationBanner.link}
-                    linkText={notificationBanner.linkText}
+                    icon={icon}
+                    text={text}
+                    link={link}
+                    linkText={linkText}
                     onClose={() => setShowNotification(false)}
                 />
-            )} */}
+            )}
 
             <div
                 ref={headerRef}
