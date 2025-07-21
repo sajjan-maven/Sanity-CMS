@@ -12,15 +12,30 @@ export default defineType({
         initialValue: true,
       }),
       defineField({
+        name: 'backgroundColor',
+        title: 'Background Color',
+        type: 'color',
+      }),
+      defineField({
         name: 'icon',
         title: 'Icon',
         type: 'image',
+      }),
+      defineField({
+        name: 'textColor',
+        title: 'Text Color',
+        type: 'color',
       }),
       defineField({
         name: 'text',
         title: 'Banner Text',
         type: 'string',
         validation: Rule => Rule.required(),
+      }),
+      defineField({
+        name: 'linkColor',
+        title: 'Link Color',
+        type: 'color',
       }),
       defineField({
         name: 'linkText',

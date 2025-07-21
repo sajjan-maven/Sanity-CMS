@@ -55,6 +55,9 @@ const NotificationBanner = ({
     text,
     link,
     linkText,
+    backgroundColor,
+    textColor,
+    linkColor,
     onClose,
 }: {
     icon:  {
@@ -65,10 +68,14 @@ const NotificationBanner = ({
     text: string;
     link: string;
     linkText: string;
+    backgroundColor: any;
+    textColor: any;
+    linkColor: any;
     onClose: () => void;
 }) => {
     return (
-        <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full bg-[#000] min-h-9">
+        <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full bg-[#000] min-h-9"
+          style={{ backgroundColor: backgroundColor?.hex }}>
             {icon.asset?.url && <Image
                 className="hidden md:block"
                 src={icon.asset?.url || '/dummy'}
@@ -76,13 +83,14 @@ const NotificationBanner = ({
                 height={20}
                 alt={"announcement icon"}
             />}
-            <p className="text-center p-1 text-white text-[14px] font-medium">
+            <p className="text-center p-1 text-white text-[14px] font-medium"
+              style={{ color: textColor?.hex }}>
                 {text}
-                <Link
+                {link && <Link
                     target="_blank"
                     href={link}
                     className="text-[#f8be65] inline-flex items-center pl-1 gap-1 group hover:underline hover:[&_svg]:translate-x-1 cursor-pointer"
-                >
+                    style={{ color: linkColor?.hex }}>
                     <span>{linkText}</span>
                     <svg
                         className="transition-all ease-in duration-200"
@@ -95,7 +103,7 @@ const NotificationBanner = ({
                             fill="currentColor"
                         />
                     </svg>
-                </Link>
+                </Link>}
             </p>
 
             <div
@@ -297,7 +305,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
     };
 
     const { logo, menuItems, ctaButton } = navbarSetting;
-    const { icon, show, text, link, linkText } = announcementBannerSettings
+    const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings
 
     return (
         <header className="sticky z-[999] top-0 inset-x-0">
@@ -306,6 +314,9 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
                     icon={icon}
                     text={text}
                     link={link}
+                    backgroundColor={backgroundColor}
+                    textColor={textColor}
+                    linkColor={linkColor}
                     linkText={linkText}
                     onClose={() => setShowNotification(false)}
                 />
