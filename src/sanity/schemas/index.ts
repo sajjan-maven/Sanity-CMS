@@ -55,6 +55,7 @@ import freeformBlock from "./page-builder/blocks/freeform-block";
 import servicesBlock from "./page-builder/blocks/services-block";
 import formBlock from "./page-builder/blocks/form-block";
 import mediaBlock from "./page-builder/blocks/media-block";
+import heroClickthroughBlock from "./page-builder/blocks/hero-clickthrough";
 
 const pageBuilderSchema = [
   pageBuilder,
@@ -69,7 +70,9 @@ const pageBuilderSchema = [
   mediaBlock,
   testimonialBlock,
   servicesBlock,
-  formBlock
+  formBlock,
+  //ABCD Add 4 component name here
+  heroClickthroughBlock
 ];
 
 import seoObject from './objects/seo';

@@ -16,6 +16,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'servicesBlock', type: 'servicesBlock' }),
     defineArrayMember({ name: 'formBlock', type: 'formBlock' }),
     defineArrayMember({ name: 'mediaBlock', type: 'mediaBlock' }),
+    //ABCD 7 Add component name to suitable group
+    defineArrayMember({ name: 'heroClickthroughBlock', type: 'heroClickthroughBlock' }),
   ],
   options: {
     insertMenu: {
@@ -23,7 +25,7 @@ export const pageBuilder = defineType({
         {
           name: 'intro',
           title: 'Intro',
-          of: [ 'heroBlock', 'headerBlock' ]
+          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock' ]
         },
         {
           name: 'content',

@@ -1,6 +1,7 @@
 import { 
   heroBlockQuery, 
   headerBlockQuery,
+  heroClickthroughBlockQuery,
   featureBlockQuery,
   featureCardsBlockQuery,
   featuresMinimalBlockQuery,
@@ -30,6 +31,8 @@ export const pageBuilder = `
     ${blogArchiveBlockQuery},
     ${servicesBlockQuery},
     ${formBlockQuery},
-    ${mediaBlockQuery}
+    ${mediaBlockQuery},
+    //ABCD Add 3 component name here
+    ${heroClickthroughBlockQuery},
   }
 `

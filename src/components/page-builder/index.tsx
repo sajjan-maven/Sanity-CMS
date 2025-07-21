@@ -8,6 +8,7 @@ import { dataset, projectId, studioUrl } from "@/sanity/lib/api";
 
 const HeroBlock = dynamic(() => import("./blocks/hero-block"));
 const HeaderBlock = dynamic(() => import("./blocks/header-block"));
+const HeroClickthroughBlock = dynamic(() => import("./blocks/hero-clickthrough-block"))
 const FeatureCardsBlock = dynamic(() => import("./blocks/feature-cards-block"));
 const TestimonialBlock = dynamic(() => import("./blocks/testimonial-block"));
 const LogoBlock = dynamic(() => import("./blocks/logo-block"));
@@ -42,6 +43,9 @@ const PB_BLOCKS = {
   servicesBlock: ServicesBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  //ABCD 1 Create the UI component inside components > page-builder > blocks
+  //ABCD 2 Add component name here
+  heroClickthroughBlock: HeroClickthroughBlock,
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;
@@ -59,7 +63,19 @@ export function PageBuilder({ pageBuilder, id, type }: PageBuilderProps) {
       }).toString()}
     >
       {pageBuilder.map((block) => {
-        const Component = PB_BLOCKS[block._type] as ComponentType<PageBuilderType<BlockType>>;
+      // Type guard to ensure block has _type and _key before using them
+      if (
+        !block ||
+        typeof block !== "object" ||
+        !("_type" in block) ||
+        !("_key" in block)
+      ) {
+        return null;
+      }
+      const type = (block as { _type: string })._type as BlockType;
+      const Component = PB_BLOCKS[type] as ComponentType<PageBuilderType<BlockType>>;
+
+      // const Component = PB_BLOCKS[block._type] as ComponentType<PageBuilderType<BlockType>>;
         return (
           <div
             key={`${block._type}-${block._key}`}
