@@ -13,37 +13,44 @@
  */
 
 // Source: schema.json
-export type SanityImagePaletteSwatch = {
-  _type: "sanity.imagePaletteSwatch";
-  background?: string;
-  foreground?: string;
-  population?: number;
+export type AnnouncementBanner = {
+  _type: "announcementBanner";
+  show?: boolean;
+  backgroundColor?: Color;
+  icon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  textColor?: Color;
+  text?: string;
+  linkColor?: Color;
+  linkText?: string;
+  link?: string;
+};
+
+export type MenuItem = {
+  _type: "menuItem";
+  name?: string;
+  hasDropdown?: boolean;
+  path?: string;
+  dropdownItems?: Array<{
+    _key: string;
+  } & DropdownItem>;
+};
+
+export type DropdownItem = {
+  _type: "dropdownItem";
   title?: string;
-};
-
-export type SanityImagePalette = {
-  _type: "sanity.imagePalette";
-  darkMuted?: SanityImagePaletteSwatch;
-  lightVibrant?: SanityImagePaletteSwatch;
-  darkVibrant?: SanityImagePaletteSwatch;
-  vibrant?: SanityImagePaletteSwatch;
-  dominant?: SanityImagePaletteSwatch;
-  lightMuted?: SanityImagePaletteSwatch;
-  muted?: SanityImagePaletteSwatch;
-};
-
-export type SanityImageDimensions = {
-  _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
-};
-
-export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
+  description?: string;
+  path?: string;
 };
 
 export type VideoObject = {
@@ -75,6 +82,7 @@ export type SingleImageObject = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -130,6 +138,7 @@ export type ButtonObject = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
     };
+    media?: unknown;
     _type: "file";
   };
   buttonVariant?: "primary" | "secondary" | "tertiary" | "outline" | "underline";
@@ -242,6 +251,7 @@ export type MediaBlock = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -265,6 +275,7 @@ export type LogoBlock = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -404,6 +415,7 @@ export type FeatureCardsBlock = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -454,6 +466,7 @@ export type FeatureCardsBlock = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
         };
+        media?: unknown;
         _type: "file";
       };
       buttonVariant?: "primary" | "secondary" | "tertiary" | "outline" | "underline";
@@ -485,6 +498,11 @@ export type FeatureCardsBlock = {
     _key: string;
   } & ButtonObject>;
   anchorId?: string;
+};
+
+export type HeroClickthroughBlock = {
+  _type: "heroClickthroughBlock";
+  heading?: string;
 };
 
 export type HeaderBlock = {
@@ -542,6 +560,7 @@ export type HeroBlock = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -563,6 +582,8 @@ export type PageBuilder = Array<{
   _key: string;
 } & HeaderBlock | {
   _key: string;
+} & HeroClickthroughBlock | {
+  _key: string;
 } & FeatureCardsBlock | {
   _key: string;
 } & FeaturesMinimalBlock | {
@@ -582,6 +603,240 @@ export type PageBuilder = Array<{
 } & FormBlock | {
   _key: string;
 } & MediaBlock>;
+
+export type Footer = {
+  _id: string;
+  _type: "footer";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  footerCTA?: FooterCTA;
+  footerLinks?: FooterLinks;
+  footerCoLinks?: FooterCoLinks;
+};
+
+export type FooterCoLinks = {
+  _type: "footerCoLinks";
+  companyNameMark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  copyright?: string;
+  coLinks?: Array<{
+    label?: string;
+    url?: string;
+    _key: string;
+  }>;
+  businessEmail?: string;
+};
+
+export type FooterLinks = {
+  _type: "footerLinks";
+  companyLogo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  socialLinks?: Array<{
+    platform?: string;
+    url?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  backedBy?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  certifications?: Array<{
+    label?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  reviewBadges?: Array<{
+    platform?: string;
+    url?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  platform?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  resources?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  companys?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  getStarted?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  freeTools?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  customers?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+  popularGuides?: Array<{
+    label?: string;
+    url?: string;
+    badge?: "new" | "popular";
+    _key: string;
+  }>;
+};
+
+export type FooterCTA = {
+  _type: "footerCTA";
+  title?: string;
+  description?: string;
+  ctaButton?: CtaButton;
+  desktopImage?: {
+    src?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    alt?: string;
+    width?: number;
+    height?: number;
+  };
+  mobileImage?: {
+    src?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    alt?: string;
+    width?: number;
+    height?: number;
+  };
+};
+
+export type Navbar = {
+  _id: string;
+  _type: "navbar";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  logo?: Logo;
+  menuItems?: Array<{
+    _key: string;
+  } & MenuItem>;
+  ctaButton?: CtaButton;
+};
+
+export type CtaButton = {
+  _type: "ctaButton";
+  text?: string;
+  link?: string;
+  variant?: "primary" | "secondary" | "danger" | "outline";
+};
+
+export type Logo = {
+  _type: "logo";
+  src?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  alt?: string;
+  width?: number;
+  height?: number;
+};
 
 export type Form = {
   _id: string;
@@ -617,6 +872,7 @@ export type Testimonial = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -628,6 +884,7 @@ export type Testimonial = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -687,6 +944,7 @@ export type Post = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -720,6 +978,7 @@ export type Author = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -1010,6 +1269,7 @@ export type GeneralSettings = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -1057,6 +1317,7 @@ export type GeneralSettings = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -1130,6 +1391,7 @@ export type Service = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -1163,6 +1425,7 @@ export type Project = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
@@ -1185,6 +1448,7 @@ export type SeoObject = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -1200,85 +1464,6 @@ export type ProjectCategory = {
   title?: string;
   slug?: Slug;
   orderRank?: string;
-};
-
-export type SanityFileAsset = {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type SanityImageAsset = {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  metadata?: SanityImageMetadata;
-  source?: SanityAssetSourceData;
-};
-
-export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
-export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
 };
 
 export type HighlightColor = {
@@ -1308,38 +1493,159 @@ export type MediaTag = {
   name?: Slug;
 };
 
+export type Color = {
+  _type: "color";
+  hex?: string;
+  alpha?: number;
+  hsl?: HslaColor;
+  hsv?: HsvaColor;
+  rgb?: RgbaColor;
+};
+
+export type RgbaColor = {
+  _type: "rgbaColor";
+  r?: number;
+  g?: number;
+  b?: number;
+  a?: number;
+};
+
+export type HsvaColor = {
+  _type: "hsvaColor";
+  h?: number;
+  s?: number;
+  v?: number;
+  a?: number;
+};
+
+export type HslaColor = {
+  _type: "hslaColor";
+  h?: number;
+  s?: number;
+  l?: number;
+  a?: number;
+};
+
+export type SanityImagePaletteSwatch = {
+  _type: "sanity.imagePaletteSwatch";
+  background?: string;
+  foreground?: string;
+  population?: number;
+  title?: string;
+};
+
+export type SanityImagePalette = {
+  _type: "sanity.imagePalette";
+  darkMuted?: SanityImagePaletteSwatch;
+  lightVibrant?: SanityImagePaletteSwatch;
+  darkVibrant?: SanityImagePaletteSwatch;
+  vibrant?: SanityImagePaletteSwatch;
+  dominant?: SanityImagePaletteSwatch;
+  lightMuted?: SanityImagePaletteSwatch;
+  muted?: SanityImagePaletteSwatch;
+};
+
+export type SanityImageDimensions = {
+  _type: "sanity.imageDimensions";
+  height?: number;
+  width?: number;
+  aspectRatio?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityFileAsset = {
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
+};
+
+export type SanityImageAsset = {
+  _id: string;
+  _type: "sanity.imageAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  metadata?: SanityImageMetadata;
+  source?: SanityAssetSourceData;
+};
+
+export type SanityImageMetadata = {
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
+};
+
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
+};
+
 export type Slug = {
   _type: "slug";
   current?: string;
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | Form | Testimonial | Post | Author | PostCategory | Redirect | BlogSettings | MarketingSettings | NavigationSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | SeoObject | ProjectCategory | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | HighlightColor | TextColor | SimplerColor | MediaTag | Slug;
-export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/sanity/lib/queries/misc.ts
-// Variable: sitemapQuery
-// Query: *[_type in ["page", "post", "project", "service", "blogPage", "projectsPage", "servicesPage"] && defined(slug.current)] {    "href": select(      _type == "page" => "/" + slug.current,      _type == "post" => "/blog/" + slug.current,      _type == "blogPage" => "/blog",      _type == "project" => "/projects/" + slug.current,      _type == "projectsPage" => "/projects",      _type == "service" => "/services/" + slug.current,      _type == "servicesPage" => "/services",      slug.current    ),    _updatedAt  }
-export type SitemapQueryResult = Array<{
-  href: "/blog";
-  _updatedAt: string;
-} | {
-  href: "/projects";
-  _updatedAt: string;
-} | {
-  href: "/services";
-  _updatedAt: string;
-} | {
-  href: string | null;
-  _updatedAt: string;
-}>;
-// Variable: redirectsQuery
-// Query: *[_type == "redirect" && isEnabled == true] {      source,      destination,      permanent  }
-export type RedirectsQueryResult = Array<{
-  source: string | null;
-  destination: string | null;
-  permanent: boolean | null;
-}>;
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
+};
 
+export type AllSanitySchemaTypes = AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeroClickthroughBlock | HeaderBlock | HeroBlock | PageBuilder | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Post | Author | PostCategory | Redirect | BlogSettings | MarketingSettings | NavigationSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | SeoObject | ProjectCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/page.ts
 // Variable: pageSlugsQuery
 // Query: *[_type == "page" && defined(slug.current)] {  'params': { 'slug': slug.current }}
@@ -2159,7 +2465,7 @@ export type PageBySlugQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   seo: {
     title: string | "";
     description: string | "";
@@ -2171,6 +2477,7 @@ export type PageBySlugQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -2997,7 +3304,7 @@ export type BlogPageQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   posts: Array<{
     _id: string;
     _type: "post";
@@ -3045,6 +3352,7 @@ export type BlogPageQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -3180,6 +3488,7 @@ export type PostBySlugQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -4086,7 +4395,7 @@ export type ProjectsPageQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   projects: Array<{
     _id: string;
     _type: "project";
@@ -4909,7 +5218,7 @@ export type ProjectsPageQueryResult = {
       cornerRadiusBottom: "rounded" | "straight" | null;
       paddingTop: null;
       paddingBottom: null;
-    }> | null;
+    } | {}> | null;
   }>;
   categories: Array<{
     _id: string;
@@ -4928,6 +5237,7 @@ export type ProjectsPageQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -5757,7 +6067,7 @@ export type ProjectBySlugQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   seo: {
     title: string | "";
     description: string | "";
@@ -5769,6 +6079,7 @@ export type ProjectBySlugQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -6599,7 +6910,7 @@ export type AllProjectsQueryResult = Array<{
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
 }>;
 // Variable: allProjectCategoriesQuery
 // Query: *[_type == 'projectCategory'] | order(orderRank asc) {  _id,  _type,  title,  'slug': slug.current,}
@@ -7434,7 +7745,7 @@ export type ProjectsByCategoryQueryResult = Array<{
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
 }>;
 // Variable: projectCategoryBySlugQuery
 // Query: *[_type == 'projectCategory' && slug.current == $slug][0] {  _id,  _type,  title,  'slug': slug.current,}
@@ -8264,7 +8575,7 @@ export type ServiceBySlugQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   seo: {
     title: string | "";
     description: string | "";
@@ -8276,6 +8587,7 @@ export type ServiceBySlugQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -9092,7 +9404,7 @@ export type AllServicesQueryResult = Array<{
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
 }>;
 // Variable: servicesPageQuery
 // Query: *[_type == 'servicesPage'][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
@@ -9905,7 +10217,7 @@ export type ServicesPageQueryResult = {
     cornerRadiusBottom: "rounded" | "straight" | null;
     paddingTop: null;
     paddingBottom: null;
-  }> | null;
+  } | {}> | null;
   seo: {
     title: string | "";
     description: string | "";
@@ -9917,6 +10229,7 @@ export type ServicesPageQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -9924,240 +10237,197 @@ export type ServicesPageQueryResult = {
   };
 } | null;
 
-// Source: ./src/sanity/lib/queries/singletons/navigation.ts
-// Variable: navigationSettingsQuery
-// Query: *[_type == 'navigationSettings'][0] {  "navbar": {    navbarMenuItems[] {      _key,      title,      pageReference->{        _id,        _type,        title,        "slug": slug.current      },      pageReferences[]->{        _id,        _type,        title,        "slug": slug.current      },      menuItemType,      isButton,    },  },  "slideOutMenu": {    showSlideOutMenu,    slideOutMenuItems[] {      _key,      title,      _type,      menuItemType,      pageReference->{        _id,        _type,        title,        "slug": slug.current      },      pageReferences[]->{        _id,        _type,        title,        "slug": slug.current      },    },    slideOutMenuButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    showCompanyDetailsSlideOutMenu,    "slideOutMenuSettings": *[_type == 'generalSettings'][0] {      companyEmailAddress,      companyPhoneNumber,      companySocialMediaLinks[] {        _key,        title,        profileUrl,        icon {          asset->{            url          }        }      }    }  },  "footer": {    footerColumns[] {      _key,      title,      menuItems[] {        _key,        title,        linkType,        pageReference->{          _id,          title,          "slug": slug.current        },        externalUrl      },    },    footerLegalMenuItems[] {      _key,      title,      pageReference->{        _id,        title,        "slug": slug.current      },    },  }}
-export type NavigationSettingsQueryResult = {
-  navbar: {
-    navbarMenuItems: Array<{
-      _key: string;
-      title: string | null;
-      pageReference: {
-        _id: string;
-        _type: "blogPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "page";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "project";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "projectsPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "service";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "servicesPage";
-        title: string | null;
-        slug: string | null;
+// Source: ./src/sanity/lib/queries/misc.ts
+// Variable: sitemapQuery
+// Query: *[_type in ["page", "post", "project", "service", "blogPage", "projectsPage", "servicesPage"] && defined(slug.current)] {    "href": select(      _type == "page" => "/" + slug.current,      _type == "post" => "/blog/" + slug.current,      _type == "blogPage" => "/blog",      _type == "project" => "/projects/" + slug.current,      _type == "projectsPage" => "/projects",      _type == "service" => "/services/" + slug.current,      _type == "servicesPage" => "/services",      slug.current    ),    _updatedAt  }
+export type SitemapQueryResult = Array<{
+  href: "/blog";
+  _updatedAt: string;
+} | {
+  href: "/projects";
+  _updatedAt: string;
+} | {
+  href: "/services";
+  _updatedAt: string;
+} | {
+  href: string | null;
+  _updatedAt: string;
+}>;
+// Variable: redirectsQuery
+// Query: *[_type == "redirect" && isEnabled == true] {      source,      destination,      permanent  }
+export type RedirectsQueryResult = Array<{
+  source: string | null;
+  destination: string | null;
+  permanent: boolean | null;
+}>;
+
+// Source: ./src/sanity/lib/queries/singletons/announcement-banner.ts
+// Variable: announcementBannerQuery
+// Query: *[_type == "announcementBanner"][0] {    show,    backgroundColor { hex },    textColor { hex },    linkColor { hex },    icon {        asset->{            url,        }    },    text,    linkText,    link  }
+export type AnnouncementBannerQueryResult = null;
+
+// Source: ./src/sanity/lib/queries/singletons/footer-co-links.ts
+// Variable: footerCoLinksQuery
+// Query: *[_type == "footer"][0] {  footerCoLinks {    companyNameMark {      asset->{        url,      }    },    copyright,    coLinks[] {      label,      url    },    businessEmail,  }}
+export type FooterCoLinksQueryResult = {
+  footerCoLinks: {
+    companyNameMark: {
+      asset: {
+        url: string | null;
       } | null;
-      pageReferences: Array<{
-        _id: string;
-        _type: "blogPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "page";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "project";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "projectsPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "service";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "servicesPage";
-        title: string | null;
-        slug: string | null;
-      }> | null;
-      menuItemType: "group" | "single" | null;
-      isButton: boolean | null;
+    } | null;
+    copyright: string | null;
+    coLinks: Array<{
+      label: string | null;
+      url: string | null;
     }> | null;
-  };
-  slideOutMenu: {
-    showSlideOutMenu: boolean | null;
-    slideOutMenuItems: Array<{
-      _key: string;
-      title: string | null;
-      _type: null;
-      menuItemType: "group" | "single" | null;
-      pageReference: {
-        _id: string;
-        _type: "blogPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "page";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "project";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "projectsPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "service";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "servicesPage";
-        title: string | null;
-        slug: string | null;
-      } | null;
-      pageReferences: Array<{
-        _id: string;
-        _type: "blogPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "page";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "project";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "projectsPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "service";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "servicesPage";
-        title: string | null;
-        slug: string | null;
-      }> | null;
-    }> | null;
-    slideOutMenuButtons: Array<{
-      _key: string;
-      showButton: boolean | null;
-      buttonText: string | null;
-      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
-      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
-      buttonWidth: "auto" | "fullWidth" | null;
-      buttonFileUrl: {
+    businessEmail: string | null;
+  } | null;
+} | null;
+
+// Source: ./src/sanity/lib/queries/singletons/footer-cta.ts
+// Variable: footerCTAQuery
+// Query: *[_type == "footer"][0] {  footerCTA {    title,    description,    ctaButton {      text,      link,      variant    },    desktopImage {      src {        asset->{          url        }      },      alt,      width,      height    },    mobileImage {      src {        asset->{          url        }      },      alt,      width,      height    }  }}
+export type FooterCTAQueryResult = {
+  footerCTA: {
+    title: string | null;
+    description: string | null;
+    ctaButton: {
+      text: string | null;
+      link: string | null;
+      variant: "danger" | "outline" | "primary" | "secondary" | null;
+    } | null;
+    desktopImage: {
+      src: {
         asset: {
           url: string | null;
         } | null;
       } | null;
-      buttonPageReference: {
-        _id: string;
-        _type: "blogPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "page";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "project";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "projectsPage";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "service";
-        title: string | null;
-        slug: string | null;
-      } | {
-        _id: string;
-        _type: "servicesPage";
-        title: string | null;
-        slug: string | null;
-      } | null;
-      buttonEmailAddress: string | null;
-      buttonExternalUrl: string | null;
-      buttonAnchorLocation: "choosePage" | "currentPage" | null;
-      buttonAnchorId: string | null;
-    }> | null;
-    showCompanyDetailsSlideOutMenu: boolean | null;
-    slideOutMenuSettings: {
-      companyEmailAddress: string | null;
-      companyPhoneNumber: string | null;
-      companySocialMediaLinks: Array<{
-        _key: string;
-        title: string | null;
-        profileUrl: string | null;
-        icon: {
-          asset: {
-            url: string | null;
-          } | null;
-        } | null;
-      }> | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
     } | null;
-  };
-  footer: {
-    footerColumns: Array<{
-      _key: string;
-      title: string | null;
-      menuItems: Array<{
-        _key: string;
-        title: string | null;
-        linkType: "external" | "internal" | null;
-        pageReference: {
-          _id: string;
-          title: string | null;
-          slug: string | null;
+    mobileImage: {
+      src: {
+        asset: {
+          url: string | null;
         } | null;
-        externalUrl: string | null;
-      }> | null;
-    }> | null;
-    footerLegalMenuItems: Array<{
-      _key: string;
-      title: string | null;
-      pageReference: {
-        _id: string;
-        title: string | null;
-        slug: string | null;
+      } | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+    } | null;
+  } | null;
+} | null;
+
+// Source: ./src/sanity/lib/queries/singletons/footer-links.ts
+// Variable: footerLinksQuery
+// Query: *[_type == "footer"][0] {  footerLinks {    companyLogo {      asset->{        url,      }    },    backedBy {      asset->{        url,      }    },    socialLinks[] {      platform,      url,      icon {          asset->{              url,          }      }    },    certifications[] {      label,      icon {          asset->{              url,          }      }    },    reviewBadges[] {      url,      icon {          asset->{              url,          }      }    },    platform[] {      label,      url,      badge    },    resources[] {      label,      url,      badge    },    companys[] {      label,      url,      badge    },    getStarted[] {      label,      url,      badge    },    freeTools[] {      label,      url,      badge    },    customers[] {      label,      url,      badge    },    popularGuides[] {      label,      url,      badge    }  }}
+export type FooterLinksQueryResult = {
+  footerLinks: {
+    companyLogo: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    backedBy: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    socialLinks: Array<{
+      platform: string | null;
+      url: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
       } | null;
     }> | null;
-  };
+    certifications: Array<{
+      label: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    reviewBadges: Array<{
+      url: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    platform: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    resources: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    companys: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    getStarted: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    freeTools: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    customers: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    popularGuides: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+  } | null;
+} | null;
+
+// Source: ./src/sanity/lib/queries/singletons/navbar.ts
+// Variable: navbarQuery
+// Query: *[_type =="navbar"][0]{  logo {    src {      asset->{        _id,        url      }    },    alt,    width,    height  },  menuItems[] {    name,    hasDropdown,    dropdownItems[] {      title,      description,      path    },    path  },  ctaButton {    text,    link,    variant  }}
+export type NavbarQueryResult = {
+  logo: {
+    src: {
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+  } | null;
+  menuItems: Array<{
+    name: string | null;
+    hasDropdown: boolean | null;
+    dropdownItems: Array<{
+      title: string | null;
+      description: string | null;
+      path: string | null;
+    }> | null;
+    path: string | null;
+  }> | null;
+  ctaButton: {
+    text: string | null;
+    link: string | null;
+    variant: "danger" | "outline" | "primary" | "secondary" | null;
+  } | null;
 } | null;
 
 // Source: ./src/sanity/lib/queries/singletons/og.ts
@@ -10196,6 +10466,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10217,6 +10488,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10238,6 +10510,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10259,6 +10532,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10280,6 +10554,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10301,6 +10576,7 @@ export type GeneralSettingsQueryResult = {
           _weak?: boolean;
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -10326,8 +10602,6 @@ export type BlogSettingsQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type in [\"page\", \"post\", \"project\", \"service\", \"blogPage\", \"projectsPage\", \"servicesPage\"] && defined(slug.current)] {\n    \"href\": select(\n      _type == \"page\" => \"/\" + slug.current,\n      _type == \"post\" => \"/blog/\" + slug.current,\n      _type == \"blogPage\" => \"/blog\",\n      _type == \"project\" => \"/projects/\" + slug.current,\n      _type == \"projectsPage\" => \"/projects\",\n      _type == \"service\" => \"/services/\" + slug.current,\n      _type == \"servicesPage\" => \"/services\",\n      slug.current\n    ),\n    _updatedAt\n  }\n": SitemapQueryResult;
-    "\n  *[_type == \"redirect\" && isEnabled == true] {\n      source,\n      destination,\n      permanent\n  }\n": RedirectsQueryResult;
     "*[_type == \"page\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": PageSlugsQueryResult;
     "*[_type == 'page' && slug.current == $slug][0] {\n  _type,\n  _id,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PageBySlugQueryResult;
     "*[_type == \"post\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": PostSlugsQueryResult;
@@ -10349,7 +10623,13 @@ declare module "@sanity/client" {
     "*[_type == 'service' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServiceBySlugQueryResult;
     "*[_type == 'service'] {\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n\n  }\n,\n}": AllServicesQueryResult;
     "*[_type == 'servicesPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServicesPageQueryResult;
-    "*[_type == 'navigationSettings'][0] {\n  \"navbar\": {\n    navbarMenuItems[] {\n      _key,\n      title,\n      pageReference->{\n        _id,\n        _type,\n        title,\n        \"slug\": slug.current\n      },\n      pageReferences[]->{\n        _id,\n        _type,\n        title,\n        \"slug\": slug.current\n      },\n      menuItemType,\n      isButton,\n    },\n  },\n  \"slideOutMenu\": {\n    showSlideOutMenu,\n    slideOutMenuItems[] {\n      _key,\n      title,\n      _type,\n      menuItemType,\n      pageReference->{\n        _id,\n        _type,\n        title,\n        \"slug\": slug.current\n      },\n      pageReferences[]->{\n        _id,\n        _type,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    slideOutMenuButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    showCompanyDetailsSlideOutMenu,\n    \"slideOutMenuSettings\": *[_type == 'generalSettings'][0] {\n      companyEmailAddress,\n      companyPhoneNumber,\n      companySocialMediaLinks[] {\n        _key,\n        title,\n        profileUrl,\n        icon {\n          asset->{\n            url\n          }\n        }\n      }\n    }\n  },\n  \"footer\": {\n    footerColumns[] {\n      _key,\n      title,\n      menuItems[] {\n        _key,\n        title,\n        linkType,\n        pageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        externalUrl\n      },\n    },\n    footerLegalMenuItems[] {\n      _key,\n      title,\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n  }\n}": NavigationSettingsQueryResult;
+    "\n  *[_type in [\"page\", \"post\", \"project\", \"service\", \"blogPage\", \"projectsPage\", \"servicesPage\"] && defined(slug.current)] {\n    \"href\": select(\n      _type == \"page\" => \"/\" + slug.current,\n      _type == \"post\" => \"/blog/\" + slug.current,\n      _type == \"blogPage\" => \"/blog\",\n      _type == \"project\" => \"/projects/\" + slug.current,\n      _type == \"projectsPage\" => \"/projects\",\n      _type == \"service\" => \"/services/\" + slug.current,\n      _type == \"servicesPage\" => \"/services\",\n      slug.current\n    ),\n    _updatedAt\n  }\n": SitemapQueryResult;
+    "\n  *[_type == \"redirect\" && isEnabled == true] {\n      source,\n      destination,\n      permanent\n  }\n": RedirectsQueryResult;
+    "*[_type == \"announcementBanner\"][0] {\n    show,\n    backgroundColor { hex },\n    textColor { hex },\n    linkColor { hex },\n    icon {\n        asset->{\n            url,\n        }\n    },\n    text,\n    linkText,\n    link\n  }\n": AnnouncementBannerQueryResult;
+    "*[_type == \"footer\"][0] {\n  footerCoLinks {\n    companyNameMark {\n      asset->{\n        url,\n      }\n    },\n    copyright,\n    coLinks[] {\n      label,\n      url\n    },\n    businessEmail,\n  }\n}": FooterCoLinksQueryResult;
+    "*[_type == \"footer\"][0] {\n  footerCTA {\n    title,\n    description,\n    ctaButton {\n      text,\n      link,\n      variant\n    },\n    desktopImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    },\n    mobileImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    }\n  }\n}": FooterCTAQueryResult;
+    "*[_type == \"footer\"][0] {\n  footerLinks {\n    companyLogo {\n      asset->{\n        url,\n      }\n    },\n    backedBy {\n      asset->{\n        url,\n      }\n    },\n    socialLinks[] {\n      platform,\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    certifications[] {\n      label,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    reviewBadges[] {\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    platform[] {\n      label,\n      url,\n      badge\n    },\n    resources[] {\n      label,\n      url,\n      badge\n    },\n    companys[] {\n      label,\n      url,\n      badge\n    },\n    getStarted[] {\n      label,\n      url,\n      badge\n    },\n    freeTools[] {\n      label,\n      url,\n      badge\n    },\n    customers[] {\n      label,\n      url,\n      badge\n    },\n    popularGuides[] {\n      label,\n      url,\n      badge\n    }\n  }\n}": FooterLinksQueryResult;
+    "*[_type ==\"navbar\"][0]{\n  logo {\n    src {\n      asset->{\n        _id,\n        url\n      }\n    },\n    alt,\n    width,\n    height\n  },\n  menuItems[] {\n    name,\n    hasDropdown,\n    dropdownItems[] {\n      title,\n      description,\n      path\n    },\n    path\n  },\n  ctaButton {\n    text,\n    link,\n    variant\n  }\n}": NavbarQueryResult;
     "\n  *[_id == $id][0]{\n    title,\n  }    \n": OgImageQueryResult;
     "*[_type == 'generalSettings'][0] {\n  siteTitle,\n  siteLogo { \n    asset->{ url },\n  },\n  copyright,\n  homePage->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description,  \"\"),\n      \"noIndex\": seo.noIndex == true,\n      \"image\": seo.image,\n    },\n  },\n}": GeneralSettingsQueryResult;
     "*[_type == 'marketingSettings'][0] {\n  googleAnalyticsId,\n  googleTagManagerId,\n}": MarketingSettingsQueryResult;

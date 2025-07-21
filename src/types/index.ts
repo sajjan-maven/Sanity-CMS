@@ -1,13 +1,22 @@
 import { PageBySlugQueryResult } from "../../sanity.types";
 
-export type PageBuilderBlockTypes = NonNullable<
-  NonNullable<PageBySlugQueryResult>["pageBuilder"]
->[number]["_type"];
+type PageBuilderBlock =
+  NonNullable<NonNullable<PageBySlugQueryResult>["pageBuilder"]>[number] & { _type?: string };
+export type PageBuilderBlockTypes = Exclude<PageBuilderBlock["_type"], undefined | null>;
 
 export type PageBuilderType<T extends PageBuilderBlockTypes> = Extract<
-  NonNullable<NonNullable<PageBySlugQueryResult>["pageBuilder"]>[number],
+  PageBuilderBlock,
   { _type: T }
 >;
+
+// export type PageBuilderBlockTypes = NonNullable<
+//   NonNullable<PageBySlugQueryResult>["pageBuilder"]
+// >[number]["_type"];
+
+// export type PageBuilderType<T extends PageBuilderBlockTypes> = Extract<
+//   NonNullable<NonNullable<PageBySlugQueryResult>["pageBuilder"]>[number],
+//   { _type: T }
+// >;
 
 export type ButtonType = NonNullable<
   NonNullable<PageBuilderType<"heroBlock">>["buttons"]
