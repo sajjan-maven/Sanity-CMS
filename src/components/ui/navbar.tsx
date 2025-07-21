@@ -129,7 +129,6 @@ const DesktopNavigation = ({
     ctaButton: { text: string; link: string, variant: 'primary' | 'secondary' | 'danger' | 'outline' };
 }) => {
     const router = useRouter();
-    console.log(ctaButton);
 
     return (
         <nav className="hidden lg:flex justify-between w-full">

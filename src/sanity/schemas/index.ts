@@ -17,7 +17,6 @@ import projectCategory from "./documents/project-category";
 import servicesPage from "./singletons/pages/services-page";
 import blogPage from "./singletons/pages/blog-page";
 import projectsPage from "./singletons/pages/projects-page";
-import aboutPage from "./documents/aboutPage";
 import navbar from "./singletons/navbar";
 import footer from "./singletons/footer";
 
@@ -39,7 +38,6 @@ const coreSchema = [
   service,
   servicesPage,
   projectsPage,
-  aboutPage,
   navbar,
   footer
 ];
