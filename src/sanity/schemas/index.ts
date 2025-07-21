@@ -71,7 +71,7 @@ const pageBuilderSchema = [
   testimonialBlock,
   servicesBlock,
   formBlock,
-  //ABCD Add 4 component name here
+  //ABCD 6 Add component name here
   heroClickthroughBlock
 ];
 

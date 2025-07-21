@@ -32,7 +32,7 @@ export const pageBuilder = `
     ${servicesBlockQuery},
     ${formBlockQuery},
     ${mediaBlockQuery},
-    //ABCD Add 3 component name here
+    //ABCD Add 5 component name here
     ${heroClickthroughBlockQuery},
   }
 `

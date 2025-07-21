@@ -30,7 +30,7 @@ export const headerBlockQuery = `
     anchorId
   }
 `
-//ABCD 3 Create schema for block in sanity > schemas > page-builder
+//ABCD 3 Create schema for component in sanity > schemas > page-builder
 //ABCD 4 Add component query here
 export const heroClickthroughBlockQuery = `
   _type == "heroClickthroughBlock" => {
