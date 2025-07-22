@@ -36,10 +36,95 @@ export const heroClickthroughBlockQuery = `
   _type == "heroClickthroughBlock" => {
     ${baseQuery},
     heading,
-    subheading
+    subheading,
+    headingWidth,
+    subheadingWidth
   }
 `
+export const simpleCardBlockQuery = `
+  _type == "simpleCardBlock" => {
+    ${baseQuery},
+    title,
+    cards[] {
+      title,
+      description,
+      image {
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt
+      },
+      backgroundColor {
+        hex
+      }
+    }
+  }
+`
+export const featuredTestimonialBlockQuery = `
+  _type == "featuredTestimonialBlock" => {
+    ${baseQuery},
+    quote,
+    author {
+      name,
+      position,
+      avatar {
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt
+      }
+    },
+    quoteIcon {
+      asset->{
+        url
+      },
+      alt
+    },
+  }
+`
+    // backgroundColor {
+    //   hex
+    // }
 
+export const comparisonTableBlockQuery = `
+  _type == "comparisonTableBlock" => {
+  ${baseQuery},
+  _key,
+  _type,
+    title,
+    leftColumn {
+      title,
+      icon {
+        asset->{
+          url
+        },
+        alt
+      }
+    },
+    rightColumn {
+      title,
+      icon {
+        asset->{
+          url
+        },
+        alt
+      },
+      backgroundColor {
+        hex
+      }
+    },
+    rows[] {
+      leftText,
+      rightText
+    }
+  }
+`
 export const featureBlockQuery = `
   _type == "featureBlock" => {
     ${baseQuery},

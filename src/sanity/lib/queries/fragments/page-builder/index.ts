@@ -14,8 +14,12 @@ import {
   servicesBlockQuery,
   formBlockQuery,
   mediaBlockQuery,
+  simpleCardBlockQuery,
+  featuredTestimonialBlockQuery,
+  comparisonTableBlockQuery
 } from "./blocks";
 
+//ABCD Add 5 component name here
 export const pageBuilder = `
   pageBuilder[] {
     ${heroBlockQuery},
@@ -32,7 +36,10 @@ export const pageBuilder = `
     ${servicesBlockQuery},
     ${formBlockQuery},
     ${mediaBlockQuery},
-    //ABCD Add 5 component name here
+
     ${heroClickthroughBlockQuery},
+    ${simpleCardBlockQuery},
+    ${featuredTestimonialBlockQuery},
+    ${comparisonTableBlockQuery}
   }
 `

@@ -6,20 +6,22 @@ export type HeroClickthroughBlockProps = PageBuilderType<"heroClickthroughBlock"
 
 export default function HeroClickthroughBlock(props: HeroClickthroughBlockProps) {
 
-  const { heading, subheading } = props;
+  const { heading, subheading, headingWidth, subheadingWidth } = props;
 
   return (
-    <section className="relative w-full py-12 md:py-24 bg-[#f8f5f3] overflow-hidden">
-        <div className="flex flex-col w-full max-w-4xl xl:max-w-7xl px-6 items-center gap-8 mx-auto">
+    <section className="relative w-full pt-12 md:pt-24 bg-[#f8f5f3] overflow-hidden">
+        <div className="flex flex-col w-full px-6 items-center gap-8 mx-auto">
           <header>
-            <h1 className="w-full text-[#222222] text-[40px] lg:text-5xl xl:text-[62px] text-center leading-12 xl:leading-[72px] inline-block font-medium">
+            <h1 className="w-full text-[#222222] text-[40px] lg:text-5xl xl:text-[62px] text-center leading-12 xl:leading-[72px] inline-block font-medium"
+             style={{ maxWidth: `${headingWidth}px` }}>
               {heading}
             </h1>
           </header>
         </div>
         <div className="relative w-full">
           <div className="relative pt-2 xl:pt-8 lg:mb-0 w-full flex-wrap px-8 pointer-events-none z-[99]">
-            <div className="w-full font-normal max-w-[768px] mx-auto text-sm md:text-lg text-center md:leading-8 pointer-events-auto text-[#7B7481]">
+            <div className="w-full font-normal mx-auto text-sm md:text-lg text-center md:leading-8 pointer-events-auto text-[#7B7481]"
+             style={{ maxWidth: `${subheadingWidth}px` }}>
               <p>{subheading}</p>
             </div>
             {/* <HomePageEmailCapture /> */}

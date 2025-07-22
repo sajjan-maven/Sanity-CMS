@@ -8,7 +8,6 @@ import { dataset, projectId, studioUrl } from "@/sanity/lib/api";
 
 const HeroBlock = dynamic(() => import("./blocks/hero-block"));
 const HeaderBlock = dynamic(() => import("./blocks/header-block"));
-const HeroClickthroughBlock = dynamic(() => import("./blocks/hero-clickthrough-block"))
 const FeatureCardsBlock = dynamic(() => import("./blocks/feature-cards-block"));
 const TestimonialBlock = dynamic(() => import("./blocks/testimonial-block"));
 const LogoBlock = dynamic(() => import("./blocks/logo-block"));
@@ -19,6 +18,12 @@ const FeaturesMinimalBlock = dynamic(() => import("./blocks/features-minimal-blo
 const ServicesBlock = dynamic(() => import("./blocks/services-block"));
 const FormBlock = dynamic(() => import("./blocks/form-block"));
 const MediaBlock = dynamic(() => import("./blocks/media-block"));
+// new UI components
+const HeroClickthroughBlock = dynamic(() => import("./blocks/hero-clickthrough-block"))
+const ComparisonTableBlock = dynamic(() => import("./blocks/comparison-table-block"))
+const FeaturedTestimonialBlock = dynamic(() => import("./blocks/featured-testimonial-block"))
+const SimpleCardBlock = dynamic(() => import("./blocks/simple-cards-block"))
+const TestimonialCarouselBlock = dynamic(() => import("./blocks/testimonial-carousel-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -46,6 +51,10 @@ const PB_BLOCKS = {
   //ABCD 1 Create the UI component inside components > page-builder > blocks
   //ABCD 2 Add component name here
   heroClickthroughBlock: HeroClickthroughBlock,
+  simpleCardBlock: SimpleCardBlock,
+  featuredTestimonialBlock: FeaturedTestimonialBlock,
+  comparisonTableBlock: ComparisonTableBlock,
+  // testimonialCarouselBlock: TestimonialCarouselBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

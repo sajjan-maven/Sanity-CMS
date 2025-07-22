@@ -56,7 +56,11 @@ import servicesBlock from "./page-builder/blocks/services-block";
 import formBlock from "./page-builder/blocks/form-block";
 import mediaBlock from "./page-builder/blocks/media-block";
 import heroClickthroughBlock from "./page-builder/blocks/hero-clickthrough";
+import simpleCardBlock from "./page-builder/blocks/simple-card-block";
+import featuredTestimonialBlock from "./page-builder/blocks/featured-testimonial-block";
+import comparisonTableBlock from "./page-builder/blocks/comparison-table-block";
 
+//ABCD 6 Add component name here
 const pageBuilderSchema = [
   pageBuilder,
   heroBlock,
@@ -71,8 +75,11 @@ const pageBuilderSchema = [
   testimonialBlock,
   servicesBlock,
   formBlock,
-  //ABCD 6 Add component name here
-  heroClickthroughBlock
+
+  heroClickthroughBlock,
+  simpleCardBlock,
+  featuredTestimonialBlock,
+  comparisonTableBlock
 ];
 
 import seoObject from './objects/seo';

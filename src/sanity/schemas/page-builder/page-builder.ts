@@ -18,6 +18,9 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'mediaBlock', type: 'mediaBlock' }),
     //ABCD 7 Add component name to suitable group
     defineArrayMember({ name: 'heroClickthroughBlock', type: 'heroClickthroughBlock' }),
+    defineArrayMember({ name: 'simpleCardBlock', type: 'simpleCardBlock' }),
+    defineArrayMember({ name: 'featuredTestimonialBlock', type: 'featuredTestimonialBlock' }),
+    defineArrayMember({ name: 'comparisonTableBlock', type: 'comparisonTableBlock' })
   ],
   options: {
     insertMenu: {
@@ -30,7 +33,7 @@ export const pageBuilder = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock' ]
+          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock' ]
         },
         {
           name: 'marketing',
@@ -40,7 +43,7 @@ export const pageBuilder = defineType({
         {
           name: 'socialProof',
           title: 'Social Proof',
-          of: [ 'logoBlock', 'testimonialBlock' ]
+          of: [ 'logoBlock', 'testimonialBlock', 'featuredTestimonialBlock' ]
         }
       ],
       views: [
