@@ -94,9 +94,9 @@ export const featuredTestimonialBlockQuery = `
 
 export const comparisonTableBlockQuery = `
   _type == "comparisonTableBlock" => {
-  ${baseQuery},
-  _key,
-  _type,
+    ${baseQuery},
+    _key,
+    _type,
     title,
     leftColumn {
       title,
@@ -122,6 +122,36 @@ export const comparisonTableBlockQuery = `
     rows[] {
       leftText,
       rightText
+    }
+  }
+`
+export const testimonialCarouselBlockQuery = `
+  _type == "testimonialCarouselBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    testimonials[] {
+      text,
+      author,
+      position,
+      avatar {
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt
+      },
+      companyLogo {
+        asset->{
+          url
+        },
+        alt,
+        width,
+        height
+      }
     }
   }
 `

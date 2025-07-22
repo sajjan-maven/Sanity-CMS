@@ -54,7 +54,7 @@ const PB_BLOCKS = {
   simpleCardBlock: SimpleCardBlock,
   featuredTestimonialBlock: FeaturedTestimonialBlock,
   comparisonTableBlock: ComparisonTableBlock,
-  // testimonialCarouselBlock: TestimonialCarouselBlock
+  testimonialCarouselBlock: TestimonialCarouselBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

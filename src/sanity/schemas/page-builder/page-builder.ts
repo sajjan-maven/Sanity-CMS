@@ -20,7 +20,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'heroClickthroughBlock', type: 'heroClickthroughBlock' }),
     defineArrayMember({ name: 'simpleCardBlock', type: 'simpleCardBlock' }),
     defineArrayMember({ name: 'featuredTestimonialBlock', type: 'featuredTestimonialBlock' }),
-    defineArrayMember({ name: 'comparisonTableBlock', type: 'comparisonTableBlock' })
+    defineArrayMember({ name: 'comparisonTableBlock', type: 'comparisonTableBlock' }),
+    defineArrayMember({ name: 'testimonialCarouselBlock', type: 'testimonialCarouselBlock' })
   ],
   options: {
     insertMenu: {
@@ -43,7 +44,7 @@ export const pageBuilder = defineType({
         {
           name: 'socialProof',
           title: 'Social Proof',
-          of: [ 'logoBlock', 'testimonialBlock', 'featuredTestimonialBlock' ]
+          of: [ 'logoBlock', 'testimonialBlock', 'featuredTestimonialBlock', 'testimonialCarouselBlock' ]
         }
       ],
       views: [

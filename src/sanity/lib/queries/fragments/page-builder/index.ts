@@ -16,7 +16,8 @@ import {
   mediaBlockQuery,
   simpleCardBlockQuery,
   featuredTestimonialBlockQuery,
-  comparisonTableBlockQuery
+  comparisonTableBlockQuery,
+  testimonialCarouselBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here
@@ -40,6 +41,7 @@ export const pageBuilder = `
     ${heroClickthroughBlockQuery},
     ${simpleCardBlockQuery},
     ${featuredTestimonialBlockQuery},
-    ${comparisonTableBlockQuery}
+    ${comparisonTableBlockQuery},
+    ${testimonialCarouselBlockQuery}
   }
 `
