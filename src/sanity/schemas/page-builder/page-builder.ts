@@ -21,7 +21,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'simpleCardBlock', type: 'simpleCardBlock' }),
     defineArrayMember({ name: 'featuredTestimonialBlock', type: 'featuredTestimonialBlock' }),
     defineArrayMember({ name: 'comparisonTableBlock', type: 'comparisonTableBlock' }),
-    defineArrayMember({ name: 'testimonialCarouselBlock', type: 'testimonialCarouselBlock' })
+    defineArrayMember({ name: 'testimonialCarouselBlock', type: 'testimonialCarouselBlock' }),
+    defineArrayMember({ name: 'heroImageBlock', type: 'heroImageBlock' })
   ],
   options: {
     insertMenu: {
@@ -29,7 +30,7 @@ export const pageBuilder = defineType({
         {
           name: 'intro',
           title: 'Intro',
-          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock' ]
+          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock', 'heroImageBlock' ]
         },
         {
           name: 'content',

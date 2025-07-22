@@ -394,3 +394,31 @@ export const mediaBlockQuery = `
     anchorId
   }
 `
+
+export const heroImageBlockQuery = `
+  _type == "heroImageBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    description,
+    backgroundColor {
+      hex
+    },
+    image {
+      asset->{
+        url,
+        metadata {
+          dimensions
+        }
+      },
+      alt
+    },
+    showButton,
+    button {
+      text,
+      link,
+      variant
+    }
+  }
+`

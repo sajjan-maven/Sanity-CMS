@@ -60,6 +60,7 @@ import simpleCardBlock from "./page-builder/blocks/simple-card-block";
 import featuredTestimonialBlock from "./page-builder/blocks/featured-testimonial-block";
 import comparisonTableBlock from "./page-builder/blocks/comparison-table-block";
 import testimonialCarouselBlock from "./page-builder/blocks/testimonial-carousel-block";
+import heroImageBlock from "./page-builder/blocks/hero-image-block";
 
 //ABCD 6 Add component name here
 const pageBuilderSchema = [
@@ -81,7 +82,8 @@ const pageBuilderSchema = [
   simpleCardBlock,
   featuredTestimonialBlock,
   comparisonTableBlock,
-  testimonialCarouselBlock
+  testimonialCarouselBlock,
+  heroImageBlock,
 ];
 
 import seoObject from './objects/seo';
