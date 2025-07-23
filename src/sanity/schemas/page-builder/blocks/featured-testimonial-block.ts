@@ -49,16 +49,17 @@ export default defineType({
         })
       ]
     }),
-    // defineField({
-    //   name: 'backgroundColor',
-    //   title: 'Background Color',
-    //   type: 'color',
-    // }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      description: 'leave empty for default gradient color',
+      type: 'color',
+    }),
     defineField({
       name: 'quoteIcon',
       title: 'Quote Icon',
       type: 'image',
-      description: 'Optional quote decoration icon',
+      description: 'Leave empty for default icon',
       options: {
         hotspot: true
       },

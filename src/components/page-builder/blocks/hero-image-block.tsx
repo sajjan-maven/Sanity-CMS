@@ -8,8 +8,8 @@ export type HeroImageBlockProps = PageBuilderType<"heroImageBlock">;
 
 export default function HeroImageBlock( props: HeroImageBlockProps) {
   const { 
-    title = "How Stitchflow works", 
-    description = "Stitchflow's expertise lies in its ability to automatically connect any app with any system of record for any audit.",
+    title, 
+    description,
     image,
     backgroundColor,
     showButton,
@@ -17,9 +17,9 @@ export default function HeroImageBlock( props: HeroImageBlockProps) {
   } = props;
 
   const buttonClasses = {
-    primary: 'bg-[#363338] text-white hover:bg-[#222222]',
-    secondary: 'bg-[#F07E10] text-white hover:bg-[#E07100]',
-    outline: 'bg-transparent border-2 border-[#363338] text-[#363338] hover:bg-[#363338] hover:text-white'
+    primary: "border border-[#54505833] shadow-[0px_1px_1px_#5450581a,0px_4px_8px_#54505805,inset_0px_-2px_4px_#0000001f] bg-[#f9f8fa] bg-gradient-to-b from-white to-[#f9f8fa] hover:to-[#e9e9e9] active:to-[#d4d4d4] text-[#363338]",
+    secondary: "shadow-[0px_2px_12px_rgba(84,80,88,0.25),0px_2px_3px_rgba(84,80,88,0.27),inset_0px_-2px_4px_rgba(0,0,0,0.6)] bg-[#363338] bg-gradient-to-b from-[#545058] to-[#363338] hover:to-[#1c1c1c] active:to-[#1f1e1f] text-white group",
+    outline: "border border-[#54505833] bg-transparent text-gray-700 hover:bg-[#54505810] shadow active:shadow-none",
   };
 
   return (

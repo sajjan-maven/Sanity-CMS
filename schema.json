@@ -1077,6 +1077,82 @@
     }
   },
   {
+    "name": "clickthroughTopicBlock",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "clickthroughTopicBlock"
+          }
+        },
+        "useCases": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "object",
+              "attributes": {
+                "title": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": true
+                },
+                "description": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": true
+                },
+                "backgroundColor": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "color"
+                  },
+                  "optional": true
+                },
+                "embedUrl": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": true
+                }
+              },
+              "rest": {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "optional": true
+        },
+        "sectionBackgroundColor": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "color"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "stepProcessBlock",
     "type": "type",
     "value": {
@@ -2030,6 +2106,14 @@
                 "optional": true
               }
             }
+          },
+          "optional": true
+        },
+        "backgroundColor": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "color"
           },
           "optional": true
         },
@@ -5609,6 +5693,21 @@
             "rest": {
               "type": "inline",
               "name": "stepProcessBlock"
+            }
+          },
+          {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "clickthroughTopicBlock"
             }
           }
         ]

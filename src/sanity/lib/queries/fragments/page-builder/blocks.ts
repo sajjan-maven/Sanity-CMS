@@ -86,11 +86,11 @@ export const featuredTestimonialBlockQuery = `
       },
       alt
     },
+    backgroundColor {
+      hex
+    }
   }
 `
-    // backgroundColor {
-    //   hex
-    // }
 
 export const comparisonTableBlockQuery = `
   _type == "comparisonTableBlock" => {
@@ -453,6 +453,25 @@ export const stepProcessBlockQuery = `
       hex
     },
     backgroundColor {
+      hex
+    }
+  }
+`
+
+export const clickthroughTopicBlock = `
+  _type == "clickthroughTopicBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    useCases[] {
+      title,
+      description,
+      backgroundColor {
+        hex
+      },
+      embedUrl,
+    },
+    sectionBackgroundColor {
       hex
     }
   }

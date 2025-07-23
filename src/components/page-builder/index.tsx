@@ -26,6 +26,7 @@ const SimpleCardBlock = dynamic(() => import("./blocks/simple-cards-block"))
 const TestimonialCarouselBlock = dynamic(() => import("./blocks/testimonial-carousel-block"))
 const HeroImageBlock = dynamic(() => import("./blocks/hero-image-block"))
 const StepProcessBlock = dynamic(() => import("./blocks/step-process-block"))
+const ClickthroughTopicBlock = dynamic(() => import("./blocks/clickthrough-topic-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -58,7 +59,8 @@ const PB_BLOCKS = {
   comparisonTableBlock: ComparisonTableBlock,
   testimonialCarouselBlock: TestimonialCarouselBlock,
   heroImageBlock: HeroImageBlock,
-  stepProcessBlock: StepProcessBlock
+  stepProcessBlock: StepProcessBlock,
+  clickthroughTopicBlock: ClickthroughTopicBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

@@ -11,7 +11,6 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      initialValue: 'How Stitchflow works',
       validation: Rule => Rule.required()
     }),
     defineField({
@@ -19,7 +18,6 @@ export default defineType({
       title: 'Description',
       type: 'text',
       rows: 2,
-      initialValue: "Stitchflow's expertise lies in its ability to automatically connect any app with any system of record for any audit.",
       validation: Rule => Rule.required()
     }),
     defineField({

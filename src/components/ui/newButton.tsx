@@ -31,7 +31,7 @@ const NewButton: React.FC<ButtonProps> = ({
       "shadow-[0px_2px_12px_rgba(84,80,88,0.25),0px_2px_3px_rgba(84,80,88,0.27),inset_0px_-2px_4px_rgba(0,0,0,0.6)] bg-[#363338] bg-gradient-to-b from-[#545058] to-[#363338] hover:to-[#1c1c1c] active:to-[#1f1e1f] text-white group",
     danger: "bg-red-500 hover:bg-red-600 text-white",
     outline:
-      "border border-gray-300 hover:border-gray-400 bg-transparent text-gray-700 hover:text-gray-900",
+      "border border-[#54505833] bg-transparent text-gray-700 hover:bg-[#54505810] shadow active:shadow-none",
   };
 
   return (

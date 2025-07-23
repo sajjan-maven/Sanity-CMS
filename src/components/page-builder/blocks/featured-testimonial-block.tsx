@@ -4,23 +4,24 @@ import Image from "next/image";
 export type FeaturedTestimonialBlockProps = PageBuilderType<"featuredTestimonialBlock">;
 
 export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlockProps) {
-  const { quote, author, quoteIcon } = props;
+  const { quote, author, quoteIcon, backgroundColor } = props;
 
   return (
     <section 
-      className="w-full py-10 md:py-20 z-[5] px-6 bg-gradient-to-b from-[#f8f5f3] to-white"
+      className="w-full py-10 md:py-20 z-[5] px-6"
+      style={{ 
+        background: backgroundColor?.hex || "linear-gradient(to bottom, #f8f5f3, white)" 
+      }}
     >
       <div className="max-w-[790px] mx-auto">
         <div className="flex flex-col items-start gap-6 md:gap-12">
-          {quoteIcon?.asset?.url && (
-            <Image 
-              className="w-[41px] h-10" 
-              alt={quoteIcon.alt || 'Quote icon'} 
-              src={quoteIcon.asset.url} 
-              width={41} 
-              height={40} 
-            />
-          )}
+          <Image 
+            className="w-[41px] h-10" 
+            alt={quoteIcon?.alt || 'quote icon'} 
+            src={quoteIcon?.asset?.url || '/section-images/quotes.png'} 
+            width={41} 
+            height={40} 
+          />
 
           <div className="flex flex-col items-start gap-6">
             <p className="text-lg text-[#363338] font-normal leading-[26px] max-w-[800px]">
