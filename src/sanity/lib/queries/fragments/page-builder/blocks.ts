@@ -422,3 +422,38 @@ export const heroImageBlockQuery = `
     }
   }
 `
+
+export const stepProcessBlockQuery = `
+  _type == "stepProcessBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    heading,
+    subheading,
+    steps[] {
+      number,
+      title,
+      description,
+      badgeColor {
+        hex
+      },
+      image {
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt,
+        width,
+        height
+      }
+    },
+    borderColor {
+      hex
+    },
+    backgroundColor {
+      hex
+    }
+  }
+`
