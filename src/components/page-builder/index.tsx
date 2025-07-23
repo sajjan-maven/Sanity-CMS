@@ -29,6 +29,7 @@ const StepProcessBlock = dynamic(() => import("./blocks/step-process-block"))
 const ClickthroughTopicBlock = dynamic(() => import("./blocks/clickthrough-topic-block"))
 const StepRightImageBlock = dynamic(() => import("./blocks/step-right-image-block"))
 const IconListBlock = dynamic(() => import("./blocks/icon-list-block"))
+const IconListTwoColumnBlock = dynamic(() => import("./blocks/icon-list-two-column-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -64,7 +65,8 @@ const PB_BLOCKS = {
   stepProcessBlock: StepProcessBlock,
   clickthroughTopicBlock: ClickthroughTopicBlock,
   stepRightImageBlock: StepRightImageBlock,
-  iconListBlock: IconListBlock
+  iconListBlock: IconListBlock,
+  iconListTwoColumnBlock: IconListTwoColumnBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

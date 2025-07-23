@@ -527,3 +527,21 @@ export const iconListBlockQuery = `
     }
   }
 `
+
+export const iconListTwoColumnBlockQuery = `
+  _type == "iconListTwoColumnBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    heading,
+    features[] {
+      title,
+      description,
+      icon {
+        asset->{
+          url
+        }
+      }
+    }
+  }
+`
