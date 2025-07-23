@@ -458,7 +458,7 @@ export const stepProcessBlockQuery = `
   }
 `
 
-export const clickthroughTopicBlock = `
+export const clickthroughTopicBlockQuery = `
   _type == "clickthroughTopicBlock" => {
     ${baseQuery},
     _key,
@@ -473,6 +473,40 @@ export const clickthroughTopicBlock = `
     },
     sectionBackgroundColor {
       hex
+    }
+  }
+`
+
+export const stepRightImageBlockQuery = `
+  _type == "stepRightImageBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    steps[] {
+      number,
+      title
+    },
+    footnote,
+    image {
+      asset->{
+        url,
+        metadata {
+          dimensions
+        }
+      },
+      alt
+    },
+    badgeColor {
+      hex
+    },
+    backgroundGradient {
+      topColor {
+        hex
+      },
+      bottomColor {
+        hex
+      }
     }
   }
 `

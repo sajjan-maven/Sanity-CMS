@@ -24,7 +24,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'testimonialCarouselBlock', type: 'testimonialCarouselBlock' }),
     defineArrayMember({ name: 'heroImageBlock', type: 'heroImageBlock' }),
     defineArrayMember({ name: 'stepProcessBlock', type: 'stepProcessBlock' }),
-    defineArrayMember({ name: 'clickthroughTopicBlock', type: 'clickthroughTopicBlock' })
+    defineArrayMember({ name: 'clickthroughTopicBlock', type: 'clickthroughTopicBlock' }),
+    defineArrayMember({ name: 'stepRightImageBlock', type: 'stepRightImageBlock' })
   ],
   options: {
     insertMenu: {
@@ -37,7 +38,7 @@ export const pageBuilder = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock', 'stepProcessBlock', 'clickthroughTopicBlock' ]
+          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock', 'stepProcessBlock', 'clickthroughTopicBlock', 'stepRightImageBlock' ]
         },
         {
           name: 'marketing',
