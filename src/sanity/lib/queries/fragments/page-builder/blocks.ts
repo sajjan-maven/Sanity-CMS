@@ -545,3 +545,20 @@ export const iconListTwoColumnBlockQuery = `
     }
   }
 `
+
+export const iconHighlightBlockQuery = `
+  _type == "iconHighlightBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    cards[]{
+      text,
+      image {
+        asset->{
+          url,
+        }
+      }
+    }
+  }
+`
