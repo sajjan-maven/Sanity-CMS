@@ -28,7 +28,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'stepRightImageBlock', type: 'stepRightImageBlock' }),
     defineArrayMember({ name: 'iconListBlock', type: 'iconListBlock' }),
     defineArrayMember({ name: 'iconListTwoColumnBlock', type: 'iconListTwoColumnBlock'}),
-    defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock'})
+    defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock'}),
+    defineArrayMember({ name: 'pricingBlock', type: 'pricingBlock'})
   ],
   options: {
     insertMenu: {
@@ -46,7 +47,7 @@ export const pageBuilder = defineType({
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 'featureCardsBlock', 'featuresMinimalBlock', 'callToActionBlock', 'servicesBlock', 'formBlock' ]
+          of: [ 'featureCardsBlock', 'featuresMinimalBlock', 'callToActionBlock', 'servicesBlock', 'formBlock', 'pricingBlock' ]
         },
         {
           name: 'socialProof',

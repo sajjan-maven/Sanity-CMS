@@ -571,3 +571,26 @@ export const iconHighlightBlockQuery = `
     },
   }
 `
+export const pricingBlockQuery = `
+  _type == "pricingBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    freePilotCard{
+      title,
+      subtitle,
+      features,
+      buttonText,
+      buttonLink
+    },
+    afterPilotCard{
+      title,
+      price,
+      priceUnit
+    },
+    backgroundColor{
+      hex
+    }
+  }
+`

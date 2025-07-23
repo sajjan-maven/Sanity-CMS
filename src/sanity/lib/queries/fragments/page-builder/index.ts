@@ -24,7 +24,8 @@ import {
   stepRightImageBlockQuery,
   iconListBlockQuery,
   iconListTwoColumnBlockQuery,
-  iconHighlightBlockQuery
+  iconHighlightBlockQuery,
+  pricingBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here
@@ -56,6 +57,7 @@ export const pageBuilder = `
     ${stepRightImageBlockQuery},
     ${iconListBlockQuery},
     ${iconListTwoColumnBlockQuery},
-    ${iconHighlightBlockQuery}
+    ${iconHighlightBlockQuery},
+    ${pricingBlockQuery}
   }
 `
