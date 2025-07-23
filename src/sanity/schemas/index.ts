@@ -64,6 +64,7 @@ import heroImageBlock from "./page-builder/blocks/hero-image-block";
 import stepProcessBlock from "./page-builder/blocks/step-process-block";
 import clickthroughTopicBlock from "./page-builder/blocks/clickthrough-topic-block";
 import stepRightImageBlock from "./page-builder/blocks/step-right-image-block";
+import iconListBlock from "./page-builder/blocks/icon-list-block";
 
 //ABCD 6 Add component name here
 const pageBuilderSchema = [
@@ -89,7 +90,8 @@ const pageBuilderSchema = [
   heroImageBlock,
   stepProcessBlock,
   clickthroughTopicBlock,
-  stepRightImageBlock
+  stepRightImageBlock,
+  iconListBlock
 ];
 
 import seoObject from './objects/seo';

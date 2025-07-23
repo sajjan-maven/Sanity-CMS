@@ -510,3 +510,20 @@ export const stepRightImageBlockQuery = `
     }
   }
 `
+
+export const iconListBlockQuery = `
+  _type == "iconListBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    heading,
+    features[] {
+      title,
+      icon {
+        asset->{
+          url
+        }
+      }
+    }
+  }
+`

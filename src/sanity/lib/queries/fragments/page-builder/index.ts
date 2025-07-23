@@ -21,7 +21,8 @@ import {
   heroImageBlockQuery,
   stepProcessBlockQuery,
   clickthroughTopicBlockQuery,
-  stepRightImageBlockQuery
+  stepRightImageBlockQuery,
+  iconListBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here
@@ -50,6 +51,7 @@ export const pageBuilder = `
     ${heroImageBlockQuery},
     ${stepProcessBlockQuery},
     ${clickthroughTopicBlockQuery},
-    ${stepRightImageBlockQuery}
+    ${stepRightImageBlockQuery},
+    ${iconListBlockQuery}
   }
 `
