@@ -54,7 +54,12 @@ export default defineType({
         }
       ],
       validation: Rule => Rule.min(1).required()
-    })
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'color',
+    }),
   ],
   preview: {
     select: {

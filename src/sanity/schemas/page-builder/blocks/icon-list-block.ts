@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity';
-import { FaListUl } from 'react-icons/fa';
 
 export default defineType({
   name: 'iconListBlock',
@@ -47,7 +46,12 @@ export default defineType({
         }
       ],
       validation: Rule => Rule.min(1).required()
-    })
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'color',
+    }),
   ],
   preview: {
     select: {

@@ -5,10 +5,10 @@ import React from 'react';
 export type IconHighlightBlockProps = PageBuilderType<"iconHighlightBlock">;
 
 export default function IconHighlightBlock( props: IconHighlightBlockProps) {
-  const { title, cards } = props;
+  const { title, cards, backgroundColor } = props;
 
   return (
-    <section className="flex flex-col items-center py-10 md:py-20 px-6 w-full gap-20">
+    <section className="flex flex-col items-center py-10 md:py-20 px-6 w-full gap-20" style={{ background: backgroundColor?.hex || '#FFF'}}>
       <div className="flex flex-col items-center gap-10 max-w-[1256px] w-full">
         <h2 className="text-3xl md:text-[40px] font-semibold text-[#363338] leading-8 md:leading-[48px] w-full">
           {title}

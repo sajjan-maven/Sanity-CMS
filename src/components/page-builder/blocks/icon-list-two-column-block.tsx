@@ -6,11 +6,12 @@ export type IconListTwoColumnBlockProps = PageBuilderType<"iconListTwoColumnBloc
 export default function IconListTwoColumnBlock(props: IconListTwoColumnBlockProps) {
   const { 
     heading,
-    features = []
+    features = [],
+    backgroundColor
   } = props;
 
   return (
-    <section className="pb-4 md:pb-20 px-6 flex flex-col gap-20 w-full">
+    <section className="pb-4 md:pb-20 px-6 flex flex-col gap-20 w-full"  style={{ background: backgroundColor?.hex || '#FFF'}}>
     <div className="flex flex-col w-full items-start gap-10 max-w-[1256px] mx-auto">
       <h2 className="text-3xl md:text-[40px] md:leading-[48px] font-semibold text-[#363338]">
         {heading}

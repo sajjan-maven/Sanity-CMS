@@ -524,7 +524,10 @@ export const iconListBlockQuery = `
           url
         }
       }
-    }
+    },
+    backgroundColor {
+      hex
+    },
   }
 `
 
@@ -542,7 +545,10 @@ export const iconListTwoColumnBlockQuery = `
           url
         }
       }
-    }
+    },
+    backgroundColor {
+      hex
+    },
   }
 `
 
@@ -559,6 +565,9 @@ export const iconHighlightBlockQuery = `
           url,
         }
       }
-    }
+    },
+    backgroundColor {
+      hex
+    },
   }
 `
