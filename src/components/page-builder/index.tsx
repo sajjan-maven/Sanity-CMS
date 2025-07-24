@@ -32,6 +32,7 @@ const IconListBlock = dynamic(() => import("./blocks/icon-list-block"))
 const IconListTwoColumnBlock = dynamic(() => import("./blocks/icon-list-two-column-block"))
 const IconHighlightBlock = dynamic(() => import("./blocks/icon-highlight-block"))
 const PricingBlock = dynamic(() => import("./blocks/pricing-block"))
+const CaseStudyGridBlock = dynamic(() => import("./blocks/case-study-grid-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -70,7 +71,8 @@ const PB_BLOCKS = {
   iconListBlock: IconListBlock,
   iconListTwoColumnBlock: IconListTwoColumnBlock,
   iconHighlightBlock: IconHighlightBlock,
-  pricingBlock: PricingBlock
+  pricingBlock: PricingBlock,
+  caseStudyGridBlock: CaseStudyGridBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

@@ -68,6 +68,7 @@ import iconListBlock from "./page-builder/blocks/icon-list-block";
 import iconListTwoColumnBlock from "./page-builder/blocks/icon-list-two-column-block";
 import iconHighlightBlock from "./page-builder/blocks/icon-highlight-block";
 import pricingBlock from "./page-builder/blocks/pricing-block";
+import caseStudyGridBlock from "./page-builder/blocks/case-study-grid-block";
 
 //ABCD 6 Add component name here
 const pageBuilderSchema = [
@@ -97,7 +98,8 @@ const pageBuilderSchema = [
   iconListBlock,
   iconListTwoColumnBlock,
   iconHighlightBlock,
-  pricingBlock
+  pricingBlock,
+  caseStudyGridBlock
 ];
 
 import seoObject from './objects/seo';

@@ -605,3 +605,54 @@ export const pricingBlockQuery = `
   }
 `
 
+export const caseStudyGridBlockQuery = `
+  _type == "caseStudyGridBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    spacing {
+      top,
+      bottom
+    },
+    featuredCaseStudy {
+      company,
+      description,
+      link,
+      buttonText,
+      backgroundColor {
+        hex
+      },
+      logo {
+        asset->{
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    },
+    caseStudies[] {
+      company,
+      description,
+      link,
+      backgroundColor {
+        hex
+      },
+      logo {
+        asset->{
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+`
