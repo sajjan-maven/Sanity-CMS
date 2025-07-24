@@ -683,3 +683,38 @@ export const itToolsCardBlockQuery = `
     }
   }
 `
+
+export const socialReviewBlockQuery = `
+  _type == "socialReviewBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    background {
+      color {
+        hex
+      },
+      gradient
+    },
+    spacing {
+      top,
+      bottom
+    },
+    avatarImage {
+      asset->{
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    comments[] {
+      username,
+      content,
+      width
+    }
+  }
+`

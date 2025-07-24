@@ -27,10 +27,11 @@ import {
   iconHighlightBlockQuery,
   pricingBlockQuery,
   caseStudyGridBlockQuery,
-  itToolsCardBlockQuery
+  itToolsCardBlockQuery,
+  socialReviewBlockQuery
 } from "./blocks";
 
-//ABCD Add 5 component name here
+//ABCD Add 5 component name here for type-script auto generate
 export const pageBuilder = `
   pageBuilder[] {
     ${heroBlockQuery},
@@ -62,6 +63,7 @@ export const pageBuilder = `
     ${iconHighlightBlockQuery},
     ${pricingBlockQuery},
     ${caseStudyGridBlockQuery},
-    ${itToolsCardBlockQuery}
+    ${itToolsCardBlockQuery},
+    ${socialReviewBlockQuery}
   }
 `

@@ -34,6 +34,7 @@ const IconHighlightBlock = dynamic(() => import("./blocks/icon-highlight-block")
 const PricingBlock = dynamic(() => import("./blocks/pricing-block"))
 const CaseStudyGridBlock = dynamic(() => import("./blocks/case-study-grid-block"))
 const ITToolsCardBlock = dynamic(() => import("./blocks/it-tools-card-block"))
+const SocialReviewBlock = dynamic(() => import("./blocks/social-review-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -59,7 +60,7 @@ const PB_BLOCKS = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   //ABCD 1 Create the UI component inside components > page-builder > blocks
-  //ABCD 2 Add component name here
+  //ABCD 2 Add component name here to allow page builder to render component
   heroClickthroughBlock: HeroClickthroughBlock,
   simpleCardBlock: SimpleCardBlock,
   featuredTestimonialBlock: FeaturedTestimonialBlock,
@@ -74,7 +75,8 @@ const PB_BLOCKS = {
   iconHighlightBlock: IconHighlightBlock,
   pricingBlock: PricingBlock,
   caseStudyGridBlock: CaseStudyGridBlock,
-  itToolsCardBlock: ITToolsCardBlock
+  itToolsCardBlock: ITToolsCardBlock,
+  socialReviewBlock: SocialReviewBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

@@ -17,6 +17,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'formBlock', type: 'formBlock' }),
     defineArrayMember({ name: 'mediaBlock', type: 'mediaBlock' }),
     //ABCD 7 Add component name to suitable group
+    // run comment: sanity schema extract
+    // run comment: sanity typegen generate
     defineArrayMember({ name: 'heroClickthroughBlock', type: 'heroClickthroughBlock' }),
     defineArrayMember({ name: 'simpleCardBlock', type: 'simpleCardBlock' }),
     defineArrayMember({ name: 'featuredTestimonialBlock', type: 'featuredTestimonialBlock' }),
@@ -31,7 +33,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock'}),
     defineArrayMember({ name: 'pricingBlock', type: 'pricingBlock'}),
     defineArrayMember({ name: 'caseStudyGridBlock', type: 'caseStudyGridBlock'}),
-    defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock'})
+    defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock'}),
+    defineArrayMember({ name: 'socialReviewBlock', type: 'socialReviewBlock'}),
   ],
   options: {
     insertMenu: {
@@ -39,22 +42,54 @@ export const pageBuilder = defineType({
         {
           name: 'intro',
           title: 'Intro',
-          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock', 'heroSectionBlock' ]
+          of: [ 
+            'heroBlock',
+            'headerBlock',
+            'heroClickthroughBlock',
+            'heroSectionBlock' 
+          ]
         },
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock', 'stepProcessBlock', 'clickthroughTopicBlock', 'stepRightImageBlock', 'iconListBlock', 'iconListTwoColumnBlock', 'iconHighlightBlock', 'caseStudyGridBlock', 'itToolsCardBlock' ]
+          of: [ 
+            'freeformBlock', 
+            'mediaBlock', 
+            'portableTextBlock', 
+            'simpleCardBlock', 
+            'comparisonTableBlock', 
+            'stepProcessBlock', 
+            'clickthroughTopicBlock', 
+            'stepRightImageBlock', 
+            'iconListBlock', 
+            'iconListTwoColumnBlock', 
+            'iconHighlightBlock', 
+            'caseStudyGridBlock', 
+            'itToolsCardBlock', 
+            'socialReviewBlock'
+          ]
         },
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 'featureCardsBlock', 'featuresMinimalBlock', 'callToActionBlock', 'servicesBlock', 'formBlock', 'pricingBlock' ]
+          of: [ 
+            'featureCardsBlock', 
+            'featuresMinimalBlock',
+            'callToActionBlock',
+            'servicesBlock',
+            'formBlock',
+            'pricingBlock'
+          ]
         },
         {
           name: 'socialProof',
           title: 'Social Proof',
-          of: [ 'logoBlock', 'testimonialBlock', 'featuredTestimonialBlock', 'testimonialCarouselBlock' ]
+          of: [ 
+            'logoBlock',
+            'testimonialBlock',
+            'featuredTestimonialBlock',
+            'testimonialCarouselBlock' 
+          ]
         }
       ],
       views: [

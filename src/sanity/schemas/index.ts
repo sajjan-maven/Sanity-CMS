@@ -70,8 +70,9 @@ import iconHighlightBlock from "./page-builder/blocks/icon-highlight-block";
 import pricingBlock from "./page-builder/blocks/pricing-block";
 import caseStudyGridBlock from "./page-builder/blocks/case-study-grid-block";
 import itToolsCardBlock from "./page-builder/blocks/it-tools-card-block";
+import socialReviewBlock from "./page-builder/blocks/social-review-block";
 
-//ABCD 6 Add component name here
+//ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
   pageBuilder,
   heroBlock,
@@ -101,7 +102,8 @@ const pageBuilderSchema = [
   iconHighlightBlock,
   pricingBlock,
   caseStudyGridBlock,
-  itToolsCardBlock
+  itToolsCardBlock,
+  socialReviewBlock
 ];
 
 import seoObject from './objects/seo';
