@@ -395,16 +395,23 @@ export const mediaBlockQuery = `
   }
 `
 
-export const heroImageBlockQuery = `
-  _type == "heroImageBlock" => {
+export const heroSectionBlockQuery = `
+  _type == "heroSectionBlock" => {
     ${baseQuery},
     _key,
     _type,
     title,
+    titleWidth,
     description,
-    backgroundColor {
-      hex
+    descriptionWidth,
+    showButton,
+    button {
+      text,
+      link,
+      variant,
+      buttonBelowSpacing
     },
+    showImage,
     image {
       asset->{
         url,
@@ -412,14 +419,18 @@ export const heroImageBlockQuery = `
           dimensions
         }
       },
-      alt
+      height,
+      width
     },
-    showButton,
-    button {
-      text,
-      link,
-      variant
-    }
+    modifySpacing,
+    spacing {
+      topSpacing,
+      bottomSpacing,
+      titleBelowSpacing,
+      descriptionBelowSpacing,
+      imageBelowSpacing
+    },
+    backgroundColor
   }
 `
 
@@ -444,7 +455,6 @@ export const stepProcessBlockQuery = `
             dimensions
           }
         },
-        alt,
         width,
         height
       }
@@ -594,3 +604,4 @@ export const pricingBlockQuery = `
     }
   }
 `
+

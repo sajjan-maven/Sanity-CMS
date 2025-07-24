@@ -24,7 +24,7 @@ const ComparisonTableBlock = dynamic(() => import("./blocks/comparison-table-blo
 const FeaturedTestimonialBlock = dynamic(() => import("./blocks/featured-testimonial-block"))
 const SimpleCardBlock = dynamic(() => import("./blocks/simple-cards-block"))
 const TestimonialCarouselBlock = dynamic(() => import("./blocks/testimonial-carousel-block"))
-const HeroImageBlock = dynamic(() => import("./blocks/hero-image-block"))
+const HeroSectionBlock = dynamic(() => import("./blocks/hero-section-block"))
 const StepProcessBlock = dynamic(() => import("./blocks/step-process-block"))
 const ClickthroughTopicBlock = dynamic(() => import("./blocks/clickthrough-topic-block"))
 const StepRightImageBlock = dynamic(() => import("./blocks/step-right-image-block"))
@@ -63,7 +63,7 @@ const PB_BLOCKS = {
   featuredTestimonialBlock: FeaturedTestimonialBlock,
   comparisonTableBlock: ComparisonTableBlock,
   testimonialCarouselBlock: TestimonialCarouselBlock,
-  heroImageBlock: HeroImageBlock,
+  heroSectionBlock: HeroSectionBlock,
   stepProcessBlock: StepProcessBlock,
   clickthroughTopicBlock: ClickthroughTopicBlock,
   stepRightImageBlock: StepRightImageBlock,

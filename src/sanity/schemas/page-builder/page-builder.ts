@@ -22,7 +22,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'featuredTestimonialBlock', type: 'featuredTestimonialBlock' }),
     defineArrayMember({ name: 'comparisonTableBlock', type: 'comparisonTableBlock' }),
     defineArrayMember({ name: 'testimonialCarouselBlock', type: 'testimonialCarouselBlock' }),
-    defineArrayMember({ name: 'heroImageBlock', type: 'heroImageBlock' }),
+    defineArrayMember({ name: 'heroSectionBlock', type: 'heroSectionBlock' }),
     defineArrayMember({ name: 'stepProcessBlock', type: 'stepProcessBlock' }),
     defineArrayMember({ name: 'clickthroughTopicBlock', type: 'clickthroughTopicBlock' }),
     defineArrayMember({ name: 'stepRightImageBlock', type: 'stepRightImageBlock' }),
@@ -37,7 +37,7 @@ export const pageBuilder = defineType({
         {
           name: 'intro',
           title: 'Intro',
-          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock', 'heroImageBlock' ]
+          of: [ 'heroBlock', 'headerBlock', 'heroClickthroughBlock', 'heroSectionBlock' ]
         },
         {
           name: 'content',

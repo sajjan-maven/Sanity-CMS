@@ -60,7 +60,7 @@ import simpleCardBlock from "./page-builder/blocks/simple-card-block";
 import featuredTestimonialBlock from "./page-builder/blocks/featured-testimonial-block";
 import comparisonTableBlock from "./page-builder/blocks/comparison-table-block";
 import testimonialCarouselBlock from "./page-builder/blocks/testimonial-carousel-block";
-import heroImageBlock from "./page-builder/blocks/hero-image-block";
+import heroSectionBlock from "./page-builder/blocks/hero-section-block";
 import stepProcessBlock from "./page-builder/blocks/step-process-block";
 import clickthroughTopicBlock from "./page-builder/blocks/clickthrough-topic-block";
 import stepRightImageBlock from "./page-builder/blocks/step-right-image-block";
@@ -90,7 +90,7 @@ const pageBuilderSchema = [
   featuredTestimonialBlock,
   comparisonTableBlock,
   testimonialCarouselBlock,
-  heroImageBlock,
+  heroSectionBlock,
   stepProcessBlock,
   clickthroughTopicBlock,
   stepRightImageBlock,

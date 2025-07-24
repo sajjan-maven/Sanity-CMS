@@ -2043,7 +2043,7 @@
     }
   },
   {
-    "name": "heroImageBlock",
+    "name": "heroSectionBlock",
     "type": "type",
     "value": {
       "type": "object",
@@ -2052,7 +2052,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "string",
-            "value": "heroImageBlock"
+            "value": "heroSectionBlock"
           }
         },
         "title": {
@@ -2062,10 +2062,89 @@
           },
           "optional": true
         },
+        "titleWidth": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
         "description": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        },
+        "descriptionWidth": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "showButton": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        },
+        "button": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "text": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "link": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "variant": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "primary"
+                    },
+                    {
+                      "type": "string",
+                      "value": "secondary"
+                    },
+                    {
+                      "type": "string",
+                      "value": "outline"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "buttonBelowSpacing": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": true
+        },
+        "showImage": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
           },
           "optional": true
         },
@@ -2127,10 +2206,17 @@
                 },
                 "optional": true
               },
-              "alt": {
+              "height": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "string"
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "width": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
                 },
                 "optional": true
               },
@@ -2145,62 +2231,62 @@
           },
           "optional": true
         },
-        "backgroundColor": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "color"
-          },
-          "optional": true
-        },
-        "showButton": {
+        "modifySpacing": {
           "type": "objectAttribute",
           "value": {
             "type": "boolean"
           },
           "optional": true
         },
-        "button": {
+        "spacing": {
           "type": "objectAttribute",
           "value": {
             "type": "object",
             "attributes": {
-              "text": {
+              "topSpacing": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "string"
+                  "type": "number"
                 },
                 "optional": true
               },
-              "link": {
+              "bottomSpacing": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "string"
+                  "type": "number"
                 },
                 "optional": true
               },
-              "variant": {
+              "titleBelowSpacing": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "union",
-                  "of": [
-                    {
-                      "type": "string",
-                      "value": "primary"
-                    },
-                    {
-                      "type": "string",
-                      "value": "secondary"
-                    },
-                    {
-                      "type": "string",
-                      "value": "outline"
-                    }
-                  ]
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "descriptionBelowSpacing": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "imageBelowSpacing": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
                 },
                 "optional": true
               }
             }
+          },
+          "optional": true
+        },
+        "backgroundColor": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "color"
           },
           "optional": true
         }
@@ -6379,7 +6465,7 @@
             },
             "rest": {
               "type": "inline",
-              "name": "heroImageBlock"
+              "name": "heroSectionBlock"
             }
           },
           {
