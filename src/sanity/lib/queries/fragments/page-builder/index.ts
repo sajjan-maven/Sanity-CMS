@@ -26,7 +26,8 @@ import {
   iconListTwoColumnBlockQuery,
   iconHighlightBlockQuery,
   pricingBlockQuery,
-  caseStudyGridBlockQuery
+  caseStudyGridBlockQuery,
+  itToolsCardBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here
@@ -60,6 +61,7 @@ export const pageBuilder = `
     ${iconListTwoColumnBlockQuery},
     ${iconHighlightBlockQuery},
     ${pricingBlockQuery},
-    ${caseStudyGridBlockQuery}
+    ${caseStudyGridBlockQuery},
+    ${itToolsCardBlockQuery}
   }
 `

@@ -31,6 +31,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock'}),
     defineArrayMember({ name: 'pricingBlock', type: 'pricingBlock'}),
     defineArrayMember({ name: 'caseStudyGridBlock', type: 'caseStudyGridBlock'}),
+    defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock'})
   ],
   options: {
     insertMenu: {
@@ -43,7 +44,7 @@ export const pageBuilder = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock', 'stepProcessBlock', 'clickthroughTopicBlock', 'stepRightImageBlock', 'iconListBlock', 'iconListTwoColumnBlock', 'iconHighlightBlock', 'caseStudyGridBlock' ]
+          of: [ 'freeformBlock', 'mediaBlock', 'portableTextBlock', 'simpleCardBlock', 'comparisonTableBlock', 'stepProcessBlock', 'clickthroughTopicBlock', 'stepRightImageBlock', 'iconListBlock', 'iconListTwoColumnBlock', 'iconHighlightBlock', 'caseStudyGridBlock', 'itToolsCardBlock' ]
         },
         {
           name: 'marketing',

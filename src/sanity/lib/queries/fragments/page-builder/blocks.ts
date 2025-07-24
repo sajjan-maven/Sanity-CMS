@@ -656,3 +656,30 @@ export const caseStudyGridBlockQuery = `
     }
   }
 `
+
+export const itToolsCardBlockQuery = `
+  _type == "itToolsCardBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    backgroundColor {
+      hex
+    },
+    spacing {
+      top,
+      bottom
+    },
+    tools[] {
+      label,
+      title,
+      description,
+      url,
+      comingSoon,
+      buttonText,
+      labelBackground {
+        hex
+      }
+    }
+  }
+`
