@@ -718,3 +718,26 @@ export const socialReviewBlockQuery = `
     }
   }
 `
+
+export const accordionAndImageBlockQuery = `
+  _type == "accordionAndImageBlock" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    description,
+    spacing {
+      top,
+      bottom
+    },
+    image {
+      asset->{
+        url,
+      }
+    },
+    features[] {
+      title,
+      description
+    }
+  }
+`

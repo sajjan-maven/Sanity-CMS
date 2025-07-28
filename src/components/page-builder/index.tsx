@@ -35,6 +35,7 @@ const PricingBlock = dynamic(() => import("./blocks/pricing-block"))
 const CaseStudyGridBlock = dynamic(() => import("./blocks/case-study-grid-block"))
 const ITToolsCardBlock = dynamic(() => import("./blocks/it-tools-card-block"))
 const SocialReviewBlock = dynamic(() => import("./blocks/social-review-block"))
+const AccordionAndImageBlock = dynamic(() => import("./blocks/accordion-and-image-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -76,7 +77,8 @@ const PB_BLOCKS = {
   pricingBlock: PricingBlock,
   caseStudyGridBlock: CaseStudyGridBlock,
   itToolsCardBlock: ITToolsCardBlock,
-  socialReviewBlock: SocialReviewBlock
+  socialReviewBlock: SocialReviewBlock,
+  accordionAndImageBlock: AccordionAndImageBlock
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;
