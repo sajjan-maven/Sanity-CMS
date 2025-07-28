@@ -35,7 +35,7 @@ export default function AccordionAndImageBlock(props: AccordionAndImageBlockProp
           </div>
 
           <div className="w-full">
-            {features?.map((feature, index) => (
+            {features?.map((feature: any, index: number) => (
               <button
                 key={index}
                 onClick={() => toggleAccordion(index)}
@@ -58,7 +58,7 @@ export default function AccordionAndImageBlock(props: AccordionAndImageBlockProp
                       17C33.5 20.4571 33.5034 22.3799 33.1494 23.9297L33.0742 24.2354C31.9545 28.4142 28.7572 31.7065 24.6367 32.959L24.2354 33.0742C22.6297 33.5044 20.6877 33.5 17 33.5C13.5429 33.5 
                       11.6201 33.5034 10.0703 33.1494L9.76465 33.0742C5.58582 31.9545 2.29354 28.7572 1.04102 24.6367L0.925781 24.2354C0.49556 22.6297 0.5 20.6877 0.5 17C0.5 13.3123 0.49556 11.3703 
                       0.925781 9.76465L1.04102 9.36328C2.29354 5.24282 5.58582 2.04552 9.76465 0.925781L10.0703 0.850586C11.6201 0.496596 13.5429 0.5 17 0.5Z" stroke="#564038" stroke-opacity="0.2"/>
-                      <path fillRule="evenodd" clip-rule="evenodd" d="M16.5 17.5V23.5C16.5 23.7761 16.7239 24 17 24C17.2761 24 17.5 23.7761 17.5 23.5V17.5H23.5L23.6006 17.4902C23.8286 17.4437 24 
+                      <path fillRule="evenodd" clipRule="evenodd" d="M16.5 17.5V23.5C16.5 23.7761 16.7239 24 17 24C17.2761 24 17.5 23.7761 17.5 23.5V17.5H23.5L23.6006 17.4902C23.8286 17.4437 24 
                       17.2417 24 17C24 16.7239 23.7761 16.5 23.5 16.5H17.5V10.5C17.5 10.2239 17.2761 10 17 10C16.7239 10 16.5 10.2239 16.5 10.5V16.5H10.5L10.3994 16.5098C10.1714 16.5563 10 16.7583 
                       10 17C10 17.2417 10.1714 17.4437 10.3994 17.4902L10.5 17.5H16.5Z" fill="#CCBAA5"/>
                     </svg>

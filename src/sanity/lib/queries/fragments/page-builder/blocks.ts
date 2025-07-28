@@ -741,3 +741,14 @@ export const accordionAndImageBlockQuery = `
     }
   }
 `
+
+export const frequentlyAskedQuestionBlockQuery = `
+  _type == "frequentlyAskedQuestionBlock" => {
+    ${baseQuery},
+    title,
+    faqs[] {
+      question,
+      answer
+    }
+  }
+`

@@ -36,6 +36,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock'}),
     defineArrayMember({ name: 'socialReviewBlock', type: 'socialReviewBlock'}),
     defineArrayMember({ name: 'accordionAndImageBlock', type: 'accordionAndImageBlock'}),
+    defineArrayMember({ name: 'frequentlyAskedQuestionBlock', type: 'frequentlyAskedQuestionBlock'}),
   ],
   options: {
     insertMenu: {
@@ -68,7 +69,8 @@ export const pageBuilder = defineType({
             'caseStudyGridBlock', 
             'itToolsCardBlock', 
             'socialReviewBlock',
-            'accordionAndImageBlock'
+            'accordionAndImageBlock',
+            'frequentlyAskedQuestionBlock'
           ]
         },
         {

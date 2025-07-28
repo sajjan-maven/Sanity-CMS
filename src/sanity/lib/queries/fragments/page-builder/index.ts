@@ -29,7 +29,8 @@ import {
   caseStudyGridBlockQuery,
   itToolsCardBlockQuery,
   socialReviewBlockQuery,
-  accordionAndImageBlockQuery
+  accordionAndImageBlockQuery,
+  frequentlyAskedQuestionBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -66,6 +67,7 @@ export const pageBuilder = `
     ${caseStudyGridBlockQuery},
     ${itToolsCardBlockQuery},
     ${socialReviewBlockQuery},
-    ${accordionAndImageBlockQuery}
+    ${accordionAndImageBlockQuery},
+    ${frequentlyAskedQuestionBlockQuery}
   }
 `
