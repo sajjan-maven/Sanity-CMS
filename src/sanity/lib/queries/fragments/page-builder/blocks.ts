@@ -752,3 +752,28 @@ export const frequentlyAskedQuestionBlockQuery = `
     }
   }
 `
+
+export const joinOurNewsletterBlockQuery = `
+  _type == "joinOurNewsletterBlock" => {
+    ${baseQuery},
+    title,
+    description,
+    placeholder,
+    buttonText,
+    successMessage,
+    processingText,
+    spacing {
+      top,
+      bottom
+    },
+    backgroundColor {
+      hex
+    },
+    successBorderColor {
+      hex
+    },
+    successTextColor {
+      hex
+    }
+  }
+`
