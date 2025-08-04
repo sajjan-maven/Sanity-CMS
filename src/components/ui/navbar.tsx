@@ -24,11 +24,13 @@ interface MenuItem {
 }
 
 // Dropdown Content Component
-const DropdownContent = ({ items }: { items: { title: string; description: string; path: string }[] }) => {
+const DropdownContent = ({ items, toggleDropdown, setIsOpen }: { items: { title: string; description: string; path: string }[], toggleDropdown: any, setIsOpen: any }) => {
     const router = useRouter();
 
     const handleClick = (path: string) => {
         router.push(path);
+        toggleDropdown(null);
+        setIsOpen(false)
     };
 
     return (
@@ -164,7 +166,7 @@ const DesktopNavigation = ({
                                         : "opacity-0 invisible -translate-y-1"
                                         }`}
                                 >
-                                    {item.dropdownItems && <DropdownContent items={item.dropdownItems} />}
+                                    {item.dropdownItems && <DropdownContent items={item.dropdownItems} toggleDropdown={toggleDropdown} />}
                                 </div>
                             </>
                         ) : (
@@ -201,6 +203,7 @@ const MobileNavigation = ({
     toggleDropdown,
     ctaButton,
     onItemClick,
+    setIsOpen
 }: {
     isOpen: boolean;
     menuItems: MenuItem[];
@@ -208,6 +211,7 @@ const MobileNavigation = ({
     toggleDropdown: (index: number) => void;
     ctaButton: { text: string; link: string };
     onItemClick: () => void;
+    setIsOpen: () => void;
 }) => {
     const router = useRouter();
 
@@ -241,7 +245,7 @@ const MobileNavigation = ({
                             )}
                         </button>
                         {item.hasDropdown && activeDropdown === index && item.dropdownItems && (
-                            <DropdownContent items={item.dropdownItems} />
+                            <DropdownContent items={item.dropdownItems} toggleDropdown={toggleDropdown} setIsOpen={setIsOpen} />
                         )}
                     </div>
                 ))}
@@ -271,7 +275,6 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
     const [showNotification, setShowNotification] = useState(true);
     const router = useRouter();
     const headerRef = useRef<HTMLDivElement>(null);
-    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -365,6 +368,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
                     toggleDropdown={toggleDropdown}
                     ctaButton={ctaButton}
                     onItemClick={() => setIsOpen(false)}
+                    setIsOpen={setIsOpen}
                 />
             </div>
         </header>
