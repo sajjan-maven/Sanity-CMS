@@ -166,7 +166,13 @@ const DesktopNavigation = ({
                                         : "opacity-0 invisible -translate-y-1"
                                         }`}
                                 >
-                                    {item.dropdownItems && <DropdownContent items={item.dropdownItems} toggleDropdown={toggleDropdown} />}
+                                    {item.dropdownItems && (
+                                        <DropdownContent
+                                            items={item.dropdownItems}
+                                            toggleDropdown={toggleDropdown}
+                                            setIsOpen={() => {}} // Provide a no-op function to satisfy required prop
+                                        />
+                                    )}
                                 </div>
                             </>
                         ) : (
@@ -368,7 +374,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
                     toggleDropdown={toggleDropdown}
                     ctaButton={ctaButton}
                     onItemClick={() => setIsOpen(false)}
-                    setIsOpen={setIsOpen}
+                    setIsOpen={() => setIsOpen}
                 />
             </div>
         </header>
