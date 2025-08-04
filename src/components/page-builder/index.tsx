@@ -38,6 +38,7 @@ const SocialReviewBlock = dynamic(() => import("./blocks/social-review-block"))
 const AccordionAndImageBlock = dynamic(() => import("./blocks/accordion-and-image-block"))
 const FrequentlyAskedQuestionBlock = dynamic(() => import("./blocks/frequently-asked-question-block"))
 const JoinOurNewsletterBlock = dynamic(() => import("./blocks/join-our-newsletter-block"))
+const AvatarWithDetails = dynamic(() => import("./blocks/avatar-with-details"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -82,7 +83,8 @@ const PB_BLOCKS = {
   socialReviewBlock: SocialReviewBlock,
   accordionAndImageBlock: AccordionAndImageBlock,
   frequentlyAskedQuestionBlock: FrequentlyAskedQuestionBlock,
-  joinOurNewsletterBlock: JoinOurNewsletterBlock
+  joinOurNewsletterBlock: JoinOurNewsletterBlock,
+  avatarWithDetails: AvatarWithDetails
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

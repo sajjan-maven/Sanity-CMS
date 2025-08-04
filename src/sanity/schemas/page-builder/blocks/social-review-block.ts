@@ -92,7 +92,13 @@ export default defineType({
               },
               initialValue: 'md:w-1/3'
             })
-          ]
+          ],
+          preview: {
+            select: {
+              title: 'username',
+              subtitle: 'width',
+            },
+          },
         }
       ],
       validation: Rule => Rule.min(1).max(12)

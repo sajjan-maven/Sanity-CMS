@@ -38,6 +38,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'accordionAndImageBlock', type: 'accordionAndImageBlock'}),
     defineArrayMember({ name: 'frequentlyAskedQuestionBlock', type: 'frequentlyAskedQuestionBlock'}),
     defineArrayMember({ name: 'joinOurNewsletterBlock', type: 'joinOurNewsletterBlock'}),
+    defineArrayMember({ name: 'avatarWithDetails', type: 'avatarWithDetails'}),
   ],
   options: {
     insertMenu: {
@@ -72,7 +73,8 @@ export const pageBuilder = defineType({
             'socialReviewBlock',
             'accordionAndImageBlock',
             'frequentlyAskedQuestionBlock',
-            'joinOurNewsletterBlock'
+            'joinOurNewsletterBlock',
+            'avatarWithDetails'
           ]
         },
         {

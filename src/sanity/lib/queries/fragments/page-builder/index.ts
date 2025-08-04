@@ -31,7 +31,8 @@ import {
   socialReviewBlockQuery,
   accordionAndImageBlockQuery,
   frequentlyAskedQuestionBlockQuery,
-  joinOurNewsletterBlockQuery
+  joinOurNewsletterBlockQuery,
+  avatarWithDetailsQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -70,6 +71,7 @@ export const pageBuilder = `
     ${socialReviewBlockQuery},
     ${accordionAndImageBlockQuery},
     ${frequentlyAskedQuestionBlockQuery},
-    ${joinOurNewsletterBlockQuery}
+    ${joinOurNewsletterBlockQuery},
+    ${avatarWithDetailsQuery}
   }
 `

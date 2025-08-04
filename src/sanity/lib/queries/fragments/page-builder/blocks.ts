@@ -777,3 +777,51 @@ export const joinOurNewsletterBlockQuery = `
     }
   }
 `
+
+export const avatarWithDetailsQuery = `
+  _type == "avatarWithDetails" => {
+    ${baseQuery},
+    _key,
+    _type,
+    sectionTitle,
+    spacing {
+      topSpacing,
+      topSpacingMobile,
+      bottomSpacing,
+      bottomSpacingMobile,
+      headingBottomSpacing,
+      headingBottomSpacingMobile
+    },
+    avatarList[]{
+      name,
+      title,
+      avatar {
+        asset->{
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      },
+      bio,
+      socialLinks[]{
+        name,
+        url,
+        icon {
+          asset->{
+            url,
+            metadata {
+              dimensions {
+                width,
+                height
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -35,7 +35,20 @@ const config = defineConfig({
     }),
     media(),
     visionTool(),
-    simplerColorInput()
+    // simplerColorInput(),
+    simplerColorInput({
+      // Note: These are all optional
+      defaultColorFormat: 'rgba',
+      defaultColorList: [
+        { label: 'Light', value: '#ffffff' },
+        { label: 'Dark', value: '#333333' },
+        { label: 'Brand', value: '#ca786d' },
+        { label: 'Accent', value: '#626754' },
+        { label: 'Custom...', value: 'custom' },
+      ],
+      enableSearch: true,
+      showColorValue: true,
+    })
   ],
   schema: schema,
 })

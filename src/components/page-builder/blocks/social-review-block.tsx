@@ -63,6 +63,7 @@ export default function SocialReviewBlock( props: SocialReviewBlockProps ) {
             </ul>
           ))}
         </div>
+        <span className='md:w-2/3'></span>
       </div>
     </section>
   );
