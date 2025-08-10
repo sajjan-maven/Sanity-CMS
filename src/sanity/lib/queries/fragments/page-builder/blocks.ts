@@ -87,7 +87,7 @@ export const featuredTestimonialBlockQuery = `
       alt
     },
     backgroundColor {
-      hex
+      value
     }
   }
 `
@@ -116,7 +116,7 @@ export const comparisonTableBlockQuery = `
         alt
       },
       backgroundColor {
-        hex
+        value
       }
     },
     rows[] {
@@ -430,7 +430,9 @@ export const heroSectionBlockQuery = `
       descriptionBelowSpacing,
       imageBelowSpacing
     },
-    backgroundColor
+    backgroundColor {
+      value
+    }
   }
 `
 
@@ -477,12 +479,12 @@ export const clickthroughTopicBlockQuery = `
       title,
       description,
       backgroundColor {
-        hex
+        value
       },
       embedUrl,
     },
     sectionBackgroundColor {
-      hex
+      value
     }
   }
 `
@@ -621,7 +623,7 @@ export const caseStudyGridBlockQuery = `
       link,
       buttonText,
       backgroundColor {
-        hex
+        value
       },
       logo {
         asset->{
@@ -640,7 +642,7 @@ export const caseStudyGridBlockQuery = `
       description,
       link,
       backgroundColor {
-        hex
+        value
       },
       logo {
         asset->{

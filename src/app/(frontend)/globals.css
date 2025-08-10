@@ -12,6 +12,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0 !important;
+}
+
 :target {
   scroll-margin-top: 100px;
 }

@@ -37,7 +37,7 @@ export default function CaseStudyGridBlock( props : CaseStudyGridBlockProps ) {
             >
               <div className="flex-1">
                 <div className="flex-1 flex justify-center items-center h-[400px] py-20 rounded-3xl"
-                  style={{ backgroundColor: featuredCaseStudy?.backgroundColor?.hex || '#1763f5' }}
+                  style={{ backgroundColor: featuredCaseStudy?.backgroundColor?.value || '#1763f5' }}
                 >
                   {featuredCaseStudy.logo?.asset?.url && (
                     <Image 
@@ -81,7 +81,7 @@ export default function CaseStudyGridBlock( props : CaseStudyGridBlockProps ) {
                 <div className="p-4 md:p-6 pb-0">
                   <div
                     className="h-[200px] rounded-3xl flex items-center justify-center"
-                    style={{ backgroundColor: study.backgroundColor?.hex || '#1763f5' }}
+                    style={{ backgroundColor: study.backgroundColor?.value || '#1763f5' }}
                   >
                     {study.logo?.asset?.url && (
                       <Image

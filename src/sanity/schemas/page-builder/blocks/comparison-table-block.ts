@@ -71,7 +71,7 @@ export default defineType({
         defineField({
           name: 'backgroundColor',
           title: 'Background Color',
-          type: 'color',
+          type: 'simplerColor',
         })
       ]
     }),
@@ -120,7 +120,7 @@ export default defineType({
       title: 'title',
       rowCount: 'rows.length'
     },
-    prepare({ title, rowCount }) {
+    prepare({ title }) {
       return {
         title: title || 'Comparison Table',
         subtitle: `comparison table`

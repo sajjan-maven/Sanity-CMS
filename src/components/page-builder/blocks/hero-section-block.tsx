@@ -43,7 +43,7 @@ export default function HeroSectionBlock(props: HeroSectionBlockProps) {
     <section 
       className="w-full z-[3] px-6"
       style={{ 
-        backgroundColor: backgroundColor?.hex || '#E4DBD0',
+        backgroundColor: backgroundColor?.value || '#E4DBD0',
         paddingTop: `${currentSpacing?.topSpacing || defaultSpacing.topSpacing}px`,
         paddingBottom: `${currentSpacing?.bottomSpacing || defaultSpacing.bottomSpacing}px`
       }}

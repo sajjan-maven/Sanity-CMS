@@ -24,7 +24,7 @@ export default defineType({
       defineField({
         name: 'textColor',
         title: 'Text Color',
-        type: 'color',
+        type: 'simplerColor',
       }),
       defineField({
         name: 'text',
@@ -35,7 +35,7 @@ export default defineType({
       defineField({
         name: 'linkColor',
         title: 'Link Color',
-        type: 'color',
+        type: 'simplerColor',
       }),
       defineField({
         name: 'linkText',

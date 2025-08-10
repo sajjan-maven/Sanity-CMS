@@ -2,9 +2,9 @@ import { defineQuery} from "next-sanity";
 
 export const announcementBannerQuery = defineQuery(`*[_type == "announcementBanner"][0] {
     show,
-    backgroundColor { hex },
-    textColor { hex },
-    linkColor { hex },
+    backgroundColor { value },
+    textColor { value },
+    linkColor { value },
     icon {
         asset->{
             url,

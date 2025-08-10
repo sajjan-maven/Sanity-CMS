@@ -53,7 +53,7 @@ export default defineType({
       name: 'backgroundColor',
       title: 'Background Color',
       description: 'leave empty for default gradient color',
-      type: 'color',
+      type: 'simplerColor',
     }),
     defineField({
       name: 'quoteIcon',

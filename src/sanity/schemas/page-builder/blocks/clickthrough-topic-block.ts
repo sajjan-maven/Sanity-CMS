@@ -29,7 +29,7 @@ export default defineType({
             defineField({
               name: 'backgroundColor',
               title: 'Background Color',
-              type: 'color',
+              type: 'simplerColor',
               options: { disableAlpha: true },
               validation: Rule => Rule.required()
             }),
@@ -63,7 +63,7 @@ export default defineType({
     defineField({
       name: 'sectionBackgroundColor',
       title: 'Section Background Color',
-      type: 'color',
+      type: 'simplerColor',
     //   options: { disableAlpha: true },
     //   initialValue: { hex: '#F8F5F3' }
     })

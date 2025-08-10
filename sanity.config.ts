@@ -40,10 +40,10 @@ const config = defineConfig({
       // Note: These are all optional
       defaultColorFormat: 'rgba',
       defaultColorList: [
-        { label: 'Light', value: '#ffffff' },
-        { label: 'Dark', value: '#333333' },
-        { label: 'Brand', value: '#ca786d' },
-        { label: 'Accent', value: '#626754' },
+        { label: 'Accent', value: '#ca786d' },
+        { label: 'Primary', value: '#626754' },
+        { label: 'Secondary', value: '#363338' },
+        { label: 'Tertiary', value: '#e4dbd0' },
         { label: 'Custom...', value: 'custom' },
       ],
       enableSearch: true,

@@ -158,7 +158,7 @@ export default defineType({
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'simplerColor',
       description: "Background color for the hero section (Default: #E4DBD0)",
     }),
   ],

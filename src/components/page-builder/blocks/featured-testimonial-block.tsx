@@ -10,7 +10,7 @@ export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlock
     <section 
       className="w-full py-10 md:py-20 z-[5] px-6"
       style={{ 
-        background: backgroundColor?.hex || "linear-gradient(to bottom, #f8f5f3, white)" 
+        background: backgroundColor?.value || "linear-gradient(to bottom, #f8f5f3, white)" 
       }}
     >
       <div className="max-w-[790px] mx-auto">

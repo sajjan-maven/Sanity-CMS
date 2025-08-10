@@ -54,7 +54,7 @@ export default function ComparisonTableBlock(props: ComparisonTableBlockProps) {
           {/* Right Column */}
           <div 
             className="w-full md:w-1/2 border-t md:border-t-0 md:border-l border-[#545058]"
-            style={{ backgroundColor: rightColumn?.backgroundColor?.hex || '#EFF6FF' }}
+            style={{ backgroundColor: rightColumn?.backgroundColor?.value || '#EFF6FF' }}
           >
             <div className="flex h-[77px] items-center justify-center gap-3 px-3 py-4 md:py-6 border-b border-[#545058]">
               {rightColumn?.icon?.asset?.url && (

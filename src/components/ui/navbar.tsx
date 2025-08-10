@@ -75,9 +75,10 @@ const NotificationBanner = ({
     linkColor: any;
     onClose: () => void;
 }) => {
+
     return (
-        <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full bg-[#000] min-h-9"
-          style={{ backgroundColor: backgroundColor?.hex }}>
+        <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full min-h-9"
+          style={{ backgroundColor: backgroundColor?.value }}>
             {icon.asset?.url && <Image
                 className="hidden md:block"
                 src={icon.asset?.url || '/dummy'}
@@ -86,13 +87,13 @@ const NotificationBanner = ({
                 alt={"announcement icon"}
             />}
             <p className="text-center p-1 text-white text-[14px] font-medium"
-              style={{ color: textColor?.hex }}>
+              style={{ color: textColor?.value }}>
                 {text}
                 {link && <Link
                     target="_blank"
                     href={link}
                     className="text-[#f8be65] inline-flex items-center pl-1 gap-1 group hover:underline hover:[&_svg]:translate-x-1 cursor-pointer"
-                    style={{ color: linkColor?.hex }}>
+                    style={{ color: linkColor?.value }}>
                     <span>{linkText}</span>
                     <svg
                         className="transition-all ease-in duration-200"

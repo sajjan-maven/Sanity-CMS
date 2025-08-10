@@ -12,7 +12,7 @@ export default function ClickthroughTopicBlock(props: ClickthroughTopicBlockProp
   return (
     <div 
       className="flex flex-col items-center justify-center pb-20 md:pb-32"
-      style={{ backgroundColor: `${sectionBackgroundColor?.hex}` || '#F8F5F3'}}
+      style={{ backgroundColor: `${sectionBackgroundColor?.value}` || '#F8F5F3'}}
     >
       {useCases?.map((useCase:any, index:number) => {
         return (
@@ -32,7 +32,7 @@ export default function ClickthroughTopicBlock(props: ClickthroughTopicBlockProp
 
               <div
                 className={`flex flex-col gap-2 px-2 py-4 min-[445px]:p-4 min-[677px]:p-16 rounded-2xl md:rounded-[48px] border-none`}
-                style={{ backgroundColor: useCase.backgroundColor?.hex }}
+                style={{ backgroundColor: useCase.backgroundColor?.value }}
               >
                 <div 
                   className="relative pb-[72.439%] min-[776px]:pb-[64.788%] h-0 w-full"
