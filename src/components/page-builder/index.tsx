@@ -38,7 +38,7 @@ const SocialReviewBlock = dynamic(() => import("./blocks/social-review-block"))
 const AccordionAndImageBlock = dynamic(() => import("./blocks/accordion-and-image-block"))
 const FrequentlyAskedQuestionBlock = dynamic(() => import("./blocks/frequently-asked-question-block"))
 const JoinOurNewsletterBlock = dynamic(() => import("./blocks/join-our-newsletter-block"))
-const AvatarWithDetails = dynamic(() => import("./blocks/avatar-with-details"))
+const AvatarWithDetails = dynamic(() => import("./blocks/avatar-with-details-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -102,19 +102,19 @@ export function PageBuilder({ pageBuilder, id, type }: PageBuilderProps) {
       }).toString()}
     >
       {pageBuilder.map((block) => {
-      // Type guard to ensure block has _type and _key before using them
-      if (
-        !block ||
-        typeof block !== "object" ||
-        !("_type" in block) ||
-        !("_key" in block)
-      ) {
-        return null;
-      }
-      const type = (block as { _type: string })._type as BlockType;
-      const Component = PB_BLOCKS[type] as ComponentType<PageBuilderType<BlockType>>;
+        // Type guard to ensure block has _type and _key before using them
+        if (
+          !block ||
+          typeof block !== "object" ||
+          !("_type" in block) ||
+          !("_key" in block)
+        ) {
+          return null;
+        }
+        const type = (block as { _type: string })._type as BlockType;
+        const Component = PB_BLOCKS[type] as ComponentType<PageBuilderType<BlockType>>;
 
-      // const Component = PB_BLOCKS[block._type] as ComponentType<PageBuilderType<BlockType>>;
+        // const Component = PB_BLOCKS[block._type] as ComponentType<PageBuilderType<BlockType>>;
         return (
           <div
             key={`${block._type}-${block._key}`}

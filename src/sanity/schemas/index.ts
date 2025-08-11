@@ -74,7 +74,7 @@ import socialReviewBlock from "./page-builder/blocks/social-review-block";
 import accordionAndImageBlock from "./page-builder/blocks/accordion-and-image-block";
 import frequentlyAskedQuestionBlock from "./page-builder/blocks/frequently-asked-question-block";
 import joinOurNewsletterBlock from "./page-builder/blocks/join-our-newsletter-block";
-import avatarWithDetails from "./page-builder/blocks/avatar-with-details";
+import avatarWithDetails from "./page-builder/blocks/avatar-with-details-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [

@@ -181,14 +181,6 @@ export type AvatarWithDetails = {
   _updatedAt: string;
   _rev: string;
   sectionTitle?: string;
-  spacing?: {
-    topSpacing?: "pt-0" | "pt-8" | "pt-16" | "pt-20" | "pt-24";
-    topSpacingMobile?: "pt-0" | "pt-4" | "pt-8" | "pt-12";
-    bottomSpacing?: "pb-0" | "pb-8" | "pb-16" | "pb-20" | "pb-24";
-    bottomSpacingMobile?: "pb-0" | "pb-4" | "pb-8" | "pb-12";
-    headingBottomSpacing?: "mb-4" | "mb-6" | "mb-8" | "mb-10";
-    headingBottomSpacingMobile?: "mb-2" | "mb-4" | "mb-6";
-  };
   avatarList?: Array<{
     name?: string;
     title?: string;
@@ -1216,14 +1208,6 @@ export type PageBuilder = Array<{
   _key: string;
 } & JoinOurNewsletterBlock | {
   sectionTitle?: string;
-  spacing?: {
-    topSpacing?: "pt-0" | "pt-8" | "pt-16" | "pt-20" | "pt-24";
-    topSpacingMobile?: "pt-0" | "pt-4" | "pt-8" | "pt-12";
-    bottomSpacing?: "pb-0" | "pb-8" | "pb-16" | "pb-20" | "pb-24";
-    bottomSpacingMobile?: "pb-0" | "pb-4" | "pb-8" | "pb-12";
-    headingBottomSpacing?: "mb-4" | "mb-6" | "mb-8" | "mb-10";
-    headingBottomSpacingMobile?: "mb-2" | "mb-4" | "mb-6";
-  };
   avatarList?: Array<{
     name?: string;
     title?: string;
@@ -2341,14 +2325,7 @@ export type PageBySlugQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -3685,14 +3662,7 @@ export type BlogPageQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -5281,14 +5251,7 @@ export type ProjectsPageQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -6609,14 +6572,7 @@ export type ProjectsPageQueryResult = {
       _key: string;
       _type: "avatarWithDetails";
       sectionTitle: string | null;
-      spacing: {
-        topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-        topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-        bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-        bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-        headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-        headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-      } | null;
+      spacing: null;
       avatarList: Array<{
         name: string | null;
         title: string | null;
@@ -7963,14 +7919,7 @@ export type ProjectBySlugQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -9311,14 +9260,7 @@ export type AllProjectsQueryResult = Array<{
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -10651,14 +10593,7 @@ export type ProjectsByCategoryQueryResult = Array<{
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -11986,14 +11921,7 @@ export type ServiceBySlugQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -13320,14 +13248,7 @@ export type AllServicesQueryResult = Array<{
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;
@@ -14638,14 +14559,7 @@ export type ServicesPageQueryResult = {
     _key: string;
     _type: "avatarWithDetails";
     sectionTitle: string | null;
-    spacing: {
-      topSpacing: "pt-0" | "pt-16" | "pt-20" | "pt-24" | "pt-8" | null;
-      topSpacingMobile: "pt-0" | "pt-12" | "pt-4" | "pt-8" | null;
-      bottomSpacing: "pb-0" | "pb-16" | "pb-20" | "pb-24" | "pb-8" | null;
-      bottomSpacingMobile: "pb-0" | "pb-12" | "pb-4" | "pb-8" | null;
-      headingBottomSpacing: "mb-10" | "mb-4" | "mb-6" | "mb-8" | null;
-      headingBottomSpacingMobile: "mb-2" | "mb-4" | "mb-6" | null;
-    } | null;
+    spacing: null;
     avatarList: Array<{
       name: string | null;
       title: string | null;

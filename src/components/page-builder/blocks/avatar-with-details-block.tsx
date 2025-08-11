@@ -6,40 +6,27 @@ import React from "react";
 export type AvatarWithDetailsProps = PageBuilderType<"avatarWithDetails">;
 
 export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
-  const { 
-    sectionTitle, 
+  const {
+    sectionTitle,
     avatarList,
-    spacing 
   } = props;
 
-  // Combine desktop and mobile spacing classes
-  const sectionClasses = `
-    ${spacing?.topSpacingMobile || 'pt-12'} 
-    ${spacing?.topSpacing ? `${spacing.topSpacing}` : 'pt-20'}
-    ${spacing?.bottomSpacingMobile || 'pb-12'} 
-    ${spacing?.bottomSpacing ? `${spacing.bottomSpacing}` : 'pb-20'}
-  `;
-
-  const headingClasses = `
-    ${spacing?.headingBottomSpacingMobile || 'mb-4'} 
-    ${spacing?.headingBottomSpacing ? `${spacing.headingBottomSpacing}` : 'mb-6 md:mb-10'}
-  `;
 
   return (
-    <section className={`w-full px-6 ${sectionClasses}`}>
+    <section className="w-full px-6 pt-20 pb-40">
       <div className="w-full max-w-[1256px] mx-auto">
-        <h2 className={`font-semibold text-[#363338] text-3xl md:text-[40px] leading-tight md:leading-[48px] ${headingClasses}`}>
+        <h2 className="font-semibold text-[#363338] text-3xl md:text-[40px] leading-tight md:leading-[48px] mb-6 md:mb-10">
           {sectionTitle}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {avatarList?.map((avatar, index) => {
-            
+
             return (
               <div key={index} className="bg-[#e4dbd0] rounded-[32px] overflow-hidden border-none">
                 <div className="flex items-center gap-2 p-8">
                   <Image
-                    src={ avatar.avatar?.asset?.url || ''}
+                    src={avatar.avatar?.asset?.url || ''}
                     alt={`${avatar.name} Avatar`}
                     className="w-12 h-12 rounded-full object-cover"
                     width={48}
