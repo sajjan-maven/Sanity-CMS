@@ -839,6 +839,26 @@ export const iconBlockQuery = `
     },
   }
 `
-
+export const pngImageBlockQuery = `
+  _type == "pngImageBlock" => {
+    ${baseQuery},
+    hasFeaturedCard,
+    featuredCard {
+      image { asset->{url} },
+      altText,
+      title,
+      description,
+      bgColor { value }
+    },
+    cards[] {
+      image { asset->{url} },
+      altText,
+      title,
+      description,
+      bgColor { value }
+    },
+    sectionBgColor { value }
+  }
+`
 //ABCD 3 Create schema for component in sanity > schemas > page-builder
 //ABCD 4 Add component query here

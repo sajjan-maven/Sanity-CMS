@@ -39,7 +39,8 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'frequentlyAskedQuestionBlock', type: 'frequentlyAskedQuestionBlock' }),
     defineArrayMember({ name: 'joinOurNewsletterBlock', type: 'joinOurNewsletterBlock' }),
     defineArrayMember({ name: 'avatarWithDetails', type: 'avatarWithDetails' }),
-    defineArrayMember({ name: 'iconBlock', type: 'iconBlock' })
+    defineArrayMember({ name: 'iconBlock', type: 'iconBlock' }),
+    defineArrayMember({ name: 'pngImageBlock', type: 'pngImageBlock' })
   ],
   options: {
     insertMenu: {
@@ -76,7 +77,8 @@ export const pageBuilder = defineType({
             'frequentlyAskedQuestionBlock',
             'joinOurNewsletterBlock',
             'avatarWithDetails',
-            'iconBlock'
+            'iconBlock',
+            'pngImageBlock'
           ]
         },
         {

@@ -76,6 +76,7 @@ import frequentlyAskedQuestionBlock from "./page-builder/blocks/frequently-asked
 import joinOurNewsletterBlock from "./page-builder/blocks/join-our-newsletter-block";
 import avatarWithDetails from "./page-builder/blocks/avatar-with-details-block";
 import iconBlock from "./page-builder/blocks/icon-block";
+import pngImageBlock from "./page-builder/blocks/png-image-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -113,7 +114,8 @@ const pageBuilderSchema = [
   frequentlyAskedQuestionBlock,
   joinOurNewsletterBlock,
   avatarWithDetails,
-  iconBlock
+  iconBlock,
+  pngImageBlock
 ];
 
 import seoObject from './objects/seo';

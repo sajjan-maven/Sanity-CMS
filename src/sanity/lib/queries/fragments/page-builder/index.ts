@@ -33,7 +33,8 @@ import {
   frequentlyAskedQuestionBlockQuery,
   joinOurNewsletterBlockQuery,
   avatarWithDetailsQuery,
-  iconBlockQuery
+  iconBlockQuery,
+  pngImageBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -74,6 +75,7 @@ export const pageBuilder = `
     ${frequentlyAskedQuestionBlockQuery},
     ${joinOurNewsletterBlockQuery},
     ${avatarWithDetailsQuery},
-    ${iconBlockQuery}
+    ${iconBlockQuery},
+    ${pngImageBlockQuery}
   }
 `
