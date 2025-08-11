@@ -1,5 +1,5 @@
-import { 
-  heroBlockQuery, 
+import {
+  heroBlockQuery,
   headerBlockQuery,
   heroClickthroughBlockQuery,
   featureBlockQuery,
@@ -32,7 +32,8 @@ import {
   accordionAndImageBlockQuery,
   frequentlyAskedQuestionBlockQuery,
   joinOurNewsletterBlockQuery,
-  avatarWithDetailsQuery
+  avatarWithDetailsQuery,
+  iconBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -72,6 +73,7 @@ export const pageBuilder = `
     ${accordionAndImageBlockQuery},
     ${frequentlyAskedQuestionBlockQuery},
     ${joinOurNewsletterBlockQuery},
-    ${avatarWithDetailsQuery}
+    ${avatarWithDetailsQuery},
+    ${iconBlockQuery}
   }
 `

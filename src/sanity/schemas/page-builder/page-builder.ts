@@ -29,16 +29,17 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'clickthroughTopicBlock', type: 'clickthroughTopicBlock' }),
     defineArrayMember({ name: 'stepRightImageBlock', type: 'stepRightImageBlock' }),
     defineArrayMember({ name: 'iconListBlock', type: 'iconListBlock' }),
-    defineArrayMember({ name: 'iconListTwoColumnBlock', type: 'iconListTwoColumnBlock'}),
-    defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock'}),
-    defineArrayMember({ name: 'pricingBlock', type: 'pricingBlock'}),
-    defineArrayMember({ name: 'caseStudyGridBlock', type: 'caseStudyGridBlock'}),
-    defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock'}),
-    defineArrayMember({ name: 'socialReviewBlock', type: 'socialReviewBlock'}),
-    defineArrayMember({ name: 'accordionAndImageBlock', type: 'accordionAndImageBlock'}),
-    defineArrayMember({ name: 'frequentlyAskedQuestionBlock', type: 'frequentlyAskedQuestionBlock'}),
-    defineArrayMember({ name: 'joinOurNewsletterBlock', type: 'joinOurNewsletterBlock'}),
-    defineArrayMember({ name: 'avatarWithDetails', type: 'avatarWithDetails'}),
+    defineArrayMember({ name: 'iconListTwoColumnBlock', type: 'iconListTwoColumnBlock' }),
+    defineArrayMember({ name: 'iconHighlightBlock', type: 'iconHighlightBlock' }),
+    defineArrayMember({ name: 'pricingBlock', type: 'pricingBlock' }),
+    defineArrayMember({ name: 'caseStudyGridBlock', type: 'caseStudyGridBlock' }),
+    defineArrayMember({ name: 'itToolsCardBlock', type: 'itToolsCardBlock' }),
+    defineArrayMember({ name: 'socialReviewBlock', type: 'socialReviewBlock' }),
+    defineArrayMember({ name: 'accordionAndImageBlock', type: 'accordionAndImageBlock' }),
+    defineArrayMember({ name: 'frequentlyAskedQuestionBlock', type: 'frequentlyAskedQuestionBlock' }),
+    defineArrayMember({ name: 'joinOurNewsletterBlock', type: 'joinOurNewsletterBlock' }),
+    defineArrayMember({ name: 'avatarWithDetails', type: 'avatarWithDetails' }),
+    defineArrayMember({ name: 'iconBlock', type: 'iconBlock' })
   ],
   options: {
     insertMenu: {
@@ -46,42 +47,43 @@ export const pageBuilder = defineType({
         {
           name: 'intro',
           title: 'Intro',
-          of: [ 
+          of: [
             'heroBlock',
             'headerBlock',
             'heroClickthroughBlock',
-            'heroSectionBlock' 
+            'heroSectionBlock'
           ]
         },
         {
           name: 'content',
           title: 'Content',
-          of: [ 
-            'freeformBlock', 
-            'mediaBlock', 
-            'portableTextBlock', 
-            'simpleCardBlock', 
-            'comparisonTableBlock', 
-            'stepProcessBlock', 
-            'clickthroughTopicBlock', 
-            'stepRightImageBlock', 
-            'iconListBlock', 
-            'iconListTwoColumnBlock', 
-            'iconHighlightBlock', 
-            'caseStudyGridBlock', 
-            'itToolsCardBlock', 
+          of: [
+            'freeformBlock',
+            'mediaBlock',
+            'portableTextBlock',
+            'simpleCardBlock',
+            'comparisonTableBlock',
+            'stepProcessBlock',
+            'clickthroughTopicBlock',
+            'stepRightImageBlock',
+            'iconListBlock',
+            'iconListTwoColumnBlock',
+            'iconHighlightBlock',
+            'caseStudyGridBlock',
+            'itToolsCardBlock',
             'socialReviewBlock',
             'accordionAndImageBlock',
             'frequentlyAskedQuestionBlock',
             'joinOurNewsletterBlock',
-            'avatarWithDetails'
+            'avatarWithDetails',
+            'iconBlock'
           ]
         },
         {
           name: 'marketing',
           title: 'Marketing',
-          of: [ 
-            'featureCardsBlock', 
+          of: [
+            'featureCardsBlock',
             'featuresMinimalBlock',
             'callToActionBlock',
             'servicesBlock',
@@ -92,17 +94,17 @@ export const pageBuilder = defineType({
         {
           name: 'socialProof',
           title: 'Social Proof',
-          of: [ 
+          of: [
             'logoBlock',
             'testimonialBlock',
             'featuredTestimonialBlock',
-            'testimonialCarouselBlock' 
+            'testimonialCarouselBlock'
           ]
         }
       ],
       views: [
         {
-          name: 'grid', 
+          name: 'grid',
           previewImageUrl: (schemaTypeName) => `/sanity/preview-${schemaTypeName}.png`
         },
         { name: 'list' },

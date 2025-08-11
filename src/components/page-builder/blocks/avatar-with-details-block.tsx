@@ -23,8 +23,8 @@ export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
           {avatarList?.map((avatar, index) => {
 
             return (
-              <div key={index} className="bg-[#e4dbd0] rounded-[32px] overflow-hidden border-none">
-                <div className="flex items-center gap-2 p-8">
+              <div key={index} className="relative bg-[#e4dbd0] rounded-[32px] overflow-hidden border-none">
+                <div className="flex items-center gap-2 px-8 min-h-[90px] lg:min-h-[100px] pt-4">
                   <Image
                     src={avatar.avatar?.asset?.url || ''}
                     alt={`${avatar.name} Avatar`}
@@ -41,9 +41,9 @@ export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-start gap-4 pt-0 pb-8 px-8">
+                <div className="flex flex-col items-start pt-0 pb-16 px-8">
                   <p className="text-[#363338] text-sm leading-6">{avatar.bio}</p>
-                  <div className="flex gap-3">
+                  <div className="absolute bottom-6 flex gap-3">
                     {avatar.socialLinks?.map((social, i) => {
                       return (
                         <Link

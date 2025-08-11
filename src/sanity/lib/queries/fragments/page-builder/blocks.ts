@@ -30,8 +30,7 @@ export const headerBlockQuery = `
     anchorId
   }
 `
-//ABCD 3 Create schema for component in sanity > schemas > page-builder
-//ABCD 4 Add component query here
+
 export const heroClickthroughBlockQuery = `
   _type == "heroClickthroughBlock" => {
     ${baseQuery},
@@ -827,3 +826,19 @@ export const avatarWithDetailsQuery = `
     }
   }
 `
+
+export const iconBlockQuery = `
+  _type == "iconBlock" => {
+    ${baseQuery},
+      title,
+      icons[] {
+      logo { asset->{url} },
+      altText,
+      width,
+      height
+    },
+  }
+`
+
+//ABCD 3 Create schema for component in sanity > schemas > page-builder
+//ABCD 4 Add component query here
