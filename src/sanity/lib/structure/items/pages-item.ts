@@ -1,12 +1,12 @@
-import { Folder } from "lucide-react";
+import { FileText } from "lucide-react";
 import { StructureBuilder } from "sanity/structure";
 
 export const PagesItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Pages')
-    .icon(Folder)
+    .icon(FileText)
     .child(
       S.list()
         .title('Pages')
@@ -18,7 +18,7 @@ export const PagesItem = (
 )
 
 export const IndexPages = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Index Pages')
@@ -30,59 +30,73 @@ export const IndexPages = (
           ProjectsItem(S),
           ServicesItem(S)
         ])
-    ) 
+    )
 )
 
 export const PageBuilder = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Page Builder')
     .child(
       S.documentList()
-      .title('Page Builder')
-      .filter('_type == "page"')
-    ) 
+        .title('Page Builder')
+        .filter('_type == "page"')
+    )
 )
 
 export const BlogItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Blog')
     .child(
       S.document()
-      .id('blogPage')
-      .schemaType('blogPage')
-      .documentId('blogPage')
-      .title('Blog')
+        .id('blogPage')
+        .schemaType('blogPage')
+        .documentId('blogPage')
+        .title('Blog')
     )
 )
 
+export const IntegrationsItem = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Integrations')
+  // .child(
+  //   S.document()
+  //   .id('blogPage')
+  //   .schemaType('blogPage')
+  //   .documentId('blogPage')
+  //   .title('Blog')
+  // )
+)
+
 export const ServicesItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Services')
     .child(
       S.document()
-      .id('servicesPage')
-      .schemaType('servicesPage')
-      .documentId('servicesPage')
-      .title('Services')
+        .id('servicesPage')
+        .schemaType('servicesPage')
+        .documentId('servicesPage')
+        .title('Services')
     )
 )
 
 export const ProjectsItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Projects')
     .child(
       S.document()
-      .id('projectsPage')
-      .schemaType('projectsPage')
-      .documentId('projectsPage')
-      .title('Projects')
+        .id('projectsPage')
+        .schemaType('projectsPage')
+        .documentId('projectsPage')
+        .title('Projects')
     )
 )

@@ -1,12 +1,12 @@
-import { Folder } from "lucide-react";
+import { AppWindow } from "lucide-react";
 import { StructureBuilder } from "sanity/structure";
 
 export const NavbarAndFooterItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Navbar and Footer')
-    .icon(Folder)
+    .icon(AppWindow)
     .child(
       S.list()
         .title('Navbar-footer')
@@ -19,29 +19,29 @@ export const NavbarAndFooterItem = (
 
 
 export const NavbarItem = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
 ) => (
   S.listItem()
     .title('Navbar')
     .child(
       S.document()
-      .id('navbar')
-      .schemaType('navbar')
-      .documentId('navbar')
-      .title('Navbar')
+        .id('navbar')
+        .schemaType('navbar')
+        .documentId('navbar')
+        .title('Navbar')
     )
 )
 
 export const FooterItem = (
-    S: StructureBuilder, 
-  ) => (
-    S.listItem()
-      .title('Footer')
-      .child(
-        S.document()
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Footer')
+    .child(
+      S.document()
         .id('footer')
         .schemaType('footer')
         .documentId('footer')
         .title('Footer')
-      )
-  )
+    )
+)

@@ -62,7 +62,7 @@ const NotificationBanner = ({
     linkColor,
     onClose,
 }: {
-    icon:  {
+    icon: {
         asset?: {
             url?: string;
         };
@@ -78,7 +78,7 @@ const NotificationBanner = ({
 
     return (
         <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full min-h-9"
-          style={{ backgroundColor: backgroundColor?.value }}>
+            style={{ backgroundColor: backgroundColor?.value || '#F8BE65' }}>
             {icon.asset?.url && <Image
                 className="hidden md:block"
                 src={icon.asset?.url || '/dummy'}
@@ -87,7 +87,7 @@ const NotificationBanner = ({
                 alt={"announcement icon"}
             />}
             <p className="text-center p-1 text-white text-[14px] font-medium"
-              style={{ color: textColor?.value }}>
+                style={{ color: textColor?.value }}>
                 {text}
                 {link && <Link
                     target="_blank"
@@ -171,7 +171,7 @@ const DesktopNavigation = ({
                                         <DropdownContent
                                             items={item.dropdownItems}
                                             toggleDropdown={toggleDropdown}
-                                            setIsOpen={() => {}} // Provide a no-op function to satisfy required prop
+                                            setIsOpen={() => { }} // Provide a no-op function to satisfy required prop
                                         />
                                     )}
                                 </div>
@@ -275,7 +275,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: any}) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: any }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -343,7 +343,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
                             <div className="cursor-pointer" onClick={() => handleDropdownItemClick("/")}>
                                 <Image
                                     alt={logo.alt}
-                                    src={logo?.src.asset.url ?? '' }
+                                    src={logo?.src.asset.url ?? ''}
                                     width={logo.width}
                                     height={logo.height}
                                     priority
