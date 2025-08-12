@@ -7,7 +7,7 @@ export default defineType({
     fields: [
         defineField({
             name: "title",
-            title: "Title",
+            title: "Section Title",
             type: "string",
         }),
         defineField({
@@ -46,4 +46,15 @@ export default defineType({
             ],
         }),
     ],
+    preview: {
+        select: {
+            title: 'title',
+        },
+        prepare({ title }) {
+            return {
+                title: title || 'Icon Block',
+                subtitle: 'Icon Block'
+            }
+        },
+    },
 });

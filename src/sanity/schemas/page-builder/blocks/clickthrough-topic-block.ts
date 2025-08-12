@@ -64,15 +64,15 @@ export default defineType({
       name: 'sectionBackgroundColor',
       title: 'Section Background Color',
       type: 'simplerColor',
-    //   options: { disableAlpha: true },
-    //   initialValue: { hex: '#F8F5F3' }
+      //   options: { disableAlpha: true },
+      //   initialValue: { hex: '#F8F5F3' }
     })
   ],
   preview: {
     prepare() {
       return {
         title: 'Clickthrough Section',
-        subtitle: 'clickthrough Topic Block'
+        subtitle: 'Clickthrough Topic Block'
       }
     }
   }

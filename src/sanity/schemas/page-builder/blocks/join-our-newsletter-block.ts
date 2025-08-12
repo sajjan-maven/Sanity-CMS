@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaEnvelope } from 'react-icons/fa';
 
 export default defineType({
   name: 'joinOurNewsletterBlock',
   title: 'Join Our Newsletter Block',
   type: 'object',
-  icon: FaEnvelope,
   fields: [
     defineField({
       name: 'title',
@@ -88,8 +86,8 @@ export default defineType({
     },
     prepare({ title }) {
       return {
-        title: title || 'Email Subscribe',
-        subtitle: 'Newsletter signup form'
+        title: title || 'Newsletter signup form',
+        subtitle: 'Join Our Newsletter Block'
       }
     }
   }

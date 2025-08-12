@@ -1,13 +1,14 @@
 import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
+import { title } from "process";
 
 export default defineType({
   name: 'heroClickthroughBlock',
   title: 'Hero Clickthrough',
   type: 'object',
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'heading',
@@ -36,7 +37,12 @@ export default defineType({
   preview: {
     select: {
       title: 'heading',
-      subtitle: 'subheading'
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Clickthrough',
+        subtitle: 'Hero Clickthrough'
+      }
     },
   },
 })

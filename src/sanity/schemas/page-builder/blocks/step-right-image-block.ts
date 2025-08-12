@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaShieldAlt } from 'react-icons/fa';
 
 export default defineType({
   name: 'stepRightImageBlock',
   title: 'Step Right Image Block',
   type: 'object',
-  icon: FaShieldAlt,
   fields: [
     defineField({
       name: 'title',
@@ -98,7 +96,7 @@ export default defineType({
     prepare({ title }) {
       return {
         title: title || 'Compliance Section',
-        subtitle: `steps`
+        subtitle: 'Step Right Image Block'
       }
     }
   }

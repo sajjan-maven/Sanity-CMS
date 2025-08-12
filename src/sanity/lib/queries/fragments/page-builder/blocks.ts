@@ -616,6 +616,7 @@ export const caseStudyGridBlockQuery = `
       top,
       bottom
     },
+    hasFeaturedCard,
     featuredCaseStudy {
       company,
       description,

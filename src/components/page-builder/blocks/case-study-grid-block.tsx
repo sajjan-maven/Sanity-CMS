@@ -5,16 +5,17 @@ import NewButton from "@/components/ui/newButton";
 
 export type CaseStudyGridBlockProps = PageBuilderType<"caseStudyGridBlock">;
 
-export default function CaseStudyGridBlock( props : CaseStudyGridBlockProps ) {
-  const { 
+export default function CaseStudyGridBlock(props: CaseStudyGridBlockProps) {
+  const {
     title,
     spacing,
+    hasFeaturedCard = false,
     featuredCaseStudy,
     caseStudies = []
   } = props;
 
   return (
-    <section 
+    <section
       className="w-full px-6 mx-auto"
       style={{
         paddingTop: `${spacing?.top || 80}px`,
@@ -29,10 +30,10 @@ export default function CaseStudyGridBlock( props : CaseStudyGridBlockProps ) {
         )}
 
         {/* Featured Case Study */}
-        {featuredCaseStudy && (
+        {hasFeaturedCard && featuredCaseStudy && (
           <div className="w-full">
-            <Link 
-              href={featuredCaseStudy.link || '/case-studies'} 
+            <Link
+              href={featuredCaseStudy.link || '/case-studies'}
               className="case-study-card flex p-4 md:p-6 flex-col gap-6 md:flex-row border border-solid border-[#545058] bg-white rounded-[32px] overflow-hidden"
             >
               <div className="flex-1">
@@ -40,12 +41,12 @@ export default function CaseStudyGridBlock( props : CaseStudyGridBlockProps ) {
                   style={{ backgroundColor: featuredCaseStudy?.backgroundColor?.value || '#1763f5' }}
                 >
                   {featuredCaseStudy.logo?.asset?.url && (
-                    <Image 
-                      width={248} 
-                      height={40} 
-                      alt={`${featuredCaseStudy.company} logo`} 
-                      src={featuredCaseStudy.logo.asset.url} 
-                      priority 
+                    <Image
+                      width={248}
+                      height={40}
+                      alt={`${featuredCaseStudy.company} logo`}
+                      src={featuredCaseStudy.logo.asset.url}
+                      priority
                     />
                   )}
                 </div>

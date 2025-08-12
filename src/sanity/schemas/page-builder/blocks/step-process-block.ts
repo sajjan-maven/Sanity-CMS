@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaListOl } from 'react-icons/fa';
 
 export default defineType({
   name: 'stepProcessBlock',
   title: 'Step Process Block',
   type: 'object',
-  icon: FaListOl,
   fields: [
     defineField({
       name: 'heading',
@@ -116,7 +114,7 @@ export default defineType({
       const { title } = selection
       return {
         title: title ? title : 'Step Section',
-        subtitle: 'Steps involved'
+        subtitle: 'Steps Process Block'
       }
     }
   }

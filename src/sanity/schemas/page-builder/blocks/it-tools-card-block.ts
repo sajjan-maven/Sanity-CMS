@@ -5,7 +5,6 @@ export default defineType({
   name: 'itToolsCardBlock',
   title: 'IT Tools Card Grid',
   type: 'object',
-  icon: FaTools,
   fields: [
     defineField({
       name: 'title',
@@ -101,7 +100,7 @@ export default defineType({
     prepare({ title }) {
       return {
         title: title || 'IT Tools Grid',
-        subtitle: 'It Tools Card Block'
+        subtitle: 'IT Tools Card Block'
       }
     }
   }

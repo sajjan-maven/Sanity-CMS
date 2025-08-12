@@ -109,8 +109,8 @@ export default defineType({
         },
         prepare({ title }) {
             return {
-                title: title || "PNG Image Block",
-                subtitle: "Block with PNG images and optional featured card",
+                title: title || "Block with PNG images and optional featured card",
+                subtitle: "PNG Image Block",
             };
         },
     },

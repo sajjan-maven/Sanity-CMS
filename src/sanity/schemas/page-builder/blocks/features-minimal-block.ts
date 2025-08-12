@@ -7,8 +7,8 @@ export default defineType({
   name: 'featuresMinimalBlock',
   title: 'Features (Minimal)',
   type: 'object',
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'heading',
@@ -20,7 +20,7 @@ export default defineType({
       title: 'Content',
       type: 'array',
       of: [
-        { 
+        {
           type: 'block',
           styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],

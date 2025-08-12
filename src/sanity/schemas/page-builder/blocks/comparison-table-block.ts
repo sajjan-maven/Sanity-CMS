@@ -118,12 +118,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      rowCount: 'rows.length'
     },
     prepare({ title }) {
       return {
         title: title || 'Comparison Table',
-        subtitle: `comparison table`
+        subtitle: `Comparison Table`
       }
     }
   }

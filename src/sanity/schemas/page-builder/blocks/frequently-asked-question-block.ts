@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaQuestionCircle } from 'react-icons/fa';
 
 export default defineType({
   name: 'frequentlyAskedQuestionBlock',
   title: 'Frequently Asked Question Block',
   type: 'object',
-  icon: FaQuestionCircle,
   fields: [
     defineField({
       name: 'title',

@@ -1,17 +1,21 @@
 import { defineField, defineType } from 'sanity';
-import { FaThLarge } from 'react-icons/fa';
 
 export default defineType({
   name: 'caseStudyGridBlock',
   title: 'Case Study Grid Block',
   type: 'object',
-  icon: FaThLarge,
   fields: [
     defineField({
       name: 'title',
       title: 'Section Title',
       type: 'string',
       initialValue: 'Case Studies'
+    }),
+    defineField({
+      name: "hasFeaturedCard",
+      title: "Include Featured Card?",
+      type: "boolean",
+      initialValue: true,
     }),
     defineField({
       name: 'featuredCaseStudy',
@@ -56,7 +60,8 @@ export default defineType({
           type: 'string',
           initialValue: 'Read story'
         })
-      ]
+      ],
+      hidden: ({ parent }) => !parent?.hasFeaturedCard,
     }),
     defineField({
       name: 'caseStudies',
@@ -130,7 +135,7 @@ export default defineType({
     prepare({ title }) {
       return {
         title: title || 'Case Study Grid',
-        subtitle: 'Grid Layout Block'
+        subtitle: 'Case Study Grid Block'
       }
     }
   }

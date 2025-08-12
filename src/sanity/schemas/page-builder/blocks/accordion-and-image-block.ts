@@ -46,5 +46,16 @@ export default defineType({
         }
       ],
     }),
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Accordion And Image Block',
+        subtitle: 'Accordion And Image Block'
+      }
+    },
+  },
 });

@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaImage } from 'react-icons/fa';
 
 export default defineType({
   name: 'heroSectionBlock',
   title: 'Hero Section Block',
   type: 'object',
-  icon: FaImage,
   fields: [
     defineField({
       name: 'title',
@@ -165,13 +163,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'image'
     },
-    prepare({ title, media }) {
+    prepare({ title }) {
       return {
         title: title || 'Hero Section Block',
         subtitle: 'Hero Section Block',
-        media
       }
     }
   }

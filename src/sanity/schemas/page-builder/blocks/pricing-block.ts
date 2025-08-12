@@ -91,7 +91,13 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'Pricing Block',
+      title: 'title',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Pricing Card',
+        subtitle: 'Pricing Block'
+      }
     },
   },
 });

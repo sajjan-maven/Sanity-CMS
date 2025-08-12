@@ -7,8 +7,8 @@ export default defineType({
   name: 'testimonialBlock',
   title: 'Testimonials',
   type: 'object',
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'heading',
@@ -67,7 +67,6 @@ export default defineType({
       return {
         title: title ?? 'No title set. Add one inside this block',
         subtitle: 'Testimonial',
-        media: Star,
       }
     },
   },

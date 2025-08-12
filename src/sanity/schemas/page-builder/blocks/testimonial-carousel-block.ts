@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaQuoteLeft } from 'react-icons/fa';
 
 export default defineType({
   name: 'testimonialCarouselBlock',
   title: 'Testimonial Carousel Block',
   type: 'object',
-  icon: FaQuoteLeft,
   fields: [
     defineField({
       name: 'title',
@@ -109,13 +107,12 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      testimonialCount: 'testimonials.length'
     },
-    prepare({ title, testimonialCount }) {
+    prepare({ title }) {
       return {
-        title: title || 'Testimonial Carousel',
-        subtitle: `${testimonialCount || 0} testimonials`
+        title: title || 'Testimonials Carousel',
+        subtitle: 'Testimonials Carousel'
       }
-    }
+    },
   }
 });

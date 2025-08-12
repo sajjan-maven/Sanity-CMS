@@ -96,4 +96,15 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'sectionTitle',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Avatar With Details',
+        subtitle: 'Avatar With Details Block',
+      }
+    },
+  }
 })

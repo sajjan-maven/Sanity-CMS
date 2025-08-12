@@ -73,7 +73,7 @@ export default defineType({
     prepare({ title, cards }) {
       return {
         title: title || 'Simple Card Block',
-        subtitle: `${cards?.length || 0} cards`
+        subtitle: 'Simple Card Block'
       }
     }
   }

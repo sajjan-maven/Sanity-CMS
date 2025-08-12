@@ -5,7 +5,6 @@ export default defineType({
   name: 'socialReviewBlock',
   title: 'Social Review Block',
   type: 'object',
-  icon: FaReddit,
   fields: [
     defineField({
       name: 'title',
@@ -111,7 +110,7 @@ export default defineType({
     prepare({ title }) {
       return {
         title: title || 'Social Review Section',
-        subtitle: 'Social Review Section'
+        subtitle: 'Social Review Block'
       }
     }
   }

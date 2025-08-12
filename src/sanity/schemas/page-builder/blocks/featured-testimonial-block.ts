@@ -76,14 +76,11 @@ export default defineType({
   preview: {
     select: {
       author: 'author.name',
-      position: 'author.position',
-      media: 'author.avatar'
     },
-    prepare({ author, position, media }) {
+    prepare({ author }) {
       return {
         title: `Testimonial: ${author}`,
-        subtitle: position,
-        media
+        subtitle: 'Featured Testimonial Block',
       }
     }
   }

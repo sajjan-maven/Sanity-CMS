@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaListUl } from 'react-icons/fa';
 
 export default defineType({
   name: 'iconListTwoColumnBlock',
   title: 'Icon List Two Column Block',
   type: 'object',
-  icon: FaListUl,
   fields: [
     defineField({
       name: 'heading',
@@ -68,7 +66,7 @@ export default defineType({
     prepare({ heading }) {
       return {
         title: heading || 'Compliance Details',
-        subtitle: `Icon List Two Column Block`
+        subtitle: 'Icon List Two Column Block'
       }
     }
   }

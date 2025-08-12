@@ -2517,6 +2517,13 @@
           },
           "optional": true
         },
+        "hasFeaturedCard": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        },
         "featuredCaseStudy": {
           "type": "objectAttribute",
           "value": {
