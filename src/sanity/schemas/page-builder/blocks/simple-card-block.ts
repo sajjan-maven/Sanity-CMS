@@ -51,7 +51,7 @@ export default defineType({
             defineField({
               name: 'backgroundColor',
               title: 'Card Background Color',
-              type: 'color',
+              type: 'simplerColor',
             })
           ],
           preview: {

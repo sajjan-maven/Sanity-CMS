@@ -75,7 +75,7 @@ export default defineType({
             defineField({
               name: 'badgeColor',
               title: 'Badge Color',
-              type: 'color',
+              type: 'simplerColor',
             })
           ],
           preview: {
@@ -98,12 +98,12 @@ export default defineType({
     defineField({
       name: 'borderColor',
       title: 'Border Color',
-      type: 'color',
+      type: 'simplerColor',
     }),
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'simplerColor',
     })
   ],
   preview: {

@@ -1816,7 +1816,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         },
@@ -1824,7 +1824,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         },
@@ -1832,7 +1832,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         }
@@ -2202,7 +2202,7 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "inline",
-                  "name": "color"
+                  "name": "simplerColor"
                 },
                 "optional": true
               },
@@ -2394,7 +2394,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         },
@@ -2439,7 +2439,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "color"
+                    "name": "simplerColor"
                   },
                   "optional": true
                 },
@@ -2908,7 +2908,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "inline",
-          "name": "color"
+          "name": "simplerColor"
         },
         "optional": true
       }
@@ -3037,7 +3037,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         }
@@ -3174,7 +3174,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         }
@@ -3304,7 +3304,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         }
@@ -3455,7 +3455,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         },
@@ -3468,7 +3468,7 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "inline",
-                  "name": "color"
+                  "name": "simplerColor"
                 },
                 "optional": true
               },
@@ -3476,7 +3476,7 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "inline",
-                  "name": "color"
+                  "name": "simplerColor"
                 },
                 "optional": true
               }
@@ -3712,7 +3712,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "color"
+                    "name": "simplerColor"
                   },
                   "optional": true
                 }
@@ -3736,7 +3736,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         },
@@ -3744,7 +3744,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "color"
+            "name": "simplerColor"
           },
           "optional": true
         }
@@ -4814,7 +4814,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "color"
+                    "name": "simplerColor"
                   },
                   "optional": true
                 }
@@ -8358,7 +8358,7 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "inline",
-                  "name": "color"
+                  "name": "simplerColor"
                 },
                 "optional": true
               },

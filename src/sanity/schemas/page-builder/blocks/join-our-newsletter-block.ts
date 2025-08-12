@@ -64,19 +64,19 @@ export default defineType({
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'simplerColor',
       initialValue: { hex: '#E9E2D9' }
     }),
     defineField({
       name: 'successBorderColor',
       title: 'Success Border Color',
-      type: 'color',
+      type: 'simplerColor',
       initialValue: { hex: '#D3C3B2' }
     }),
     defineField({
       name: 'successTextColor',
       title: 'Success Text Color',
-      type: 'color',
+      type: 'simplerColor',
       initialValue: { hex: '#3D3123' }
     })
   ],

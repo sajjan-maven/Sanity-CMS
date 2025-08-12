@@ -86,7 +86,7 @@ export default defineType({
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'simplerColor',
     }),
   ],
   preview: {

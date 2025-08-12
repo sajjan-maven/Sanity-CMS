@@ -5,8 +5,8 @@ import React from "react";
 
 export type StepRightImageBlockProps = PageBuilderType<"stepRightImageBlock">;
 
-export default function StepRightImageBlock( props: StepRightImageBlockProps ) {
-  const { 
+export default function StepRightImageBlock(props: StepRightImageBlockProps) {
+  const {
     title,
     steps = [],
     footnote,
@@ -16,11 +16,11 @@ export default function StepRightImageBlock( props: StepRightImageBlockProps ) {
   } = props;
 
   const gradientStyle = {
-    background: `linear-gradient(180deg, ${backgroundGradient?.topColor?.hex || '#FFFFFF'} 0%, ${backgroundGradient?.bottomColor?.hex || '#F8F5F3'} 100%)`
+    background: `linear-gradient(180deg, ${backgroundGradient?.topColor?.value || '#FFFFFF'} 0%, ${backgroundGradient?.bottomColor?.value || '#F8F5F3'} 100%)`
   };
 
   return (
-    <section 
+    <section
       className="flex flex-col items-center py-4 md:py-20 px-6 relative w-full z-[4]"
       style={gradientStyle}
     >
@@ -33,9 +33,9 @@ export default function StepRightImageBlock( props: StepRightImageBlockProps ) {
 
             {steps?.map((step: any, index: number) => (
               <div key={index} className="flex items-start gap-3 w-full">
-                <div 
+                <div
                   className="relative min-w-8 h-8 rounded-[100px] flex items-center justify-center"
-                  style={{ backgroundColor: badgeColor?.hex || '#F1ACC0' }}
+                  style={{ backgroundColor: badgeColor?.value || '#F1ACC0' }}
                 >
                   <span className="font-medium text-[#363338] text-center">
                     {step.number}
@@ -56,11 +56,11 @@ export default function StepRightImageBlock( props: StepRightImageBlockProps ) {
 
           <div className="relative w-full lg:w-[723px] h-auto lg:mr-[-56.00px] mt-10 lg:mt-0">
             {image?.asset?.url && (
-              <Image 
-                width={801} 
-                height={494} 
-                alt={image?.alt || 'Compliance insight'} 
-                src={image?.asset.url} 
+              <Image
+                width={801}
+                height={494}
+                alt={image?.alt || 'Compliance insight'}
+                src={image?.asset.url}
               />
             )}
           </div>

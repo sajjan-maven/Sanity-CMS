@@ -11,7 +11,7 @@ export default function IconListTwoColumnBlock(props: IconListTwoColumnBlockProp
   } = props;
 
   return (
-    <section className="py-4 md:py-20 px-6 flex flex-col gap-20 w-full" style={{ background: backgroundColor?.hex || '#FFF' }}>
+    <section className="py-4 md:py-20 px-6 flex flex-col gap-20 w-full" style={{ background: backgroundColor?.value || '#FFF' }}>
       <div className="flex flex-col w-full items-start gap-10 max-w-[1256px] mx-auto">
         <h2 className="text-3xl md:text-[40px] md:leading-[48px] font-semibold text-[#363338]">
           {heading}

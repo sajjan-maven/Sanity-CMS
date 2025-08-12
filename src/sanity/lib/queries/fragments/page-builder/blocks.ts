@@ -57,7 +57,7 @@ export const simpleCardBlockQuery = `
         alt
       },
       backgroundColor {
-        hex
+        value
       }
     }
   }
@@ -447,7 +447,7 @@ export const stepProcessBlockQuery = `
       title,
       description,
       badgeColor {
-        hex
+        value
       },
       image {
         asset->{
@@ -461,10 +461,10 @@ export const stepProcessBlockQuery = `
       }
     },
     borderColor {
-      hex
+      value
     },
     backgroundColor {
-      hex
+      value
     }
   }
 `
@@ -509,14 +509,14 @@ export const stepRightImageBlockQuery = `
       alt
     },
     badgeColor {
-      hex
+      value
     },
     backgroundGradient {
       topColor {
-        hex
+        value
       },
       bottomColor {
-        hex
+        value
       }
     }
   }
@@ -537,7 +537,7 @@ export const iconListBlockQuery = `
       }
     },
     backgroundColor {
-      hex
+      value
     },
   }
 `
@@ -558,7 +558,7 @@ export const iconListTwoColumnBlockQuery = `
       }
     },
     backgroundColor {
-      hex
+      value
     },
   }
 `
@@ -578,7 +578,7 @@ export const iconHighlightBlockQuery = `
       }
     },
     backgroundColor {
-      hex
+      value
     },
   }
 `
@@ -601,7 +601,7 @@ export const pricingBlockQuery = `
       priceUnit
     },
     backgroundColor{
-      hex
+      value
     }
   }
 `
@@ -666,7 +666,7 @@ export const itToolsCardBlockQuery = `
     _type,
     title,
     backgroundColor {
-      hex
+      value
     },
     spacing {
       top,
@@ -680,7 +680,7 @@ export const itToolsCardBlockQuery = `
       comingSoon,
       buttonText,
       labelBackground {
-        hex
+        value
       }
     }
   }
@@ -694,7 +694,7 @@ export const socialReviewBlockQuery = `
     title,
     background {
       color {
-        hex
+        value
       },
       gradient
     },
@@ -769,13 +769,13 @@ export const joinOurNewsletterBlockQuery = `
       bottom
     },
     backgroundColor {
-      hex
+      value
     },
     successBorderColor {
-      hex
+      value
     },
     successTextColor {
-      hex
+      value
     }
   }
 `

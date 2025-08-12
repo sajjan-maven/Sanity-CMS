@@ -69,7 +69,7 @@ export default defineType({
     defineField({
       name: 'badgeColor',
       title: 'Badge Color',
-      type: 'color',
+      type: 'simplerColor',
     }),
     defineField({
       name: 'backgroundGradient',
@@ -79,12 +79,12 @@ export default defineType({
         defineField({
           name: 'topColor',
           title: 'Top Color',
-          type: 'color'
+          type: 'simplerColor',
         }),
         defineField({
           name: 'bottomColor',
           title: 'Bottom Color',
-          type: 'color'
+          type: 'simplerColor',
         })
       ]
     })

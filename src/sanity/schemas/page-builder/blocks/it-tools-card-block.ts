@@ -15,7 +15,7 @@ export default defineType({
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'simplerColor',
     }),
     defineField({
       name: 'spacing',
@@ -53,7 +53,7 @@ export default defineType({
             defineField({
               name: 'labelBackground',
               title: 'Label Background Color',
-              type: 'color',
+              type: 'simplerColor',
             }),
             defineField({
               name: 'title',

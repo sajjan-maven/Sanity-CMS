@@ -19,7 +19,7 @@ export default defineType({
         defineField({
           name: 'color',
           title: 'Background Color',
-          type: 'color',
+          type: 'simplerColor',
         }),
         defineField({
           name: 'gradient',

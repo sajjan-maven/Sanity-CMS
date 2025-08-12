@@ -8,7 +8,7 @@ export default function PricingBlock(props: PricingBlockProps) {
   const { title, freePilotCard, afterPilotCard, backgroundColor } = props;
 
   return (
-    <section className="flex flex-col items-center overflow-hidden pb-10 bg-[#f7f5f2]" style={{ background: backgroundColor?.hex || '#FFF'}}>
+    <section className="flex flex-col items-center overflow-hidden pb-10 bg-[#f7f5f2]" style={{ background: backgroundColor?.value || '#FFF' }}>
       <h2 className="text-center pb-4 text-xl font-medium">{title}</h2>
       <div className="flex flex-col w-full items-center gap-20 px-4 py-5">
         <div className="flex flex-col items-center gap-10 w-full">

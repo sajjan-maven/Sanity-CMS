@@ -4,7 +4,7 @@ import { PageBuilderType } from "@/types";
 export type PngImageBlockProps = PageBuilderType<"pngImageBlock">;
 
 const PngImageBlock = ({
-    hasFeaturedCard = true,
+    hasFeaturedCard = false,
     featuredCard,
     cards = [],
     sectionBgColor

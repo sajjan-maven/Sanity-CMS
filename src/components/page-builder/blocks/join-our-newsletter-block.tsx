@@ -8,7 +8,7 @@ import { useDemoData } from "@/hooks/use-demo-data";
 
 export type JoinOurNewsletterBlockProps = PageBuilderType<"joinOurNewsletterBlock">;
 
-export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockProps ) {
+export default function JoinOurNewsletterBlock(props: JoinOurNewsletterBlockProps) {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showThankyou, setShowThankyou] = useState(false);
@@ -62,7 +62,7 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
 
   const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault();
-    
+
     if (!email) {
       setIsSubmitting(false);
       return;
@@ -75,7 +75,7 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
 
     try {
       setIsSubmitting(true);
-      
+
       // Primary submission to HubSpot
       const hubspotResponse = await fetch('/api/hubspotform', {
         method: 'POST',
@@ -105,7 +105,7 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
         ...(gclid && { gclid }),
         ...(msclkid && { msclkid })
       });
-         
+
       setEmail("");
       setShowThankyou(true);
     } catch (error) {
@@ -116,16 +116,16 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
   };
 
   return (
-    <section 
+    <section
       className="px-6 w-full"
       style={{
         paddingTop: `${spacing?.top || 40}px`,
         paddingBottom: `${spacing?.bottom || 80}px`
       }}
     >
-      <div 
+      <div
         className="flex flex-col max-w-[1256px] items-center p-8 md:p-16 w-full rounded-3xl mx-auto"
-        style={{ backgroundColor: backgroundColor?.hex || '#E9E2D9' }}
+        style={{ backgroundColor: backgroundColor?.value || '#E9E2D9' }}
       >
         <p className="font-medium md:font-semibold text-[#363338] text-2xl md:text-[40px] text-center max-w-[550px] mb-2">
           {title || 'Join our newsletter'}
@@ -135,11 +135,11 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
         </p>
         <div className="w-full max-w-[1256px] mx-auto">
           {showThankyou ? (
-            <div 
+            <div
               className="w-fit mx-auto text-lg font-medium border-2 border-dashed px-8 py-2 rounded-3xl mt-8"
               style={{
-                borderColor: successBorderColor?.hex || '#D3C3B2',
-                color: successTextColor?.hex || '#3D3123'
+                borderColor: successBorderColor?.value || '#D3C3B2',
+                color: successTextColor?.value || '#3D3123'
               }}
             >
               <p className="text-center">
@@ -150,9 +150,8 @@ export default function JoinOurNewsletterBlock( props: JoinOurNewsletterBlockPro
             <div className="flex flex-col sm:flex-row justify-center gap-3 items-center mt-8 w-full max-w-[280px] sm:max-w-full mx-auto">
               <input
                 type="email"
-                className={`w-full bg-white border rounded-xl ${
-                  error ? "border-red-500" : "border-transparent hover:border-gray-500"
-                } max-w-[280px] shadow-none px-3 py-2 md:h-[45px] outline-none active:outline-none font-regular text-[#7b7481]`}
+                className={`w-full bg-white border rounded-xl ${error ? "border-red-500" : "border-transparent hover:border-gray-500"
+                  } max-w-[280px] shadow-none px-3 py-2 md:h-[45px] outline-none active:outline-none font-regular text-[#7b7481]`}
                 placeholder={placeholder || 'Business email'}
                 value={email}
                 onChange={(e) => handleEmailEntry(e.target.value)}

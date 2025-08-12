@@ -4,8 +4,8 @@ import { PageBuilderType } from "@/types";
 
 export type SocialReviewBlockProps = PageBuilderType<"socialReviewBlock">;
 
-export default function SocialReviewBlock( props: SocialReviewBlockProps ) {
-  const { 
+export default function SocialReviewBlock(props: SocialReviewBlockProps) {
+  const {
     title,
     background,
     spacing,
@@ -13,15 +13,15 @@ export default function SocialReviewBlock( props: SocialReviewBlockProps ) {
     comments = []
   } = props;
 
-  const backgroundStyle = background?.gradient 
-    ? { 
-        background: `linear-gradient(to bottom, ${background?.color?.hex || '#f8f5f3'}, white)`,
-        backgroundColor: background?.color?.hex || '#f8f5f3'
-      }
-    : { backgroundColor: background?.color?.hex || '#f8f5f3' };
+  const backgroundStyle = background?.gradient
+    ? {
+      background: `linear-gradient(to bottom, ${background?.color?.value || '#f8f5f3'}, white)`,
+      backgroundColor: background?.color?.value || '#f8f5f3'
+    }
+    : { backgroundColor: background?.color?.value || '#f8f5f3' };
 
   return (
-    <section 
+    <section
       className="gap-2 px-6 w-full"
       style={{
         ...backgroundStyle,
@@ -34,7 +34,7 @@ export default function SocialReviewBlock( props: SocialReviewBlockProps ) {
           {title || 'What IT folks share about our free tools on Reddit'}
         </h2>
       </div>
-      
+
       <div className="flex flex-col w-full justify-around gap-8 max-w-[1256px] mx-auto">
         <div className='flex flex-row flex-wrap items-stretch'>
           {comments?.map((comment, index) => (
@@ -42,14 +42,14 @@ export default function SocialReviewBlock( props: SocialReviewBlockProps ) {
               <li className='p-4 bg-[#E4DBD0] rounded-xl h-full flex flex-col items-stretch'>
                 <div className='flex gap-2 mb-1'>
                   {avatarImage?.asset?.url ? (
-                    <Image 
+                    <Image
                       src={avatarImage.asset.url}
                       alt={`${comment.username} avatar`}
                       width={32}
                       height={32}
                     />
                   ) : (
-                    <Image 
+                    <Image
                       src='/section-images/reddit.png'
                       alt={`${comment.username} avatar`}
                       width={32}
