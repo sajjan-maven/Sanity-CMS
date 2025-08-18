@@ -31,6 +31,22 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         ],
       }),
     }),
+    // Dummy need analysis
+    home: defineLocations({
+      select: {
+        title: 'title',
+        slug: 'slug.current',
+      },
+      resolve: (doc) => ({
+        locations: [
+          {
+            title: doc?.title || 'Untitled',
+            href: `/`,
+          },
+          { title: 'Home', href: `/` },
+        ],
+      }),
+    }),
     service: defineLocations({
       select: {
         title: 'title',

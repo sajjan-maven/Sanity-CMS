@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PostBySlugQueryResult } from "../../../sanity.types";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
+import Link from "next/link";
 
 type Author = NonNullable<
   NonNullable<PostBySlugQueryResult>
@@ -8,35 +8,31 @@ type Author = NonNullable<
 
 interface AuthorProps {
   author: Author['author'];
-  classNames?: string;  
 }
 
-export default function Author({ author, classNames }: AuthorProps) {
+export default function Author({ author }: AuthorProps) {
 
   if (!author) return null;
 
   return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <Image
-          src={author?.avatar?.asset?.url ?? ''}
-          width={26}
-          height={26}
-          alt={author.name ?? ''}
-          className='rounded-full'
-        />
-      </HoverCardTrigger>
-      <HoverCardContent className={classNames}>
-        <div className='text-sm font-semibold antialiased'>
+    <Link
+      className="flex gap-2 items-center"
+      href={`/blog`}>
+      <Image
+        src={author?.avatar?.asset?.url ?? ''}
+        width={42}
+        height={42}
+        alt={author.name ?? ''}
+        className='rounded-full w-[42px] h-[42px] object-cover'
+      />
+      <div>
+        <div className='text-base font-[500] text-gray-400'>
           {author.name}
         </div>
-        <div className='text-sm text-gray-600'>
-          @{author.username}
+        <div className='text-sm text-gray-400 font-[400]'>
+          {author.position}
         </div>
-        <div className='mt-3 pt-3 border-t border-dashed text-sm text-gray-600'>
-          {author.bio}
-        </div>
-      </HoverCardContent>
-    </HoverCard>
+      </div>
+    </Link>
   )
 }

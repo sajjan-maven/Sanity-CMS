@@ -10,10 +10,10 @@ export const portableTextComponents: PortableTextComponents = {
       return <CallToAction data={data.value} />
     },
     singleImageObject: (data) => {
-      return <SingleImage data={data.value}/>
+      return <SingleImage data={data.value} />
     },
     videoObject: (data) => {
-      return <Video data={data.value}/>
+      return <Video data={data.value} />
     }
   },
   block: {

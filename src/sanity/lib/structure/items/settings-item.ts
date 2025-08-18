@@ -10,22 +10,22 @@ export const SettingsItem = (S: StructureBuilder) =>
         .title('Settings')
         .items([
           S.listItem()
-            .title('General')
+            .title('Hide Announcement Bar')
             .child(
               S.document()
-              .id('generalSettings')
-              .schemaType('generalSettings')
-              .documentId('generalSettings')
-              .title('General')
+                .id('announcementBarSettings')
+                .schemaType('announcementBarSettings')
+                .documentId('announcementBarSettings')
+                .title('Announcement Bar')
             ),
           S.listItem()
-            .title('Navigation')
+            .title('Hide Navigation Bar and Footer')
             .child(
               S.document()
-                .id('navigationSettings')
-                .schemaType('navigationSettings')
-                .documentId('navigationSettings')
-                .title('Navigation')
+                .id('navbarFooterSettings')
+                .schemaType('navbarFooterSettings')
+                .documentId('navbarFooterSettings')
+                .title('Navbar & Footer')
             ),
           S.divider(),
           S.listItem()
@@ -41,9 +41,9 @@ export const SettingsItem = (S: StructureBuilder) =>
             .title('Redirects')
             .child(
               S.documentList()
-              .title('All Redirects')
-              .filter('_type == "redirect"')
-            ), 
+                .title('All Redirects')
+                .filter('_type == "redirect"')
+            ),
           S.divider(),
           S.listItem()
             .title('Blog & Posts')

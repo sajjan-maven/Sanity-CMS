@@ -8,9 +8,14 @@ export default defineType({
   title: 'Authors',
   type: 'document',
   icon: Users,
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
+    defineField({
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'image',
+    }),
     defineField({
       name: 'name',
       title: 'Name',
@@ -18,10 +23,18 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
-      name: 'username',
-      title: 'Username',
-      type: 'string',
+      name: 'slug',
+      title: 'Define Author Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+      },
       validation: rule => rule.required()
+    }),
+    defineField({
+      name: 'position',
+      title: 'Position (Job Title)',
+      type: 'string',
     }),
     defineField({
       name: 'bio',
@@ -31,9 +44,63 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
-      name: 'avatar',
-      title: 'Avatar',
-      type: 'image',
+      name: 'socials',
+      title: 'Social Media Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'platform',
+              title: 'Platform',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'X', value: 'x' },
+                  { title: 'LinkedIn', value: 'linkedin' },
+                  { title: 'GitHub', value: 'github' },
+                  { title: 'YouTube', value: 'youtube' },
+                  { title: 'Website', value: 'website' },
+                  { title: 'Other', value: 'other' }
+                ],
+                layout: 'dropdown'
+              }
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: Rule => Rule.uri({
+                scheme: ['http', 'https', 'mailto', 'tel']
+              })
+            },
+            // Conditional field for custom icon
+            {
+              name: 'customIcon',
+              title: 'Custom Icon',
+              type: 'image',
+              description: 'Upload a custom icon for this social platform',
+              // Only show this field when platform is 'other'
+              hidden: ({ parent }) => parent?.platform !== 'other'
+            },
+          ],
+          preview: {
+            select: {
+              platform: 'platform',
+              url: 'url',
+            },
+            prepare({ platform, url }) {
+              return {
+                title: platform ? `${platform.charAt(0).toUpperCase() + platform.slice(1)}` : 'Social Link',
+                subtitle: url,
+              }
+            }
+          }
+        }
+      ]
     }),
   ]
 })
+
+//XYZ add position and social links here

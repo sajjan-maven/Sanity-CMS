@@ -11,33 +11,78 @@ export const PagesItem = (
       S.list()
         .title('Pages')
         .items([
+          HomeItem(S),
+          // IndexPages(S),
+          BlogItem(S),
           PageBuilder(S),
-          IndexPages(S)
+          PrivacyItem(S),
+          TermsOfServiceItem(S)
         ])
     )
 )
-
-export const IndexPages = (
+export const HomeItem = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Index Pages')
+    .title('Home')
     .child(
-      S.list()
-        .title('Index Pages')
-        .items([
-          BlogItem(S),
-          ProjectsItem(S),
-          ServicesItem(S)
-        ])
+      S.document()
+        .id('homePage')
+        .schemaType('homePage')
+        .documentId('homePage')
+        .title('Home')
     )
 )
+
+export const PrivacyItem = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Privacy Policy')
+    .child(
+      S.document()
+        .id('privacyPage')
+        .schemaType('privacyPage')
+        .documentId('privacyPage')
+        .title('Privacy')
+    )
+)
+
+export const TermsOfServiceItem = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Terms Of Service')
+    .child(
+      S.document()
+        .id('termsPage')
+        .schemaType('termsPage')
+        .documentId('termsPage')
+        .title('Terms and Services')
+    )
+)
+
+// export const IndexPages = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Index Pages')
+//     .child(
+//       S.list()
+//         .title('Index Pages')
+//         .items([
+//           BlogItem(S),
+//           // ProjectsItem(S),
+//           // ServicesItem(S)
+//         ])
+//     )
+// )
 
 export const PageBuilder = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Page Builder')
+    .title('Other Pages')
     .child(
       S.documentList()
         .title('Page Builder')
@@ -64,39 +109,39 @@ export const IntegrationsItem = (
 ) => (
   S.listItem()
     .title('Integrations')
-  // .child(
-  //   S.document()
-  //   .id('blogPage')
-  //   .schemaType('blogPage')
-  //   .documentId('blogPage')
-  //   .title('Blog')
-  // )
 )
 
-export const ServicesItem = (
+export const CaseStudieItem = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Services')
-    .child(
-      S.document()
-        .id('servicesPage')
-        .schemaType('servicesPage')
-        .documentId('servicesPage')
-        .title('Services')
-    )
+    .title('Case Studies')
 )
 
-export const ProjectsItem = (
-  S: StructureBuilder,
-) => (
-  S.listItem()
-    .title('Projects')
-    .child(
-      S.document()
-        .id('projectsPage')
-        .schemaType('projectsPage')
-        .documentId('projectsPage')
-        .title('Projects')
-    )
-)
+// export const ServicesItem = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Services')
+//     .child(
+//       S.document()
+//         .id('servicesPage')
+//         .schemaType('servicesPage')
+//         .documentId('servicesPage')
+//         .title('Services')
+//     )
+// )
+
+// export const ProjectsItem = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Projects')
+//     .child(
+//       S.document()
+//         .id('projectsPage')
+//         .schemaType('projectsPage')
+//         .documentId('projectsPage')
+//         .title('Projects')
+//     )
+// )

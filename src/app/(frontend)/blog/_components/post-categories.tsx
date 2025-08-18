@@ -44,15 +44,15 @@ function CategoryLink({ href, category, children }: {
 
   const pathname = usePathname();
 
-  const isActive = category 
+  const isActive = category
     ? pathname === `/blog/category/${category.slug}`
     : pathname === '/blog';
 
   return (
-    <Link 
+    <Link
       href={href}
       className={cn('py-2 px-3.5 rounded-full border border-transparent backdrop-blur-md transition-all duration-300', {
-        'mr-2 md:mr-0 border-black bg-black text-white': isActive,
+        'mr-2 md:mr-0 border-gray-600 bg-gray-600 text-white': isActive,
         'hover:bg-white hover:border-gray-200': !isActive
       })}
     >

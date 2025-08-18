@@ -9,8 +9,8 @@ export default defineType({
   title: 'Post Categories',
   type: 'document',
   icon: FiFile,
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   orderings: [orderRankOrdering],
   fields: [
     defineField({
@@ -28,14 +28,16 @@ export default defineType({
       },
       validation: rule => rule.required()
     }),
-    defineField({
-      name: 'categoryColor',
-      title: 'Category color',
-      type: 'simplerColor',
-      description: 'Defaults to white.'
-    }),
-    orderRankField({ 
-      type: 'postCategory' 
+    // defineField({
+    //   name: 'categoryColor',
+    //   title: 'Category color',
+    //   type: 'simplerColor',
+    //   description: 'Defaults to white.'
+    // }),
+    orderRankField({
+      type: 'postCategory'
     }),
   ]
 })
+
+// XYZ Add featured and editors choice option here

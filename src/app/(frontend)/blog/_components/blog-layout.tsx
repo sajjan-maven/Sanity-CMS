@@ -2,10 +2,12 @@
 import React from 'react';
 import BlogToolbar from './blog-toolbar';
 import { usePathname } from 'next/navigation';
-import Heading from '@/components/shared/heading';
 import Container from '@/components/global/container';
 import { PageBuilder } from '@/components/page-builder';
 import { BlogPageQueryResult } from '../../../../../sanity.types';
+import BlogHeader from '@/components/ui/BlogHeader';
+import FeaturedBlog from '@/components/ui/FeaturedBlog';
+import EditorPicks from '@/components/ui/EditorPicks';
 
 export default function BlogLayout({ children, page }: Readonly<{
   children: React.ReactNode;
@@ -14,15 +16,15 @@ export default function BlogLayout({ children, page }: Readonly<{
 
   const pathname = usePathname();
 
-  const { categories, posts, title } = page ?? {};
+  const { categories, posts } = page ?? {};
 
   if (pathname === '/blog' || pathname.includes('/blog/category/')) return (
     <main className='overflow-hidden md:overflow-auto'>
-      <div className='px-4 xl:px-10 pattern-bg'>
-        <Container className='px-4 pt-32 md:pt-40 pb-14 md:pb-28 border-x border-dashed'>
-          <Heading tag="h1" size="xxxl" className='w-fit'>
-            {title}
-          </Heading>
+      <div>
+        <BlogHeader />
+        <FeaturedBlog />
+        <EditorPicks />
+        <Container>
           {(pathname === '/blog' || pathname.includes('/blog/category/')) && (
             <BlogToolbar categories={categories} posts={posts} />
           )}
@@ -38,7 +40,7 @@ export default function BlogLayout({ children, page }: Readonly<{
   )
 
   return (
-    <main className='pt-32 md:pt-40 pb-10 xl:pb-16 pattern-bg'>
+    <main className='pt-12'>
       <Container>
         {children}
       </Container>

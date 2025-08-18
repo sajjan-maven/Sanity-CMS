@@ -26,7 +26,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function ClientLayout({ 
+export default function ClientLayout({
   children,
   navbarSettings,
   announcementBannerSettings,
@@ -37,24 +37,24 @@ export default function ClientLayout({
 
   const pathname = usePathname();
   if (pathname.includes('/studio')) return (children);
-  
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
-      <Navbar 
+      <Navbar
         // settings={settings}
-        announcementBannerSettings = {announcementBannerSettings}
-        navbarSetting = {navbarSettings}
+        announcementBannerSettings={announcementBannerSettings}
+        navbarSetting={navbarSettings}
       />
-      <main className='overflow-hidden'>
+      <main>
         {children}
       </main>
-      <Footer 
+      <Footer
         footerCTA={footerCTA}
         footerLinks={footerLinks}
         footerCoLinks={footerCoLinks}
       />
-      <Toaster 
-        position="bottom-right" 
+      <Toaster
+        position="bottom-right"
         toastOptions={{
           className: 'text-sm font-semibold antialiased',
           style: {

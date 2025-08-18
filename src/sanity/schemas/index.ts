@@ -19,9 +19,16 @@ import blogPage from "./singletons/pages/blog-page";
 import projectsPage from "./singletons/pages/projects-page";
 import navbar from "./singletons/navbar";
 import footer from "./singletons/footer";
+import announcementbarSettings from "./singletons/announcementbar-settings";
+import navbarFooterSettings from "./singletons/navbar-footer-settings";
+import homePage from "./singletons/pages/home-page";
+import termsPage from "./singletons/pages/terms-page";
+import privacyPage from "./singletons/pages/privacy-page";
 
 const coreSchema = [
   generalSettings,
+  announcementbarSettings,
+  navbarFooterSettings,
   navigationSettings,
   marketingSettings,
   blogSettings,
@@ -39,7 +46,10 @@ const coreSchema = [
   servicesPage,
   projectsPage,
   navbar,
-  footer
+  footer,
+  homePage,
+  termsPage,
+  privacyPage
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
@@ -134,6 +144,7 @@ import logo from "./objects/logo";
 import footerCTA from "./objects/footerCTA";
 import footerLinks from "./objects/footerLinks";
 import footerCoLinks from "./objects/footerCoLinks";
+import table from "./objects/table";
 
 const objectSchema = [
   seoObject,
@@ -151,7 +162,8 @@ const objectSchema = [
   logo,
   footerCTA,
   footerLinks,
-  footerCoLinks
+  footerCoLinks,
+  table
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {

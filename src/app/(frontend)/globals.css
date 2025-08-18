@@ -37,3 +37,42 @@ body {
 .search-highlight {
   background-color: rgb(187 247 208);
 }
+
+.blogContent>p>a {
+  color: #f25c30 !important;
+  text-decoration: none !important;
+}
+
+.blogContent>p>a>span {
+
+  text-decoration: none !important;
+}
+
+.blogContent>p>a:hover {
+  text-decoration: underline !important;
+}
+
+.blogContent>h3 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-top: 20px !important;
+  margin-bottom: 6px !important;
+}
+
+.blink svg {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

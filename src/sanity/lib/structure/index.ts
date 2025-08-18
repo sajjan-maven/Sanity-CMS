@@ -3,14 +3,15 @@ import { SettingsItem } from "./items/settings-item";
 import { PagesItem } from "./items/pages-item";
 import { BlogItem } from "./items/blog-item";
 import { TestimonialsItem } from "./items/testimonials-item";
-import { ServicesItem } from "./items/services-item";
-import { ProjectsItem } from "./items/projects-item";
-import { FormsItem } from "./items/forms-item";
+// import { ServicesItem } from "./items/services-item";
+// import { ProjectsItem } from "./items/projects-item";
+// import { FormsItem } from "./items/forms-item";
 import { NavbarAndFooterItem } from "./items/nav-footer-item";
 import { AnnouncementBanner } from "./items/announcement-banner";
+import { IntegrationsItem } from "./items/integrations-item";
 
 export const structure: StructureResolver = (
-  S: StructureBuilder, 
+  S: StructureBuilder,
   context: StructureResolverContext
 ) => (
   S.list()
@@ -24,13 +25,14 @@ export const structure: StructureResolver = (
       S.divider(),
       PagesItem(S),
       S.divider(),
-      ServicesItem(S, context),
-      ProjectsItem(S, context),
+      // ServicesItem(S, context),
+      // ProjectsItem(S, context),
       BlogItem(S, context),
+      IntegrationsItem(S, context),
       S.divider(),
       TestimonialsItem(S, context),
-      S.divider(),
-      FormsItem(S),
+      // S.divider(),
+      // FormsItem(S),
       S.divider(),
     ])
 )

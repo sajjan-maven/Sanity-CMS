@@ -861,5 +861,5 @@ export const pngImageBlockQuery = `
     sectionBgColor { value }
   }
 `
-//ABCD 3 Create schema for component in sanity > schemas > page-builder
+//ABCD 3 Create schema for component in sanity > schemas > page-builder > blocks
 //ABCD 4 Add component query here

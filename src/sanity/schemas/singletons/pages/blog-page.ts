@@ -6,8 +6,8 @@ export default defineType({
   name: 'blogPage',
   title: 'Blog Page',
   type: 'document',
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'title',
@@ -22,6 +22,7 @@ export default defineType({
         source: 'title',
       },
     }),
+    // XYZ Editors pick Featured Blogs
     defineField({
       name: 'pageBuilder',
       title: 'Page Builder',

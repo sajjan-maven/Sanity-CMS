@@ -1,6 +1,6 @@
 import { FiFile } from "react-icons/fi";
 import { fieldsets } from "../misc/fieldsets";
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { fieldGroups } from "../misc/field-groups";
 
 export default defineType({
@@ -8,8 +8,8 @@ export default defineType({
   title: 'Posts',
   type: 'document',
   icon: FiFile,
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'title',
@@ -44,7 +44,7 @@ export default defineType({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      rows: 4  
+      rows: 4
     }),
     defineField({
       name: 'content',
@@ -54,7 +54,11 @@ export default defineType({
         { type: 'block' },
         { type: 'callToActionObject' },
         { type: 'singleImageObject' },
-        { type: 'videoObject' }
+        { type: 'videoObject' },
+        // Dummy need analysis
+        defineArrayMember({
+          type: 'table',
+        }),
       ],
     }),
     defineField({
@@ -91,9 +95,9 @@ export default defineType({
       title: "Choose Related Posts",
       name: "customRelatedPosts",
       type: "array",
-      of: [{ 
-        type: 'reference', 
-        to: [{ type: 'post' }] 
+      of: [{
+        type: 'reference',
+        to: [{ type: 'post' }]
       }],
       validation: rule => rule.max(3),
       hidden: ({ parent }) => parent?.relatedPosts !== 'custom'

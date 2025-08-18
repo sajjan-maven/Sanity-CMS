@@ -34,15 +34,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const { data: post } = await sanityFetch({ 
-    query: postBySlugQuery, 
+  const { data: post } = await sanityFetch({
+    query: postBySlugQuery,
     params: await params
   });
 
   if (post === null) notFound();
 
-  const showRelatedPosts = post?.relatedPosts && 
-    post.relatedPosts.length > 0 && 
+  const showRelatedPosts = post?.relatedPosts &&
+    post.relatedPosts.length > 0 &&
     post.settings?.showRelatedPosts;
 
   return (
@@ -50,6 +50,7 @@ export default async function PostPage({ params }: PageProps) {
       <PostContent post={post} />
       {showRelatedPosts && (
         <RelatedPosts posts={post.relatedPosts as AllPostsQueryResult} />
+        // <RelatedPosts posts={post.relatedPosts?.map(p => ({ ...p, _type: "post" })) as AllPostsQueryResult} />
       )}
     </>
   )

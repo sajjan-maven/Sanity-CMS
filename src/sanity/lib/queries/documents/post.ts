@@ -8,7 +8,6 @@ export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.cur
 export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
   _id,
   _type,
-  title,
   'slug': slug.current,
   ${pageBuilder},
   "posts": *[_type == 'post'] | order(_createdAt asc) {
@@ -22,15 +21,6 @@ export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
       _id,
       title,
       'slug': slug.current,
-    },
-    author->{
-      _id,
-      name,
-      username,
-      bio,
-      avatar { 
-        asset->{ url }, 
-      },
     },
     image { 
       asset->{ url }, 
@@ -58,34 +48,35 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
   title,
   'slug': slug.current,
   excerpt,
-  "tableOfContents": content[style in ["h2", "h3", "h4", "h5", "h6"]],
+  "tableOfContents": content[style in ["h2"]],
   content[],
   category->{
     _id,
     title,
-    categoryColor {
-      value
-    },
     'slug': slug.current,
   },
   author->{
     _id,
     name,
-    username,
+    slug,
+    position,
     bio,
     avatar { 
       asset->{ url }, 
     },
-  },
-  image { 
-    asset->{ url }, 
-    altText,
-    caption, 
+    socials[] {
+      platform,
+      url,
+      customIcon {
+        asset->{ url },
+      },
+    }
   },
   relatedPostsType,
   "relatedPosts": select(
     relatedPostsType == "custom" => customRelatedPosts[]->{ 
       _id,
+      _type,
       _createdAt,
       title,
       'slug': slug.current,
@@ -93,19 +84,7 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
       category->{
         _id,
         title,
-        categoryColor->{
-          value
-        },
         'slug': slug.current,
-      },
-      author->{
-        _id,
-        name,
-        username,
-        bio,
-        avatar { 
-          asset->{ url }, 
-        },
       },
       image { 
         asset->{ url }, 
@@ -114,25 +93,14 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
     },
     relatedPostsType == "autofill" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{ 
       _id,
+      _type,
       _createdAt,
       title,
       'slug': slug.current,
       category->{
         _id,
         title,
-        categoryColor->{
-          value
-        },
         'slug': slug.current,
-      },
-      author->{
-        _id,
-        name,
-        username,
-        bio,
-        avatar { 
-          asset->{ url }, 
-        },
       },
       excerpt,
       image { 
@@ -146,11 +114,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
     showTableOfContents,
     showPostsByCategory
   },
-  "categories": *[_type == "postCategory"] {
-    _id,
-    title,
-    'slug': slug.current,
-  },
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),
@@ -162,7 +125,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
 export const allPostsQuery = defineQuery(`*[_type == 'post'] | order(_createdAt asc) {
   _id,
   _type,
-  _createdAt,
   title,
   'slug': slug.current,
   excerpt,
@@ -170,15 +132,6 @@ export const allPostsQuery = defineQuery(`*[_type == 'post'] | order(_createdAt 
     _id,
     title,
     'slug': slug.current,
-  },
-  author->{
-    _id,
-    name,
-    username,
-    bio,
-    avatar { 
-      asset->{ url }, 
-    },
   },
   image { 
     asset->{ url }, 
@@ -196,7 +149,6 @@ export const allPostCategoriesQuery = defineQuery(`*[_type == 'postCategory'] | 
 export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->slug.current == $slug] {
   _id,
   _type,
-  _createdAt,
   title,
   'slug': slug.current,
   excerpt,
@@ -204,15 +156,6 @@ export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->
     _id,
     title,
     'slug': slug.current,
-  },
-  author->{
-    _id,
-    name,
-    username,
-    bio,
-    avatar { 
-      asset->{ url }, 
-    },
   },
   image { 
     asset->{ url }, 
@@ -226,3 +169,5 @@ export const postCategoryBySlugQuery = defineQuery(`*[_type == 'postCategory' &&
   title,
   'slug': slug.current,
 }`);
+
+//XYZ Add BlogMainPageQuery add editors choice and featured blog query here

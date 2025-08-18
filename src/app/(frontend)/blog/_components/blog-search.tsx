@@ -40,24 +40,24 @@ export function BlogSearch({ posts, classNames }: BlogSearchProps) {
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
         <Input
           type="text"
-          placeholder="Search posts..."
+          placeholder="Search our blog"
           value={searchTerm}
           onChange={handleInputChange}
-          className="h-10 pl-9 pr-10 w-full rounded-full shadow-none bg-gray-50 placeholder:text-gray-500"
+          className="h-10 pl-9 pr-10 w-full rounded-full shadow-none placeholder:text-gray-500"
           aria-label="Search articles"
         />
         {searchTerm && (
           <button
             onClick={clearSearch}
             aria-label="Clear search"
-            className="absolute h-6 w-6 right-2 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full bg-gray-200 group"
+            className="absolute h-6 w-6 right-2 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full group"
           >
             <X className="h-3.5 w-3.5 group-hover:rotate-90 transition-all duration-300" />
           </button>
         )}
       </div>
       {isDropdownOpen && (
-        <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
+        <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
             {searchResults.map((post, index) => (
               <React.Fragment key={post._id}>

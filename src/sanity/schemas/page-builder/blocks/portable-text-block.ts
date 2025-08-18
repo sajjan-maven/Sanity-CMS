@@ -1,5 +1,5 @@
 import { LetterText } from "lucide-react";
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, defineArrayMember } from "sanity"; // Added defineArrayMember
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 import { AlignmentInput, alignmentOptions } from "@/sanity/components/alignment-input";
@@ -8,8 +8,8 @@ export default defineType({
   name: 'portableTextBlock',
   title: 'Portable Text',
   type: 'object',
-  fieldsets: [ ...fieldsets ],
-  groups: [ ...fieldGroups ],
+  fieldsets: [...fieldsets],
+  groups: [...fieldGroups],
   fields: [
     defineField({
       name: 'title',
@@ -22,7 +22,11 @@ export default defineType({
       type: 'array',
       of: [
         { type: 'block' },
-        { type: 'callToActionObject' }
+        { type: 'callToActionObject' },
+        // Dummy table test
+        defineArrayMember({
+          type: 'table',
+        }),
       ],
     }),
     defineField({
