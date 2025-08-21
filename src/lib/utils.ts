@@ -5,14 +5,14 @@ import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { urlForImage } from '@/sanity/lib/utils';
 
-import { 
-  BlogPageQueryResult, 
-  PageBySlugQueryResult, 
-  PostBySlugQueryResult, 
-  ProjectBySlugQueryResult, 
-  ProjectsPageQueryResult, 
-  ServiceBySlugQueryResult, 
-  ServicesPageQueryResult 
+import {
+  BlogPageQueryResult,
+  PageBySlugQueryResult,
+  PostBySlugQueryResult,
+  // ProjectBySlugQueryResult,
+  // ProjectsPageQueryResult,
+  // ServiceBySlugQueryResult,
+  // ServicesPageQueryResult
 } from '../../sanity.types';
 
 export function cn(...inputs: ClassValue[]) {
@@ -39,7 +39,7 @@ export function slugify(text: string) {
 };
 
 export function truncateText(text: string, target: number) {
-  if (text.length > target) { 
+  if (text.length > target) {
     return text.slice(0, target) + '...';
   };
   return text;
@@ -71,13 +71,13 @@ export async function copyHeadingUrl(id: string): Promise<boolean> {
 };
 
 export function copyToClipboard(input: string) {
-  
+
   if (input.startsWith('#') || document.getElementById(input)) {
     copyHeadingUrl(input.startsWith('#') ? input.substring(1) : input)
       .then(() => toast.success('Copied link to clipboard'))
       .catch(() => toast.error('Failed to copy link'));
-  } 
-  
+  }
+
   else {
     navigator.clipboard.writeText(input)
       .then(() => toast.success('Copied to clipboard'))
@@ -89,11 +89,11 @@ export function formatFieldId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-');
 }
 
-export function getAnchorHref({ 
-  anchorLocation, 
-  anchorId, 
-  pageReference 
-}: { 
+export function getAnchorHref({
+  anchorLocation,
+  anchorId,
+  pageReference
+}: {
   anchorLocation: ButtonType['buttonAnchorLocation'];
   anchorId: ButtonType['buttonAnchorId'];
   pageReference: ButtonType['buttonPageReference'];
@@ -125,15 +125,15 @@ export function resolveHref(documentType?: string, slug?: string): string | unde
   }
 }
 
-export type PageQueryResult = 
-  | PageBySlugQueryResult 
-  | ServicesPageQueryResult 
-  | ServiceBySlugQueryResult 
-  | BlogPageQueryResult 
+export type PageQueryResult =
+  | PageBySlugQueryResult
+  | BlogPageQueryResult
   | PostBySlugQueryResult
-  | ProjectsPageQueryResult
-  | ProjectBySlugQueryResult;
-  
+// | ServicesPageQueryResult 
+// | ServiceBySlugQueryResult 
+// | ProjectsPageQueryResult
+// | ProjectBySlugQueryResult;
+
 export function processMetadata({ data }: {
   data: PageQueryResult;
 }): Metadata {

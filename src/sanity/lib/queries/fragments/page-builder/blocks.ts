@@ -588,20 +588,23 @@ export const pricingBlockQuery = `
     _key,
     _type,
     title,
-    freePilotCard{
-      title,
-      subtitle,
-      features,
-      buttonText,
-      buttonLink
-    },
-    afterPilotCard{
-      title,
-      price,
-      priceUnit
-    },
-    backgroundColor{
-      value
+    pricingBlockReference->{
+      _id,
+      freePilotCard{
+        title,
+        subtitle,
+        features,
+        buttonText,
+        buttonLink
+      },
+      afterPilotCard{
+        title,
+        price,
+        priceUnit
+      },
+      backgroundColor{
+        value
+      }
     }
   }
 `
@@ -727,6 +730,7 @@ export const accordionAndImageBlockQuery = `
     _key,
     _type,
     title,
+    sectionTitle,
     description,
     spacing {
       top,

@@ -9,6 +9,8 @@ import { TestimonialsItem } from "./items/testimonials-item";
 import { NavbarAndFooterItem } from "./items/nav-footer-item";
 import { AnnouncementBanner } from "./items/announcement-banner";
 import { IntegrationsItem } from "./items/integrations-item";
+import { CaseStudiesItem } from "./items/casestudy-item";
+import { PricingItem } from "./items/pricing-item";
 
 export const structure: StructureResolver = (
   S: StructureBuilder,
@@ -29,8 +31,10 @@ export const structure: StructureResolver = (
       // ProjectsItem(S, context),
       BlogItem(S, context),
       IntegrationsItem(S, context),
+      CaseStudiesItem(S, context),
       S.divider(),
       TestimonialsItem(S, context),
+      PricingItem(S),
       // S.divider(),
       // FormsItem(S),
       S.divider(),

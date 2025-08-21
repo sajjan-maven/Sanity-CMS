@@ -1,4 +1,4 @@
-import { Settings } from "lucide-react";
+import { ScanText, Settings, Shuffle, Tv, Video, Wrench } from "lucide-react";
 import type { StructureBuilder } from "sanity/structure";
 
 export const SettingsItem = (S: StructureBuilder) =>
@@ -11,6 +11,7 @@ export const SettingsItem = (S: StructureBuilder) =>
         .items([
           S.listItem()
             .title('Hide Announcement Bar')
+            .icon(Wrench)
             .child(
               S.document()
                 .id('announcementBarSettings')
@@ -19,7 +20,8 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .title('Announcement Bar')
             ),
           S.listItem()
-            .title('Hide Navigation Bar and Footer')
+            .title('Hide Navbar | Footer')
+            .icon(Wrench)
             .child(
               S.document()
                 .id('navbarFooterSettings')
@@ -30,6 +32,7 @@ export const SettingsItem = (S: StructureBuilder) =>
           S.divider(),
           S.listItem()
             .title('Marketing')
+            .icon(Tv)
             .child(
               S.document()
                 .id('marketingSettings')
@@ -39,6 +42,7 @@ export const SettingsItem = (S: StructureBuilder) =>
             ),
           S.listItem()
             .title('Redirects')
+            .icon(Shuffle)
             .child(
               S.documentList()
                 .title('All Redirects')
@@ -47,6 +51,7 @@ export const SettingsItem = (S: StructureBuilder) =>
           S.divider(),
           S.listItem()
             .title('Blog & Posts')
+            .icon(ScanText)
             .child(
               S.document()
                 .id('blogSettings')

@@ -5,11 +5,24 @@ import { CheckIcon } from "lucide-react";
 export type PricingBlockProps = PageBuilderType<"pricingBlock">;
 
 export default function PricingBlock(props: PricingBlockProps) {
-  const { title, freePilotCard, afterPilotCard, backgroundColor } = props;
+  const {
+    title, // section title (from pricingBlock doc)
+    pricingBlockReference, // referenced pricingItem
+  } = props;
+
+  const freePilotCard = pricingBlockReference?.freePilotCard;
+  const afterPilotCard = pricingBlockReference?.afterPilotCard;
+  const backgroundColor = pricingBlockReference?.backgroundColor;
 
   return (
-    <section className="flex flex-col items-center overflow-hidden pb-10 bg-[#f7f5f2]" style={{ background: backgroundColor?.value || '#FFF' }}>
-      <h2 className="text-center pb-4 text-xl font-medium">{title}</h2>
+    <section
+      className="flex flex-col items-center overflow-hidden pb-10 bg-[#f7f5f2]"
+      style={{ background: backgroundColor?.value || "#FFF" }}
+    >
+      {title && (
+        <h2 className="text-center pb-4 text-xl font-medium">{title}</h2>
+      )}
+
       <div className="flex flex-col w-full items-center gap-20 px-4 py-5">
         <div className="flex flex-col items-center gap-10 w-full">
           <div className="flex flex-col md:flex-row items-center justify-center relative w-full">
@@ -26,23 +39,29 @@ export default function PricingBlock(props: PricingBlockProps) {
                 </div>
 
                 <div className="flex flex-col items-start gap-4 py-6 w-full">
-                  {freePilotCard?.features?.map((feature: any, index: number) => (
-                    <div key={index} className="flex items-start gap-4 w-full">
-                      <CheckIcon className="w-6 h-6 text-[#363338]" />
-                      <span className="font-medium text-[#363338] text-base leading-6">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
+                  {freePilotCard?.features?.map(
+                    (feature: string, index: number) => (
+                      <div key={index} className="flex items-start gap-4 w-full">
+                        <CheckIcon className="w-6 h-6 text-[#363338]" />
+                        <span className="font-medium text-[#363338] text-base leading-6">
+                          {feature}
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
 
-                {freePilotCard?.buttonLink && <NewButton
-                  variant="secondary"
-                  className="w-full"
-                  onClick={() => window.location.href = freePilotCard?.buttonLink || ''}
-                >
-                  {freePilotCard?.buttonText}
-                </NewButton>}
+                {freePilotCard?.buttonLink && (
+                  <NewButton
+                    variant="secondary"
+                    className="w-full"
+                    onClick={() =>
+                      (window.location.href = freePilotCard?.buttonLink || "")
+                    }
+                  >
+                    {freePilotCard?.buttonText}
+                  </NewButton>
+                )}
               </div>
             </div>
 
@@ -54,7 +73,9 @@ export default function PricingBlock(props: PricingBlockProps) {
                     {afterPilotCard?.title}
                   </h3>
                   <p className="font-normal text-[54px] leading-[70.2px] text-[#363338] text-center">
-                    <span className="font-bold">${afterPilotCard?.price}</span>
+                    <span className="font-bold">
+                      ${afterPilotCard?.price}
+                    </span>
                     <span className="font-medium text-[32px] leading-[41.6px]">
                       {afterPilotCard?.priceUnit}
                     </span>

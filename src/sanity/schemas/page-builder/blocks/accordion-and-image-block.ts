@@ -6,7 +6,7 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'title',
+      name: 'sectionTitle',
       title: 'Section Title',
       type: 'string',
     }),

@@ -3,20 +3,78 @@ import { FiX } from "react-icons/fi";
 
 export default defineType({
     name: "navbarFooterSettings",
-    title: "Navbar Footer Settings",
+    title: "Navbar | Footer Settings",
     type: "document",
     icon: FiX,
     fields: [
         defineField({
             name: "excludedRoutes",
-            title: "Excluded Routes",
-            description: "Pages where the announcement bar should be hidden",
+            title: "Navbar | Footer Excluded Routes",
+            description: "Pages where the navbar and footer should be hidden",
             type: "array",
             of: [
                 {
                     type: "object",
                     name: "routeExclusion",
                     title: "Route Exclusion",
+                    fields: [
+                        defineField({
+                            name: "path",
+                            title: "Path",
+                            description: "Enter the route path (e.g., /about or /contact)",
+                            type: "string",
+                            validation: (Rule) => [
+                                Rule.required().error("Path is required"),
+                                Rule.regex(/^\/[a-zA-Z0-9\-_\/]*$/, {
+                                    name: "path",
+                                    invert: false,
+                                }).error("Path must start with / and contain only valid URL characters"),
+                            ],
+                        }),
+                        defineField({
+                            name: "excludeNavbar",
+                            title: "Exclude Navbar",
+                            type: "boolean",
+                        }),
+                        defineField({
+                            name: "excludeFooter",
+                            title: "Exclude Footer",
+                            type: "boolean",
+                        }),
+                        defineField({
+                            name: "note",
+                            title: "Internal Note",
+                            description: "Optional note about why this route is excluded",
+                            type: "string",
+                        }),
+                    ],
+                    preview: {
+                        select: {
+                            path: "path",
+                            note: "note",
+                        },
+                        prepare({ path, note }) {
+                            return {
+                                title: path || "Untitled path",
+                                subtitle: note,
+                            };
+                        },
+                    },
+                },
+            ],
+            // group: "visibility",
+            validation: (Rule) => Rule.unique(),
+        }),
+        defineField({
+            name: "footerCTAexcludedRoutes",
+            title: "Footer CTA Excluded Routes",
+            description: "Pages where the footer CTA should be hidden",
+            type: "array",
+            of: [
+                {
+                    type: "object",
+                    name: "routeExclusion",
+                    title: "Footer CTA Route Exclusion",
                     fields: [
                         defineField({
                             name: "path",

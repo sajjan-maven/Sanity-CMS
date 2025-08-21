@@ -1,4 +1,4 @@
-import { LetterText, Folder, Tag, Users } from "lucide-react";
+import { LetterText, Folder, Users, Tags } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
@@ -40,7 +40,7 @@ export const PostCategories = (
   orderableDocumentListDeskItem({
     S,
     context,
-    icon: Tag,
+    icon: Tags,
     type: 'postCategory',
     title: 'Categories',
     id: 'orderable-post-categories'

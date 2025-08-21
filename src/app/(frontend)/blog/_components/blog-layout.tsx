@@ -16,14 +16,14 @@ export default function BlogLayout({ children, page }: Readonly<{
 
   const pathname = usePathname();
 
-  const { categories, posts } = page ?? {};
+  const { heroText, featuredBlog, editorsPicks, categories, posts } = page ?? {};
 
   if (pathname === '/blog' || pathname.includes('/blog/category/')) return (
     <main className='overflow-hidden md:overflow-auto'>
       <div>
-        <BlogHeader />
-        <FeaturedBlog />
-        <EditorPicks />
+        <BlogHeader heroText={heroText ?? 'Get expert-led insights on Modern IT'} />
+        {featuredBlog && <FeaturedBlog featuredBlog={featuredBlog} />}
+        {editorsPicks && <EditorPicks editorsPicks={editorsPicks} />}
         <Container>
           {(pathname === '/blog' || pathname.includes('/blog/category/')) && (
             <BlogToolbar categories={categories} posts={posts} />

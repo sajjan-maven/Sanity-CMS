@@ -1,4 +1,4 @@
-import { Tag, Folder, MonitorSmartphone } from "lucide-react";
+import { Folder, MonitorSmartphone, Tags } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
@@ -28,8 +28,8 @@ export const AllApplications = (
         .icon(MonitorSmartphone)
         .child(
             S.documentList()
-                .title('All Posts')
-                .filter('_type == "post"')
+                .title('All Integrations')
+                .filter('_type == "integrationApplication"')
         )
 )
 
@@ -40,9 +40,9 @@ export const ApplicationCategories = (
     orderableDocumentListDeskItem({
         S,
         context,
-        icon: Tag,
-        type: 'postCategory',
+        icon: Tags,
+        type: 'integrationCategory',
         title: 'Categories',
-        id: 'orderable-post-categories'
+        id: 'orderable-integration-categories'
     })
 )

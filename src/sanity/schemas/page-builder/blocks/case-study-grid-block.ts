@@ -15,7 +15,7 @@ export default defineType({
       name: "hasFeaturedCard",
       title: "Include Featured Card?",
       type: "boolean",
-      initialValue: true,
+      initialValue: false,
     }),
     defineField({
       name: 'featuredCaseStudy',

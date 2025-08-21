@@ -19,12 +19,12 @@ export default defineType({
       description: 'Enable to display a table of contents in the right sidebar of each post.',
       initialValue: true
     }),
-    defineField({
-      title: 'Show Posts by Category',
-      name: 'showPostsByCategory',
-      type: 'boolean',
-      description: 'Enable to display post categories in right sidebar of each post.',
-      initialValue: true
-    }),
+    // defineField({
+    //   title: 'Show Posts by Category',
+    //   name: 'showPostsByCategory',
+    //   type: 'boolean',
+    //   description: 'Enable to display post categories in right sidebar of each post.',
+    //   initialValue: true
+    // }),
   ]
 })

@@ -50,6 +50,33 @@ const config = defineConfig({
       showColorValue: true,
     })
   ],
+  document: {
+    // Global doc actions
+    actions: (prev, context) => {
+      if (
+        context.schemaType === 'announcementBanner' ||
+        context.schemaType === 'pricingItem' ||
+        context.schemaType === 'navbarFooterSettings' ||
+        context.schemaType === 'announcementBarSettings' ||
+        context.schemaType === 'marketingSettings' ||
+        context.schemaType === 'blogSettings' ||
+        context.schemaType === 'navbar' ||
+        context.schemaType === 'footer' ||
+        context.schemaType === 'homePage' ||
+        context.schemaType === 'blogPage' ||
+        context.schemaType === 'casestudiesPage' ||
+        context.schemaType === 'privacyPage' ||
+        context.schemaType === 'termsPage'
+      ) {
+        // Filter out 'delete' and 'duplicate' actions
+        return prev.filter(
+          (action) => action.action !== 'delete' && action.action !== 'duplicate' && action.action !== 'unpublish'
+        );
+      }
+      return prev
+    },
+  },
+
   schema: schema,
 })
 

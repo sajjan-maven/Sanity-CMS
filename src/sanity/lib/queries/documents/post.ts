@@ -8,9 +8,43 @@ export const postSlugsQuery = defineQuery(`*[_type == "post" && defined(slug.cur
 export const blogPageQuery = defineQuery(`*[_type == 'blogPage'][0] {
   _id,
   _type,
+  title,
   'slug': slug.current,
+  heroText,
+  featuredBlog->{
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+    excerpt,
+    category->{
+      _id,
+      title,
+      'slug': slug.current,
+    },
+    image { 
+      asset->{ url }, 
+      altText 
+    },
+  },
+  editorsPicks[]->{
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+    excerpt,
+    category->{
+      _id,
+      title,
+      'slug': slug.current,
+    },
+    image { 
+      asset->{ url }, 
+      altText 
+    },
+  },
   ${pageBuilder},
-  "posts": *[_type == 'post'] | order(_createdAt asc) {
+  "posts": *[_type == 'post'] | order(publishedAt desc) {
     _id,
     _type,
     _createdAt,

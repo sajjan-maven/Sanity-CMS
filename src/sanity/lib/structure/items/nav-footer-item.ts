@@ -1,4 +1,4 @@
-import { AppWindow } from "lucide-react";
+import { AppWindow, PanelBottom, PanelTop } from "lucide-react";
 import { StructureBuilder } from "sanity/structure";
 
 export const NavbarAndFooterItem = (
@@ -23,6 +23,7 @@ export const NavbarItem = (
 ) => (
   S.listItem()
     .title('Navbar')
+    .icon(PanelTop)
     .child(
       S.document()
         .id('navbar')
@@ -37,6 +38,7 @@ export const FooterItem = (
 ) => (
   S.listItem()
     .title('Footer')
+    .icon(PanelBottom)
     .child(
       S.document()
         .id('footer')

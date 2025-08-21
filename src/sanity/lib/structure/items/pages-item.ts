@@ -1,4 +1,4 @@
-import { FileText } from "lucide-react";
+import { File, Files } from "lucide-react";
 import { StructureBuilder } from "sanity/structure";
 
 export const PagesItem = (
@@ -6,7 +6,7 @@ export const PagesItem = (
 ) => (
   S.listItem()
     .title('Pages')
-    .icon(FileText)
+    .icon(Files)
     .child(
       S.list()
         .title('Pages')
@@ -14,6 +14,7 @@ export const PagesItem = (
           HomeItem(S),
           // IndexPages(S),
           BlogItem(S),
+          CaseStudieItem(S),
           PageBuilder(S),
           PrivacyItem(S),
           TermsOfServiceItem(S)
@@ -25,6 +26,7 @@ export const HomeItem = (
 ) => (
   S.listItem()
     .title('Home')
+    .icon(File)
     .child(
       S.document()
         .id('homePage')
@@ -39,6 +41,7 @@ export const PrivacyItem = (
 ) => (
   S.listItem()
     .title('Privacy Policy')
+    .icon(File)
     .child(
       S.document()
         .id('privacyPage')
@@ -53,6 +56,7 @@ export const TermsOfServiceItem = (
 ) => (
   S.listItem()
     .title('Terms Of Service')
+    .icon(File)
     .child(
       S.document()
         .id('termsPage')
@@ -83,6 +87,7 @@ export const PageBuilder = (
 ) => (
   S.listItem()
     .title('Other Pages')
+    .icon(Files)
     .child(
       S.documentList()
         .title('Page Builder')
@@ -95,6 +100,7 @@ export const BlogItem = (
 ) => (
   S.listItem()
     .title('Blog')
+    .icon(File)
     .child(
       S.document()
         .id('blogPage')
@@ -109,6 +115,7 @@ export const IntegrationsItem = (
 ) => (
   S.listItem()
     .title('Integrations')
+    .icon(File)
 )
 
 export const CaseStudieItem = (
@@ -116,6 +123,14 @@ export const CaseStudieItem = (
 ) => (
   S.listItem()
     .title('Case Studies')
+    .icon(File)
+    .child(
+      S.document()
+        .id('casestudiesPage')
+        .schemaType('casestudiesPage')
+        .documentId('casestudiesPage')
+        .title('Case Studies')
+    )
 )
 
 // export const ServicesItem = (

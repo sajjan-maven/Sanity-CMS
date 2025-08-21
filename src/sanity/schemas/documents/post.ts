@@ -47,6 +47,18 @@ export default defineType({
       rows: 4
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'date',
+      initialValue: (new Date()).toISOString().split('T')[0],
+    }),
+    defineField({
+      name: 'modifiedAt',
+      title: 'Modified At',
+      type: 'date',
+      initialValue: (new Date()).toISOString().split('T')[0],
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',

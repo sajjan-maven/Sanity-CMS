@@ -24,6 +24,10 @@ import navbarFooterSettings from "./singletons/navbar-footer-settings";
 import homePage from "./singletons/pages/home-page";
 import termsPage from "./singletons/pages/terms-page";
 import privacyPage from "./singletons/pages/privacy-page";
+import casestudiesPage from "./singletons/pages/casestudies-page";
+import integrationCategory from "./documents/integration-category";
+import casestudies from "./documents/casestudies";
+import integrationApplication from "./documents/integration-application";
 
 const coreSchema = [
   generalSettings,
@@ -49,7 +53,11 @@ const coreSchema = [
   footer,
   homePage,
   termsPage,
-  privacyPage
+  privacyPage,
+  casestudiesPage,
+  integrationCategory,
+  casestudies,
+  integrationApplication,
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
@@ -145,6 +153,7 @@ import footerCTA from "./objects/footerCTA";
 import footerLinks from "./objects/footerLinks";
 import footerCoLinks from "./objects/footerCoLinks";
 import table from "./objects/table";
+import pricingItem from "./objects/pricing";
 
 const objectSchema = [
   seoObject,
@@ -163,7 +172,8 @@ const objectSchema = [
   footerCTA,
   footerLinks,
   footerCoLinks,
-  table
+  table,
+  pricingItem
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
