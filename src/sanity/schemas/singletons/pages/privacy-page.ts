@@ -1,8 +1,6 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
-
-// Dummy file for test
 
 export default defineType({
     name: 'privacyPage',
@@ -13,18 +11,20 @@ export default defineType({
     fields: [
         defineField({
             name: 'title',
-            title: 'Title',
+            title: 'Header Title',
             type: 'string',
         }),
         defineField({
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: {
-                source: 'title',
-            },
+            name: 'content',
+            title: 'Content',
+            type: 'array',
+            of: [
+                { type: 'block' },
+                defineArrayMember({
+                    type: 'table',
+                }),
+            ],
         }),
-        // XYZ Editors pick Featured Blogs
         defineField({
             name: 'pageBuilder',
             title: 'Page Builder',

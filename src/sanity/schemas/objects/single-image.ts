@@ -17,17 +17,17 @@ export default defineType({
           title: 'Alternative Text',
           type: 'string'
         }),
-        defineField({
-          title: "Aspect Ratio",
-          name: "aspectRatio",
-          type: "string",
-          options: {
-            list: ratioOptions.map(({ title, value }) => ({ title, value })),
-            layout: 'radio',
-          },
-          components: { input: RatioInput },
-          initialValue: 'square',
-        }),
+        // defineField({
+        //   title: "Aspect Ratio",
+        //   name: "aspectRatio",
+        //   type: "string",
+        //   options: {
+        //     list: ratioOptions.map(({ title, value }) => ({ title, value })),
+        //     layout: 'radio',
+        //   },
+        //   components: { input: RatioInput },
+        //   initialValue: 'square',
+        // }),
       ],
     }),
   ],

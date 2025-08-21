@@ -53,10 +53,22 @@ export default defineType({
       initialValue: (new Date()).toISOString().split('T')[0],
     }),
     defineField({
+      name: 'isModified',
+      title: 'Is Modified',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'modifiedAt',
       title: 'Modified At',
       type: 'date',
       initialValue: (new Date()).toISOString().split('T')[0],
+      hidden: ({ parent }) => !parent?.isModified
+    }),
+    defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'string',
     }),
     defineField({
       name: 'content',
@@ -67,7 +79,7 @@ export default defineType({
         { type: 'callToActionObject' },
         { type: 'singleImageObject' },
         { type: 'videoObject' },
-        // Dummy need analysis
+        defineArrayMember({ type: 'iframe' }),
         defineArrayMember({
           type: 'table',
         }),
@@ -82,12 +94,7 @@ export default defineType({
           name: 'altText',
           title: 'Alternative Text',
           type: 'string'
-        }),
-        defineField({
-          name: 'caption',
-          title: 'Caption',
-          type: 'string'
-        }),
+        })
       ],
     }),
     defineField({
@@ -112,7 +119,7 @@ export default defineType({
         to: [{ type: 'post' }]
       }],
       validation: rule => rule.max(3),
-      hidden: ({ parent }) => parent?.relatedPosts !== 'custom'
+      hidden: ({ parent }) => parent?.relatedPostsType !== 'custom'
     }),
     defineField({
       name: "seo",

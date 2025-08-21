@@ -24,13 +24,13 @@ interface MenuItem {
 }
 
 // Dropdown Content Component
-const DropdownContent = ({ items, toggleDropdown, setIsOpen }: { items: { title: string; description: string; path: string }[], toggleDropdown: any, setIsOpen: any }) => {
+const DropdownContent = ({ items, toggleDropdown, setIsOpen }: { items: { title: string; description: string; path: string }[], toggleDropdown: any, setIsOpen: () => void }) => {
     const router = useRouter();
 
     const handleClick = (path: string) => {
         router.push(path);
         toggleDropdown(null);
-        setIsOpen(false)
+        setIsOpen();
     };
 
     return (
@@ -209,18 +209,26 @@ const MobileNavigation = ({
     activeDropdown,
     toggleDropdown,
     ctaButton,
-    onItemClick,
-    setIsOpen
+    setIsOpen,
+    setActiveDropdown
 }: {
     isOpen: boolean;
     menuItems: MenuItem[];
     activeDropdown: number | null;
     toggleDropdown: (index: number) => void;
     ctaButton: { text: string; link: string };
-    onItemClick: () => void;
-    setIsOpen: () => void;
+    setIsOpen: (isOpen: boolean) => void;
+    setActiveDropdown: (activeDropdown: number | null) => void;
 }) => {
     const router = useRouter();
+
+    const handleItemClick = (path?: string) => {
+        if (path) {
+            router.push(path);
+        }
+        setIsOpen(false);
+        setActiveDropdown(null);
+    };
 
     if (!isOpen) return null;
 
@@ -229,30 +237,43 @@ const MobileNavigation = ({
             <div className="p-4 pb-10 space-y-6 bg-white">
                 {menuItems.map((item, index) => (
                     <div key={index} className="space-y-4">
-                        <button
-                            onClick={() => item.hasDropdown && toggleDropdown(index)}
-                            className="flex items-center justify-between w-full font-semibold text-lg"
-                        >
-                            {item.name}
-                            {item.hasDropdown && (
-                                <svg
-                                    className={`w-4 h-4 ml-1 transition-transform ${activeDropdown === index ? "rotate-180" : ""
-                                        }`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
+                        {item.hasDropdown ? (
+                            <>
+                                <button
+                                    onClick={() => toggleDropdown(index)}
+                                    className="flex items-center justify-between w-full font-semibold text-lg"
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M19 9l-7 7-7-7"
+                                    {item.name}
+                                    <svg
+                                        className={`w-4 h-4 ml-1 transition-transform ${activeDropdown === index ? "rotate-180" : ""
+                                            }`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M19 9l-7 7-7-7"
+                                        />
+                                    </svg>
+                                </button>
+                                {activeDropdown === index && item.dropdownItems && (
+                                    <DropdownContent
+                                        items={item.dropdownItems}
+                                        toggleDropdown={toggleDropdown}
+                                        setIsOpen={() => setIsOpen(false)}
                                     />
-                                </svg>
-                            )}
-                        </button>
-                        {item.hasDropdown && activeDropdown === index && item.dropdownItems && (
-                            <DropdownContent items={item.dropdownItems} toggleDropdown={toggleDropdown} setIsOpen={setIsOpen} />
+                                )}
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => handleItemClick(item.path)}
+                                className="flex items-center justify-between w-full font-semibold text-lg text-left"
+                            >
+                                {item.name}
+                            </button>
                         )}
                     </div>
                 ))}
@@ -261,7 +282,8 @@ const MobileNavigation = ({
                         variant="secondary"
                         onClick={() => {
                             router.push(ctaButton.link);
-                            onItemClick();
+                            setIsOpen(false);
+                            setActiveDropdown(null);
                         }}
                         className="group active:[&_svg]:translate-x-1.5 hover:[&_svg]:translate-x-0.8"
                     >
@@ -374,8 +396,8 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
                     activeDropdown={activeDropdown}
                     toggleDropdown={toggleDropdown}
                     ctaButton={ctaButton}
-                    onItemClick={() => setIsOpen(false)}
-                    setIsOpen={() => setIsOpen}
+                    setIsOpen={setIsOpen}
+                    setActiveDropdown={setActiveDropdown}
                 />
             </div>
         </header>

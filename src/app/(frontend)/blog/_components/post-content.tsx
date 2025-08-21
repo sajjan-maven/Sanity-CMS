@@ -8,7 +8,7 @@ import TableOfContents from '@/components/portable-text/table-of-contents';
 import PortableTextEditor from '@/components/portable-text/portable-text-editor';
 import SocialMediaComponent from '@/components/ui/SocialMediaComponent';
 import AuthorDetails from '@/components/ui/AuthorDetails';
-import PostCategories from './post-categories';
+// import PostCategories from './post-categories';
 // import PostCategories from './post-categories';
 
 type Post = NonNullable<

@@ -58,6 +58,7 @@ const coreSchema = [
   integrationCategory,
   casestudies,
   integrationApplication,
+
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
@@ -152,8 +153,8 @@ import logo from "./objects/logo";
 import footerCTA from "./objects/footerCTA";
 import footerLinks from "./objects/footerLinks";
 import footerCoLinks from "./objects/footerCoLinks";
-import table from "./objects/table";
 import pricingItem from "./objects/pricing";
+import iframe from './objects/iframe';
 
 const objectSchema = [
   seoObject,
@@ -172,8 +173,8 @@ const objectSchema = [
   footerCTA,
   footerLinks,
   footerCoLinks,
-  table,
-  pricingItem
+  pricingItem,
+  iframe
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
