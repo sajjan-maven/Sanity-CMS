@@ -26,10 +26,10 @@ export default function Author({ author }: AuthorProps) {
         className='rounded-full w-[42px] h-[42px] object-cover'
       />
       <div>
-        <div className='text-base font-[500] text-gray-400'>
+        <div className='text-base font-[500] text-gray-500'>
           {author.name}
         </div>
-        <div className='text-sm text-gray-400 font-[400]'>
+        <div className='text-sm text-gray-500 font-[400]'>
           {author.position}
         </div>
       </div>

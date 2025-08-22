@@ -11,9 +11,7 @@ import AuthorDetails from '@/components/ui/AuthorDetails';
 // import PostCategories from './post-categories';
 // import PostCategories from './post-categories';
 
-type Post = NonNullable<
-  NonNullable<PostBySlugQueryResult>
->;
+type Post = NonNullable<NonNullable<PostBySlugQueryResult>>
 
 interface PostGridProps {
   post: Post;
@@ -25,6 +23,10 @@ export default function PostContent({ post }: PostGridProps) {
     title,
     slug,
     _createdAt,
+    publishedAt,
+    isModified,
+    modifiedAt,
+    readTime,
     category,
     author,
     content,
@@ -46,7 +48,7 @@ export default function PostContent({ post }: PostGridProps) {
         <p className='text-gray-600 text-lg max-w-3xl'>
           {excerpt}
         </p>
-        <Date date={_createdAt} />
+        <Date publishedAt={publishedAt || _createdAt} isModified={!!isModified} modifiedAt={modifiedAt || undefined} readTime={readTime} />
         <div className="pt-4 flex flex-wrap justify-between items-center">
           <Author author={author} />
           <div className="hidden md:block lg:w-full lg:max-w-[300px] mr-0 ml-auto pt-2 pl-1.5 pr-2">
