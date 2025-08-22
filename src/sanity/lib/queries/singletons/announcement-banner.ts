@@ -15,3 +15,11 @@ export const announcementBannerQuery = defineQuery(`*[_type == "announcementBann
     link
   }
 `);
+
+export const announcementBarSettingsQuery = defineQuery(`*[_type == "announcementBarSettings"][0] {
+    excludedRoutes[] {
+        path,
+        note
+    }
+  }
+`);

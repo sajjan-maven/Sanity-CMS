@@ -8,7 +8,8 @@ import { usePathname } from 'next/navigation';
 interface ClientLayoutProps {
   children: React.ReactNode;
   navbarSettings: any;
-  announcementBannerSettings: any
+  announcementBannerSettings: any;
+  announcementBarSettings: any;
   footerCTA: any;
   footerLinks: any;
   footerCoLinks: any;
@@ -30,6 +31,7 @@ export default function ClientLayout({
   children,
   navbarSettings,
   announcementBannerSettings,
+  announcementBarSettings,
   footerCTA,
   footerLinks,
   footerCoLinks,
@@ -43,6 +45,7 @@ export default function ClientLayout({
       <Navbar
         // settings={settings}
         announcementBannerSettings={announcementBannerSettings}
+        announcementBarSettings={announcementBarSettings}
         navbarSetting={navbarSettings}
       />
       <main>

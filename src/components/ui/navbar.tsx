@@ -23,6 +23,30 @@ interface MenuItem {
     path?: string;
 }
 
+interface RouteExclusion {
+    path: string;
+    note?: string;
+}
+
+interface AnnouncementBannerSettings {
+    icon: {
+        asset?: {
+            url?: string;
+        };
+    };
+    show: boolean;
+    text: string;
+    link: string;
+    linkText: string;
+    backgroundColor: any;
+    textColor: any;
+    linkColor: any;
+}
+
+interface AnnouncementBarSettings {
+    excludedRoutes?: RouteExclusion[];
+}
+
 // Dropdown Content Component
 const DropdownContent = ({ items, toggleDropdown, setIsOpen }: { items: { title: string; description: string; path: string }[], toggleDropdown: any, setIsOpen: () => void }) => {
     const router = useRouter();
@@ -297,17 +321,41 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: any }) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announcementBarSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, announcementBarSettings: AnnouncementBarSettings }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const [showNotification, setShowNotification] = useState(true);
     const router = useRouter();
+    const pathname = usePathname();
     const headerRef = useRef<HTMLDivElement>(null);
+
+    const { logo, menuItems, ctaButton } = navbarSetting;
+    const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
+
+    // Check if current path is in excluded routes from announcement bar settings
+    const isPathExcluded = () => {
+        if (!announcementBarSettings?.excludedRoutes) return false;
+        
+        return announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
+            const excludedPath = exclusion.path;
+            if (!excludedPath) return false;
+            
+            // Exact match (e.g., /about matches /about)
+            if (pathname === excludedPath) return true;
+            
+            // Check if current path starts with excluded path (for nested routes)
+            // e.g., /blog/post-1 matches /blog
+            if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
+            
+            return false;
+        });
+    };
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > (showNotification ? 32 : 0));
+            const shouldShowBanner = show && showNotification && !isPathExcluded();
+            setIsScrolled(window.scrollY > (shouldShowBanner ? 32 : 0));
         };
 
         const handleClickOutside = (event: MouseEvent) => {
@@ -323,7 +371,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
             window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [showNotification]);
+    }, [showNotification, pathname, show]);
 
     const handleDropdownItemClick = (path: string) => {
         router.push(path);
@@ -335,12 +383,9 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
         setActiveDropdown(activeDropdown === index ? null : index);
     };
 
-    const { logo, menuItems, ctaButton } = navbarSetting;
-    const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings
-
     return (
         <header className="sticky z-[999] top-0 inset-x-0">
-            {show && showNotification && (
+            {show && showNotification && !isPathExcluded() && (
                 <NotificationBanner
                     icon={icon}
                     text={text}
