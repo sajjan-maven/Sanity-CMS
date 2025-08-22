@@ -28,10 +28,13 @@ export default function PostContent({ post }: PostGridProps) {
     category,
     author,
     content,
+    faqs,
     tableOfContents,
     excerpt,
     settings
   } = post;
+
+  const [open, setOpen] = React.useState<number | null>(0)
 
   return (
     <main>
@@ -54,6 +57,29 @@ export default function PostContent({ post }: PostGridProps) {
       <div className="lg:grid lg:grid-cols-[1fr_300px] w-full gap-8">
         <article className="w-full lg:max-w-[718px] mt-3">
           <PortableTextEditor data={content} classNames='blogContent' />
+          {faqs?.length ? (
+            <section className="mt-10">
+              <h2 className="text-2xl font-semibold mb-4">Frequently asked questions</h2>
+              <ul className="divide-y divide-gray-200">
+                {faqs.map((f: any, i: number) => (
+                  <li key={i} className="py-4">
+                    <button
+                      className="w-full flex items-start justify-between text-left"
+                      onClick={() => setOpen(open === i ? null : i)}
+                    >
+                      <span className="text-lg font-medium">{f.question}</span>
+                      <span className="text-2xl leading-none">{open === i ? '–' : '+'}</span>
+                    </button>
+                    {open === i && (
+                      <div className="mt-3 text-gray-600">
+                        <PortableTextEditor data={f.answer || []} />
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
           <AuthorDetails author={author} />
         </article>
         <aside className='hidden lg:block'>

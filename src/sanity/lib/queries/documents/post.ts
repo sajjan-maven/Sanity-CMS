@@ -84,6 +84,10 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
   excerpt,
   "tableOfContents": content[style in ["h2"]],
   content[],
+  faqs[] {
+    question,
+    answer
+  },
   category->{
     _id,
     title,

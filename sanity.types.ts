@@ -13,13 +13,34 @@
  */
 
 // Source: schema.json
-export type Table = {
-  _type: "table";
-  callToActionTitle?: string;
-  callToActionParagraph?: string;
-  buttons?: Array<{
+export type Faq = {
+  _type: "faq";
+  question?: string;
+  answer?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
     _key: string;
-  } & ButtonObject>;
+  }>;
+};
+
+export type Iframe = {
+  _type: "iframe";
+  url?: string;
+  title?: string;
+  height?: number;
 };
 
 export type AnnouncementBanner = {
@@ -99,7 +120,6 @@ export type SingleImageObject = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
-    aspectRatio?: "square" | "rectangle" | "portrait";
     _type: "image";
   };
 };
@@ -1458,7 +1478,26 @@ export type PrivacyPage = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    _key: string;
+  } & Table>;
   pageBuilder?: PageBuilder;
   seo?: SeoObject;
 };
@@ -1470,7 +1509,26 @@ export type TermsPage = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    _key: string;
+  } & Table>;
   pageBuilder?: PageBuilder;
   seo?: SeoObject;
 };
@@ -1482,7 +1540,8 @@ export type HomePage = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
+  clickthrough?: string;
+  emailCapture?: string;
   pageBuilder?: PageBuilder;
   seo?: SeoObject;
 };
@@ -2296,7 +2355,9 @@ export type Post = {
   };
   excerpt?: string;
   publishedAt?: string;
+  isModified?: boolean;
   modifiedAt?: string;
+  readTime?: string;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -2322,6 +2383,8 @@ export type Post = {
     _key: string;
   } & VideoObject | {
     _key: string;
+  } & Iframe | {
+    _key: string;
   } & Table>;
   image?: {
     asset?: {
@@ -2334,9 +2397,11 @@ export type Post = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     altText?: string;
-    caption?: string;
     _type: "image";
   };
+  faqs?: Array<{
+    _key: string;
+  } & Faq>;
   relatedPostsType?: "autofill" | "custom";
   customRelatedPosts?: Array<{
     _ref: string;
@@ -2444,6 +2509,18 @@ export type MediaTag = {
   _updatedAt: string;
   _rev: string;
   name?: Slug;
+};
+
+export type Table = {
+  _type: "table";
+  rows?: Array<{
+    _key: string;
+  } & TableRow>;
+};
+
+export type TableRow = {
+  _type: "tableRow";
+  cells?: Array<string>;
 };
 
 export type Color = {
@@ -2597,7 +2674,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Table | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | AnnouncementBarSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | AnnouncementBarSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/page.ts
 // Variable: pageSlugsQuery
@@ -3250,7 +3327,7 @@ export type PageBySlugQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -4680,7 +4757,7 @@ export type BlogPageQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -5447,7 +5524,7 @@ export type BlogPageQueryResult = {
   };
 } | null;
 // Variable: postBySlugQuery
-// Query: *[_type == 'post' && slug.current == $slug][0] {  _id,  _type,  _createdAt,  title,  'slug': slug.current,  excerpt,  "tableOfContents": content[style in ["h2"]],  content[],  category->{    _id,    title,    'slug': slug.current,  },  author->{    _id,    name,    slug,    position,    bio,    avatar {       asset->{ url },     },    socials[] {      platform,      url,      customIcon {        asset->{ url },      },    }  },  relatedPostsType,  "relatedPosts": select(    relatedPostsType == "custom" => customRelatedPosts[]->{       _id,      _type,      _createdAt,      title,      'slug': slug.current,      excerpt,      category->{        _id,        title,        'slug': slug.current,      },      image {         asset->{ url },         altText       }    },    relatedPostsType == "autofill" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{       _id,      _type,      _createdAt,      title,      'slug': slug.current,      category->{        _id,        title,        'slug': slug.current,      },      excerpt,      image {         asset->{ url },         altText       }    },  ),  "settings": *[_type == "blogSettings"][0] {    showRelatedPosts,    showTableOfContents,    showPostsByCategory  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'post' && slug.current == $slug][0] {  _id,  _type,  _createdAt,  title,  'slug': slug.current,  excerpt,  "tableOfContents": content[style in ["h2"]],  content[],  faqs[] {    question,    answer  },  category->{    _id,    title,    'slug': slug.current,  },  author->{    _id,    name,    slug,    position,    bio,    avatar {       asset->{ url },     },    socials[] {      platform,      url,      customIcon {        asset->{ url },      },    }  },  relatedPostsType,  "relatedPosts": select(    relatedPostsType == "custom" => customRelatedPosts[]->{       _id,      _type,      _createdAt,      title,      'slug': slug.current,      excerpt,      category->{        _id,        title,        'slug': slug.current,      },      image {         asset->{ url },         altText       }    },    relatedPostsType == "autofill" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{       _id,      _type,      _createdAt,      title,      'slug': slug.current,      category->{        _id,        title,        'slug': slug.current,      },      excerpt,      image {         asset->{ url },         altText       }    },  ),  "settings": *[_type == "blogSettings"][0] {    showRelatedPosts,    showTableOfContents,    showPostsByCategory  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type PostBySlugQueryResult = {
   _id: string;
   _type: "post";
@@ -5477,6 +5554,8 @@ export type PostBySlugQueryResult = {
     _key: string;
   } & CallToActionObject | {
     _key: string;
+  } & Iframe | {
+    _key: string;
   } & SingleImageObject | {
     _key: string;
   } & Table | {
@@ -5498,6 +5577,27 @@ export type PostBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
+  }> | null;
+  faqs: Array<{
+    question: string | null;
+    answer: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
   }> | null;
   category: {
     _id: string;
@@ -5623,6 +5723,1411 @@ export type PostCategoryBySlugQueryResult = {
   _type: "postCategory";
   title: string | null;
   slug: string | null;
+} | null;
+
+// Source: ./src/sanity/lib/queries/documents/privacy.ts
+// Variable: privacyPageQuery
+// Query: *[_type == 'privacyPage'][0] {	_id,	_type,	title,	content[],	  pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },	"seo": {		"title": coalesce(seo.title, title, ""),		"description": coalesce(seo.description,  ""),		"noIndex": seo.noIndex == true,		"image": seo.image,	},}
+export type PrivacyPageQueryResult = {
+  _id: string;
+  _type: "privacyPage";
+  title: string | null;
+  content: Array<{
+    _key: string;
+  } & Table | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  pageBuilder: Array<{
+    _id: null;
+    _key: string;
+    _type: "accordionAndImageBlock";
+    title: null;
+    sectionTitle: string | null;
+    description: string | null;
+    spacing: null;
+    image: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    features: Array<{
+      title: string | null;
+      description: Array<string> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "avatarWithDetails";
+    sectionTitle: string | null;
+    spacing: null;
+    avatarList: Array<{
+      name: string | null;
+      title: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      bio: string | null;
+      socialLinks: Array<{
+        name: string | null;
+        url: string | null;
+        icon: {
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "caseStudyGridBlock";
+    title: string | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    hasFeaturedCard: boolean | null;
+    featuredCaseStudy: {
+      company: string | null;
+      description: string | null;
+      link: string | null;
+      buttonText: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      logo: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    caseStudies: Array<{
+      company: string | null;
+      description: string | null;
+      link: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      logo: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "clickthroughTopicBlock";
+    useCases: Array<{
+      title: string | null;
+      description: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      embedUrl: string | null;
+    }> | null;
+    sectionBackgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "comparisonTableBlock";
+    title: string | null;
+    leftColumn: {
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+      } | null;
+    } | null;
+    rightColumn: {
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    } | null;
+    rows: Array<{
+      leftText: string | null;
+      rightText: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuredTestimonialBlock";
+    quote: string | null;
+    author: {
+      name: string | null;
+      position: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+    } | null;
+    quoteIcon: {
+      asset: {
+        url: string | null;
+      } | null;
+      alt: string | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "frequentlyAskedQuestionBlock";
+    title: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroSectionBlock";
+    title: string | null;
+    titleWidth: number | null;
+    description: string | null;
+    descriptionWidth: number | null;
+    showButton: boolean | null;
+    button: {
+      text: string | null;
+      link: string | null;
+      variant: "outline" | "primary" | "secondary" | null;
+      buttonBelowSpacing: number | null;
+    } | null;
+    showImage: boolean | null;
+    image: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: SanityImageDimensions | null;
+        } | null;
+      } | null;
+      height: number | null;
+      width: number | null;
+    } | null;
+    modifySpacing: boolean | null;
+    spacing: {
+      topSpacing: number | null;
+      bottomSpacing: number | null;
+      titleBelowSpacing: number | null;
+      descriptionBelowSpacing: number | null;
+      imageBelowSpacing: number | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconBlock";
+    title: string | null;
+    icons: Array<{
+      logo: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      width: number | null;
+      height: number | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconHighlightBlock";
+    title: string | null;
+    cards: Array<{
+      text: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconListBlock";
+    heading: string | null;
+    features: Array<{
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconListTwoColumnBlock";
+    heading: string | null;
+    features: Array<{
+      title: string | null;
+      description: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "itToolsCardBlock";
+    title: string | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    tools: Array<{
+      label: string | null;
+      title: string | null;
+      description: string | null;
+      url: string | null;
+      comingSoon: boolean | null;
+      buttonText: string | null;
+      labelBackground: {
+        value: string | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "joinOurNewsletterBlock";
+    title: string | null;
+    description: string | null;
+    placeholder: string | null;
+    buttonText: string | null;
+    successMessage: string | null;
+    processingText: string | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+    successBorderColor: {
+      value: string | null;
+    } | null;
+    successTextColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "mediaBlock";
+    backgroundType: "image" | "video" | null;
+    backgroundWidth: "contained" | "full" | null;
+    image: {
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    overlayType: "dark" | "none" | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "pngImageBlock";
+    hasFeaturedCard: boolean | null;
+    featuredCard: {
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      title: string | null;
+      description: string | null;
+      bgColor: {
+        value: string | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      title: string | null;
+      description: string | null;
+      bgColor: {
+        value: string | null;
+      } | null;
+    }> | null;
+    sectionBgColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "portableTextBlock";
+    title: string | null;
+    content: Array<{
+      _key: string;
+    } & CallToActionObject | {
+      _key: string;
+    } & Table | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    alignment: "center" | "left" | "right" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "pricingBlock";
+    title: string | null;
+    pricingBlockReference: {
+      _id: string;
+      freePilotCard: {
+        title: string | null;
+        subtitle: string | null;
+        features: Array<string> | null;
+        buttonText: string | null;
+        buttonLink: string | null;
+      } | null;
+      afterPilotCard: {
+        title: string | null;
+        price: string | null;
+        priceUnit: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "simpleCardBlock";
+    title: string | null;
+    cards: Array<{
+      title: string | null;
+      description: string | null;
+      image: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "socialReviewBlock";
+    title: string | null;
+    background: {
+      color: {
+        value: string | null;
+      } | null;
+      gradient: boolean | null;
+    } | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    avatarImage: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    comments: Array<{
+      username: string | null;
+      content: string | null;
+      width: "md:w-1/3" | "md:w-2/3" | "w-full" | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "stepProcessBlock";
+    heading: string | null;
+    subheading: string | null;
+    steps: Array<{
+      number: number | null;
+      title: string | null;
+      description: string | null;
+      badgeColor: {
+        value: string | null;
+      } | null;
+      image: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        width: number | null;
+        height: number | null;
+      } | null;
+    }> | null;
+    borderColor: {
+      value: string | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "stepRightImageBlock";
+    title: string | null;
+    steps: Array<{
+      number: string | null;
+      title: string | null;
+    }> | null;
+    footnote: string | null;
+    image: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: SanityImageDimensions | null;
+        } | null;
+      } | null;
+      alt: string | null;
+    } | null;
+    badgeColor: {
+      value: string | null;
+    } | null;
+    backgroundGradient: {
+      topColor: {
+        value: string | null;
+      } | null;
+      bottomColor: {
+        value: string | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialCarouselBlock";
+    title: string | null;
+    testimonials: Array<{
+      text: string | null;
+      author: string | null;
+      position: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      companyLogo: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+      } | null;
+    }> | null;
+  }> | null;
+  seo: {
+    title: string | "";
+    description: string | "";
+    noIndex: boolean | false;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  };
 } | null;
 
 // Source: ./src/sanity/lib/queries/documents/project.ts
@@ -6276,7 +7781,7 @@ export type ProjectsPageQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -7653,7 +9158,7 @@ export type ProjectsPageQueryResult = {
           _key: string;
           _type: "singleImageObject";
           image: {
-            aspectRatio: "portrait" | "rectangle" | "square" | null;
+            aspectRatio: null;
             asset: {
               _ref: null;
               _type: "sanity.imageAsset";
@@ -9056,7 +10561,7 @@ export type ProjectBySlugQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -10453,7 +11958,7 @@ export type AllProjectsQueryResult = Array<{
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -11842,7 +13347,7 @@ export type ProjectsByCategoryQueryResult = Array<{
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -13226,7 +14731,7 @@ export type ServiceBySlugQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -14609,7 +16114,7 @@ export type AllServicesQueryResult = Array<{
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -15976,7 +17481,1412 @@ export type ServicesPageQueryResult = {
         _key: string;
         _type: "singleImageObject";
         image: {
-          aspectRatio: "portrait" | "rectangle" | "square" | null;
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "frequentlyAskedQuestionBlock";
+    title: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroSectionBlock";
+    title: string | null;
+    titleWidth: number | null;
+    description: string | null;
+    descriptionWidth: number | null;
+    showButton: boolean | null;
+    button: {
+      text: string | null;
+      link: string | null;
+      variant: "outline" | "primary" | "secondary" | null;
+      buttonBelowSpacing: number | null;
+    } | null;
+    showImage: boolean | null;
+    image: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: SanityImageDimensions | null;
+        } | null;
+      } | null;
+      height: number | null;
+      width: number | null;
+    } | null;
+    modifySpacing: boolean | null;
+    spacing: {
+      topSpacing: number | null;
+      bottomSpacing: number | null;
+      titleBelowSpacing: number | null;
+      descriptionBelowSpacing: number | null;
+      imageBelowSpacing: number | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconBlock";
+    title: string | null;
+    icons: Array<{
+      logo: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      width: number | null;
+      height: number | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconHighlightBlock";
+    title: string | null;
+    cards: Array<{
+      text: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconListBlock";
+    heading: string | null;
+    features: Array<{
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "iconListTwoColumnBlock";
+    heading: string | null;
+    features: Array<{
+      title: string | null;
+      description: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "itToolsCardBlock";
+    title: string | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    tools: Array<{
+      label: string | null;
+      title: string | null;
+      description: string | null;
+      url: string | null;
+      comingSoon: boolean | null;
+      buttonText: string | null;
+      labelBackground: {
+        value: string | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "joinOurNewsletterBlock";
+    title: string | null;
+    description: string | null;
+    placeholder: string | null;
+    buttonText: string | null;
+    successMessage: string | null;
+    processingText: string | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+    successBorderColor: {
+      value: string | null;
+    } | null;
+    successTextColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "mediaBlock";
+    backgroundType: "image" | "video" | null;
+    backgroundWidth: "contained" | "full" | null;
+    image: {
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    overlayType: "dark" | "none" | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "pngImageBlock";
+    hasFeaturedCard: boolean | null;
+    featuredCard: {
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      title: string | null;
+      description: string | null;
+      bgColor: {
+        value: string | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      altText: string | null;
+      title: string | null;
+      description: string | null;
+      bgColor: {
+        value: string | null;
+      } | null;
+    }> | null;
+    sectionBgColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "portableTextBlock";
+    title: string | null;
+    content: Array<{
+      _key: string;
+    } & CallToActionObject | {
+      _key: string;
+    } & Table | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    alignment: "center" | "left" | "right" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "pricingBlock";
+    title: string | null;
+    pricingBlockReference: {
+      _id: string;
+      freePilotCard: {
+        title: string | null;
+        subtitle: string | null;
+        features: Array<string> | null;
+        buttonText: string | null;
+        buttonLink: string | null;
+      } | null;
+      afterPilotCard: {
+        title: string | null;
+        price: string | null;
+        priceUnit: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "simpleCardBlock";
+    title: string | null;
+    cards: Array<{
+      title: string | null;
+      description: string | null;
+      image: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "socialReviewBlock";
+    title: string | null;
+    background: {
+      color: {
+        value: string | null;
+      } | null;
+      gradient: boolean | null;
+    } | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    avatarImage: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    comments: Array<{
+      username: string | null;
+      content: string | null;
+      width: "md:w-1/3" | "md:w-2/3" | "w-full" | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "stepProcessBlock";
+    heading: string | null;
+    subheading: string | null;
+    steps: Array<{
+      number: number | null;
+      title: string | null;
+      description: string | null;
+      badgeColor: {
+        value: string | null;
+      } | null;
+      image: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        width: number | null;
+        height: number | null;
+      } | null;
+    }> | null;
+    borderColor: {
+      value: string | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "stepRightImageBlock";
+    title: string | null;
+    steps: Array<{
+      number: string | null;
+      title: string | null;
+    }> | null;
+    footnote: string | null;
+    image: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: SanityImageDimensions | null;
+        } | null;
+      } | null;
+      alt: string | null;
+    } | null;
+    badgeColor: {
+      value: string | null;
+    } | null;
+    backgroundGradient: {
+      topColor: {
+        value: string | null;
+      } | null;
+      bottomColor: {
+        value: string | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialCarouselBlock";
+    title: string | null;
+    testimonials: Array<{
+      text: string | null;
+      author: string | null;
+      position: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      companyLogo: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+      } | null;
+    }> | null;
+  }> | null;
+  seo: {
+    title: string | "";
+    description: string | "";
+    noIndex: boolean | false;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  };
+} | null;
+
+// Source: ./src/sanity/lib/queries/documents/terms.ts
+// Variable: termsPageQuery
+// Query: *[_type == 'termsPage'][0] {	_id,	_type,	title,	content[],	  pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },	"seo": {		"title": coalesce(seo.title, title, ""),		"description": coalesce(seo.description,  ""),		"noIndex": seo.noIndex == true,		"image": seo.image,	},}
+export type TermsPageQueryResult = {
+  _id: string;
+  _type: "termsPage";
+  title: string | null;
+  content: Array<{
+    _key: string;
+  } & Table | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  pageBuilder: Array<{
+    _id: null;
+    _key: string;
+    _type: "accordionAndImageBlock";
+    title: null;
+    sectionTitle: string | null;
+    description: string | null;
+    spacing: null;
+    image: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    features: Array<{
+      title: string | null;
+      description: Array<string> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "avatarWithDetails";
+    sectionTitle: string | null;
+    spacing: null;
+    avatarList: Array<{
+      name: string | null;
+      title: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      bio: string | null;
+      socialLinks: Array<{
+        name: string | null;
+        url: string | null;
+        icon: {
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "caseStudyGridBlock";
+    title: string | null;
+    spacing: {
+      top: number | null;
+      bottom: number | null;
+    } | null;
+    hasFeaturedCard: boolean | null;
+    featuredCaseStudy: {
+      company: string | null;
+      description: string | null;
+      link: string | null;
+      buttonText: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      logo: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    caseStudies: Array<{
+      company: string | null;
+      description: string | null;
+      link: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      logo: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "clickthroughTopicBlock";
+    useCases: Array<{
+      title: string | null;
+      description: string | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+      embedUrl: string | null;
+    }> | null;
+    sectionBackgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "comparisonTableBlock";
+    title: string | null;
+    leftColumn: {
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+      } | null;
+    } | null;
+    rightColumn: {
+      title: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+        alt: string | null;
+      } | null;
+      backgroundColor: {
+        value: string | null;
+      } | null;
+    } | null;
+    rows: Array<{
+      leftText: string | null;
+      rightText: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuredTestimonialBlock";
+    quote: string | null;
+    author: {
+      name: string | null;
+      position: string | null;
+      avatar: {
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        alt: string | null;
+      } | null;
+    } | null;
+    quoteIcon: {
+      asset: {
+        url: string | null;
+      } | null;
+      alt: string | null;
+    } | null;
+    backgroundColor: {
+      value: string | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
           asset: {
             _ref: null;
             _type: "sanity.imageAsset";
@@ -16765,6 +19675,14 @@ export type AnnouncementBannerQueryResult = {
   linkText: string | null;
   link: string | null;
 } | null;
+// Variable: announcementBarSettingsQuery
+// Query: *[_type == "announcementBarSettings"][0] {    excludedRoutes[] {        path,        note    }  }
+export type AnnouncementBarSettingsQueryResult = {
+  excludedRoutes: Array<{
+    path: string | null;
+    note: string | null;
+  }> | null;
+} | null;
 
 // Source: ./src/sanity/lib/queries/singletons/footer-co-links.ts
 // Variable: footerCoLinksQuery
@@ -17093,9 +20011,15 @@ export type AnnouncementbarSettingsQueryResult = {
   }> | null;
 } | null;
 // Variable: navbarFooterSettingsQuery
-// Query: *[_type == "navbarFooterSettings"][0] {  excludedRoutes[] {    path,    note  }}
+// Query: *[_type == "navbarFooterSettings"][0] {  excludedRoutes[] {    path,    excludeNavbar,    excludeFooter,    note  },  footerCTAexcludedRoutes[] {    path,    note  }}
 export type NavbarFooterSettingsQueryResult = {
   excludedRoutes: Array<{
+    path: string | null;
+    excludeNavbar: boolean | null;
+    excludeFooter: boolean | null;
+    note: string | null;
+  }> | null;
+  footerCTAexcludedRoutes: Array<{
     path: string | null;
     note: string | null;
   }> | null;
@@ -17122,11 +20046,12 @@ declare module "@sanity/client" {
     "*[_type == 'page' && slug.current == $slug][0] {\n  _type,\n  _id,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PageBySlugQueryResult;
     "*[_type == \"post\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": PostSlugsQueryResult;
     "*[_type == 'blogPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  heroText,\n  featuredBlog->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  editorsPicks[]->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"posts\": *[_type == 'post'] | order(publishedAt desc) {\n    _id,\n    _type,\n    _createdAt,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \"categories\": *[_type == \"postCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": BlogPageQueryResult;
-    "*[_type == 'post' && slug.current == $slug][0] {\n  _id,\n  _type,\n  _createdAt,\n  title,\n  'slug': slug.current,\n  excerpt,\n  \"tableOfContents\": content[style in [\"h2\"]],\n  content[],\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    position,\n    bio,\n    avatar { \n      asset->{ url }, \n    },\n    socials[] {\n      platform,\n      url,\n      customIcon {\n        asset->{ url },\n      },\n    }\n  },\n  relatedPostsType,\n  \"relatedPosts\": select(\n    relatedPostsType == \"custom\" => customRelatedPosts[]->{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      excerpt,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n    relatedPostsType == \"autofill\" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      excerpt,\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n  ),\n  \"settings\": *[_type == \"blogSettings\"][0] {\n    showRelatedPosts,\n    showTableOfContents,\n    showPostsByCategory\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PostBySlugQueryResult;
+    "*[_type == 'post' && slug.current == $slug][0] {\n  _id,\n  _type,\n  _createdAt,\n  title,\n  'slug': slug.current,\n  excerpt,\n  \"tableOfContents\": content[style in [\"h2\"]],\n  content[],\n  faqs[] {\n    question,\n    answer\n  },\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    position,\n    bio,\n    avatar { \n      asset->{ url }, \n    },\n    socials[] {\n      platform,\n      url,\n      customIcon {\n        asset->{ url },\n      },\n    }\n  },\n  relatedPostsType,\n  \"relatedPosts\": select(\n    relatedPostsType == \"custom\" => customRelatedPosts[]->{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      excerpt,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n    relatedPostsType == \"autofill\" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      excerpt,\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n  ),\n  \"settings\": *[_type == \"blogSettings\"][0] {\n    showRelatedPosts,\n    showTableOfContents,\n    showPostsByCategory\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PostBySlugQueryResult;
     "*[_type == 'post'] | order(_createdAt asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    altText \n  },\n}": AllPostsQueryResult;
     "*[_type == 'postCategory'] | order(orderRank asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": AllPostCategoriesQueryResult;
     "*[_type == 'post' && category->slug.current == $slug] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    altText \n  },\n}": PostsByCategoryQueryResult;
     "*[_type == 'postCategory' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": PostCategoryBySlugQueryResult;
+    "*[_type == 'privacyPage'][0] {\n\t_id,\n\t_type,\n\ttitle,\n\tcontent[],\n\t\n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n\t\"seo\": {\n\t\t\"title\": coalesce(seo.title, title, \"\"),\n\t\t\"description\": coalesce(seo.description,  \"\"),\n\t\t\"noIndex\": seo.noIndex == true,\n\t\t\"image\": seo.image,\n\t},\n}": PrivacyPageQueryResult;
     "*[_type == \"project\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": ProjectSlugsQueryResult;
     "*[_type == 'projectsPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"projects\": *[_type == \"project\"] | order(_createdAt asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      height,\n      altText \n    },\n    \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  },\n  \"categories\": *[_type == \"projectCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ProjectsPageQueryResult;
     "*[_type == \"project\" && defined(slug.current)][] {\n  'params': { 'slug': slug.current }\n}": ProjectPathsQueryResult;
@@ -17139,9 +20064,11 @@ declare module "@sanity/client" {
     "*[_type == 'service' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServiceBySlugQueryResult;
     "*[_type == 'service'] {\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n}": AllServicesQueryResult;
     "*[_type == 'servicesPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServicesPageQueryResult;
+    "*[_type == 'termsPage'][0] {\n\t_id,\n\t_type,\n\ttitle,\n\tcontent[],\n\t\n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n\t\"seo\": {\n\t\t\"title\": coalesce(seo.title, title, \"\"),\n\t\t\"description\": coalesce(seo.description,  \"\"),\n\t\t\"noIndex\": seo.noIndex == true,\n\t\t\"image\": seo.image,\n\t},\n}": TermsPageQueryResult;
     "\n  *[_type in [\"page\", \"post\", \"project\", \"service\", \"blogPage\", \"projectsPage\", \"servicesPage\"] && defined(slug.current)] {\n    \"href\": select(\n      _type == \"page\" => \"/\" + slug.current,\n      _type == \"post\" => \"/blog/\" + slug.current,\n      _type == \"blogPage\" => \"/blog\",\n      _type == \"project\" => \"/projects/\" + slug.current,\n      _type == \"projectsPage\" => \"/projects\",\n      _type == \"service\" => \"/services/\" + slug.current,\n      _type == \"servicesPage\" => \"/services\",\n      slug.current\n    ),\n    _updatedAt\n  }\n": SitemapQueryResult;
     "\n  *[_type == \"redirect\" && isEnabled == true] {\n      source,\n      destination,\n      permanent\n  }\n": RedirectsQueryResult;
     "*[_type == \"announcementBanner\"][0] {\n    show,\n    backgroundColor { value },\n    textColor { value },\n    linkColor { value },\n    icon {\n        asset->{\n            url,\n        }\n    },\n    text,\n    linkText,\n    link\n  }\n": AnnouncementBannerQueryResult;
+    "*[_type == \"announcementBarSettings\"][0] {\n    excludedRoutes[] {\n        path,\n        note\n    }\n  }\n": AnnouncementBarSettingsQueryResult;
     "*[_type == \"footer\"][0] {\n  footerCoLinks {\n    companyNameMark {\n      asset->{\n        url,\n      }\n    },\n    copyright,\n    coLinks[] {\n      label,\n      url\n    },\n    businessEmail,\n  }\n}": FooterCoLinksQueryResult;
     "*[_type == \"footer\"][0] {\n  footerCTA {\n    title,\n    description,\n    ctaButton {\n      text,\n      link,\n      variant\n    },\n    desktopImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    },\n    mobileImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    }\n  }\n}": FooterCTAQueryResult;
     "*[_type == \"footer\"][0] {\n  footerLinks {\n    companyLogo {\n      asset->{\n        url,\n      }\n    },\n    backedBy {\n      asset->{\n        url,\n      }\n    },\n    socialLinks[] {\n      platform,\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    certifications[] {\n      label,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    reviewBadges[] {\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    platform[] {\n      label,\n      url,\n      badge\n    },\n    resources[] {\n      label,\n      url,\n      badge\n    },\n    companys[] {\n      label,\n      url,\n      badge\n    },\n    getStarted[] {\n      label,\n      url,\n      badge\n    },\n    freeTools[] {\n      label,\n      url,\n      badge\n    },\n    customers[] {\n      label,\n      url,\n      badge\n    },\n    popularGuides[] {\n      label,\n      url,\n      badge\n    }\n  }\n}": FooterLinksQueryResult;
@@ -17149,7 +20076,7 @@ declare module "@sanity/client" {
     "\n  *[_id == $id][0]{\n    title,\n  }    \n": OgImageQueryResult;
     "*[_type == 'generalSettings'][0] {\n  siteTitle,\n  siteLogo { \n    asset->{ url },\n  },\n  copyright,\n  homePage->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description,  \"\"),\n      \"noIndex\": seo.noIndex == true,\n      \"image\": seo.image,\n    },\n  },\n}": GeneralSettingsQueryResult;
     "*[_type == \"announcementBarSettings\"][0] {\n  excludedRoutes[] {\n    path,\n    note\n  }\n}": AnnouncementbarSettingsQueryResult;
-    "*[_type == \"navbarFooterSettings\"][0] {\n  excludedRoutes[] {\n    path,\n    note\n  }\n}": NavbarFooterSettingsQueryResult;
+    "*[_type == \"navbarFooterSettings\"][0] {\n  excludedRoutes[] {\n    path,\n    excludeNavbar,\n    excludeFooter,\n    note\n  },\n  footerCTAexcludedRoutes[] {\n    path,\n    note\n  }\n}": NavbarFooterSettingsQueryResult;
     "*[_type == 'marketingSettings'][0] {\n  googleAnalyticsId,\n  googleTagManagerId,\n}": MarketingSettingsQueryResult;
     "*[_type == 'blogSettings'][0] {\n  showRelatedPosts,\n  showTableOfContents,\n  showPostsByCategory\n}": BlogSettingsQueryResult;
   }

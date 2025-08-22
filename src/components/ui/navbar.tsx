@@ -149,68 +149,72 @@ const DesktopNavigation = ({
     activeDropdown,
     toggleDropdown,
     ctaButton,
+    shouldHideNavbarMenu,
 }: {
     menuItems: MenuItem[];
     activeDropdown: number | null;
     toggleDropdown: (index: number) => void;
     ctaButton: { text: string; link: string, variant: 'primary' | 'secondary' | 'danger' | 'outline' };
+    shouldHideNavbarMenu: boolean;
 }) => {
     const router = useRouter();
 
     return (
-        <nav className="hidden lg:flex justify-between w-full">
-            <ul className="relative flex items-center lg:right-[35px] xl:right-0 lg:gap-2 xl:gap-6 lg:px-2 xl:px-0">
-                {menuItems.map((item, index) => (
-                    <li key={index} className="relative group">
-                        {item.hasDropdown ? (
-                            <>
-                                <button
-                                    onClick={() => toggleDropdown(index)}
-                                    className="flex items-center gap-1 cursor-pointer font-medium text-[#363338] hover:text-gray-600 focus:outline-none py-2"
+        <nav className={`hidden lg:flex justify-between ${shouldHideNavbarMenu ? 'w-fit' : 'w-full'}`}>
+            {!shouldHideNavbarMenu && (
+                <ul className="relative flex items-center lg:right-[35px] xl:right-0 lg:gap-2 xl:gap-6 lg:px-2 xl:px-0">
+                    {menuItems.map((item, index) => (
+                        <li key={index} className="relative group">
+                            {item.hasDropdown ? (
+                                <>
+                                    <button
+                                        onClick={() => toggleDropdown(index)}
+                                        className="flex items-center gap-1 cursor-pointer font-medium text-[#363338] hover:text-gray-600 focus:outline-none py-2"
+                                    >
+                                        {item.name}
+                                        <svg
+                                            className={`w-4 h-4 ml-1 transition-transform ${activeDropdown === index ? "rotate-180" : ""
+                                                }`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M19 9l-7 7-7-7"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    <div
+                                        className={`absolute top-full left-0 mt-2 transition-all duration-200 ease-in-out z-50 ${activeDropdown === index
+                                            ? "opacity-100 visible translate-y-1"
+                                            : "opacity-0 invisible -translate-y-1"
+                                            }`}
+                                    >
+                                        {item.dropdownItems && (
+                                            <DropdownContent
+                                                items={item.dropdownItems}
+                                                toggleDropdown={toggleDropdown}
+                                                setIsOpen={() => { }} // Provide a no-op function to satisfy required prop
+                                            />
+                                        )}
+                                    </div>
+                                </>
+                            ) : (
+                                <Link
+                                    href={typeof item.path === "string" ? item.path : "#"}
+                                    className="font-medium text-[#363338] hover:text-gray-600 py-2 block"
                                 >
                                     {item.name}
-                                    <svg
-                                        className={`w-4 h-4 ml-1 transition-transform ${activeDropdown === index ? "rotate-180" : ""
-                                            }`}
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
-                                </button>
-
-                                <div
-                                    className={`absolute top-full left-0 mt-2 transition-all duration-200 ease-in-out z-50 ${activeDropdown === index
-                                        ? "opacity-100 visible translate-y-1"
-                                        : "opacity-0 invisible -translate-y-1"
-                                        }`}
-                                >
-                                    {item.dropdownItems && (
-                                        <DropdownContent
-                                            items={item.dropdownItems}
-                                            toggleDropdown={toggleDropdown}
-                                            setIsOpen={() => { }} // Provide a no-op function to satisfy required prop
-                                        />
-                                    )}
-                                </div>
-                            </>
-                        ) : (
-                            <Link
-                                href={typeof item.path === "string" ? item.path : "#"}
-                                className="font-medium text-[#363338] hover:text-gray-600 py-2 block"
-                            >
-                                {item.name}
-                            </Link>
-                        )}
-                    </li>
-                ))}
-            </ul>
+                                </Link>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
             <div className="relative hidden lg:flex justify-end items-center gap-3">
                 <NewButton
@@ -234,7 +238,8 @@ const MobileNavigation = ({
     toggleDropdown,
     ctaButton,
     setIsOpen,
-    setActiveDropdown
+    setActiveDropdown,
+    shouldHideNavbarMenu
 }: {
     isOpen: boolean;
     menuItems: MenuItem[];
@@ -243,6 +248,7 @@ const MobileNavigation = ({
     ctaButton: { text: string; link: string };
     setIsOpen: (isOpen: boolean) => void;
     setActiveDropdown: (activeDropdown: number | null) => void;
+    shouldHideNavbarMenu: boolean;
 }) => {
     const router = useRouter();
 
@@ -259,7 +265,7 @@ const MobileNavigation = ({
     return (
         <div className="w-full z-40 lg:hidden">
             <div className="p-4 pb-10 space-y-6 bg-white">
-                {menuItems.map((item, index) => (
+                {!shouldHideNavbarMenu && menuItems.map((item, index) => (
                     <div key={index} className="space-y-4">
                         {item.hasDropdown ? (
                             <>
@@ -321,7 +327,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announcementBarSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, announcementBarSettings: AnnouncementBarSettings }) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announcementBarSettings, navbarFooterSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, announcementBarSettings: AnnouncementBarSettings, navbarFooterSettings: any }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -335,16 +341,24 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
 
     const isPathExcluded = () => {
         if (!announcementBarSettings?.excludedRoutes) return false;
-        
+
         return announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
             const excludedPath = exclusion.path;
             if (!excludedPath) return false;
             if (pathname === excludedPath) return true;
             if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
-            
+
             return false;
         });
     };
+
+    // Check if navbar menu items should be hidden based on excluded routes
+    const shouldHideNavbarMenu = navbarFooterSettings?.excludedRoutes?.some((route: any) => {
+        if (!route.excludeNavbar) return false;
+        if (pathname === route.path) return true;
+        if (route.path !== '/' && pathname.startsWith(route.path)) return true;
+        return false;
+    });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -399,7 +413,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
             >
                 <div className="relative w-full max-w-[1220px] flex items-center py-3 px-6 mx-auto">
                     <div className="flex w-full items-center justify-between">
-                        <div className="flex items-center gap-4 md:gap-12 w-full">
+                        <div className="flex items-center justify-between gap-4 md:gap-12 w-full">
                             {/* Logo */}
                             <div className="cursor-pointer" onClick={() => handleDropdownItemClick("/")}>
                                 <Image
@@ -416,16 +430,19 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
                                 activeDropdown={activeDropdown}
                                 toggleDropdown={toggleDropdown}
                                 ctaButton={ctaButton}
+                                shouldHideNavbarMenu={shouldHideNavbarMenu}
                             />
                         </div>
 
                         {/* Mobile Menu Toggle */}
-                        <button
-                            className="lg:hidden p-2 top-1 right-3 absolute"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                        </button>
+                        {!shouldHideNavbarMenu && (
+                            <button
+                                className="lg:hidden p-2 top-1 right-3 absolute"
+                                onClick={() => setIsOpen(!isOpen)}
+                            >
+                                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -437,6 +454,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
                     ctaButton={ctaButton}
                     setIsOpen={setIsOpen}
                     setActiveDropdown={setActiveDropdown}
+                    shouldHideNavbarMenu={shouldHideNavbarMenu}
                 />
             </div>
         </header>

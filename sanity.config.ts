@@ -11,6 +11,7 @@ import { defaultDocumentNode } from '@/sanity/lib/structure/default-document-nod
 import { apiVersion, dataset, projectId, studioUrl, useCdn } from '@/sanity/lib/api';
 import { colorInput } from '@sanity/color-input'
 import { table } from '@sanity/table';
+import stichflow from './public/section-images/stichflow.svg';
 
 const config = defineConfig({
   title: process.env.NEXT_PUBLIC_SITE_NAME,
@@ -19,6 +20,7 @@ const config = defineConfig({
   basePath: studioUrl,
   projectId: projectId,
   apiVersion: apiVersion,
+  icon: stichflow,
   plugins: [
     colorInput(),
     table(),

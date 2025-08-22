@@ -98,6 +98,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'faqs',
+      title: 'FAQs',
+      type: 'array',
+      of: [defineArrayMember({ type: 'faq' })],
+    }),
+    defineField({
       title: "Related Posts",
       name: "relatedPostsType",
       type: "string",

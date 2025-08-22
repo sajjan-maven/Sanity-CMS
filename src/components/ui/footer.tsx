@@ -13,7 +13,6 @@ export default function Footer({ footerCTA, footerLinks, footerCoLinks, navbarFo
 }) {
   const pathname = usePathname();
 
-  // Check if current path should hide FooterCTA
   const shouldHideFooterCTA = navbarFooterSettings?.footerCTAexcludedRoutes?.some((route: any) => 
     route.path === pathname
   );

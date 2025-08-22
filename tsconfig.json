@@ -34,7 +34,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/sanity/schemas/page-builder/blocks/feature-block.ts",
-    "src/sanity/schemas/objects/single-image.ts"
+    "src/sanity/schemas/objects/single-image.ts",
+    "src/types/svg.d.ts"
   ],
   "exclude": [
     "node_modules"

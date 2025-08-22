@@ -42,6 +42,13 @@ export default function ClientLayout({
   const pathname = usePathname();
   if (pathname.includes('/studio')) return (children);
 
+  const shouldHideFooter = navbarFooterSettings?.excludedRoutes?.some((route: any) => {
+    if (!route.excludeFooter) return false;
+    if (pathname === route.path) return true;
+    if (route.path !== '/' && pathname.startsWith(route.path)) return true;
+    return false;
+  });
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
       <Navbar
@@ -49,16 +56,19 @@ export default function ClientLayout({
         announcementBannerSettings={announcementBannerSettings}
         announcementBarSettings={announcementBarSettings}
         navbarSetting={navbarSettings}
+        navbarFooterSettings={navbarFooterSettings}
       />
       <main>
         {children}
       </main>
-      <Footer
-        footerCTA={footerCTA}
-        footerLinks={footerLinks}
-        footerCoLinks={footerCoLinks}
-        navbarFooterSettings={navbarFooterSettings}
-      />
+      {!shouldHideFooter && (
+        <Footer
+          footerCTA={footerCTA}
+          footerLinks={footerLinks}
+          footerCoLinks={footerCoLinks}
+          navbarFooterSettings={navbarFooterSettings}
+        />
+      )}
       <Toaster
         position="bottom-right"
         toastOptions={{
