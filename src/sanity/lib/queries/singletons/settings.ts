@@ -30,6 +30,12 @@ export const announcementbarSettingsQuery = defineQuery(`*[_type == "announcemen
 export const navbarFooterSettingsQuery = defineQuery(`*[_type == "navbarFooterSettings"][0] {
   excludedRoutes[] {
     path,
+    excludeNavbar,
+    excludeFooter,
+    note
+  },
+  footerCTAexcludedRoutes[] {
+    path,
     note
   }
 }`);

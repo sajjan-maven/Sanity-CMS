@@ -13,6 +13,7 @@ interface ClientLayoutProps {
   footerCTA: any;
   footerLinks: any;
   footerCoLinks: any;
+  navbarFooterSettings: any;
 }
 
 const geistSans = localFont({
@@ -35,6 +36,7 @@ export default function ClientLayout({
   footerCTA,
   footerLinks,
   footerCoLinks,
+  navbarFooterSettings,
 }: ClientLayoutProps) {
 
   const pathname = usePathname();
@@ -55,6 +57,7 @@ export default function ClientLayout({
         footerCTA={footerCTA}
         footerLinks={footerLinks}
         footerCoLinks={footerCoLinks}
+        navbarFooterSettings={navbarFooterSettings}
       />
       <Toaster
         position="bottom-right"

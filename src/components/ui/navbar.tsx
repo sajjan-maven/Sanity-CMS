@@ -333,19 +333,13 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
     const { logo, menuItems, ctaButton } = navbarSetting;
     const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
 
-    // Check if current path is in excluded routes from announcement bar settings
     const isPathExcluded = () => {
         if (!announcementBarSettings?.excludedRoutes) return false;
         
         return announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
             const excludedPath = exclusion.path;
             if (!excludedPath) return false;
-            
-            // Exact match (e.g., /about matches /about)
             if (pathname === excludedPath) return true;
-            
-            // Check if current path starts with excluded path (for nested routes)
-            // e.g., /blog/post-1 matches /blog
             if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
             
             return false;

@@ -9,7 +9,7 @@ import InstallDemoButton from "@/components/shared/install-demo-button";
 import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { navbarQuery } from "@/sanity/lib/queries/singletons/navbar";
-import { generalSettingsQuery, marketingSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
+import { generalSettingsQuery, marketingSettingsQuery, navbarFooterSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
 import { footerCTAQuery } from "@/sanity/lib/queries/singletons/footer-cta";
 import { footerLinksQuery } from "@/sanity/lib/queries/singletons/footer-links";
 import { footerCoLinksQuery } from "@/sanity/lib/queries/singletons/footer-co-links";
@@ -40,7 +40,8 @@ export default async function RootLayout({
     sanityFetch({ query: marketingSettingsQuery }),
     sanityFetch({ query: navbarQuery }),
     sanityFetch({ query: announcementBannerQuery}),
-    sanityFetch({ query: announcementBarSettingsQuery})
+    sanityFetch({ query: announcementBarSettingsQuery}),
+    sanityFetch({ query: navbarFooterSettingsQuery})
   ]);
 
   // const settings = sanityResults[0].data;
@@ -48,6 +49,7 @@ export default async function RootLayout({
   const navbarSettings = sanityResults[1].data;
   const announcementBannerSettings = sanityResults[2].data;
   const announcementBarSettings = sanityResults[3].data;
+  const navbarFooterSettings = sanityResults[4].data;
 
   // if (!settings) return (
   //   <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
@@ -73,6 +75,7 @@ export default async function RootLayout({
           footerCoLinks={footerCoLinks}
           announcementBannerSettings={announcementBannerSettings}
           announcementBarSettings={announcementBarSettings}
+          navbarFooterSettings={navbarFooterSettings}
         >
           {children}
         </ClientLayout>
