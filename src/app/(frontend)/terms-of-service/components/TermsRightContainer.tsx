@@ -2,14 +2,14 @@
 import React, {useEffect} from "react";
 import PortableTextEditor from "@/components/portable-text/portable-text-editor";
 
-interface PrivacyPolicyProps {
-	privacyData: {
+interface TermsProps {
+	termsData: {
 		content?: any[] | null;
 	};
 	onSectionChange: (sectionId: string) => void;
 }
 
-const PrivacyRightContainer: React.FC<PrivacyPolicyProps> = ({privacyData, onSectionChange}) => {
+const TermsRightContainer: React.FC<TermsProps> = ({termsData, onSectionChange}) => {
 	useEffect(() => {
 		const options = {
 			root: null,
@@ -42,10 +42,10 @@ const PrivacyRightContainer: React.FC<PrivacyPolicyProps> = ({privacyData, onSec
 	return (
 		<div fs-toc-offsettop="8rem" fs-toc-element="contents" className="blog-rtb text-left w-richtext">
 			<div className="terms-content">
-				<PortableTextEditor data={privacyData?.content || null} classNames="w-full max-w-full" />
+				<PortableTextEditor data={termsData?.content || null} classNames="w-full max-w-full" />
 			</div>
 		</div>
 	);
 };
 
-export default PrivacyRightContainer;
+export default TermsRightContainer; 

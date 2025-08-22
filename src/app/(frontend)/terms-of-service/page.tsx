@@ -1,9 +1,24 @@
-import React from 'react'
+import { Metadata } from 'next';
+import { processMetadata } from '@/lib/utils';
+import { sanityFetch } from '@/sanity/lib/live';
+import { termsPageQuery } from '@/sanity/lib/queries/documents/terms';
+import TermsPage from './components/TermsPage';
 
-function page() {
-    return (
-        <div>Hello hi</div>
-    )
+export async function generateMetadata(): Promise<Metadata> {
+	const { data: page } = await sanityFetch({
+		query: termsPageQuery,
+		stega: false,
+	});
+
+	if (!page) { return {} };
+
+	return processMetadata({ data: page });
 }
 
-export default page
+export default async function TermsOfService() {
+	const { data: page } = await sanityFetch({
+		query: termsPageQuery,
+	});
+
+	return <TermsPage termsData={page} />;
+}

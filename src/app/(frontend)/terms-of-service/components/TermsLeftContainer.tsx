@@ -3,14 +3,14 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-scroll";
 
-interface PrivacyPolicyProps {
-	privacyData: {
+interface TermsProps {
+	termsData: {
 		content?: any[] | null;
 	};
 	activeSection: string;
 }
 
-const PrivacyLeftContainer: React.FC<PrivacyPolicyProps> = ({privacyData, activeSection}) => {
+const TermsLeftContainer: React.FC<TermsProps> = ({termsData, activeSection}) => {
 	const [toc, setToc] = useState<{id: string; title: string}[]>([]);
 	const formatSectionId = (sectionTitle: string) =>
 		sectionTitle
@@ -24,7 +24,7 @@ const PrivacyLeftContainer: React.FC<PrivacyPolicyProps> = ({privacyData, active
 	useEffect(() => {
 		// Build TOC from Portable Text blocks with style === 'h3'
 		const headings: { id: string; title: string }[] = [];
-		(privacyData?.content || []).forEach((block: any) => {
+		(termsData?.content || []).forEach((block: any) => {
 			if (block?._type === 'block' && block?.style === 'h3') {
 				const text = Array.isArray(block.children)
 					? block.children.map((c: any) => c.text).join("")
@@ -34,7 +34,7 @@ const PrivacyLeftContainer: React.FC<PrivacyPolicyProps> = ({privacyData, active
 			}
 		});
 		setToc(headings);
-	}, [privacyData]);
+	}, [termsData]);
 
 	const handleScroll = (id: string) => {
 		const element = document.getElementById(id);
@@ -63,4 +63,4 @@ const PrivacyLeftContainer: React.FC<PrivacyPolicyProps> = ({privacyData, active
 	);
 };
 
-export default PrivacyLeftContainer;
+export default TermsLeftContainer; 
