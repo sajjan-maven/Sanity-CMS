@@ -24,7 +24,7 @@ function AuthorDetails({ author }: AuthorProps) {
     };
 
     return (
-        <div className="rounded-3xl bg-[#F8F5F3] shadow-sm p-6 block mt-8 mb-12">
+        <div className="rounded-3xl bg-[#F8F5F3] shadow-sm p-6 block mt-8 mb-12 max-w-[700px]">
             <div className="flex flex-wrap justify-between items-center relative">
                 <Link
                     href={`/blog/author`}

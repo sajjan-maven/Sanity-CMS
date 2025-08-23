@@ -102,7 +102,7 @@ const NotificationBanner = ({
 
     return (
         <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full min-h-9"
-            style={{ backgroundColor: backgroundColor?.value || '#F8BE65' }}>
+            style={{ backgroundColor: backgroundColor?.value || '#000' }}>
             {icon.asset?.url && <Image
                 className="hidden md:block"
                 src={icon.asset?.url || '/dummy'}
@@ -116,7 +116,7 @@ const NotificationBanner = ({
                 {link && <Link
                     target="_blank"
                     href={link}
-                    className="text-[#f8be65] inline-flex items-center pl-1 gap-1 group hover:underline hover:[&_svg]:translate-x-1 cursor-pointer"
+                    className="inline-flex items-center pl-1 gap-1 group hover:underline hover:[&_svg]:translate-x-1 cursor-pointer"
                     style={{ color: linkColor?.value }}>
                     <span>{linkText}</span>
                     <svg
@@ -339,6 +339,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
     const { logo, menuItems, ctaButton } = navbarSetting;
     const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
 
+    console.log('hey hi hello', announcementBannerSettings)
     const isPathExcluded = () => {
         if (!announcementBarSettings?.excludedRoutes) return false;
 

@@ -57,8 +57,8 @@ export default function PostContent({ post }: PostGridProps) {
         </div>
       </div>
       <div className="lg:grid lg:grid-cols-[1fr_300px] w-full gap-8">
-        <article className="w-full lg:max-w-[718px] mt-3">
-          <PortableTextEditor data={content} classNames='blogContent' />
+        <article className="w-full mt-3">
+          <PortableTextEditor data={content} classNames='blogContent max-w-full' />
           {faqs?.length ? (
             <section className="mt-10">
               <h2 className="text-2xl font-semibold mb-4">Frequently asked questions</h2>

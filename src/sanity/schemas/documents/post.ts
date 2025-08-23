@@ -42,6 +42,7 @@ export default defineType({
     }),
     defineField({
       name: 'excerpt',
+      description: 'Stort description of blog to display on card',
       title: 'Excerpt',
       type: 'text',
       rows: 4

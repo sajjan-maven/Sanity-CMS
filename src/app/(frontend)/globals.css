@@ -38,6 +38,18 @@ body {
   background-color: rgb(187 247 208);
 }
 
+.blogContent>p {
+  max-width: 700px;
+}
+
+.blogContent>h2 {
+  max-width: 700px;
+}
+
+.blogContent>ul {
+  max-width: 700px;
+}
+
 .blogContent>p>a {
   color: #f25c30 !important;
   text-decoration: none !important;
