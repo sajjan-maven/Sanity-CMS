@@ -68,6 +68,12 @@ export type AnnouncementBanner = {
   linkColor?: SimplerColor;
   linkText?: string;
   link?: string;
+  excludedRoutes?: Array<{
+    path?: string;
+    note?: string;
+    _type: "routeExclusion";
+    _key: string;
+  }>;
 };
 
 export type MenuItem = {
@@ -2113,20 +2119,6 @@ export type NavbarFooterSettings = {
   }>;
 };
 
-export type AnnouncementBarSettings = {
-  _id: string;
-  _type: "announcementBarSettings";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  excludedRoutes?: Array<{
-    path?: string;
-    note?: string;
-    _type: "routeExclusion";
-    _key: string;
-  }>;
-};
-
 export type GeneralSettings = {
   _id: string;
   _type: "generalSettings";
@@ -2674,7 +2666,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | AnnouncementBarSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/page.ts
 // Variable: pageSlugsQuery

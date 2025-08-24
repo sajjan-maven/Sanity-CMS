@@ -69,5 +69,53 @@ export default defineType({
       type: 'url',
       group: 'content',
     }),
+    defineField({
+      name: "excludedRoutes",
+      title: "Excluded Routes",
+      description: "Pages where the announcement bar should be hidden",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "routeExclusion",
+          title: "Route Exclusion",
+          fields: [
+            defineField({
+              name: "path",
+              title: "Path",
+              description: "Enter the route path (e.g., /about or /contact)",
+              type: "string",
+              validation: (Rule) => [
+                Rule.required().error("Path is required"),
+                Rule.regex(/^\/[a-zA-Z0-9\-_\/]*$/, {
+                  name: "path",
+                  invert: false,
+                }).error("Path must start with / and contain only valid URL characters"),
+              ],
+            }),
+            defineField({
+              name: "note",
+              title: "Internal Note",
+              description: "Optional note about why this route is excluded",
+              type: "string",
+            }),
+          ],
+          preview: {
+            select: {
+              path: "path",
+              note: "note",
+            },
+            prepare({ path, note }) {
+              return {
+                title: path || "Untitled path",
+                subtitle: note,
+              };
+            },
+          },
+        },
+      ],
+      group: 'settings',
+      validation: (Rule) => Rule.unique(),
+    }),
   ],
 });
