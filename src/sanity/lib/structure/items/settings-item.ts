@@ -10,16 +10,6 @@ export const SettingsItem = (S: StructureBuilder) =>
         .title('Settings')
         .items([
           S.listItem()
-            .title('Hide Announcement Bar')
-            .icon(Wrench)
-            .child(
-              S.document()
-                .id('announcementBarSettings')
-                .schemaType('announcementBarSettings')
-                .documentId('announcementBarSettings')
-                .title('Announcement Bar')
-            ),
-          S.listItem()
             .title('Hide Navbar | Footer')
             .icon(Wrench)
             .child(

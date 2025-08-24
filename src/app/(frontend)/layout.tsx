@@ -13,7 +13,7 @@ import { generalSettingsQuery, marketingSettingsQuery, navbarFooterSettingsQuery
 import { footerCTAQuery } from "@/sanity/lib/queries/singletons/footer-cta";
 import { footerLinksQuery } from "@/sanity/lib/queries/singletons/footer-links";
 import { footerCoLinksQuery } from "@/sanity/lib/queries/singletons/footer-co-links";
-import { announcementBannerQuery, announcementBarSettingsQuery } from "@/sanity/lib/queries/singletons/announcement-banner";
+import { announcementBannerQuery } from "@/sanity/lib/queries/singletons/announcement-banner";
 
 export const metadata: Metadata = {
   title: {
@@ -39,17 +39,15 @@ export default async function RootLayout({
   const sanityResults = await Promise.all([
     sanityFetch({ query: marketingSettingsQuery }),
     sanityFetch({ query: navbarQuery }),
-    sanityFetch({ query: announcementBannerQuery}),
-    sanityFetch({ query: announcementBarSettingsQuery}),
-    sanityFetch({ query: navbarFooterSettingsQuery})
+    sanityFetch({ query: announcementBannerQuery }),
+    sanityFetch({ query: navbarFooterSettingsQuery })
   ]);
 
   // const settings = sanityResults[0].data;
   const marketingSettings = sanityResults[0].data;
   const navbarSettings = sanityResults[1].data;
   const announcementBannerSettings = sanityResults[2].data;
-  const announcementBarSettings = sanityResults[3].data;
-  const navbarFooterSettings = sanityResults[4].data;
+  const navbarFooterSettings = sanityResults[3].data;
 
   // if (!settings) return (
   //   <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
@@ -68,13 +66,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClientLayout 
+        <ClientLayout
           navbarSettings={navbarSettings}
           footerCTA={footerCTA}
           footerLinks={footerLinks}
           footerCoLinks={footerCoLinks}
           announcementBannerSettings={announcementBannerSettings}
-          announcementBarSettings={announcementBarSettings}
           navbarFooterSettings={navbarFooterSettings}
         >
           {children}
@@ -87,13 +84,13 @@ export default async function RootLayout({
           </>
         )}
         {marketingSettings?.googleAnalyticsId && (
-          <GoogleAnalytics 
-            gaId={marketingSettings.googleAnalyticsId} 
+          <GoogleAnalytics
+            gaId={marketingSettings.googleAnalyticsId}
           />
         )}
         {marketingSettings?.googleTagManagerId && (
-          <GoogleTagManager 
-            gtmId={marketingSettings?.googleTagManagerId} 
+          <GoogleTagManager
+            gtmId={marketingSettings?.googleTagManagerId}
           />
         )}
       </body>

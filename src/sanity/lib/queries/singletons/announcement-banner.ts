@@ -1,4 +1,4 @@
-import { defineQuery} from "next-sanity";
+import { defineQuery } from "next-sanity";
 
 export const announcementBannerQuery = defineQuery(`*[_type == "announcementBanner"][0] {
     show,
@@ -12,14 +12,10 @@ export const announcementBannerQuery = defineQuery(`*[_type == "announcementBann
     },
     text,
     linkText,
-    link
-  }
-`);
-
-export const announcementBarSettingsQuery = defineQuery(`*[_type == "announcementBarSettings"][0] {
-    excludedRoutes[] {
-        path,
-        note
+    link,
+    announcementBarSettings {
+        excludedRoutes[] {
+            path
+        }
     }
-  }
-`);
+}`);

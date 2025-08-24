@@ -41,10 +41,9 @@ interface AnnouncementBannerSettings {
     backgroundColor: any;
     textColor: any;
     linkColor: any;
-}
-
-interface AnnouncementBarSettings {
-    excludedRoutes?: RouteExclusion[];
+    announcementBarSettings: {
+        excludedRoutes: RouteExclusion[];
+    };
 }
 
 // Dropdown Content Component
@@ -327,7 +326,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announcementBarSettings, navbarFooterSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, announcementBarSettings: AnnouncementBarSettings, navbarFooterSettings: any }) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings, navbarFooterSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, navbarFooterSettings: any }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -339,11 +338,10 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, announceme
     const { logo, menuItems, ctaButton } = navbarSetting;
     const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
 
-    console.log('hey hi hello', announcementBannerSettings)
     const isPathExcluded = () => {
-        if (!announcementBarSettings?.excludedRoutes) return false;
+        if (!announcementBannerSettings?.announcementBarSettings?.excludedRoutes) return false;
 
-        return announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
+        return announcementBannerSettings.announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
             const excludedPath = exclusion.path;
             if (!excludedPath) return false;
             if (pathname === excludedPath) return true;

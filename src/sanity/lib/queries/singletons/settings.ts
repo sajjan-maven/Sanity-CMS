@@ -20,12 +20,6 @@ export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0
   },
 }`);
 
-export const announcementbarSettingsQuery = defineQuery(`*[_type == "announcementBarSettings"][0] {
-  excludedRoutes[] {
-    path,
-    note
-  }
-}`);
 
 export const navbarFooterSettingsQuery = defineQuery(`*[_type == "navbarFooterSettings"][0] {
   excludedRoutes[] {
