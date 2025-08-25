@@ -34,7 +34,20 @@ import {
   joinOurNewsletterBlockQuery,
   avatarWithDetailsQuery,
   iconBlockQuery,
-  pngImageBlockQuery
+  pngImageBlockQuery,
+  oktaIdpHeroSectionQuery,
+  oktaIdpWhySaasSectionQuery,
+  oktaIdpPointersQuery,
+  oktaIdpSaasManagementActuallyWorksQuery,
+  oktaIdpCustomerQuery,
+  oktaIdpTraditionalToolsQuery,
+  oktaIdpFaqSectionQuery,
+  oktaIdpCtaSectionQuery,
+  samHeroSectionQuery,
+  samCenteredBlockQuery,
+  samCardsBlockQuery,
+  samFixTheGapsBlockQuery,
+  samActionBlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -76,6 +89,19 @@ export const pageBuilder = `
     ${joinOurNewsletterBlockQuery},
     ${avatarWithDetailsQuery},
     ${iconBlockQuery},
-    ${pngImageBlockQuery}
+    ${pngImageBlockQuery},
+    ${oktaIdpHeroSectionQuery},
+    ${oktaIdpWhySaasSectionQuery},
+    ${oktaIdpPointersQuery},
+    ${oktaIdpSaasManagementActuallyWorksQuery},
+    ${oktaIdpCustomerQuery},
+    ${oktaIdpTraditionalToolsQuery},
+    ${oktaIdpFaqSectionQuery},
+    ${oktaIdpCtaSectionQuery},
+    ${samHeroSectionQuery},
+    ${samCenteredBlockQuery},
+    ${samCardsBlockQuery},
+    ${samFixTheGapsBlockQuery},
+    ${samActionBlockQuery}
   }
 `

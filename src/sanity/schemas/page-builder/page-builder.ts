@@ -16,7 +16,7 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'servicesBlock', type: 'servicesBlock' }),
     defineArrayMember({ name: 'formBlock', type: 'formBlock' }),
     defineArrayMember({ name: 'mediaBlock', type: 'mediaBlock' }),
-    //ABCD 7 Add component name to suitable group
+    //ABCD 7 Add component name to suitable group`
     // run comment: sanity schema extract
     // run comment: sanity typegen generate
     defineArrayMember({ name: 'heroClickthroughBlock', type: 'heroClickthroughBlock' }),
@@ -40,7 +40,20 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'joinOurNewsletterBlock', type: 'joinOurNewsletterBlock' }),
     defineArrayMember({ name: 'avatarWithDetails', type: 'avatarWithDetails' }),
     defineArrayMember({ name: 'iconBlock', type: 'iconBlock' }),
-    defineArrayMember({ name: 'pngImageBlock', type: 'pngImageBlock' })
+    defineArrayMember({ name: 'pngImageBlock', type: 'pngImageBlock' }),
+    defineArrayMember({ name: 'oktaIdpHeroSection', type: 'oktaIdpHeroSection' }),
+    defineArrayMember({ name: 'oktaIdpWhySaasSection', type: 'oktaIdpWhySaasSection' }),
+    defineArrayMember({ name: 'oktaIdpPointers', type: 'oktaIdpPointers' }),
+    defineArrayMember({ name: 'oktaIdpSaasManagementActuallyWorks', type: 'oktaIdpSaasManagementActuallyWorks' }),
+    defineArrayMember({ name: 'oktaIdpCustomer', type: 'oktaIdpCustomer' }),
+    defineArrayMember({ name: 'oktaIdpTraditionalTools', type: 'oktaIdpTraditionalTools' }),
+    defineArrayMember({ name: 'oktaIdpFaqSection', type: 'oktaIdpFaqSection' }),
+    defineArrayMember({ name: 'oktaIdpCtaSection', type: 'oktaIdpCtaSection' }),
+    defineArrayMember({ name: 'samHeroSection', type: 'samHeroSection' }),
+    defineArrayMember({ name: 'samCenteredBlock', type: 'samCenteredBlock' }),
+    defineArrayMember({ name: 'samCardsBlock', type: 'samCardsBlock' }),
+    defineArrayMember({ name: 'samFixTheGapsBlock', type: 'samFixTheGapsBlock' }),
+    defineArrayMember({ name: 'samActionBlock', type: 'samActionBlock' })
   ],
   options: {
     insertMenu: {
@@ -78,7 +91,20 @@ export const pageBuilder = defineType({
             'joinOurNewsletterBlock',
             'avatarWithDetails',
             'iconBlock',
-            'pngImageBlock'
+            'pngImageBlock',
+            'oktaIdpHeroSection',
+            'oktaIdpWhySaasSection',
+            'oktaIdpPointers',
+            'oktaIdpSaasManagementActuallyWorks',
+            'oktaIdpCustomer',
+            'oktaIdpTraditionalTools',
+            'oktaIdpFaqSection',
+            'oktaIdpCtaSection',
+            'samHeroSection',
+            'samCenteredBlock',
+            'samCardsBlock',
+            'samFixTheGapsBlock',
+            'samActionBlock',
           ]
         },
         {

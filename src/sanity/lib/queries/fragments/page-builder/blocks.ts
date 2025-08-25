@@ -865,5 +865,333 @@ export const pngImageBlockQuery = `
     sectionBgColor { value }
   }
 `
+export const oktaIdpHeroSectionQuery = `
+  _type == "oktaIdpHeroSection" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    subtitle,
+    description,
+    heroImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    marqueeImages[] {
+      width,
+      height,
+      asset {
+        alt,
+        asset->{
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+`
+export const oktaIdpWhySaasSectionQuery = `
+  _type == "oktaIdpWhySaasSection" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    lineImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    },
+    cards[] {
+      mainHeading,
+      description,
+      image {
+        alt,
+        width,
+        height,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`
+export const oktaIdpPointersQuery = `
+  _type == "oktaIdpPointers" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    pointers[] {
+      text
+    }
+  }
+`
+export const oktaIdpSaasManagementActuallyWorksQuery = `
+  _type == "oktaIdpSaasManagementActuallyWorks" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    topLineImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    },
+    sections[] {
+      mainTitle,
+      subTitle,
+      image {
+        alt,
+        width,
+        height,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    },
+    bottomLineImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    },
+  }
+`
+export const oktaIdpCustomerQuery = `
+  _type == "oktaIdpCustomer" => {
+    ${baseQuery},
+    _key,
+    _type,
+    title,
+    cards[] {
+      _key,
+      mainHeading,
+      description,
+      name,
+      designation,
+      image {
+        alt,
+        width,
+        height,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      },
+      avatarImage {
+        alt,
+        width,
+        height,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      },
+      impact[] {
+        _key,
+        contractCount,
+        contractDesc,
+        reductionRate,
+        reductionDesc
+      }
+    }
+  }
+`
+export const oktaIdpTraditionalToolsQuery = `
+  _type == "oktaIdpTraditionalTools" => {
+    _key,
+    _type,
+    traditionalTools[] {
+      list,
+      listIcon {
+        alt,
+        asset->{
+          url,
+          metadata {
+            dimensions { width, height }
+          }
+        }
+      }
+    },
+    stitchflowTools[] {
+      list,
+      listIcon {
+        alt,
+        asset->{
+          url,
+          metadata {
+            dimensions { width, height }
+          }
+        }
+      }
+    }
+  }
+`;
+export const oktaIdpFaqSectionQuery = `
+  _type == "oktaIdpFaqSection" => {
+    _key,
+    _type,
+    heading,
+    faqs[] {
+      question,
+      answer
+    }
+  }
+`;
+export const oktaIdpCtaSectionQuery = `
+  _type == "oktaIdpCtaSection" => {
+    _key,
+    _type,
+    heading,
+    description,
+    buttonText,
+    avatarImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    }
+  }
+`;
+export const samHeroSectionQuery = `
+  _type == "samHeroSection" => {
+    _key,
+    _type,
+    title,
+    description,
+    heroImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    },
+    backedByImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    },
+    marqueeImages[] {
+      width,
+      height,
+      asset {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const samCenteredBlockQuery = `
+  _type == "samCenteredBlock" => {
+    _key,
+    _type,
+    badge,
+    title,
+    description,
+    buttonText
+  }
+`;
+export const samCardsBlockQuery = `
+  _type == "samCardsBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    cards[] {
+      tagline,
+      heading,
+      description,
+      image {
+        alt,
+        width,
+        height,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const samFixTheGapsBlockQuery = `
+  _type == "samFixTheGapsBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    description,
+    accordionItems[] {
+      heading,
+      subheading,
+      button,
+      image {
+        alt,
+        asset-> { url, metadata { dimensions { width, height } } }
+      },
+      icon {
+        alt,
+        asset-> { url }
+      },
+      subsections[] {
+        title,
+        desc
+      }
+    }
+  }
+`;
+export const samActionBlockQuery = `
+  _type == "samActionBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    videoUrl
+  }
+`;
+
 //ABCD 3 Create schema for component in sanity > schemas > page-builder > blocks
 //ABCD 4 Add component query here

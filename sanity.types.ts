@@ -187,6 +187,422 @@ export type HeadingObject = {
   headingSize?: "xxxl" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs";
 };
 
+export type SamActionBlock = {
+  _type: "samActionBlock";
+  tagline?: string;
+  heading?: string;
+  highlightedText?: string;
+  description?: string;
+  videoUrl?: string;
+};
+
+export type SamFixTheGapsBlock = {
+  _type: "samFixTheGapsBlock";
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  accordionItems?: Array<{
+    heading?: string;
+    subheading?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    subsections?: Array<{
+      title?: string;
+      desc?: string;
+      _key: string;
+    }>;
+    button?: string;
+    _key: string;
+  }>;
+};
+
+export type SamCardsBlock = {
+  _type: "samCardsBlock";
+  tagline?: string;
+  heading?: string;
+  highlightedText?: string;
+  description?: string;
+  cards?: Array<{
+    tagline?: string;
+    heading?: string;
+    description?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    _type: "card";
+    _key: string;
+  }>;
+};
+
+export type SamCenteredBlock = {
+  _type: "samCenteredBlock";
+  badge?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+};
+
+export type SamHeroSection = {
+  _type: "samHeroSection";
+  title?: string;
+  description?: string;
+  heroImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+  backedByImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+  marqueeImages?: Array<{
+    asset?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    width?: number;
+    height?: number;
+    _type: "marqueeImage";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpCtaSection = {
+  _type: "oktaIdpCtaSection";
+  heading?: string;
+  description?: string;
+  buttonText?: string;
+  avatarImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+};
+
+export type OktaIdpFaqSection = {
+  _type: "oktaIdpFaqSection";
+  heading?: string;
+  faqs?: Array<{
+    question?: string;
+    answer?: string;
+    _type: "faqItem";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpTraditionalTools = {
+  _type: "oktaIdpTraditionalTools";
+  traditionalTools?: Array<{
+    list?: string;
+    listIcon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "traditionalTool";
+    _key: string;
+  }>;
+  stitchflowTools?: Array<{
+    list?: string;
+    listIcon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "stitchflowTool";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpCustomer = {
+  _type: "oktaIdpCustomer";
+  title?: string;
+  cards?: Array<{
+    mainHeading?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    description?: string;
+    name?: string;
+    designation?: string;
+    avatarImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    impact?: Array<{
+      contractCount?: string;
+      contractDesc?: string;
+      reductionRate?: string;
+      reductionDesc?: string;
+      _type: "impactItem";
+      _key: string;
+    }>;
+    _type: "customerCard";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpSaasManagementActuallyWorks = {
+  _type: "oktaIdpSaasManagementActuallyWorks";
+  title?: string;
+  topLineImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+  sections?: Array<{
+    mainTitle?: string;
+    subTitle?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    _type: "saasManagementSection";
+    _key: string;
+  }>;
+  bottomLineImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+};
+
+export type OktaIdpPointers = {
+  _type: "oktaIdpPointers";
+  title?: string;
+  pointers?: Array<{
+    text?: string;
+    _type: "pointer";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpWhySaasSection = {
+  _type: "oktaIdpWhySaasSection";
+  title?: string;
+  lineImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+  cards?: Array<{
+    mainHeading?: string;
+    description?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    _type: "card";
+    _key: string;
+  }>;
+};
+
+export type OktaIdpHeroSection = {
+  _type: "oktaIdpHeroSection";
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  heroImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    width?: number;
+    height?: number;
+    _type: "image";
+  };
+  marqueeImages?: Array<{
+    asset?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    width?: number;
+    height?: number;
+    _type: "marqueeImage";
+    _key: string;
+  }>;
+};
+
 export type PngImageBlock = {
   _type: "pngImageBlock";
   hasFeaturedCard?: boolean;
@@ -1338,7 +1754,33 @@ export type PageBuilder = Array<{
   _key: string;
 } & IconBlock | {
   _key: string;
-} & PngImageBlock>;
+} & PngImageBlock | {
+  _key: string;
+} & OktaIdpHeroSection | {
+  _key: string;
+} & OktaIdpWhySaasSection | {
+  _key: string;
+} & OktaIdpPointers | {
+  _key: string;
+} & OktaIdpSaasManagementActuallyWorks | {
+  _key: string;
+} & OktaIdpCustomer | {
+  _key: string;
+} & OktaIdpTraditionalTools | {
+  _key: string;
+} & OktaIdpFaqSection | {
+  _key: string;
+} & OktaIdpCtaSection | {
+  _key: string;
+} & SamHeroSection | {
+  _key: string;
+} & SamCenteredBlock | {
+  _key: string;
+} & SamCardsBlock | {
+  _key: string;
+} & SamFixTheGapsBlock | {
+  _key: string;
+} & SamActionBlock>;
 
 export type IntegrationApplication = {
   _id: string;
@@ -2597,7 +3039,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Table | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | AnnouncementBarSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Table | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | SamActionBlock | SamFixTheGapsBlock | SamCardsBlock | SamCenteredBlock | SamHeroSection | OktaIdpCtaSection | OktaIdpFaqSection | OktaIdpTraditionalTools | OktaIdpCustomer | OktaIdpSaasManagementActuallyWorks | OktaIdpPointers | OktaIdpWhySaasSection | OktaIdpHeroSection | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | AnnouncementBarSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/page.ts
 // Variable: pageSlugsQuery
@@ -2608,7 +3050,7 @@ export type PageSlugsQueryResult = Array<{
   };
 }>;
 // Variable: pageBySlugQuery
-// Query: *[_type == 'page' && slug.current == $slug][0] {  _type,  _id,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'page' && slug.current == $slug][0] {  _type,  _id,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type PageBySlugQueryResult = {
   _type: "page";
   _id: string;
@@ -3633,6 +4075,186 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -3972,6 +4594,190 @@ export type PageBySlugQueryResult = {
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
   seo: {
     title: string | "";
@@ -4001,7 +4807,7 @@ export type PostSlugsQueryResult = Array<{
   };
 }>;
 // Variable: blogPageQuery
-// Query: *[_type == 'blogPage'][0] {  _id,  _type,  title,  'slug': slug.current,  heroText,  featuredBlog->{    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },  editorsPicks[]->{    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "posts": *[_type == 'post'] | order(publishedAt desc) {    _id,    _type,    _createdAt,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },  "categories": *[_type == "postCategory"] | order(orderRank asc) {    _id,    _type,    title,    'slug': slug.current,  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'blogPage'][0] {  _id,  _type,  title,  'slug': slug.current,  heroText,  featuredBlog->{    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },  editorsPicks[]->{    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "posts": *[_type == 'post'] | order(publishedAt desc) {    _id,    _type,    _createdAt,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       altText     },  },  "categories": *[_type == "postCategory"] | order(orderRank asc) {    _id,    _type,    title,    'slug': slug.current,  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type BlogPageQueryResult = {
   _id: string;
   _type: "blogPage";
@@ -5063,6 +5869,186 @@ export type BlogPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -5402,6 +6388,190 @@ export type BlogPageQueryResult = {
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
   posts: Array<{
     _id: string;
@@ -5634,7 +6804,7 @@ export type ProjectSlugsQueryResult = Array<{
   };
 }>;
 // Variable: projectsPageQuery
-// Query: *[_type == 'projectsPage'][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "projects": *[_type == "project"] | order(_createdAt asc) {    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       height,      altText     },      pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  },  "categories": *[_type == "projectCategory"] | order(orderRank asc) {    _id,    _type,    title,    'slug': slug.current,  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'projectsPage'][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "projects": *[_type == "project"] | order(_createdAt asc) {    _id,    _type,    title,    'slug': slug.current,    excerpt,    category->{      _id,      title,      'slug': slug.current,    },    image {       asset->{ url },       height,      altText     },      pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  },  "categories": *[_type == "projectCategory"] | order(orderRank asc) {    _id,    _type,    title,    'slug': slug.current,  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type ProjectsPageQueryResult = {
   _id: string;
   _type: "projectsPage";
@@ -6659,6 +7829,186 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -6996,6 +8346,190 @@ export type ProjectsPageQueryResult = {
         alt: string | null;
         width: number | null;
         height: number | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
       } | null;
     }> | null;
   }> | null;
@@ -8036,6 +9570,186 @@ export type ProjectsPageQueryResult = {
     } | {
       _id: null;
       _key: string;
+      _type: "oktaIdpCustomer";
+      title: string | null;
+      cards: Array<{
+        _key: string;
+        mainHeading: string | null;
+        description: string | null;
+        name: string | null;
+        designation: string | null;
+        image: {
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+        avatarImage: {
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+        impact: Array<{
+          _key: string;
+          contractCount: string | null;
+          contractDesc: string | null;
+          reductionRate: string | null;
+          reductionDesc: string | null;
+        }> | null;
+      }> | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "oktaIdpHeroSection";
+      title: string | null;
+      subtitle: string | null;
+      description: string | null;
+      heroImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      marqueeImages: Array<{
+        width: number | null;
+        height: number | null;
+        asset: {
+          alt: string | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "oktaIdpPointers";
+      title: string | null;
+      pointers: Array<{
+        text: string | null;
+      }> | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "oktaIdpSaasManagementActuallyWorks";
+      title: string | null;
+      topLineImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      sections: Array<{
+        mainTitle: string | null;
+        subTitle: string | null;
+        image: {
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+      bottomLineImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "oktaIdpWhySaasSection";
+      title: string | null;
+      lineImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      cards: Array<{
+        mainHeading: string | null;
+        description: string | null;
+        image: {
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    } | {
+      _id: null;
+      _key: string;
       _type: "pngImageBlock";
       hasFeaturedCard: boolean | null;
       featuredCard: {
@@ -8375,6 +10089,190 @@ export type ProjectsPageQueryResult = {
           height: number | null;
         } | null;
       }> | null;
+    } | {
+      _key: string;
+      _type: "oktaIdpCtaSection";
+      heading: string | null;
+      description: string | null;
+      buttonText: string | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    } | {
+      _key: string;
+      _type: "oktaIdpFaqSection";
+      heading: string | null;
+      faqs: Array<{
+        question: string | null;
+        answer: string | null;
+      }> | null;
+    } | {
+      _key: string;
+      _type: "oktaIdpTraditionalTools";
+      traditionalTools: Array<{
+        list: string | null;
+        listIcon: {
+          alt: string | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+      stitchflowTools: Array<{
+        list: string | null;
+        listIcon: {
+          alt: string | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    } | {
+      _key: string;
+      _type: "samActionBlock";
+      tagline: string | null;
+      heading: string | null;
+      highlightedText: string | null;
+      description: string | null;
+      videoUrl: string | null;
+    } | {
+      _key: string;
+      _type: "samCardsBlock";
+      tagline: string | null;
+      heading: string | null;
+      highlightedText: string | null;
+      description: string | null;
+      cards: Array<{
+        tagline: string | null;
+        heading: string | null;
+        description: string | null;
+        image: {
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
+    } | {
+      _key: string;
+      _type: "samCenteredBlock";
+      badge: string | null;
+      title: string | null;
+      description: string | null;
+      buttonText: string | null;
+    } | {
+      _key: string;
+      _type: "samFixTheGapsBlock";
+      tagline: null;
+      heading: null;
+      description: string | null;
+      accordionItems: Array<{
+        heading: string | null;
+        subheading: string | null;
+        button: string | null;
+        image: {
+          alt: null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+        icon: {
+          alt: null;
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        subsections: Array<{
+          title: string | null;
+          desc: string | null;
+        }> | null;
+      }> | null;
+    } | {
+      _key: string;
+      _type: "samHeroSection";
+      title: string | null;
+      description: string | null;
+      heroImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      backedByImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      marqueeImages: Array<{
+        width: number | null;
+        height: number | null;
+        asset: {
+          alt: string | null;
+          asset: {
+            url: string | null;
+            metadata: {
+              dimensions: {
+                width: number | null;
+                height: number | null;
+              } | null;
+            } | null;
+          } | null;
+        } | null;
+      }> | null;
     }> | null;
   }>;
   categories: Array<{
@@ -8409,7 +10307,7 @@ export type ProjectPathsQueryResult = Array<{
   };
 }>;
 // Variable: projectBySlugQuery
-// Query: *[_type == 'project' && slug.current == $slug][0] {  _id,  _type,  title,  'slug': slug.current,  category->{    _id,    title,    'slug': slug.current,  },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'project' && slug.current == $slug][0] {  _id,  _type,  title,  'slug': slug.current,  category->{    _id,    title,    'slug': slug.current,  },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type ProjectBySlugQueryResult = {
   _id: string;
   _type: "project";
@@ -9439,6 +11337,186 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -9778,6 +11856,190 @@ export type ProjectBySlugQueryResult = {
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
   seo: {
     title: string | "";
@@ -9798,7 +12060,7 @@ export type ProjectBySlugQueryResult = {
   };
 } | null;
 // Variable: allProjectsQuery
-// Query: *[_type == 'project'] | order(_createdAt asc) {  _id,  _type,  title,  'slug': slug.current,  excerpt,  category->{    _id,    title,    'slug': slug.current,  },  image {     asset->{ url },     height,    altText   },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },}
+// Query: *[_type == 'project'] | order(_createdAt asc) {  _id,  _type,  title,  'slug': slug.current,  excerpt,  category->{    _id,    title,    'slug': slug.current,  },  image {     asset->{ url },     height,    altText   },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },}
 export type AllProjectsQueryResult = Array<{
   _id: string;
   _type: "project";
@@ -10836,6 +13098,186 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -11175,6 +13617,190 @@ export type AllProjectsQueryResult = Array<{
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
 }>;
 // Variable: allProjectCategoriesQuery
@@ -11186,7 +13812,7 @@ export type AllProjectCategoriesQueryResult = Array<{
   slug: string | null;
 }>;
 // Variable: projectsByCategoryQuery
-// Query: *[_type == 'project' && category->slug.current == $slug] {  _id,  _type,  _createdAt,  title,  'slug': slug.current,  excerpt,  category->{    _id,    title,    'slug': slug.current,  },  image {     asset->{ url },     height,    altText   },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },}
+// Query: *[_type == 'project' && category->slug.current == $slug] {  _id,  _type,  _createdAt,  title,  'slug': slug.current,  excerpt,  category->{    _id,    title,    'slug': slug.current,  },  image {     asset->{ url },     height,    altText   },    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },}
 export type ProjectsByCategoryQueryResult = Array<{
   _id: string;
   _type: "project";
@@ -12225,6 +14851,186 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -12564,6 +15370,190 @@ export type ProjectsByCategoryQueryResult = Array<{
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
 }>;
 // Variable: projectCategoryBySlugQuery
@@ -12584,7 +15574,7 @@ export type ServiceSlugsQueryResult = Array<{
   };
 }>;
 // Variable: serviceBySlugQuery
-// Query: *[_type == 'service' && slug.current == $slug][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'service' && slug.current == $slug][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type ServiceBySlugQueryResult = {
   _id: string;
   _type: "service";
@@ -13609,6 +16599,186 @@ export type ServiceBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -13948,6 +17118,190 @@ export type ServiceBySlugQueryResult = {
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
   seo: {
     title: string | "";
@@ -13968,7 +17322,7 @@ export type ServiceBySlugQueryResult = {
   };
 } | null;
 // Variable: allServicesQuery
-// Query: *[_type == 'service'] {  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },}
+// Query: *[_type == 'service'] {  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },}
 export type AllServicesQueryResult = Array<{
   _type: "service";
   title: string | null;
@@ -14992,6 +18346,186 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -15331,10 +18865,194 @@ export type AllServicesQueryResult = Array<{
         height: number | null;
       } | null;
     }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
 }>;
 // Variable: servicesPageQuery
-// Query: *[_type == 'servicesPage'][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
+// Query: *[_type == 'servicesPage'][0] {  _id,  _type,  title,  'slug': slug.current,    pageBuilder[] {      _type == "heroBlock" => {      _id,  _key,  _type,    heading,    content[],    mediaType,    bottomCornerRadius,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    image {       height,        asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    dialogType,    videoUrl,    overlayType,    anchorId  },      _type == "headerBlock" => {      _id,  _key,  _type,    heading,    content[],    bottomCornerRadius,    anchorId  },      _type == "featureBlock" => {      _id,  _key,  _type,    heading,    features[] {      title,      description,      icon {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      pageReference->{        _id,        title,        "slug": slug.current      },    },    anchorId  },      _type == "featureCardsBlock" => {      _id,  _key,  _type,    heading,    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features[] {      _key,      title,      description,      items,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      button {          _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId      },      },    showCallToAction,    callToActionHeading,    callToActionContent,    callToActionButtons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "featuresMinimalBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    features,    enableBorderTop,    cornerRadiusTop,    enableBorderBottom,    cornerRadiusBottom,    anchorId,      paddingTop,  paddingBottom  },      _type == "callToActionBlock" => {      _id,  _key,  _type,    heading,    content,    buttons[] {        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    anchorId,      paddingTop,  paddingBottom  },      _type == "logoBlock" => {      _id,  _key,  _type,    heading,    logos[] {      _key,      title,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      size,      link    },    anchorId  },      _type == "testimonialBlock" => {      _id,  _key,  _type,    heading,    eyebrow,    testimonials[]->{      _id,      name,      jobTitle,      company,      quote,      avatar {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      logo {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },    },    anchorId,    cornerRadiusTop,    cornerRadiusBottom,      paddingTop,  paddingBottom  },      _type == "freeformBlock" => {      _id,  _key,  _type,    title,    columnsPerRow,    columns[] {      _key,      _type,      title,      spacing,      alignment,      items[] {        _key,        _type,        image {           aspectRatio,            asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },         },        heading,        headingText,        headingTag,        headingSize,        richTextContent,        buttonText,        buttonVariant,        buttonType,        buttonPageReference->{          _id,          title,          "slug": slug.current        },        buttonExternalUrl,        spacing      },    },    anchorId,    border  },      _type == "portableTextBlock" => {      _id,  _key,  _type,    title,    content[],    alignment,    anchorId,      paddingTop,  paddingBottom  },      _type == "blogArchiveBlock" => {      _id,  _key,  _type,    heading,    "categories": *[_type == "postCategory"] {      _id,      title,      "slug": slug.current,    },    anchorId,      paddingTop,  paddingBottom  },      _type == "servicesBlock" => {      _id,  _key,  _type,    heading,    services[]->{      _id,      title,      shortDescription,      image {           asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },       },      "slug": slug.current,    },    buttons[]{        _key,  showButton,  buttonText,  buttonVariant,  buttonType,  buttonWidth,  buttonFileUrl {    asset->{ url }  },  buttonPageReference->{    _id,    _type,    title,    "slug": slug.current  },  buttonEmailAddress,  buttonExternalUrl,  buttonAnchorLocation,  buttonAnchorId    },    background,    topCornerRadius,    anchorId,      paddingTop,  paddingBottom  },      _type == "formBlock" => {      _id,  _key,  _type,    heading,    content[],    form->{      title,      submitButtonText,      fields    },    anchorId,      paddingTop,  paddingBottom  },      _type == "mediaBlock" => {      _id,  _key,  _type,    backgroundType,    backgroundWidth,    image {         asset->{     _ref,    _type,    url,    altText,    description,    "tags": opt.media.tags[]->name.current,    title,  },     },    overlayType,    dialogType,    videoUrl,    anchorId  },      _type == "heroClickthroughBlock" => {      _id,  _key,  _type,    heading,    subheading,    headingWidth,    subheadingWidth  },      _type == "simpleCardBlock" => {      _id,  _key,  _type,    title,    cards[] {      title,      description,      image {        asset->{          url,          metadata {            dimensions          }        },        alt      },      backgroundColor {        value      }    }  },      _type == "featuredTestimonialBlock" => {      _id,  _key,  _type,    quote,    author {      name,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      }    },    quoteIcon {      asset->{        url      },      alt    },    backgroundColor {      value    }  },      _type == "comparisonTableBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    leftColumn {      title,      icon {        asset->{          url        },        alt      }    },    rightColumn {      title,      icon {        asset->{          url        },        alt      },      backgroundColor {        value      }    },    rows[] {      leftText,      rightText    }  },      _type == "testimonialCarouselBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    testimonials[] {      text,      author,      position,      avatar {        asset->{          url,          metadata {            dimensions          }        },        alt      },      companyLogo {        asset->{          url        },        alt,        width,        height      }    }  },      _type == "heroSectionBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    titleWidth,    description,    descriptionWidth,    showButton,    button {      text,      link,      variant,      buttonBelowSpacing    },    showImage,    image {      asset->{        url,        metadata {          dimensions        }      },      height,      width    },    modifySpacing,    spacing {      topSpacing,      bottomSpacing,      titleBelowSpacing,      descriptionBelowSpacing,      imageBelowSpacing    },    backgroundColor {      value    }  },      _type == "stepProcessBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    subheading,    steps[] {      number,      title,      description,      badgeColor {        value      },      image {        asset->{          url,          metadata {            dimensions          }        },        width,        height      }    },    borderColor {      value    },    backgroundColor {      value    }  },      _type == "clickthroughTopicBlock" => {      _id,  _key,  _type,    _key,    _type,    useCases[] {      title,      description,      backgroundColor {        value      },      embedUrl,    },    sectionBackgroundColor {      value    }  },      _type == "stepRightImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    steps[] {      number,      title    },    footnote,    image {      asset->{        url,        metadata {          dimensions        }      },      alt    },    badgeColor {      value    },    backgroundGradient {      topColor {        value      },      bottomColor {        value      }    }  },      _type == "iconListBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconListTwoColumnBlock" => {      _id,  _key,  _type,    _key,    _type,    heading,    features[] {      title,      description,      icon {        asset->{          url        }      }    },    backgroundColor {      value    },  },      _type == "iconHighlightBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[]{      text,      image {        asset->{          url,        }      }    },    backgroundColor {      value    },  },      _type == "pricingBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    pricingBlockReference->{      _id,      freePilotCard{        title,        subtitle,        features,        buttonText,        buttonLink      },      afterPilotCard{        title,        price,        priceUnit      },      backgroundColor{        value      }    }  },      _type == "caseStudyGridBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    spacing {      top,      bottom    },    hasFeaturedCard,    featuredCaseStudy {      company,      description,      link,      buttonText,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    },    caseStudies[] {      company,      description,      link,      backgroundColor {        value      },      logo {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "itToolsCardBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    backgroundColor {      value    },    spacing {      top,      bottom    },    tools[] {      label,      title,      description,      url,      comingSoon,      buttonText,      labelBackground {        value      }    }  },      _type == "socialReviewBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    background {      color {        value      },      gradient    },    spacing {      top,      bottom    },    avatarImage {      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    comments[] {      username,      content,      width    }  },      _type == "accordionAndImageBlock" => {      _id,  _key,  _type,    _key,    _type,    title,    sectionTitle,    description,    spacing {      top,      bottom    },    image {      asset->{        url,      }    },    features[] {      title,      description    }  },      _type == "frequentlyAskedQuestionBlock" => {      _id,  _key,  _type,    title,    faqs[] {      question,      answer    }  },      _type == "joinOurNewsletterBlock" => {      _id,  _key,  _type,    title,    description,    placeholder,    buttonText,    successMessage,    processingText,    spacing {      top,      bottom    },    backgroundColor {      value    },    successBorderColor {      value    },    successTextColor {      value    }  },      _type == "avatarWithDetails" => {      _id,  _key,  _type,    _key,    _type,    sectionTitle,    spacing {      topSpacing,      topSpacingMobile,      bottomSpacing,      bottomSpacingMobile,      headingBottomSpacing,      headingBottomSpacingMobile    },    avatarList[]{      name,      title,      avatar {        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      },      bio,      socialLinks[]{        name,        url,        icon {          asset->{            url,            metadata {              dimensions {                width,                height              }            }          }        }      }    }  },      _type == "iconBlock" => {      _id,  _key,  _type,      title,      icons[] {      logo { asset->{url} },      altText,      width,      height    },  },      _type == "pngImageBlock" => {      _id,  _key,  _type,    hasFeaturedCard,    featuredCard {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    cards[] {      image { asset->{url} },      altText,      title,      description,      bgColor { value }    },    sectionBgColor { value }  },      _type == "oktaIdpHeroSection" => {      _id,  _key,  _type,    _key,    _type,    title,    subtitle,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata {          dimensions {            width,            height          }        }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata {            dimensions {              width,              height            }          }        }      }    }  },      _type == "oktaIdpWhySaasSection" => {      _id,  _key,  _type,    _key,    _type,    title,    lineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    cards[] {      mainHeading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "oktaIdpPointers" => {      _id,  _key,  _type,    _key,    _type,    title,    pointers[] {      text    }  },      _type == "oktaIdpSaasManagementActuallyWorks" => {      _id,  _key,  _type,    _key,    _type,    title,    topLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    sections[] {      mainTitle,      subTitle,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    },    bottomLineImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },  },      _type == "oktaIdpCustomer" => {      _id,  _key,  _type,    _key,    _type,    title,    cards[] {      _key,      mainHeading,      description,      name,      designation,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      avatarImage {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      },      impact[] {        _key,        contractCount,        contractDesc,        reductionRate,        reductionDesc      }    }  },      _type == "oktaIdpTraditionalTools" => {    _key,    _type,    traditionalTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    },    stitchflowTools[] {      list,      listIcon {        alt,        asset->{          url,          metadata {            dimensions { width, height }          }        }      }    }  },      _type == "oktaIdpFaqSection" => {    _key,    _type,    heading,    faqs[] {      question,      answer    }  },      _type == "oktaIdpCtaSection" => {    _key,    _type,    heading,    description,    buttonText,    avatarImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    }  },      _type == "samHeroSection" => {    _key,    _type,    title,    description,    heroImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    backedByImage {      alt,      width,      height,      asset->{        url,        metadata { dimensions { width, height } }      }    },    marqueeImages[] {      width,      height,      asset {        alt,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samCenteredBlock" => {    _key,    _type,    badge,    title,    description,    buttonText  },      _type == "samCardsBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    cards[] {      tagline,      heading,      description,      image {        alt,        width,        height,        asset->{          url,          metadata { dimensions { width, height } }        }      }    }  },      _type == "samFixTheGapsBlock" => {    _key,    _type,    tagline,    heading,    description,    accordionItems[] {      heading,      subheading,      button,      image {        alt,        asset-> { url, metadata { dimensions { width, height } } }      },      icon {        alt,        asset-> { url }      },      subsections[] {        title,        desc      }    }  },      _type == "samActionBlock" => {    _key,    _type,    tagline,    heading,    highlightedText,    description,    videoUrl  }  },  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "noIndex": seo.noIndex == true,    "image": seo.image,  },}
 export type ServicesPageQueryResult = {
   _id: string;
   _type: "servicesPage";
@@ -16359,6 +20077,186 @@ export type ServicesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "oktaIdpCustomer";
+    title: string | null;
+    cards: Array<{
+      _key: string;
+      mainHeading: string | null;
+      description: string | null;
+      name: string | null;
+      designation: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      avatarImage: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      impact: Array<{
+        _key: string;
+        contractCount: string | null;
+        contractDesc: string | null;
+        reductionRate: string | null;
+        reductionDesc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpHeroSection";
+    title: string | null;
+    subtitle: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpPointers";
+    title: string | null;
+    pointers: Array<{
+      text: string | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpSaasManagementActuallyWorks";
+    title: string | null;
+    topLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    sections: Array<{
+      mainTitle: string | null;
+      subTitle: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    bottomLineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "oktaIdpWhySaasSection";
+    title: string | null;
+    lineImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    cards: Array<{
+      mainHeading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "pngImageBlock";
     hasFeaturedCard: boolean | null;
     featuredCard: {
@@ -16696,6 +20594,190 @@ export type ServicesPageQueryResult = {
         alt: string | null;
         width: number | null;
         height: number | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpCtaSection";
+    heading: string | null;
+    description: string | null;
+    buttonText: string | null;
+    avatarImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpFaqSection";
+    heading: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "oktaIdpTraditionalTools";
+    traditionalTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+    stitchflowTools: Array<{
+      list: string | null;
+      listIcon: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samActionBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    videoUrl: string | null;
+  } | {
+    _key: string;
+    _type: "samCardsBlock";
+    tagline: string | null;
+    heading: string | null;
+    highlightedText: string | null;
+    description: string | null;
+    cards: Array<{
+      tagline: string | null;
+      heading: string | null;
+      description: string | null;
+      image: {
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samCenteredBlock";
+    badge: string | null;
+    title: string | null;
+    description: string | null;
+    buttonText: string | null;
+  } | {
+    _key: string;
+    _type: "samFixTheGapsBlock";
+    tagline: null;
+    heading: null;
+    description: string | null;
+    accordionItems: Array<{
+      heading: string | null;
+      subheading: string | null;
+      button: string | null;
+      image: {
+        alt: null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+      icon: {
+        alt: null;
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      subsections: Array<{
+        title: string | null;
+        desc: string | null;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "samHeroSection";
+    title: string | null;
+    description: string | null;
+    heroImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    backedByImage: {
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+    marqueeImages: Array<{
+      width: number | null;
+      height: number | null;
+      asset: {
+        alt: string | null;
+        asset: {
+          url: string | null;
+          metadata: {
+            dimensions: {
+              width: number | null;
+              height: number | null;
+            } | null;
+          } | null;
+        } | null;
       } | null;
     }> | null;
   }> | null;
@@ -17119,26 +21201,26 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"page\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": PageSlugsQueryResult;
-    "*[_type == 'page' && slug.current == $slug][0] {\n  _type,\n  _id,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PageBySlugQueryResult;
+    "*[_type == 'page' && slug.current == $slug][0] {\n  _type,\n  _id,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PageBySlugQueryResult;
     "*[_type == \"post\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": PostSlugsQueryResult;
-    "*[_type == 'blogPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  heroText,\n  featuredBlog->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  editorsPicks[]->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"posts\": *[_type == 'post'] | order(publishedAt desc) {\n    _id,\n    _type,\n    _createdAt,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \"categories\": *[_type == \"postCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": BlogPageQueryResult;
+    "*[_type == 'blogPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  heroText,\n  featuredBlog->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  editorsPicks[]->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"posts\": *[_type == 'post'] | order(publishedAt desc) {\n    _id,\n    _type,\n    _createdAt,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      altText \n    },\n  },\n  \"categories\": *[_type == \"postCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": BlogPageQueryResult;
     "*[_type == 'post' && slug.current == $slug][0] {\n  _id,\n  _type,\n  _createdAt,\n  title,\n  'slug': slug.current,\n  excerpt,\n  \"tableOfContents\": content[style in [\"h2\"]],\n  content[],\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    position,\n    bio,\n    avatar { \n      asset->{ url }, \n    },\n    socials[] {\n      platform,\n      url,\n      customIcon {\n        asset->{ url },\n      },\n    }\n  },\n  relatedPostsType,\n  \"relatedPosts\": select(\n    relatedPostsType == \"custom\" => customRelatedPosts[]->{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      excerpt,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n    relatedPostsType == \"autofill\" => *[_type == 'post' && category._ref == ^.category._ref && _id != ^._id][0...3]{ \n      _id,\n      _type,\n      _createdAt,\n      title,\n      'slug': slug.current,\n      category->{\n        _id,\n        title,\n        'slug': slug.current,\n      },\n      excerpt,\n      image { \n        asset->{ url }, \n        altText \n      }\n    },\n  ),\n  \"settings\": *[_type == \"blogSettings\"][0] {\n    showRelatedPosts,\n    showTableOfContents,\n    showPostsByCategory\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": PostBySlugQueryResult;
     "*[_type == 'post'] | order(_createdAt asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    altText \n  },\n}": AllPostsQueryResult;
     "*[_type == 'postCategory'] | order(orderRank asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": AllPostCategoriesQueryResult;
     "*[_type == 'post' && category->slug.current == $slug] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    altText \n  },\n}": PostsByCategoryQueryResult;
     "*[_type == 'postCategory' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": PostCategoryBySlugQueryResult;
     "*[_type == \"project\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": ProjectSlugsQueryResult;
-    "*[_type == 'projectsPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"projects\": *[_type == \"project\"] | order(_createdAt asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      height,\n      altText \n    },\n    \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  },\n  \"categories\": *[_type == \"projectCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ProjectsPageQueryResult;
+    "*[_type == 'projectsPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"projects\": *[_type == \"project\"] | order(_createdAt asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    excerpt,\n    category->{\n      _id,\n      title,\n      'slug': slug.current,\n    },\n    image { \n      asset->{ url }, \n      height,\n      altText \n    },\n    \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  },\n  \"categories\": *[_type == \"projectCategory\"] | order(orderRank asc) {\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n  },\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ProjectsPageQueryResult;
     "*[_type == \"project\" && defined(slug.current)][] {\n  'params': { 'slug': slug.current }\n}": ProjectPathsQueryResult;
-    "*[_type == 'project' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ProjectBySlugQueryResult;
-    "*[_type == 'project'] | order(_createdAt asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    height,\n    altText \n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n}": AllProjectsQueryResult;
+    "*[_type == 'project' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ProjectBySlugQueryResult;
+    "*[_type == 'project'] | order(_createdAt asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    height,\n    altText \n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n}": AllProjectsQueryResult;
     "*[_type == 'projectCategory'] | order(orderRank asc) {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": AllProjectCategoriesQueryResult;
-    "*[_type == 'project' && category->slug.current == $slug] {\n  _id,\n  _type,\n  _createdAt,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    height,\n    altText \n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n}": ProjectsByCategoryQueryResult;
+    "*[_type == 'project' && category->slug.current == $slug] {\n  _id,\n  _type,\n  _createdAt,\n  title,\n  'slug': slug.current,\n  excerpt,\n  category->{\n    _id,\n    title,\n    'slug': slug.current,\n  },\n  image { \n    asset->{ url }, \n    height,\n    altText \n  },\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n}": ProjectsByCategoryQueryResult;
     "*[_type == 'projectCategory' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n}": ProjectCategoryBySlugQueryResult;
     "*[_type == \"service\" && defined(slug.current)] {\n  'params': { 'slug': slug.current }\n}": ServiceSlugsQueryResult;
-    "*[_type == 'service' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServiceBySlugQueryResult;
-    "*[_type == 'service'] {\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n}": AllServicesQueryResult;
-    "*[_type == 'servicesPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServicesPageQueryResult;
+    "*[_type == 'service' && slug.current == $slug][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServiceBySlugQueryResult;
+    "*[_type == 'service'] {\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n}": AllServicesQueryResult;
+    "*[_type == 'servicesPage'][0] {\n  _id,\n  _type,\n  title,\n  'slug': slug.current,\n  \n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n,\n    \n  _type == \"oktaIdpHeroSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    subtitle,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpWhySaasSection\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    lineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    cards[] {\n      mainHeading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpPointers\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pointers[] {\n      text\n    }\n  }\n,\n    \n  _type == \"oktaIdpSaasManagementActuallyWorks\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    topLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    sections[] {\n      mainTitle,\n      subTitle,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    },\n    bottomLineImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n  }\n,\n    \n  _type == \"oktaIdpCustomer\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[] {\n      _key,\n      mainHeading,\n      description,\n      name,\n      designation,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      avatarImage {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      },\n      impact[] {\n        _key,\n        contractCount,\n        contractDesc,\n        reductionRate,\n        reductionDesc\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpTraditionalTools\" => {\n    _key,\n    _type,\n    traditionalTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    },\n    stitchflowTools[] {\n      list,\n      listIcon {\n        alt,\n        asset->{\n          url,\n          metadata {\n            dimensions { width, height }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"oktaIdpFaqSection\" => {\n    _key,\n    _type,\n    heading,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"oktaIdpCtaSection\" => {\n    _key,\n    _type,\n    heading,\n    description,\n    buttonText,\n    avatarImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    }\n  }\n,\n    \n  _type == \"samHeroSection\" => {\n    _key,\n    _type,\n    title,\n    description,\n    heroImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    backedByImage {\n      alt,\n      width,\n      height,\n      asset->{\n        url,\n        metadata { dimensions { width, height } }\n      }\n    },\n    marqueeImages[] {\n      width,\n      height,\n      asset {\n        alt,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samCenteredBlock\" => {\n    _key,\n    _type,\n    badge,\n    title,\n    description,\n    buttonText\n  }\n,\n    \n  _type == \"samCardsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    cards[] {\n      tagline,\n      heading,\n      description,\n      image {\n        alt,\n        width,\n        height,\n        asset->{\n          url,\n          metadata { dimensions { width, height } }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"samFixTheGapsBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    description,\n    accordionItems[] {\n      heading,\n      subheading,\n      button,\n      image {\n        alt,\n        asset-> { url, metadata { dimensions { width, height } } }\n      },\n      icon {\n        alt,\n        asset-> { url }\n      },\n      subsections[] {\n        title,\n        desc\n      }\n    }\n  }\n,\n    \n  _type == \"samActionBlock\" => {\n    _key,\n    _type,\n    tagline,\n    heading,\n    highlightedText,\n    description,\n    videoUrl\n  }\n\n  }\n,\n  \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n    \"description\": coalesce(seo.description,  \"\"),\n    \"noIndex\": seo.noIndex == true,\n    \"image\": seo.image,\n  },\n}": ServicesPageQueryResult;
     "\n  *[_type in [\"page\", \"post\", \"project\", \"service\", \"blogPage\", \"projectsPage\", \"servicesPage\"] && defined(slug.current)] {\n    \"href\": select(\n      _type == \"page\" => \"/\" + slug.current,\n      _type == \"post\" => \"/blog/\" + slug.current,\n      _type == \"blogPage\" => \"/blog\",\n      _type == \"project\" => \"/projects/\" + slug.current,\n      _type == \"projectsPage\" => \"/projects\",\n      _type == \"service\" => \"/services/\" + slug.current,\n      _type == \"servicesPage\" => \"/services\",\n      slug.current\n    ),\n    _updatedAt\n  }\n": SitemapQueryResult;
     "\n  *[_type == \"redirect\" && isEnabled == true] {\n      source,\n      destination,\n      permanent\n  }\n": RedirectsQueryResult;
     "*[_type == \"announcementBanner\"][0] {\n    show,\n    backgroundColor { value },\n    textColor { value },\n    linkColor { value },\n    icon {\n        asset->{\n            url,\n        }\n    },\n    text,\n    linkText,\n    link\n  }\n": AnnouncementBannerQueryResult;

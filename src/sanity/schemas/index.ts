@@ -95,6 +95,19 @@ import joinOurNewsletterBlock from "./page-builder/blocks/join-our-newsletter-bl
 import avatarWithDetails from "./page-builder/blocks/avatar-with-details-block";
 import iconBlock from "./page-builder/blocks/icon-block";
 import pngImageBlock from "./page-builder/blocks/png-image-block";
+import oktaIdpHeroSection from "./page-builder/blocks/okta-idp-hero-block"
+import oktaIdpWhySaasSection from "./page-builder/blocks/okta-idp-why-saas-block";
+import oktaIdpPointers from "./page-builder/blocks/okta-idp-pointers-block";
+import oktaIdpSaasManagementActuallyWorks from "./page-builder/blocks/okta-idp-saas-management-actually-works-block";
+import oktaIdpCustomer from "./page-builder/blocks/okta-idp-customer-block";
+import oktaIdpTraditionalTools from "./page-builder/blocks/okta-idp-traditional-tools-block";
+import oktaIdpFaqSection from "./page-builder/blocks/okta-idp-faq-block";
+import oktaIdpCtaSection from "./page-builder/blocks/cta-template-block";
+import samHeroSection from "./page-builder/blocks/sam-hero-block";
+import samCenteredBlock from "./page-builder/blocks/sam-centered-block";
+import samCardsBlock from "./page-builder/blocks/sam-cards-block";
+import samFixTheGapsBlock from "./page-builder/blocks/sam-fix-the-gaps-block";
+import samActionBlock from "./page-builder/blocks/sam-action-block"
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -133,7 +146,20 @@ const pageBuilderSchema = [
   joinOurNewsletterBlock,
   avatarWithDetails,
   iconBlock,
-  pngImageBlock
+  pngImageBlock,
+  oktaIdpHeroSection,
+  oktaIdpWhySaasSection,
+  oktaIdpPointers,
+  oktaIdpSaasManagementActuallyWorks,
+  oktaIdpCustomer,
+  oktaIdpTraditionalTools,
+  oktaIdpFaqSection,
+  oktaIdpCtaSection,
+  samHeroSection,
+  samCenteredBlock,
+  samCardsBlock,
+  samFixTheGapsBlock,
+  samActionBlock
 ];
 
 import seoObject from './objects/seo';
