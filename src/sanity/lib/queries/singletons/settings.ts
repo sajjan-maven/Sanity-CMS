@@ -20,20 +20,6 @@ export const generalSettingsQuery = defineQuery(`*[_type == 'generalSettings'][0
   },
 }`);
 
-
-export const navbarFooterSettingsQuery = defineQuery(`*[_type == "navbarFooterSettings"][0] {
-  excludedRoutes[] {
-    path,
-    excludeNavbar,
-    excludeFooter,
-    note
-  },
-  footerCTAexcludedRoutes[] {
-    path,
-    note
-  }
-}`);
-
 export const marketingSettingsQuery = defineQuery(`*[_type == 'marketingSettings'][0] {
   googleAnalyticsId,
   googleTagManagerId,

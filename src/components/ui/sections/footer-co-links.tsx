@@ -4,7 +4,6 @@ import React from "react";
 
 interface FooterCoLinksProps {
   footerCoLinks: {
-    footerCoLinks: {
     companyNameMark?: {
       asset?: {
         url: string;
@@ -18,7 +17,6 @@ interface FooterCoLinksProps {
     businessEmail?: string;
   };
 }
-}
 
 const FooterCoLinks = ({ footerCoLinks }: FooterCoLinksProps) => {
   // Fallback links if no Sanity data
@@ -29,9 +27,9 @@ const FooterCoLinks = ({ footerCoLinks }: FooterCoLinksProps) => {
   ];
 
   // Use Sanity data if available, otherwise use fallback
-  const copyright = footerCoLinks?.footerCoLinks?.copyright || "Copyright © 2025 Stitchflow, Inc.";
-  const links = footerCoLinks?.footerCoLinks?.coLinks && footerCoLinks?.footerCoLinks.coLinks.length > 0
-    ? footerCoLinks?.footerCoLinks.coLinks.map(link => ({
+  const copyright = footerCoLinks?.copyright || "Copyright © 2025 Stitchflow, Inc.";
+  const links = footerCoLinks?.coLinks && footerCoLinks.coLinks.length > 0
+    ? footerCoLinks.coLinks.map(link => ({
         text: link.label,
         href: link.url
       }))
@@ -43,7 +41,7 @@ const FooterCoLinks = ({ footerCoLinks }: FooterCoLinksProps) => {
         <div className="w-full flex justify-center relative">
           <Image
             alt="Stitchflow Wordmark"
-            src={footerCoLinks?.footerCoLinks?.companyNameMark?.asset?.url || ''}
+            src={footerCoLinks?.companyNameMark?.asset?.url || ''}
             width={1256}
             height={199}
           />
@@ -62,7 +60,7 @@ const FooterCoLinks = ({ footerCoLinks }: FooterCoLinksProps) => {
                 {link.text}
               </Link>
             ))}
-            <Link key='email' href={`mailto:${footerCoLinks?.footerCoLinks?.businessEmail}`} className="font-normal text-xs leading-6 no-underline hover:underline">{footerCoLinks?.footerCoLinks?.businessEmail}</Link>
+            <Link key='email' href={`mailto:${footerCoLinks?.businessEmail}`} className="font-normal text-xs leading-6 no-underline hover:underline">{footerCoLinks?.businessEmail}</Link>
           </div>
         </div>
       </div>

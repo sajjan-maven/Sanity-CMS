@@ -1,4 +1,4 @@
-import { defineQuery} from "next-sanity";
+import { defineQuery } from "next-sanity";
 
 export const navbarQuery = defineQuery(`*[_type =="navbar"][0]{
   logo {
@@ -26,5 +26,8 @@ export const navbarQuery = defineQuery(`*[_type =="navbar"][0]{
     text,
     link,
     variant
+  },
+  excludedRoutes[] {
+    path
   }
 }`);

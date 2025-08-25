@@ -23,11 +23,6 @@ interface MenuItem {
     path?: string;
 }
 
-interface RouteExclusion {
-    path: string;
-    note?: string;
-}
-
 interface AnnouncementBannerSettings {
     icon: {
         asset?: {
@@ -41,8 +36,8 @@ interface AnnouncementBannerSettings {
     backgroundColor: any;
     textColor: any;
     linkColor: any;
-    announcementBarSettings: {
-        excludedRoutes: RouteExclusion[];
+    excludedRoutes: {
+        path: string;
     };
 }
 
@@ -326,7 +321,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings, navbarFooterSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings, navbarFooterSettings: any }) => {
+const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -335,27 +330,29 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings, navbarFoot
     const pathname = usePathname();
     const headerRef = useRef<HTMLDivElement>(null);
 
-    const { logo, menuItems, ctaButton } = navbarSetting;
+    const { logo, menuItems, ctaButton, excludedRoutes } = navbarSetting;
     const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
 
     const isPathExcluded = () => {
-        if (!announcementBannerSettings?.announcementBarSettings?.excludedRoutes) return false;
+        if (!announcementBannerSettings?.excludedRoutes) return false;
 
-        return announcementBannerSettings.announcementBarSettings.excludedRoutes.some((exclusion: RouteExclusion) => {
-            const excludedPath = exclusion.path;
-            if (!excludedPath) return false;
-            if (pathname === excludedPath) return true;
-            if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
+        return Array.isArray(announcementBannerSettings?.excludedRoutes) &&
+            announcementBannerSettings.excludedRoutes.some((exclusion: { path: string }) => {
+                const excludedPath = exclusion.path;
+                if (!excludedPath) return false;
+                if (pathname === excludedPath) return true;
+                if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
 
-            return false;
-        });
+                return false;
+            });
     };
 
     // Check if navbar menu items should be hidden based on excluded routes
-    const shouldHideNavbarMenu = navbarFooterSettings?.excludedRoutes?.some((route: any) => {
-        if (!route.excludeNavbar) return false;
-        if (pathname === route.path) return true;
-        if (route.path !== '/' && pathname.startsWith(route.path)) return true;
+    const shouldHideNavbarMenu = navbarSetting?.excludedRoutes?.some((route: any) => {
+        const excludedPath = route.path;
+        if (!excludedPath) return false;
+        if (pathname === excludedPath) return true;
+        if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
         return false;
     });
 

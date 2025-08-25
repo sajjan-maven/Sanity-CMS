@@ -10,17 +10,6 @@ export const SettingsItem = (S: StructureBuilder) =>
         .title('Settings')
         .items([
           S.listItem()
-            .title('Hide Navbar | Footer')
-            .icon(Wrench)
-            .child(
-              S.document()
-                .id('navbarFooterSettings')
-                .schemaType('navbarFooterSettings')
-                .documentId('navbarFooterSettings')
-                .title('Navbar & Footer')
-            ),
-          S.divider(),
-          S.listItem()
             .title('Marketing')
             .icon(Tv)
             .child(

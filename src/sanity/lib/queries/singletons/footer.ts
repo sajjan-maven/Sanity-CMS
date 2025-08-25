@@ -1,6 +1,35 @@
 import { defineQuery } from "next-sanity";
 
-export const footerLinksQuery = defineQuery(`*[_type == "footer"][0] {
+export const footerQuery = defineQuery(`*[_type == "footer"][0] {
+  footerCTA {
+    title,
+    description,
+    ctaButton {
+      text,
+      link,
+      variant
+    },
+    desktopImage {
+      src {
+        asset->{
+          url
+        }
+      },
+      alt,
+      width,
+      height
+    },
+    mobileImage {
+      src {
+        asset->{
+          url
+        }
+      },
+      alt,
+      width,
+      height
+    }
+  },
   footerLinks {
     companyLogo {
       asset->{
@@ -71,6 +100,25 @@ export const footerLinksQuery = defineQuery(`*[_type == "footer"][0] {
       label,
       url,
       badge
-    }
+    },
+  },
+  footerCoLinks {
+    companyNameMark {
+      asset->{
+        url,
+      }
+    },
+    copyright,
+    coLinks[] {
+      label,
+      url
+    },
+    businessEmail,
+  },
+  footerExcludedRoutes[] {
+    path
+  },
+  footerCTAexcludedRoutes[] {
+    path
   }
 }`);

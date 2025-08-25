@@ -13,9 +13,7 @@ export const announcementBannerQuery = defineQuery(`*[_type == "announcementBann
     text,
     linkText,
     link,
-    announcementBarSettings {
-        excludedRoutes[] {
-            path
-        }
+    excludedRoutes[] {
+        path
     }
 }`);

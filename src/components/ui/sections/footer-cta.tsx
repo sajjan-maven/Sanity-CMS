@@ -6,7 +6,7 @@ import React from "react";
 import NewButton from "../newButton";
 
 interface FooterCTAProps {
-  footerCTA: {footerCTA: {
+  footerCTA: {
     title?: string;
     description?: string;
     ctaButton?: {
@@ -34,7 +34,7 @@ interface FooterCTAProps {
       width?: number;
       height?: number;
     };
-  };}
+  };
 }
 
 const FooterCTA = ({ footerCTA }: FooterCTAProps) => {
@@ -47,14 +47,14 @@ const FooterCTA = ({ footerCTA }: FooterCTAProps) => {
   }
 
   // Use Sanity data if available, otherwise use fallback
-  const title = footerCTA?.footerCTA.title;
-  const description = footerCTA?.footerCTA.description;
-  const buttonText = footerCTA?.footerCTA.ctaButton?.text;
-  const buttonLink = footerCTA?.footerCTA.ctaButton?.link || "/demo";
-  const desktopImageUrl = footerCTA?.footerCTA.desktopImage?.src?.asset?.url || "/common-components/footer-demo.png";
-  const mobileImageUrl = footerCTA?.footerCTA.mobileImage?.src?.asset?.url || "/common-components/footer-demo-mobile.png";
-  const desktopAlt = footerCTA?.footerCTA.desktopImage?.alt || "Dashboard preview";
-  const mobileAlt = footerCTA?.footerCTA.mobileImage?.alt || "Dashboard preview";
+  const title = footerCTA?.title;
+  const description = footerCTA?.description;
+  const buttonText = footerCTA?.ctaButton?.text;
+  const buttonLink = footerCTA?.ctaButton?.link || "/demo";
+  const desktopImageUrl = footerCTA?.desktopImage?.src?.asset?.url || "/common-components/footer-demo.png";
+  const mobileImageUrl = footerCTA?.mobileImage?.src?.asset?.url || "/common-components/footer-demo-mobile.png";
+  const desktopAlt = footerCTA?.desktopImage?.alt || "Dashboard preview";
+  const mobileAlt = footerCTA?.mobileImage?.alt || "Dashboard preview";
 
   return (
     <section className="w-full bg-[#363338] px-4 pb-6 md:pb-20 relative z-50">
@@ -72,7 +72,7 @@ const FooterCTA = ({ footerCTA }: FooterCTAProps) => {
 
           <div className="w-full max-w-[300px] lg:max-w-full mx-auto md:ml-0 md:mr-auto">
             <NewButton
-              variant="secondary" 
+              variant="secondary"
               onClick={() => router.push(buttonLink)}
               className="w-full lg:w-auto group active:[&_svg]:translate-x-1.5 hover:[&_svg]:translate-x-0.8"
             >
@@ -84,22 +84,22 @@ const FooterCTA = ({ footerCTA }: FooterCTAProps) => {
 
         {/* Image Section */}
         <div className="w-full lg:w-1/2 xl:w-1/2 2xl:w-1/2 flex justify-end relative z-0">
-        {footerCTA?.footerCTA.desktopImage && (
+          {footerCTA?.desktopImage && (
             <Image
               src={desktopImageUrl}
               alt={desktopAlt}
-              width={footerCTA?.footerCTA.desktopImage?.width || 725}
-              height={footerCTA?.footerCTA.desktopImage?.height || 400}
+              width={footerCTA.desktopImage?.width || 725}
+              height={footerCTA.desktopImage?.height || 400}
               className="hidden lg:block w-full max-w-[725px] h-auto object-contain"
               priority
             />
           )}
-          {footerCTA?.footerCTA.mobileImage && (
+          {footerCTA?.mobileImage && (
             <Image
               src={mobileImageUrl}
               alt={mobileAlt}
-              width={footerCTA?.footerCTA.mobileImage?.width || 348}
-              height={footerCTA?.footerCTA.mobileImage?.height || 424}
+              width={footerCTA.mobileImage?.width || 348}
+              height={footerCTA.mobileImage?.height || 424}
               className="block lg:hidden w-auto h-[424px] object-contain"
               priority
             />

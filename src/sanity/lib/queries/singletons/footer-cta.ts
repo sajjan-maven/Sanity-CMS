@@ -1,4 +1,4 @@
-import { defineQuery} from "next-sanity";
+import { defineQuery } from "next-sanity";
 
 export const footerCTAQuery = defineQuery(`*[_type == "footer"][0] {
   footerCTA {
@@ -29,5 +29,8 @@ export const footerCTAQuery = defineQuery(`*[_type == "footer"][0] {
       width,
       height
     }
+  },
+  footerCTAexcludedRoutes[] {
+    path
   }
 }`);

@@ -9,10 +9,7 @@ interface ClientLayoutProps {
   children: React.ReactNode;
   navbarSettings: any;
   announcementBannerSettings: any;
-  footerCTA: any;
-  footerLinks: any;
-  footerCoLinks: any;
-  navbarFooterSettings: any;
+  footerSettings: any;
 }
 
 const geistSans = localFont({
@@ -28,42 +25,35 @@ const geistMono = localFont({
 });
 
 export default function ClientLayout({
-  children,
-  navbarSettings,
   announcementBannerSettings,
-  footerCTA,
-  footerLinks,
-  footerCoLinks,
-  navbarFooterSettings,
+  navbarSettings,
+  children,
+  footerSettings
 }: ClientLayoutProps) {
 
   const pathname = usePathname();
   if (pathname.includes('/studio')) return (children);
 
-  const shouldHideFooter = navbarFooterSettings?.excludedRoutes?.some((route: any) => {
-    if (!route.excludeFooter) return false;
-    if (pathname === route.path) return true;
-    if (route.path !== '/' && pathname.startsWith(route.path)) return true;
+  const shouldHideFooter = footerSettings.footerExcludedRoutes?.some((route: { path: string }) => {
+    const excludedPath = route.path;
+    if (!excludedPath) return false;
+    if (pathname === excludedPath) return true;
+    if (excludedPath !== '/' && pathname.startsWith(excludedPath)) return true;
     return false;
   });
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
       <Navbar
-        // settings={settings}
         announcementBannerSettings={announcementBannerSettings}
         navbarSetting={navbarSettings}
-        navbarFooterSettings={navbarFooterSettings}
       />
       <main>
         {children}
       </main>
       {!shouldHideFooter && (
         <Footer
-          footerCTA={footerCTA}
-          footerLinks={footerLinks}
-          footerCoLinks={footerCoLinks}
-          navbarFooterSettings={navbarFooterSettings}
+          footerSettings={footerSettings}
         />
       )}
       <Toaster

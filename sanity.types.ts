@@ -1561,6 +1561,18 @@ export type Footer = {
   footerCTA?: FooterCTA;
   footerLinks?: FooterLinks;
   footerCoLinks?: FooterCoLinks;
+  footerExcludedRoutes?: Array<{
+    path?: string;
+    note?: string;
+    _type: "routeExclusion";
+    _key: string;
+  }>;
+  footerCTAexcludedRoutes?: Array<{
+    path?: string;
+    note?: string;
+    _type: "routeExclusion";
+    _key: string;
+  }>;
 };
 
 export type FooterCoLinks = {
@@ -1758,6 +1770,12 @@ export type Navbar = {
     _key: string;
   } & MenuItem>;
   ctaButton?: CtaButton;
+  excludedRoutes?: Array<{
+    path?: string;
+    note?: string;
+    _type: "routeExclusion";
+    _key: string;
+  }>;
 };
 
 export type CtaButton = {
@@ -2093,28 +2111,6 @@ export type NavigationSettings = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "project";
     };
-    _key: string;
-  }>;
-};
-
-export type NavbarFooterSettings = {
-  _id: string;
-  _type: "navbarFooterSettings";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  excludedRoutes?: Array<{
-    path?: string;
-    excludeNavbar?: boolean;
-    excludeFooter?: boolean;
-    note?: string;
-    _type: "routeExclusion";
-    _key: string;
-  }>;
-  footerCTAexcludedRoutes?: Array<{
-    path?: string;
-    note?: string;
-    _type: "routeExclusion";
     _key: string;
   }>;
 };
@@ -2666,7 +2662,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | NavbarFooterSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | CaseStudyGridBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | IntegrationApplication | Casestudies | IntegrationCategory | CasestudiesPage | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | NavigationSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/page.ts
 // Variable: pageSlugsQuery
@@ -19650,7 +19646,7 @@ export type RedirectsQueryResult = Array<{
 
 // Source: ./src/sanity/lib/queries/singletons/announcement-banner.ts
 // Variable: announcementBannerQuery
-// Query: *[_type == "announcementBanner"][0] {    show,    backgroundColor { value },    textColor { value },    linkColor { value },    icon {        asset->{            url,        }    },    text,    linkText,    link,    announcementBarSettings {        excludedRoutes[] {            path        }    }}
+// Query: *[_type == "announcementBanner"][0] {    show,    backgroundColor { value },    textColor { value },    linkColor { value },    icon {        asset->{            url,        }    },    text,    linkText,    link,    excludedRoutes[] {        path    }}
 export type AnnouncementBannerQueryResult = {
   show: boolean | null;
   backgroundColor: {
@@ -19670,7 +19666,9 @@ export type AnnouncementBannerQueryResult = {
   text: string | null;
   linkText: string | null;
   link: string | null;
-  announcementBarSettings: null;
+  excludedRoutes: Array<{
+    path: string | null;
+  }> | null;
 } | null;
 
 // Source: ./src/sanity/lib/queries/singletons/footer-co-links.ts
@@ -19694,7 +19692,7 @@ export type FooterCoLinksQueryResult = {
 
 // Source: ./src/sanity/lib/queries/singletons/footer-cta.ts
 // Variable: footerCTAQuery
-// Query: *[_type == "footer"][0] {  footerCTA {    title,    description,    ctaButton {      text,      link,      variant    },    desktopImage {      src {        asset->{          url        }      },      alt,      width,      height    },    mobileImage {      src {        asset->{          url        }      },      alt,      width,      height    }  }}
+// Query: *[_type == "footer"][0] {  footerCTA {    title,    description,    ctaButton {      text,      link,      variant    },    desktopImage {      src {        asset->{          url        }      },      alt,      width,      height    },    mobileImage {      src {        asset->{          url        }      },      alt,      width,      height    }  },  footerCTAexcludedRoutes[] {    path  }}
 export type FooterCTAQueryResult = {
   footerCTA: {
     title: string | null;
@@ -19725,6 +19723,9 @@ export type FooterCTAQueryResult = {
       height: number | null;
     } | null;
   } | null;
+  footerCTAexcludedRoutes: Array<{
+    path: string | null;
+  }> | null;
 } | null;
 
 // Source: ./src/sanity/lib/queries/singletons/footer-links.ts
@@ -19805,9 +19806,135 @@ export type FooterLinksQueryResult = {
   } | null;
 } | null;
 
+// Source: ./src/sanity/lib/queries/singletons/footer.ts
+// Variable: footerQuery
+// Query: *[_type == "footer"][0] {  footerCTA {    title,    description,    ctaButton {      text,      link,      variant    },    desktopImage {      src {        asset->{          url        }      },      alt,      width,      height    },    mobileImage {      src {        asset->{          url        }      },      alt,      width,      height    }  },  footerLinks {    companyLogo {      asset->{        url,      }    },    backedBy {      asset->{        url,      }    },    socialLinks[] {      platform,      url,      icon {          asset->{              url,          }      }    },    certifications[] {      label,      icon {          asset->{              url,          }      }    },    reviewBadges[] {      url,      icon {          asset->{              url,          }      }    },    platform[] {      label,      url,      badge    },    resources[] {      label,      url,      badge    },    companys[] {      label,      url,      badge    },    getStarted[] {      label,      url,      badge    },    freeTools[] {      label,      url,      badge    },    customers[] {      label,      url,      badge    },    popularGuides[] {      label,      url,      badge    },  },  footerCoLinks {    companyNameMark {      asset->{        url,      }    },    copyright,    coLinks[] {      label,      url    },    businessEmail,  },  footerExcludedRoutes[] {    path  },  footerCTAexcludedRoutes[] {    path  }}
+export type FooterQueryResult = {
+  footerCTA: {
+    title: string | null;
+    description: string | null;
+    ctaButton: {
+      text: string | null;
+      link: string | null;
+      variant: "danger" | "outline" | "primary" | "secondary" | null;
+    } | null;
+    desktopImage: {
+      src: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+    } | null;
+    mobileImage: {
+      src: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+    } | null;
+  } | null;
+  footerLinks: {
+    companyLogo: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    backedBy: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    socialLinks: Array<{
+      platform: string | null;
+      url: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    certifications: Array<{
+      label: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    reviewBadges: Array<{
+      url: string | null;
+      icon: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    platform: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    resources: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    companys: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    getStarted: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    freeTools: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    customers: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+    popularGuides: Array<{
+      label: string | null;
+      url: string | null;
+      badge: "new" | "popular" | null;
+    }> | null;
+  } | null;
+  footerCoLinks: {
+    companyNameMark: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    copyright: string | null;
+    coLinks: Array<{
+      label: string | null;
+      url: string | null;
+    }> | null;
+    businessEmail: string | null;
+  } | null;
+  footerExcludedRoutes: Array<{
+    path: string | null;
+  }> | null;
+  footerCTAexcludedRoutes: Array<{
+    path: string | null;
+  }> | null;
+} | null;
+
 // Source: ./src/sanity/lib/queries/singletons/navbar.ts
 // Variable: navbarQuery
-// Query: *[_type =="navbar"][0]{  logo {    src {      asset->{        _id,        url      }    },    alt,    width,    height  },  menuItems[] {    name,    hasDropdown,    dropdownItems[] {      title,      description,      path    },    path  },  ctaButton {    text,    link,    variant  }}
+// Query: *[_type =="navbar"][0]{  logo {    src {      asset->{        _id,        url      }    },    alt,    width,    height  },  menuItems[] {    name,    hasDropdown,    dropdownItems[] {      title,      description,      path    },    path  },  ctaButton {    text,    link,    variant  },  excludedRoutes[] {    path  }}
 export type NavbarQueryResult = {
   logo: {
     src: {
@@ -19835,6 +19962,9 @@ export type NavbarQueryResult = {
     link: string | null;
     variant: "danger" | "outline" | "primary" | "secondary" | null;
   } | null;
+  excludedRoutes: Array<{
+    path: string | null;
+  }> | null;
 } | null;
 
 // Source: ./src/sanity/lib/queries/singletons/og.ts
@@ -19991,20 +20121,6 @@ export type GeneralSettingsQueryResult = {
     };
   } | null;
 } | null;
-// Variable: navbarFooterSettingsQuery
-// Query: *[_type == "navbarFooterSettings"][0] {  excludedRoutes[] {    path,    excludeNavbar,    excludeFooter,    note  },  footerCTAexcludedRoutes[] {    path,    note  }}
-export type NavbarFooterSettingsQueryResult = {
-  excludedRoutes: Array<{
-    path: string | null;
-    excludeNavbar: boolean | null;
-    excludeFooter: boolean | null;
-    note: string | null;
-  }> | null;
-  footerCTAexcludedRoutes: Array<{
-    path: string | null;
-    note: string | null;
-  }> | null;
-} | null;
 // Variable: marketingSettingsQuery
 // Query: *[_type == 'marketingSettings'][0] {  googleAnalyticsId,  googleTagManagerId,}
 export type MarketingSettingsQueryResult = {
@@ -20048,14 +20164,14 @@ declare module "@sanity/client" {
     "*[_type == 'termsPage'][0] {\n\t_id,\n\t_type,\n\ttitle,\n\tcontent[],\n\t\n  pageBuilder[] {\n    \n  _type == \"heroBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    mediaType,\n    bottomCornerRadius,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    image { \n      height,\n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    dialogType,\n    videoUrl,\n    overlayType,\n    anchorId\n  }\n,\n    \n  _type == \"headerBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    bottomCornerRadius,\n    anchorId\n  }\n,\n    \n  _type == \"featureBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    features[] {\n      title,\n      description,\n      icon { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      pageReference->{\n        _id,\n        title,\n        \"slug\": slug.current\n      },\n    },\n    anchorId\n  }\n,\n    \n  _type == \"featureCardsBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features[] {\n      _key,\n      title,\n      description,\n      items,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      button {\n        \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n      },  \n    },\n    showCallToAction,\n    callToActionHeading,\n    callToActionContent,\n    callToActionButtons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"featuresMinimalBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    features,\n    enableBorderTop,\n    cornerRadiusTop,\n    enableBorderBottom,\n    cornerRadiusBottom,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"callToActionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content,\n    buttons[] {\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"logoBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    logos[] {\n      _key,\n      title,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      size,\n      link\n    },\n    anchorId\n  }\n,\n    \n  _type == \"testimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    eyebrow,\n    testimonials[]->{\n      _id,\n      name,\n      jobTitle,\n      company,\n      quote,\n      avatar { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      logo { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n    },\n    anchorId,\n    cornerRadiusTop,\n    cornerRadiusBottom,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"freeformBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    columnsPerRow,\n    columns[] {\n      _key,\n      _type,\n      title,\n      spacing,\n      alignment,\n      items[] {\n        _key,\n        _type,\n        image { \n          aspectRatio,\n          \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n        },\n        heading,\n        headingText,\n        headingTag,\n        headingSize,\n        richTextContent,\n        buttonText,\n        buttonVariant,\n        buttonType,\n        buttonPageReference->{\n          _id,\n          title,\n          \"slug\": slug.current\n        },\n        buttonExternalUrl,\n        spacing\n      },\n    },\n    anchorId,\n    border\n  }\n,\n    \n  _type == \"portableTextBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    content[],\n    alignment,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"blogArchiveBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    \"categories\": *[_type == \"postCategory\"] {\n      _id,\n      title,\n      \"slug\": slug.current,\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"servicesBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    services[]->{\n      _id,\n      title,\n      shortDescription,\n      image { \n        \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n      },\n      \"slug\": slug.current,\n    },\n    buttons[]{\n      \n  _key,\n  showButton,\n  buttonText,\n  buttonVariant,\n  buttonType,\n  buttonWidth,\n  buttonFileUrl {\n    asset->{ url }\n  },\n  buttonPageReference->{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current\n  },\n  buttonEmailAddress,\n  buttonExternalUrl,\n  buttonAnchorLocation,\n  buttonAnchorId\n\n    },\n    background,\n    topCornerRadius,\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"formBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    content[],\n    form->{\n      title,\n      submitButtonText,\n      fields\n    },\n    anchorId,\n    \n  paddingTop,\n  paddingBottom\n\n  }\n,\n    \n  _type == \"mediaBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    backgroundType,\n    backgroundWidth,\n    image { \n      \n  asset->{ \n    _ref,\n    _type,\n    url,\n    altText,\n    description,\n    \"tags\": opt.media.tags[]->name.current,\n    title,\n  }, \n\n    },\n    overlayType,\n    dialogType,\n    videoUrl,\n    anchorId\n  }\n,\n\n    \n  _type == \"heroClickthroughBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    heading,\n    subheading,\n    headingWidth,\n    subheadingWidth\n  }\n,\n    \n  _type == \"simpleCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    cards[] {\n      title,\n      description,\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"featuredTestimonialBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    quote,\n    author {\n      name,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    quoteIcon {\n      asset->{\n        url\n      },\n      alt\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"comparisonTableBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    leftColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      }\n    },\n    rightColumn {\n      title,\n      icon {\n        asset->{\n          url\n        },\n        alt\n      },\n      backgroundColor {\n        value\n      }\n    },\n    rows[] {\n      leftText,\n      rightText\n    }\n  }\n,\n    \n  _type == \"testimonialCarouselBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    testimonials[] {\n      text,\n      author,\n      position,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        alt\n      },\n      companyLogo {\n        asset->{\n          url\n        },\n        alt,\n        width,\n        height\n      }\n    }\n  }\n,\n    \n  _type == \"heroSectionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    titleWidth,\n    description,\n    descriptionWidth,\n    showButton,\n    button {\n      text,\n      link,\n      variant,\n      buttonBelowSpacing\n    },\n    showImage,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      height,\n      width\n    },\n    modifySpacing,\n    spacing {\n      topSpacing,\n      bottomSpacing,\n      titleBelowSpacing,\n      descriptionBelowSpacing,\n      imageBelowSpacing\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepProcessBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    subheading,\n    steps[] {\n      number,\n      title,\n      description,\n      badgeColor {\n        value\n      },\n      image {\n        asset->{\n          url,\n          metadata {\n            dimensions\n          }\n        },\n        width,\n        height\n      }\n    },\n    borderColor {\n      value\n    },\n    backgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"clickthroughTopicBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    useCases[] {\n      title,\n      description,\n      backgroundColor {\n        value\n      },\n      embedUrl,\n    },\n    sectionBackgroundColor {\n      value\n    }\n  }\n,\n    \n  _type == \"stepRightImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    steps[] {\n      number,\n      title\n    },\n    footnote,\n    image {\n      asset->{\n        url,\n        metadata {\n          dimensions\n        }\n      },\n      alt\n    },\n    badgeColor {\n      value\n    },\n    backgroundGradient {\n      topColor {\n        value\n      },\n      bottomColor {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"iconListBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconListTwoColumnBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    heading,\n    features[] {\n      title,\n      description,\n      icon {\n        asset->{\n          url\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"iconHighlightBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    cards[]{\n      text,\n      image {\n        asset->{\n          url,\n        }\n      }\n    },\n    backgroundColor {\n      value\n    },\n  }\n,\n    \n  _type == \"pricingBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    pricingBlockReference->{\n      _id,\n      freePilotCard{\n        title,\n        subtitle,\n        features,\n        buttonText,\n        buttonLink\n      },\n      afterPilotCard{\n        title,\n        price,\n        priceUnit\n      },\n      backgroundColor{\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"caseStudyGridBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    spacing {\n      top,\n      bottom\n    },\n    hasFeaturedCard,\n    featuredCaseStudy {\n      company,\n      description,\n      link,\n      buttonText,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    caseStudies[] {\n      company,\n      description,\n      link,\n      backgroundColor {\n        value\n      },\n      logo {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"itToolsCardBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    backgroundColor {\n      value\n    },\n    spacing {\n      top,\n      bottom\n    },\n    tools[] {\n      label,\n      title,\n      description,\n      url,\n      comingSoon,\n      buttonText,\n      labelBackground {\n        value\n      }\n    }\n  }\n,\n    \n  _type == \"socialReviewBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    background {\n      color {\n        value\n      },\n      gradient\n    },\n    spacing {\n      top,\n      bottom\n    },\n    avatarImage {\n      asset->{\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      }\n    },\n    comments[] {\n      username,\n      content,\n      width\n    }\n  }\n,\n    \n  _type == \"accordionAndImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    title,\n    sectionTitle,\n    description,\n    spacing {\n      top,\n      bottom\n    },\n    image {\n      asset->{\n        url,\n      }\n    },\n    features[] {\n      title,\n      description\n    }\n  }\n,\n    \n  _type == \"frequentlyAskedQuestionBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    faqs[] {\n      question,\n      answer\n    }\n  }\n,\n    \n  _type == \"joinOurNewsletterBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    title,\n    description,\n    placeholder,\n    buttonText,\n    successMessage,\n    processingText,\n    spacing {\n      top,\n      bottom\n    },\n    backgroundColor {\n      value\n    },\n    successBorderColor {\n      value\n    },\n    successTextColor {\n      value\n    }\n  }\n,\n    \n  _type == \"avatarWithDetails\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    _key,\n    _type,\n    sectionTitle,\n    spacing {\n      topSpacing,\n      topSpacingMobile,\n      bottomSpacing,\n      bottomSpacingMobile,\n      headingBottomSpacing,\n      headingBottomSpacingMobile\n    },\n    avatarList[]{\n      name,\n      title,\n      avatar {\n        asset->{\n          url,\n          metadata {\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      },\n      bio,\n      socialLinks[]{\n        name,\n        url,\n        icon {\n          asset->{\n            url,\n            metadata {\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == \"iconBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n      title,\n      icons[] {\n      logo { asset->{url} },\n      altText,\n      width,\n      height\n    },\n  }\n,\n    \n  _type == \"pngImageBlock\" => {\n    \n  _id,\n  _key,\n  _type\n,\n    hasFeaturedCard,\n    featuredCard {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    cards[] {\n      image { asset->{url} },\n      altText,\n      title,\n      description,\n      bgColor { value }\n    },\n    sectionBgColor { value }\n  }\n\n  }\n,\n\t\"seo\": {\n\t\t\"title\": coalesce(seo.title, title, \"\"),\n\t\t\"description\": coalesce(seo.description,  \"\"),\n\t\t\"noIndex\": seo.noIndex == true,\n\t\t\"image\": seo.image,\n\t},\n}": TermsPageQueryResult;
     "\n  *[_type in [\"page\", \"post\", \"project\", \"service\", \"blogPage\", \"projectsPage\", \"servicesPage\"] && defined(slug.current)] {\n    \"href\": select(\n      _type == \"page\" => \"/\" + slug.current,\n      _type == \"post\" => \"/blog/\" + slug.current,\n      _type == \"blogPage\" => \"/blog\",\n      _type == \"project\" => \"/projects/\" + slug.current,\n      _type == \"projectsPage\" => \"/projects\",\n      _type == \"service\" => \"/services/\" + slug.current,\n      _type == \"servicesPage\" => \"/services\",\n      slug.current\n    ),\n    _updatedAt\n  }\n": SitemapQueryResult;
     "\n  *[_type == \"redirect\" && isEnabled == true] {\n      source,\n      destination,\n      permanent\n  }\n": RedirectsQueryResult;
-    "*[_type == \"announcementBanner\"][0] {\n    show,\n    backgroundColor { value },\n    textColor { value },\n    linkColor { value },\n    icon {\n        asset->{\n            url,\n        }\n    },\n    text,\n    linkText,\n    link,\n    announcementBarSettings {\n        excludedRoutes[] {\n            path\n        }\n    }\n}": AnnouncementBannerQueryResult;
+    "*[_type == \"announcementBanner\"][0] {\n    show,\n    backgroundColor { value },\n    textColor { value },\n    linkColor { value },\n    icon {\n        asset->{\n            url,\n        }\n    },\n    text,\n    linkText,\n    link,\n    excludedRoutes[] {\n        path\n    }\n}": AnnouncementBannerQueryResult;
     "*[_type == \"footer\"][0] {\n  footerCoLinks {\n    companyNameMark {\n      asset->{\n        url,\n      }\n    },\n    copyright,\n    coLinks[] {\n      label,\n      url\n    },\n    businessEmail,\n  }\n}": FooterCoLinksQueryResult;
-    "*[_type == \"footer\"][0] {\n  footerCTA {\n    title,\n    description,\n    ctaButton {\n      text,\n      link,\n      variant\n    },\n    desktopImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    },\n    mobileImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    }\n  }\n}": FooterCTAQueryResult;
+    "*[_type == \"footer\"][0] {\n  footerCTA {\n    title,\n    description,\n    ctaButton {\n      text,\n      link,\n      variant\n    },\n    desktopImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    },\n    mobileImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    }\n  },\n  footerCTAexcludedRoutes[] {\n    path\n  }\n}": FooterCTAQueryResult;
     "*[_type == \"footer\"][0] {\n  footerLinks {\n    companyLogo {\n      asset->{\n        url,\n      }\n    },\n    backedBy {\n      asset->{\n        url,\n      }\n    },\n    socialLinks[] {\n      platform,\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    certifications[] {\n      label,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    reviewBadges[] {\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    platform[] {\n      label,\n      url,\n      badge\n    },\n    resources[] {\n      label,\n      url,\n      badge\n    },\n    companys[] {\n      label,\n      url,\n      badge\n    },\n    getStarted[] {\n      label,\n      url,\n      badge\n    },\n    freeTools[] {\n      label,\n      url,\n      badge\n    },\n    customers[] {\n      label,\n      url,\n      badge\n    },\n    popularGuides[] {\n      label,\n      url,\n      badge\n    }\n  }\n}": FooterLinksQueryResult;
-    "*[_type ==\"navbar\"][0]{\n  logo {\n    src {\n      asset->{\n        _id,\n        url\n      }\n    },\n    alt,\n    width,\n    height\n  },\n  menuItems[] {\n    name,\n    hasDropdown,\n    dropdownItems[] {\n      title,\n      description,\n      path\n    },\n    path\n  },\n  ctaButton {\n    text,\n    link,\n    variant\n  }\n}": NavbarQueryResult;
+    "*[_type == \"footer\"][0] {\n  footerCTA {\n    title,\n    description,\n    ctaButton {\n      text,\n      link,\n      variant\n    },\n    desktopImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    },\n    mobileImage {\n      src {\n        asset->{\n          url\n        }\n      },\n      alt,\n      width,\n      height\n    }\n  },\n  footerLinks {\n    companyLogo {\n      asset->{\n        url,\n      }\n    },\n    backedBy {\n      asset->{\n        url,\n      }\n    },\n    socialLinks[] {\n      platform,\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    certifications[] {\n      label,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    reviewBadges[] {\n      url,\n      icon {\n          asset->{\n              url,\n          }\n      }\n    },\n    platform[] {\n      label,\n      url,\n      badge\n    },\n    resources[] {\n      label,\n      url,\n      badge\n    },\n    companys[] {\n      label,\n      url,\n      badge\n    },\n    getStarted[] {\n      label,\n      url,\n      badge\n    },\n    freeTools[] {\n      label,\n      url,\n      badge\n    },\n    customers[] {\n      label,\n      url,\n      badge\n    },\n    popularGuides[] {\n      label,\n      url,\n      badge\n    },\n  },\n  footerCoLinks {\n    companyNameMark {\n      asset->{\n        url,\n      }\n    },\n    copyright,\n    coLinks[] {\n      label,\n      url\n    },\n    businessEmail,\n  },\n  footerExcludedRoutes[] {\n    path\n  },\n  footerCTAexcludedRoutes[] {\n    path\n  }\n}": FooterQueryResult;
+    "*[_type ==\"navbar\"][0]{\n  logo {\n    src {\n      asset->{\n        _id,\n        url\n      }\n    },\n    alt,\n    width,\n    height\n  },\n  menuItems[] {\n    name,\n    hasDropdown,\n    dropdownItems[] {\n      title,\n      description,\n      path\n    },\n    path\n  },\n  ctaButton {\n    text,\n    link,\n    variant\n  },\n  excludedRoutes[] {\n    path\n  }\n}": NavbarQueryResult;
     "\n  *[_id == $id][0]{\n    title,\n  }    \n": OgImageQueryResult;
     "*[_type == 'generalSettings'][0] {\n  siteTitle,\n  siteLogo { \n    asset->{ url },\n  },\n  copyright,\n  homePage->{\n    _id,\n    _type,\n    title,\n    'slug': slug.current,\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description,  \"\"),\n      \"noIndex\": seo.noIndex == true,\n      \"image\": seo.image,\n    },\n  },\n}": GeneralSettingsQueryResult;
-    "*[_type == \"navbarFooterSettings\"][0] {\n  excludedRoutes[] {\n    path,\n    excludeNavbar,\n    excludeFooter,\n    note\n  },\n  footerCTAexcludedRoutes[] {\n    path,\n    note\n  }\n}": NavbarFooterSettingsQueryResult;
     "*[_type == 'marketingSettings'][0] {\n  googleAnalyticsId,\n  googleTagManagerId,\n}": MarketingSettingsQueryResult;
     "*[_type == 'blogSettings'][0] {\n  showRelatedPosts,\n  showTableOfContents,\n  showPostsByCategory\n}": BlogSettingsQueryResult;
   }

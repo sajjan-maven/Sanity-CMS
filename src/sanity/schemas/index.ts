@@ -19,7 +19,6 @@ import blogPage from "./singletons/pages/blog-page";
 import projectsPage from "./singletons/pages/projects-page";
 import navbar from "./singletons/navbar";
 import footer from "./singletons/footer";
-import navbarFooterSettings from "./singletons/navbar-footer-settings";
 import homePage from "./singletons/pages/home-page";
 import termsPage from "./singletons/pages/terms-page";
 import privacyPage from "./singletons/pages/privacy-page";
@@ -30,7 +29,6 @@ import integrationApplication from "./documents/integration-application";
 
 const coreSchema = [
   generalSettings,
-  navbarFooterSettings,
   navigationSettings,
   marketingSettings,
   blogSettings,
