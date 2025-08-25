@@ -41,17 +41,10 @@ export default async function PostPage({ params }: PageProps) {
 
   if (post === null) notFound();
 
-  const showRelatedPosts = post?.relatedPosts &&
-    post.relatedPosts.length > 0 &&
-    post.settings?.showRelatedPosts;
-
   return (
     <>
       <PostContent post={post} />
-      {showRelatedPosts && (
-        <RelatedPosts posts={post.relatedPosts as AllPostsQueryResult} />
-        // <RelatedPosts posts={post.relatedPosts?.map(p => ({ ...p, _type: "post" })) as AllPostsQueryResult} />
-      )}
+      <RelatedPosts posts={post.relatedPosts as AllPostsQueryResult} />
     </>
   )
 }

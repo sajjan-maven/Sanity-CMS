@@ -23,18 +23,6 @@ export default defineType({
             name: 'image',
             title: 'Image',
             type: 'image',
-            fields: [
-                defineField({
-                    name: 'altText',
-                    title: 'Alternative Text',
-                    type: 'string'
-                }),
-                defineField({
-                    name: 'caption',
-                    title: 'Caption',
-                    type: 'string'
-                }),
-            ],
         }),
         defineField({
             name: 'addDescription',
@@ -43,19 +31,16 @@ export default defineType({
             initialValue: false,
             description: 'Toggle to display the application description',
         }),
-        // Description field that depends on the toggle
         defineField({
             name: 'applicationDesc',
             title: 'Application Description',
             type: 'text',
             rows: 3,
-            hidden: ({ parent }) => !parent?.showDescription,
+            hidden: ({ parent }) => !parent?.addDescription,
             description: 'Description will only be shown if "Show Application Description" is enabled',
         }),
         orderRankField({
-            type: 'integrationCategory'
+            type: 'integrationApplication'
         }),
     ]
 })
-
-// XYZ Add featured and editors choice option here

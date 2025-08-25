@@ -33,7 +33,7 @@ export const structure: StructureResolver = (
       IntegrationsItem(S, context),
       CaseStudiesItem(S, context),
       S.divider(),
-      TestimonialsItem(S, context),
+      // TestimonialsItem(S, context),
       PricingItem(S),
       // S.divider(),
       // FormsItem(S),

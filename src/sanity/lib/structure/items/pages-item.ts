@@ -13,11 +13,12 @@ export const PagesItem = (
         .items([
           HomeItem(S),
           // IndexPages(S),
-          BlogItem(S),
-          CaseStudieItem(S),
-          PageBuilder(S),
+          // BlogItem(S),
+          // CaseStudieItem(S),
           PrivacyItem(S),
-          TermsOfServiceItem(S)
+          TermsOfServiceItem(S),
+          S.divider(),
+          PageBuilder(S),
         ])
     )
 )
@@ -95,43 +96,45 @@ export const PageBuilder = (
     )
 )
 
-export const BlogItem = (
-  S: StructureBuilder,
-) => (
-  S.listItem()
-    .title('Blog')
-    .icon(File)
-    .child(
-      S.document()
-        .id('blogPage')
-        .schemaType('blogPage')
-        .documentId('blogPage')
-        .title('Blog')
-    )
-)
 
-export const IntegrationsItem = (
-  S: StructureBuilder,
-) => (
-  S.listItem()
-    .title('Integrations')
-    .icon(File)
-)
 
-export const CaseStudieItem = (
-  S: StructureBuilder,
-) => (
-  S.listItem()
-    .title('Case Studies')
-    .icon(File)
-    .child(
-      S.document()
-        .id('casestudiesPage')
-        .schemaType('casestudiesPage')
-        .documentId('casestudiesPage')
-        .title('Case Studies')
-    )
-)
+// export const BlogItem = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Blog')
+//     .icon(File)
+//     .child(
+//       S.document()
+//         .id('blogPage')
+//         .schemaType('blogPage')
+//         .documentId('blogPage')
+//         .title('Blog')
+//     )
+// )
+
+// export const IntegrationsItem = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Integrations')
+//     .icon(File)
+// )
+
+// export const CaseStudieItem = (
+//   S: StructureBuilder,
+// ) => (
+//   S.listItem()
+//     .title('Case Studies')
+//     .icon(File)
+//     .child(
+//       S.document()
+//         .id('casestudiesPage')
+//         .schemaType('casestudiesPage')
+//         .documentId('casestudiesPage')
+//         .title('Case Studies')
+//     )
+// )
 
 // export const ServicesItem = (
 //   S: StructureBuilder,

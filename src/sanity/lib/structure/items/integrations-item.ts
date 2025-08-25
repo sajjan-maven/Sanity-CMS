@@ -1,8 +1,7 @@
-import { Folder, MonitorSmartphone, Tags } from "lucide-react";
+import { File, Folder, MonitorSmartphone, Tags } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
-// Dummy file for test
 export const IntegrationsItem = (
     S: StructureBuilder,
     context: StructureResolverContext
@@ -14,23 +13,53 @@ export const IntegrationsItem = (
             S.list()
                 .title('Integrations')
                 .items([
-                    AllApplications(S),
+                    IntegrationsHome(S),
+                    AllApplications(S, context),
                     ApplicationCategories(S, context),
                 ])
         )
 )
 
-export const AllApplications = (
+export const IntegrationsHome = (
     S: StructureBuilder,
 ) => (
     S.listItem()
-        .title('Applications')
-        .icon(MonitorSmartphone)
+        .title('Integrations Home Page')
+        .icon(File)
         .child(
-            S.documentList()
-                .title('All Integrations')
-                .filter('_type == "integrationApplication"')
+            S.document()
+                .id('integrationsPage')
+                .schemaType('integrationsPage')
+                .documentId('integrationsPage')
+                .title('Integrations')
         )
+)
+
+// export const AllApplications = (
+//     S: StructureBuilder,
+// ) => (
+//     S.listItem()
+//         .title('Applications')
+//         .icon(MonitorSmartphone)
+//         .child(
+//             S.documentList()
+//                 .title('All Integrations')
+//                 .filter('_type == "integrationApplication"')
+//         )
+// )
+
+export const AllApplications = (
+    S: StructureBuilder,
+    context: StructureResolverContext
+) => (
+    orderableDocumentListDeskItem({
+        S,
+        context,
+        icon: MonitorSmartphone,
+        type: 'integrationApplication',
+        title: 'Applications',
+        id: 'orderable-integration-applications'
+    })
 )
 
 export const ApplicationCategories = (

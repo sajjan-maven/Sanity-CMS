@@ -94,12 +94,7 @@ export default function PostContent({ post }: PostGridProps) {
               >
                 Contents
               </div>
-              {settings?.showTableOfContents && (
-                <TableOfContents content={tableOfContents} />
-              )}
-              {/* {settings?.showPostsByCategory && (
-                <PostCategories categories={categories} />
-              )} */}
+              <TableOfContents content={tableOfContents} />
             </div>
           </div>
         </aside>

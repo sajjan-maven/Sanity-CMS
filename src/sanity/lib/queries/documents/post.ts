@@ -151,11 +151,6 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
       }
     },
   ),
-  "settings": *[_type == "blogSettings"][0] {
-    showRelatedPosts,
-    showTableOfContents,
-    showPostsByCategory
-  },
   "seo": {
     "title": coalesce(seo.title, title, ""),
     "description": coalesce(seo.description,  ""),

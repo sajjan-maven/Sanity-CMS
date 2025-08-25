@@ -27,16 +27,16 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .title('All Redirects')
                 .filter('_type == "redirect"')
             ),
-          S.divider(),
-          S.listItem()
-            .title('Blog & Posts')
-            .icon(ScanText)
-            .child(
-              S.document()
-                .id('blogSettings')
-                .schemaType('blogSettings')
-                .documentId('blogSettings')
-                .title('Blog & Posts')
-            ),
+          // S.divider(),
+          // S.listItem()
+          //   .title('Blog & Posts')
+          //   .icon(ScanText)
+          //   .child(
+          //     S.document()
+          //       .id('blogSettings')
+          //       .schemaType('blogSettings')
+          //       .documentId('blogSettings')
+          //       .title('Blog & Posts')
+          //   ),
         ])
     )

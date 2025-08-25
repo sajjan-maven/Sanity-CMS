@@ -26,6 +26,7 @@ import casestudiesPage from "./singletons/pages/casestudies-page";
 import integrationCategory from "./documents/integration-category";
 import casestudies from "./documents/casestudies";
 import integrationApplication from "./documents/integration-application";
+import integrationsPage from "./singletons/pages/integrations-page";
 
 const coreSchema = [
   generalSettings,
@@ -54,7 +55,7 @@ const coreSchema = [
   integrationCategory,
   casestudies,
   integrationApplication,
-
+  integrationsPage
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";

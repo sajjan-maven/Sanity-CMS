@@ -1,4 +1,4 @@
-import { LetterText, Folder, Users, Tags } from "lucide-react";
+import { File, LetterText, Folder, Users, Tags } from "lucide-react";
 import { StructureBuilder, StructureResolverContext } from "sanity/structure";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
@@ -13,6 +13,7 @@ export const BlogItem = (
       S.list()
         .title('Blog')
         .items([
+          BlogHome(S),
           AllPosts(S),
           PostCategories(S, context),
           Authors(S)
@@ -20,11 +21,26 @@ export const BlogItem = (
     )
 )
 
+export const BlogHome = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Blog Home Page')
+    .icon(File)
+    .child(
+      S.document()
+        .id('blogPage')
+        .schemaType('blogPage')
+        .documentId('blogPage')
+        .title('Blog')
+    )
+)
+
 export const AllPosts = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Posts')
+    .title('Blog Posts')
     .icon(LetterText)
     .child(
       S.documentList()
@@ -42,7 +58,7 @@ export const PostCategories = (
     context,
     icon: Tags,
     type: 'postCategory',
-    title: 'Categories',
+    title: 'Blog Categories',
     id: 'orderable-post-categories'
   })
 )
@@ -51,7 +67,7 @@ export const Authors = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Authors')
+    .title('Blog Authors')
     .icon(Users)
     .child(
       S.documentList()
