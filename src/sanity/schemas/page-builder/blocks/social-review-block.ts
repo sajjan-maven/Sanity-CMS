@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity';
-import { FaReddit } from 'react-icons/fa';
 
 export default defineType({
   name: 'socialReviewBlock',

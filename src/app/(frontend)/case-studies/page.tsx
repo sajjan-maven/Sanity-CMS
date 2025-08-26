@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { processMetadata } from '@/lib/utils';
 import CasestudyGrid from './_components/casestudy-grid';
 import { sanityFetch } from '@/sanity/lib/live';
 import { casestudiesPageQuery, casestudiesExcludingFeaturedQuery } from '@/sanity/lib/queries/documents/casestudy';
@@ -20,20 +19,6 @@ type Casestudy = {
     altText?: string;
   };
 };
-
-type CasestudiesPageQueryResult = {
-  _id: string;
-  _type: string;
-  title?: string;
-  slug?: string;
-  heroText?: string;
-  heroDescription?: string;
-  featuredCS?: Casestudy;
-  pageBuilder?: any;
-  seo?: any;
-};
-
-type AllCasestudiesQueryResult = Casestudy[];
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: page } = await sanityFetch({

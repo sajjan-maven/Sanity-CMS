@@ -375,7 +375,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
             window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [showNotification, pathname, show]);
+    }, [showNotification, pathname, show, isPathExcluded]);
 
     const handleDropdownItemClick = (path: string) => {
         router.push(path);

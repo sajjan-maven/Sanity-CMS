@@ -1,4 +1,4 @@
-import { ScanText, Settings, Shuffle, Tv, Video, Wrench } from "lucide-react";
+import { Settings, Shuffle, Tv } from "lucide-react";
 import type { StructureBuilder } from "sanity/structure";
 
 export const SettingsItem = (S: StructureBuilder) =>

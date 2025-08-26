@@ -32,8 +32,7 @@ export default function PostContent({ post }: PostGridProps) {
     content,
     faqs,
     tableOfContents,
-    excerpt,
-    settings
+    excerpt
   } = post;
 
   const [open, setOpen] = React.useState<number | null>(0)

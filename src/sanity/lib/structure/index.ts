@@ -2,7 +2,7 @@ import type { StructureBuilder, StructureResolver, StructureResolverContext } fr
 import { SettingsItem } from "./items/settings-item";
 import { PagesItem } from "./items/pages-item";
 import { BlogItem } from "./items/blog-item";
-import { TestimonialsItem } from "./items/testimonials-item";
+// import { TestimonialsItem } from "./items/testimonials-item";
 // import { ServicesItem } from "./items/services-item";
 // import { ProjectsItem } from "./items/projects-item";
 // import { FormsItem } from "./items/forms-item";

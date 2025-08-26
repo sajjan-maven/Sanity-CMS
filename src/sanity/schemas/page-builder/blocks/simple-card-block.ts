@@ -68,9 +68,8 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      cards: 'cards'
     },
-    prepare({ title, cards }) {
+    prepare({ title }) {
       return {
         title: title || 'Simple Card Block',
         subtitle: 'Simple Card Block'
