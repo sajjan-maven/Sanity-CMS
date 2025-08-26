@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 	if (!page) { return {} };
 
-	return processMetadata({ data: page });
+	return processMetadata({ data: page as any });
 }
 
 export default async function Privacy() {
@@ -20,5 +20,9 @@ export default async function Privacy() {
 		query: privacyPageQuery,
 	});
 
-	return <PrivacyPage privacyData={page} />;
+	if (!page) {
+		return null;
+	}
+
+	return <PrivacyPage privacyData={{ ...page, title: page.title ?? undefined }} />;
 }

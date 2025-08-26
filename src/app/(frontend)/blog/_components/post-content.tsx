@@ -13,6 +13,20 @@ import AuthorDetails from '@/components/ui/AuthorDetails';
 
 type Post = NonNullable<NonNullable<PostBySlugQueryResult>>
 
+type FAQ = {
+  question: string | null;
+  answer: {
+    children?: {
+      marks?: string[];
+      text?: string;
+      _type: "span";
+      _key: string;
+    }[];
+    style?: string;
+    _type: string;
+    _key: string;
+  }[] | null;
+};
 interface PostGridProps {
   post: Post;
 }
@@ -62,7 +76,7 @@ export default function PostContent({ post }: PostGridProps) {
             <section className="mt-10">
               <h2 className="text-2xl font-semibold mb-4">Frequently asked questions</h2>
               <ul className="divide-y divide-gray-200">
-                {faqs.map((f: any, i: number) => (
+                {faqs.map((f: FAQ, i: number) => (
                   <li key={i} className="py-4">
                     <button
                       className="w-full flex items-start justify-between text-left"

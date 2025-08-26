@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 	if (!page) { return {} };
 
-	return processMetadata({ data: page });
+	return processMetadata({ data: page as any });
 }
 
 export default async function TermsOfService() {
@@ -20,5 +20,9 @@ export default async function TermsOfService() {
 		query: termsPageQuery,
 	});
 
-	return <TermsPage termsData={page} />;
+	if (!page) {
+		return null;
+	}
+
+	return <TermsPage termsData={{ ...page, title: page.title ?? undefined }} />;
 }

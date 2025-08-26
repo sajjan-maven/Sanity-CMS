@@ -27,15 +27,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!service) { return {} };
 
-  return processMetadata({ data: service});
+  return processMetadata({ data: service as any });
 }
 
 export default async function ServicePage({ params }: PageProps) {
-  const { data: service } = await sanityFetch({ 
-    query: serviceBySlugQuery, 
+  const { data: service } = await sanityFetch({
+    query: serviceBySlugQuery,
     params: await params
   });
-  
+
   if (service === null) notFound();
 
   return (

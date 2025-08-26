@@ -17,7 +17,7 @@ interface PrivacyPolicyProps {
 	}
 }
 
-const PrivacyPage: React.FC<PrivacyPolicyProps> = ({ privacyData }) => {
+const PrivacyPage: React.FC<PrivacyPolicyProps> = ({ privacyData }: any) => {
 	const [activeSection, setActiveSection] = useState<string>("")
 	return (
 		<>

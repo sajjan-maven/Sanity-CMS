@@ -18,7 +18,7 @@ export default defineType({
     }),
     defineField({
       name: 'name',
-      title: 'Name',
+      title: 'Author Name',
       type: 'string',
       validation: rule => rule.required()
     }),
@@ -33,7 +33,7 @@ export default defineType({
     }),
     defineField({
       name: 'position',
-      title: 'Position (Job Title)',
+      title: 'Designation (Job Title)',
       type: 'string',
     }),
     defineField({
@@ -45,7 +45,7 @@ export default defineType({
     }),
     defineField({
       name: 'socials',
-      title: 'Social Media Links',
+      title: 'Social Links',
       type: 'array',
       of: [
         {

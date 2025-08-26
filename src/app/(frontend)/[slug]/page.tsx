@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!page) { return {} };
 
-  return processMetadata({ data: page });
+  return processMetadata({ data: page as any });
 }
 
 export default async function Page({ params }: PageProps) {
-  const { data: page } = await sanityFetch({ 
-    query: pageBySlugQuery, 
+  const { data: page } = await sanityFetch({
+    query: pageBySlugQuery,
     params: await params,
   });
 
