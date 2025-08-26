@@ -5,21 +5,6 @@ import { casestudiesPageQuery, casestudiesExcludingFeaturedQuery } from '@/sanit
 
 //qwer Case study
 
-// Temporary types until Sanity generates them
-type Casestudy = {
-  _id: string;
-  _type: string;
-  title: string;
-  slug: string;
-  excerpt?: string;
-  image?: {
-    asset?: {
-      url: string;
-    };
-    altText?: string;
-  };
-};
-
 export async function generateMetadata(): Promise<Metadata> {
   const { data: page } = await sanityFetch({
     query: casestudiesPageQuery,
@@ -80,10 +65,10 @@ export default async function CaseStudiesPages() {
                   excerpt: page.featuredCS.excerpt ?? '',
                   image: page.featuredCS.image
                     ? {
-                        ...page.featuredCS.image,
-                        asset: { url: page.featuredCS.image.asset?.url ?? '' },
-                        altText: page.featuredCS.image.altText ?? '',
-                      }
+                      ...page.featuredCS.image,
+                      asset: { url: page.featuredCS.image.asset?.url ?? '' },
+                      altText: page.featuredCS.image.altText ?? '',
+                    }
                     : { asset: { url: '' }, altText: '' },
                 },
               ]}

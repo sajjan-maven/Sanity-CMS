@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { ArrowRightIcon, X, Menu } from "lucide-react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
@@ -23,6 +23,10 @@ interface MenuItem {
     path?: string;
 }
 
+interface ColorValue {
+    value: string;
+}
+
 interface AnnouncementBannerSettings {
     icon: {
         asset?: {
@@ -33,9 +37,9 @@ interface AnnouncementBannerSettings {
     text: string;
     link: string;
     linkText: string;
-    backgroundColor: any;
-    textColor: any;
-    linkColor: any;
+    backgroundColor: ColorValue;
+    textColor: ColorValue;
+    linkColor: ColorValue;
     excludedRoutes: {
         path: string;
     };
@@ -88,9 +92,9 @@ const NotificationBanner = ({
     text: string;
     link: string;
     linkText: string;
-    backgroundColor: any;
-    textColor: any;
-    linkColor: any;
+    backgroundColor: ColorValue;
+    textColor: ColorValue;
+    linkColor: ColorValue;
     onClose: () => void;
 }) => {
 
@@ -330,10 +334,10 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
     const pathname = usePathname();
     const headerRef = useRef<HTMLDivElement>(null);
 
-    const { logo, menuItems, ctaButton, excludedRoutes } = navbarSetting;
+    const { logo, menuItems, ctaButton } = navbarSetting;
     const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
 
-    const isPathExcluded = () => {
+    const isPathExcluded = useCallback(() => {
         if (!announcementBannerSettings?.excludedRoutes) return false;
 
         return Array.isArray(announcementBannerSettings?.excludedRoutes) &&
@@ -345,7 +349,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
 
                 return false;
             });
-    };
+    }, [announcementBannerSettings?.excludedRoutes, pathname]);
 
     // Check if navbar menu items should be hidden based on excluded routes
     const shouldHideNavbarMenu = navbarSetting?.excludedRoutes?.some((route: any) => {

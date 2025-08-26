@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { slugify } from "@/lib/utils";
 import { Link as ScrollLink } from "react-scroll";
 import { PostBySlugQueryResult } from "../../../sanity.types";
@@ -17,7 +17,7 @@ interface TableOfContentsProps {
 export default function TableOfContents({ content }: TableOfContentsProps) {
 
   // const [isOpen, setIsOpen] = useState(true);
-  const contentArray = Array.isArray(content) ? content : [content];
+  const contentArray = useMemo(() => Array.isArray(content) ? content : [content], [content]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isManualClick, setIsManualClick] = useState(false);
   const router = useRouter();
