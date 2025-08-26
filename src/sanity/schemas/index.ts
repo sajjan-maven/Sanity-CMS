@@ -153,6 +153,7 @@ import footerCoLinks from "./objects/footerCoLinks";
 import pricingItem from "./objects/pricing";
 import iframe from './objects/iframe';
 import faq from "./objects/faq";
+import blogButtonObject from "./objects/blog-button";
 
 const objectSchema = [
   seoObject,
@@ -173,7 +174,8 @@ const objectSchema = [
   footerCoLinks,
   pricingItem,
   iframe,
-  faq
+  faq,
+  blogButtonObject
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {

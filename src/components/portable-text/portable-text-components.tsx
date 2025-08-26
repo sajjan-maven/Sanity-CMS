@@ -5,6 +5,7 @@ import { PortableTextComponents } from '@portabletext/react';
 import { portableTextHeadings } from './components/headings';
 import TableBlock from './components/content-table';
 import Iframe from './components/iframe';
+import { BlogButton } from '../shared/blog-button';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
@@ -16,6 +17,13 @@ export const portableTextComponents: PortableTextComponents = {
     },
     videoObject: (data) => {
       return <Video data={data.value} />
+    },
+    blogButtonObject: (data) => {
+      return <BlogButton 
+        buttonText={data.value.buttonText} 
+        buttonLink={data.value.buttonLink} 
+        buttonVariant={data.value.buttonVariant} 
+      />
     },
     table: TableBlock,
     iframe: Iframe

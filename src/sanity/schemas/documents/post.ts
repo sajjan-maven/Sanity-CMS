@@ -81,9 +81,9 @@ export default defineType({
         { type: 'singleImageObject' },
         { type: 'videoObject' },
         defineArrayMember({ type: 'iframe' }),
-        defineArrayMember({
-          type: 'table',
-        }),
+        defineArrayMember({ type: 'table' }),
+        defineArrayMember({ type: 'blogButtonObject' }),
+        
       ],
     }),
     defineField({
