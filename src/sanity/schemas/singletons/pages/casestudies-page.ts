@@ -36,18 +36,8 @@ export default defineType({
             name: 'featuredCS',
             title: 'Featured Case Study',
             type: 'reference',
-            to: { type: 'post' },
+            to: { type: 'casestudy' },
             description: 'These blocks will be displayed featured content.',
-        }),
-        defineField({
-            name: 'caseStudy',
-            title: 'Case Studys',
-            type: 'array',
-            of: [{
-                type: 'reference',
-                to: [{ type: 'post' }]
-            }],
-            validation: rule => rule.max(4),
         }),
         defineField({
             name: 'pageBuilder',

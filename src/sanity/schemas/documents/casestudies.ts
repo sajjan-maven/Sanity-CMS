@@ -5,7 +5,7 @@ import { fieldGroups } from "../misc/field-groups";
 import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export default defineType({
-    name: 'casestudies',
+    name: 'casestudy',
     title: 'Case Study',
     type: 'document',
     icon: FiFile,
@@ -69,7 +69,7 @@ export default defineType({
             type: "array",
             of: [{
                 type: 'reference',
-                to: [{ type: 'casestudies' }]
+                to: [{ type: 'casestudy' }]
             }],
             validation: rule => rule.max(3),
             hidden: ({ parent }) => parent?.relatedPosts !== 'custom'
@@ -80,7 +80,7 @@ export default defineType({
             type: "seoObject",
         }),
         orderRankField({
-            type: 'casestudies'
+            type: 'casestudy'
         }),
     ]
 })

@@ -640,7 +640,7 @@ export const caseStudyGridBlockQuery = `
         }
       }
     },
-    caseStudies[] {
+    caseStudy[] {
       company,
       description,
       link,

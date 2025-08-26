@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageBuilderType } from "@/types";
 import NewButton from "@/components/ui/newButton";
+//qwer Case study
 
 export type CaseStudyGridBlockProps = PageBuilderType<"caseStudyGridBlock">;
 
@@ -11,7 +12,7 @@ export default function CaseStudyGridBlock(props: CaseStudyGridBlockProps) {
     spacing,
     hasFeaturedCard = false,
     featuredCaseStudy,
-    caseStudies = []
+    caseStudy = []
   } = props;
 
   return (
@@ -71,9 +72,9 @@ export default function CaseStudyGridBlock(props: CaseStudyGridBlockProps) {
         )}
 
         {/* Second Row - 2 Cards */}
-        {caseStudies && caseStudies.length > 0 && (
+        {caseStudy && caseStudy.length > 0 && (
           <div className="w-full flex flex-col md:flex-row gap-6">
-            {caseStudies.map((study: any, index: number) => (
+            {caseStudy.map((study: any, index: number) => (
               <Link
                 href={study.link}
                 key={index}

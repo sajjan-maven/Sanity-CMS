@@ -42,8 +42,8 @@ export const AllCaseStudies = (
         S,
         context,
         icon: LetterText,
-        type: 'casestudies',
+        type: 'casestudy',
         title: 'Case Studies',
-        id: 'orderable-casestudies'
+        id: 'orderable-casestudy'
     })
 )
