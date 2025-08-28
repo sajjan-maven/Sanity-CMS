@@ -1,4 +1,3 @@
-import NewButton from '@/components/ui/newButton'
 import { Link } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -6,7 +5,7 @@ import React from 'react'
 function FeaturedCaseStudy({ casestudy }: any) {
     return (
         <div className="w-full">
-            <Link href={casestudy?.slug} className="case-study-card flex p-4 md:p-6 flex-col gap-6 md:flex-row border border-solid border-[#545058] bg-white rounded-[32px] overflow-hidden">
+            <Link href={`/case-studies/${casestudy?.slug}`} className="case-study-card flex p-4 md:p-6 flex-col gap-6 md:flex-row border border-solid border-[#545058] bg-white rounded-[32px] overflow-hidden">
                 <div className="flex-1">
                     <div className="flex-1 flex justify-center items-center h-[400px] py-20 bg-[#3E2E73] rounded-3xl">
                         <Image

@@ -1,8 +1,6 @@
 import React from 'react';
 import CasestudyCard from './casestudy-card';
 
-//qwer Case study
-
 // Temporary type until Sanity generates it
 type Casestudy = {
   _id: string;
@@ -24,7 +22,7 @@ interface CasestudyGridProps {
 
 export default function CasestudyGrid({ casestudies }: CasestudyGridProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
       {casestudies.map((casestudy) => (
         <CasestudyCard key={casestudy._id} casestudy={casestudy} />
       ))}

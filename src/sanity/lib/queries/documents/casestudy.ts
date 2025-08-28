@@ -1,8 +1,6 @@
 import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
-//qwer Case study
-
 export const casestudySlugsQuery = defineQuery(`*[_type == "casestudy" && defined(slug.current)] {
   'params': { 'slug': slug.current }
 }`);
@@ -75,7 +73,7 @@ export const casestudyBySlugQuery = defineQuery(`*[_type == 'casestudy' && slug.
       },
       cardTitle,
     },
-    relatedCaseStudies == "autofill" => *[_type == 'casestudy' && _id != ^._id][0...3]{ 
+    relatedCaseStudies == "autofill" => *[_type == 'casestudy' && _id != ^._id][0...2]{ 
       _id,
       _type,
       _createdAt,
@@ -128,6 +126,5 @@ export const casestudiesExcludingFeaturedQuery = defineQuery(`*[_type == 'casest
   backgroundColor {
     value
   },
-  cardTitle,
   cardSummary,
 }`);
