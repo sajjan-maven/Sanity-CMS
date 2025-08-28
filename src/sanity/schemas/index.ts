@@ -84,7 +84,6 @@ import iconListBlock from "./page-builder/blocks/icon-list-block";
 import iconListTwoColumnBlock from "./page-builder/blocks/icon-list-two-column-block";
 import iconHighlightBlock from "./page-builder/blocks/icon-highlight-block";
 import pricingBlock from "./page-builder/blocks/pricing-block";
-import caseStudyGridBlock from "./page-builder/blocks/case-study-grid-block";
 import itToolsCardBlock from "./page-builder/blocks/it-tools-card-block";
 import socialReviewBlock from "./page-builder/blocks/social-review-block";
 import accordionAndImageBlock from "./page-builder/blocks/accordion-and-image-block";
@@ -123,7 +122,6 @@ const pageBuilderSchema = [
   iconListTwoColumnBlock,
   iconHighlightBlock,
   pricingBlock,
-  caseStudyGridBlock,
   itToolsCardBlock,
   socialReviewBlock,
   accordionAndImageBlock,

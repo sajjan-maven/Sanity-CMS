@@ -17,8 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   // Create a simple metadata object for case studies page
   return {
-    title: page.title || 'Case Studies',
-    description: page.heroDescription || 'Explore our case studies and success stories',
+    title: page?.heroText || 'Case Studies',
+    description: page?.heroDescription || 'Explore our case studies and success stories',
   };
 }
 
@@ -39,7 +39,7 @@ export default async function CaseStudiesPages() {
 
   return (
     <div className="w-full min-h-screen">
-      {(page?.heroText || page.heroDescription) && (
+      {(page?.heroText || page?.heroDescription) && (
         <section className="w-full bg-[#e3dad0] py-16 px-6 ">
           <div className="flex flex-col items-center gap-8 max-w-[876px] mx-auto">
             <div className="flex flex-col items-center gap-4 text-center">

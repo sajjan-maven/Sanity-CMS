@@ -609,59 +609,6 @@ export const pricingBlockQuery = `
   }
 `
 
-export const caseStudyGridBlockQuery = `
-  _type == "caseStudyGridBlock" => {
-    ${baseQuery},
-    _key,
-    _type,
-    title,
-    spacing {
-      top,
-      bottom
-    },
-    hasFeaturedCard,
-    featuredCaseStudy {
-      company,
-      description,
-      link,
-      buttonText,
-      backgroundColor {
-        value
-      },
-      logo {
-        asset->{
-          url,
-          metadata {
-            dimensions {
-              width,
-              height
-            }
-          }
-        }
-      }
-    },
-    caseStudy[] {
-      company,
-      description,
-      link,
-      backgroundColor {
-        value
-      },
-      logo {
-        asset->{
-          url,
-          metadata {
-            dimensions {
-              width,
-              height
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
 export const itToolsCardBlockQuery = `
   _type == "itToolsCardBlock" => {
     ${baseQuery},

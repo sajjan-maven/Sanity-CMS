@@ -32,7 +32,6 @@ const IconListBlock = dynamic(() => import("./blocks/icon-list-block"))
 const IconListTwoColumnBlock = dynamic(() => import("./blocks/icon-list-two-column-block"))
 const IconHighlightBlock = dynamic(() => import("./blocks/icon-highlight-block"))
 const PricingBlock = dynamic(() => import("./blocks/pricing-block"))
-const CaseStudyGridBlock = dynamic(() => import("./blocks/case-study-grid-block"))
 const ITToolsCardBlock = dynamic(() => import("./blocks/it-tools-card-block"))
 const SocialReviewBlock = dynamic(() => import("./blocks/social-review-block"))
 const AccordionAndImageBlock = dynamic(() => import("./blocks/accordion-and-image-block"))
@@ -80,7 +79,6 @@ const PB_BLOCKS = {
   iconListTwoColumnBlock: IconListTwoColumnBlock,
   iconHighlightBlock: IconHighlightBlock,
   pricingBlock: PricingBlock,
-  caseStudyGridBlock: CaseStudyGridBlock,
   itToolsCardBlock: ITToolsCardBlock,
   socialReviewBlock: SocialReviewBlock,
   accordionAndImageBlock: AccordionAndImageBlock,
