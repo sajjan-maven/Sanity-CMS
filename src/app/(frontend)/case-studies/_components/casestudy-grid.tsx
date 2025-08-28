@@ -24,7 +24,7 @@ interface CasestudyGridProps {
 
 export default function CasestudyGrid({ casestudies }: CasestudyGridProps) {
   return (
-    <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6'>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {casestudies.map((casestudy) => (
         <CasestudyCard key={casestudy._id} casestudy={casestudy} />
       ))}

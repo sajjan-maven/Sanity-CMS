@@ -23,7 +23,7 @@ export default function PricingBlock(props: PricingBlockProps) {
         <h2 className="text-center pb-4 text-xl font-medium">{title}</h2>
       )}
 
-      <div className="flex flex-col w-full items-center gap-20 px-4 py-5">
+      <div className="flex flex-col w-full items-center gap-20 px-[30px] py-5">
         <div className="flex flex-col items-center gap-10 w-full">
           <div className="flex flex-col md:flex-row items-center justify-center relative w-full">
             {/* Free Pilot Card */}

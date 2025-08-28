@@ -14,26 +14,48 @@ export default defineType({
     orderings: [orderRankOrdering],
     fields: [
         defineField({
-            name: 'title',
-            title: 'Title',
+            name: 'company',
+            title: 'Company Name',
             type: 'string',
-            validation: rule => rule.required()
+            validation: Rule => Rule.required()
         }),
         defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',
             options: {
-                source: 'title',
+                source: 'company',
             },
             validation: rule => rule.required()
         }),
         defineField({
-            name: 'excerpt',
-            description: 'Stort description of case study to display on card',
-            title: 'Excerpt',
+            name: 'logo',
+            title: 'Company Logo',
+            type: 'image',
+            options: { hotspot: true },
+            validation: Rule => Rule.required()
+        }),
+        defineField({
+            name: 'backgroundColor',
+            title: 'Card Logo Background Color',
+            description: 'Company based background accent color',
+            type: 'simplerColor',
+        }),
+        defineField({
+            name: 'cardTitle',
+            description: 'Title for related case study card',
+            title: 'Case Study Title (Card)',
             type: 'text',
-            rows: 4
+            rows: 4,
+            validation: Rule => Rule.required()
+        }),
+        defineField({
+            name: 'cardSummary',
+            description: 'Short description of case study to display on card',
+            title: 'Case Study Summary (Card)',
+            type: 'text',
+            rows: 4,
+            validation: Rule => Rule.required()
         }),
         defineField({
             name: 'content',

@@ -10,33 +10,38 @@ export const casestudySlugsQuery = defineQuery(`*[_type == "casestudy" && define
 export const casestudiesPageQuery = defineQuery(`*[_type == 'casestudiesPage'][0] {
   _id,
   _type,
-  title,
   'slug': slug.current,
   heroText,
   heroDescription,
   featuredCS->{
     _id,
     _type,
-    title,
+    company,
     'slug': slug.current,
-    excerpt,
-    image { 
+    logo { 
       asset->{ url }, 
       altText 
     },
+    backgroundColor {
+      value
+    },
+    cardSummary,
   },
   ${pageBuilder},
   "casestudies": *[_type == 'casestudy'] | order(orderRank asc) {
     _id,
     _type,
     _createdAt,
-    title,
+    company,
     'slug': slug.current,
-    excerpt,
-    image { 
+    logo { 
       asset->{ url }, 
       altText 
     },
+    backgroundColor {
+      value
+    },
+    cardSummary,
   },
   "seo": {
     "title": coalesce(seo.title, title, ""),
@@ -50,10 +55,8 @@ export const casestudyBySlugQuery = defineQuery(`*[_type == 'casestudy' && slug.
   _id,
   _type,
   _createdAt,
-  title,
+  company,
   'slug': slug.current,
-  excerpt,
-  "tableOfContents": content[style in ["h2"]],
   content[],
   relatedCaseStudies,
   "relatedCasestudies": select(
@@ -61,25 +64,31 @@ export const casestudyBySlugQuery = defineQuery(`*[_type == 'casestudy' && slug.
       _id,
       _type,
       _createdAt,
-      title,
+      company,
       'slug': slug.current,
-      excerpt,
-      image { 
+      logo { 
         asset->{ url }, 
         altText 
-      }
+      },
+      backgroundColor {
+        value
+      },
+      cardTitle,
     },
     relatedCaseStudies == "autofill" => *[_type == 'casestudy' && _id != ^._id][0...3]{ 
       _id,
       _type,
       _createdAt,
-      title,
+      company,
       'slug': slug.current,
-      excerpt,
-      image { 
+      logo { 
         asset->{ url }, 
         altText 
-      }
+      },
+      backgroundColor {
+        value
+      },
+      cardTitle,
     },
   ),
   "seo": {
@@ -93,24 +102,32 @@ export const casestudyBySlugQuery = defineQuery(`*[_type == 'casestudy' && slug.
 export const allCasestudiesQuery = defineQuery(`*[_type == 'casestudy'] | order(orderRank asc) {
   _id,
   _type,
-  title,
+  company,
   'slug': slug.current,
-  excerpt,
-  image { 
+  logo { 
     asset->{ url }, 
     altText 
   },
+  backgroundColor {
+    value
+  },
+  cardTitle,
+  cardSummary,
 }`);
 
 // Query to get all case studies except the featured one
 export const casestudiesExcludingFeaturedQuery = defineQuery(`*[_type == 'casestudy' && _id != $featuredId] | order(orderRank asc) {
   _id,
   _type,
-  title,
+  company,
   'slug': slug.current,
-  excerpt,
-  image { 
+  logo { 
     asset->{ url }, 
     altText 
   },
+  backgroundColor {
+    value
+  },
+  cardTitle,
+  cardSummary,
 }`);

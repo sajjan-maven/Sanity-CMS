@@ -10,19 +10,6 @@ export default defineType({
     groups: [...fieldGroups],
     fields: [
         defineField({
-            name: 'title',
-            title: 'Title',
-            type: 'string',
-        }),
-        defineField({
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: {
-                source: 'title',
-            },
-        }),
-        defineField({
             name: 'heroText',
             title: 'Hero Text',
             type: 'string',
@@ -30,7 +17,8 @@ export default defineType({
         defineField({
             name: 'heroDescription',
             title: 'Hero Description',
-            type: 'string',
+            type: 'text',
+            rows: 3,
         }),
         defineField({
             name: 'featuredCS',

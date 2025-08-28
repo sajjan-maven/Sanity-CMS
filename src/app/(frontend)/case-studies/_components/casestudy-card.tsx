@@ -1,52 +1,42 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Temporary type until Sanity generates it
-type Casestudy = {
-  _id: string;
-  _type: string;
-  title: string;
-  slug: string;
-  excerpt?: string;
-  image?: {
-    asset?: {
-      url: string;
-    };
-    altText?: string;
-  };
-};
-
 //qwer Case study
 
 interface CasestudyCardProps {
-  casestudy: Casestudy;
+  casestudy: any;
 }
 
 export default function CasestudyCard({ casestudy }: CasestudyCardProps) {
   return (
-    <Link href={`/case-studies/${casestudy.slug}`} className="group">
-      <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        {casestudy.image?.asset?.url && (
-          <div className="relative h-48 overflow-hidden">
-            <Image
-              src={casestudy.image.asset.url}
-              alt={casestudy.image.altText || casestudy.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+    <div className="w-full flex flex-col md:flex-row gap-6">
+      <Link
+        href={casestudy.slug}
+        key={casestudy._id}
+        className="case-study-card flex-1 border border-solid border-[#545058] bg-white rounded-[32px] overflow-hidden cursor-pointer"
+      >
+        <div className="p-4 md:p-6 pb-0">
+          <div
+            className="h-[200px] rounded-3xl flex items-center justify-center"
+            style={{ backgroundColor: casestudy?.backgroundColor?.value || '#1763f5' }}
+          >
+            {casestudy?.logo?.asset?.url && (
+              <Image
+                height={40}
+                width={casestudy?.logo.asset.metadata?.dimensions?.width || 133}
+                alt={`${casestudy?.company} logo`}
+                src={casestudy?.logo.asset.url}
+                priority
+              />
+            )}
           </div>
-        )}
-        <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-            {casestudy.title}
-          </h3>
-          {casestudy.excerpt && (
-            <p className="text-gray-600 text-sm line-clamp-3">
-              {casestudy.excerpt}
-            </p>
-          )}
         </div>
-      </article>
-    </Link>
+        <div className="flex flex-col items-center px-4 pt-6 pb-8 md:px-8 md:pb-10">
+          <p className="text-[#7b7481] text-center">
+            {casestudy?.cardSummary}
+          </p>
+        </div>
+      </Link>
+    </div>
   );
 }

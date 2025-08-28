@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import CasestudyGrid from './_components/casestudy-grid';
 import { sanityFetch } from '@/sanity/lib/live';
 import { casestudiesPageQuery, casestudiesExcludingFeaturedQuery } from '@/sanity/lib/queries/documents/casestudy';
+import { PageBuilder } from '@/components/page-builder';
+import FeaturedCaseStudy from './_components/casestudy-featured';
 
 //qwer Case study
 
@@ -36,60 +38,38 @@ export default async function CaseStudiesPages() {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Hero Section */}
-      {page?.heroText && (
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {page.heroText}
-          </h1>
-          {page.heroDescription && (
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {page.heroDescription}
-            </p>
-          )}
-        </div>
-      )}
-
-      {/* Featured Case Study */}
-      {page?.featuredCS && (
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Featured Case Study</h2>
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6">
-            <CasestudyGrid
-              casestudies={[
-                {
-                  ...page.featuredCS,
-                  title: page.featuredCS.title ?? '',
-                  slug: page.featuredCS.slug ?? '',
-                  excerpt: page.featuredCS.excerpt ?? '',
-                  image: page.featuredCS.image
-                    ? {
-                      ...page.featuredCS.image,
-                      asset: { url: page.featuredCS.image.asset?.url ?? '' },
-                      altText: page.featuredCS.image.altText ?? '',
-                    }
-                    : { asset: { url: '' }, altText: '' },
-                },
-              ]}
-            />
+    <div className="w-full min-h-screen">
+      {(page?.heroText || page.heroDescription) && (
+        <section className="w-full bg-[#e3dad0] py-16 px-6 ">
+          <div className="flex flex-col items-center gap-8 max-w-[876px] mx-auto">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h1 className="font-semibold text-[40px] leading-[48px] text-[#363338] ">
+                {page.heroText}
+              </h1>
+              <p className="text-lg leading-8 text-[#363338] ">
+                {page.heroDescription}
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
       )}
 
-      {/* All Case Studies Grid */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">All Case Studies</h2>
-        <CasestudyGrid casestudies={casestudies || []} />
-      </div>
+      <section className="w-full px-6 py-20 md:py-40 mx-auto">
+        <div className="flex flex-col items-center gap-6 max-w-[1256px] mx-auto case-study-card-container">
+          {page?.featuredCS && (
+            <FeaturedCaseStudy casestudy={page.featuredCS} />
+          )}
 
-      {/* Page Builder Content */}
-      {page?.pageBuilder && (
-        <div className="mt-16">
-          {/* Add your page builder component here */}
-          {/* <PageBuilder blocks={page.pageBuilder} /> */}
+          <CasestudyGrid casestudies={casestudies || []} />
+
+          <PageBuilder
+            id={page?._id ?? ''}
+            type={page?._type ?? ''}
+            pageBuilder={page?.pageBuilder ?? []}
+          />
+
         </div>
-      )}
+      </section>
     </div>
   );
 }

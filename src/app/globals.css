@@ -98,3 +98,17 @@ body {
 .terms-content p a:hover {
   text-decoration: underline;
 }
+
+.case-study-card {
+  transition: opacity 0.3s ease;
+}
+
+/* When container is hovered, make all cards semi-transparent */
+.case-study-card-container:hover .case-study-card {
+  opacity: 0.6;
+}
+
+/* Then make only the hovered card fully opaque */
+.case-study-card-container:hover .case-study-card:hover {
+  opacity: 1;
+}
