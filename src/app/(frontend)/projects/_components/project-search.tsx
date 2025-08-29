@@ -60,7 +60,7 @@ export function ProjectSearch({ projects, classNames }: ProjectSearchProps) {
         <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 bg-gray-50 border rounded-xl shadow-lg">
           <ul className="py-1 px-1">
             {searchResults?.map((project, index) => (
-              <React.Fragment key={project?._id}>
+              <React.Fragment key={index}>
                 <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
                   <Link href={`/projects/${project?.slug}`}>
                     <h3 className="text-sm font-medium text-balance">

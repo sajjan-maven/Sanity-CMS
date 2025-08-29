@@ -23,8 +23,8 @@ interface CasestudyGridProps {
 export default function CasestudyGrid({ casestudies }: CasestudyGridProps) {
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {casestudies.map((casestudy) => (
-        <CasestudyCard key={casestudy._id} casestudy={casestudy} />
+      {casestudies.map((casestudy, index) => (
+        <CasestudyCard key={index} casestudy={casestudy} />
       ))}
     </div>
   )

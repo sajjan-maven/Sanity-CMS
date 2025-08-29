@@ -1,7 +1,7 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import {Link} from "react-scroll";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 
 interface TermsProps {
 	termsData: {
@@ -10,16 +10,16 @@ interface TermsProps {
 	activeSection: string;
 }
 
-const TermsLeftContainer: React.FC<TermsProps> = ({termsData, activeSection}) => {
-	const [toc, setToc] = useState<{id: string; title: string}[]>([]);
+const TermsLeftContainer: React.FC<TermsProps> = ({ termsData, activeSection }) => {
+	const [toc, setToc] = useState<{ id: string; title: string }[]>([]);
 	const formatSectionId = (sectionTitle: string) =>
 		sectionTitle
-		.replace(/\*\*/g, "")
-		.replace(/[^a-zA-Z0-9\s-]/g, "")
-		.trim()
-		.replace(/\s+/g, "-")
-		.replace(/-+/g, "-")
-		.toLowerCase();
+			.replace(/\*\*/g, "")
+			.replace(/[^a-zA-Z0-9\s-]/g, "")
+			.trim()
+			.replace(/\s+/g, "-")
+			.replace(/-+/g, "-")
+			.toLowerCase();
 
 	useEffect(() => {
 		// Build TOC from Portable Text blocks with style === 'h3'
@@ -45,9 +45,9 @@ const TermsLeftContainer: React.FC<TermsProps> = ({termsData, activeSection}) =>
 
 	return (
 		<div id="w-node-_72fe14b0-54c0-632f-c510-8a0518b1559e-ecc25f3e">
-			{toc.map((section) => (
+			{toc.map((section, index) => (
 				<Link
-					key={section.id}
+					key={index}
 					to={section.id}
 					smooth={true}
 					offset={-127}

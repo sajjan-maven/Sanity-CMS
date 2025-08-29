@@ -176,35 +176,75 @@ export const allPostsQuery = defineQuery(`*[_type == 'post'] | order(_createdAt 
   },
 }`);
 
-export const allPostCategoriesQuery = defineQuery(`*[_type == 'postCategory'] | order(orderRank asc) {
+// export const paginatedPostsQuery = defineQuery(`*[_type == 'post'] | order(_createdAt asc) [$offset...$offset + $limit] {
+//   _id,
+//   _type,
+//   title,
+//   'slug': slug.current,
+//   excerpt,
+//   category->{
+//     _id,
+//     title,
+//     'slug': slug.current,
+//   },
+//   image { 
+//     asset->{ url }, 
+//     altText 
+//   },
+// }`);
+
+
+export const paginatedPostsQuery = defineQuery(`
+{
+  "posts": *[_type == "post"] | order(_createdAt desc) [$offset...$offset + $limit] {
+    _id,
+    _type,
+    title,
+    'slug': slug.current,
+    excerpt,
+    category->{
+      _id,
+      title,
+      'slug': slug.current,
+    },
+    image { 
+      asset->{ url }, 
+      altText 
+    },
+  },
+  "total": count(*[_type == "post"])
+}
+`);
+
+export const allPostCategoriesQuery = defineQuery(`* [_type == 'postCategory'] | order(orderRank asc) {
   _id,
   _type,
   title,
   'slug': slug.current,
 }`);
 
-export const postsByCategoryQuery = defineQuery(`*[_type == 'post' && category->slug.current == $slug] {
+export const postsByCategoryQuery = defineQuery(`* [_type == 'post' && category -> slug.current == $slug] {
   _id,
   _type,
   title,
   'slug': slug.current,
   excerpt,
-  category->{
-    _id,
-    title,
-    'slug': slug.current,
-  },
-  image { 
-    asset->{ url }, 
-    altText 
+  category-> {
+  _id,
+  title,
+  'slug': slug.current,
+},
+  image {
+    asset-> { url },
+  altText 
   },
 }`);
 
-export const postCategoryBySlugQuery = defineQuery(`*[_type == 'postCategory' && slug.current == $slug][0] {
+export const postCategoryBySlugQuery = defineQuery(`* [_type == 'postCategory' && slug.current == $slug][0] {
   _id,
-  _type,
-  title,
-  'slug': slug.current,
-}`);
+    _type,
+    title,
+    'slug': slug.current,
+} `);
 
 //XYZ Add BlogMainPageQuery add editors choice and featured blog query here

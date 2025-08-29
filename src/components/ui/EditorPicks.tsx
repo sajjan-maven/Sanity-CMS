@@ -31,10 +31,10 @@ const EditorPicks = ({ editorsPicks }: { editorsPicks?: Article[] }) => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 lg:pb-8 gap-5 rounded-3xl border border-[#545058] bg-transparent">
                     {editorsPicks && editorsPicks?.length > 0 ? (
-                        editorsPicks.map((article) => (
+                        editorsPicks.map((article, index) => (
                             <Link
                                 href={`/blog/${article.slug}`}
-                                key={article._id}
+                                key={index}
                                 style={{ textDecoration: "none" }}
                                 rel="noopener noreferrer"
                                 className="w-full max-w-[500px] md:max-w-full mx-auto"

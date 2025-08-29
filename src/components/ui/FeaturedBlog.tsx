@@ -24,7 +24,7 @@ interface FeaturedBlogProps {
     featuredBlog: BlogHeroSectionProps;
 }
 
-const FeaturedBlog = async ({ featuredBlog }: FeaturedBlogProps) => {
+const FeaturedBlog = ({ featuredBlog }: FeaturedBlogProps) => {
     return (
         <section className="w-full bg-[#f8f5f3] px-6 pt-20 pb-14">
             <div className="max-w-[1256px] mx-auto">

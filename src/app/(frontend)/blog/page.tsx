@@ -1,27 +1,24 @@
-import { Metadata } from 'next';
-import { processMetadata } from '@/lib/utils';
-import PostGrid from './_components/post-grid';
-import { sanityFetch } from '@/sanity/lib/live';
-import { BlogPageQueryResult } from "../../../../sanity.types";
-import { allPostsQuery, blogPageQuery } from '@/sanity/lib/queries/documents/post';
+import InfiniteScrollClient from './_components/infinite-scroll-client';
+import { getPaginatedPosts } from '@/actions/get-paginated-posts';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { data: page } = await sanityFetch({
-    query: blogPageQuery,
-    stega: false
-  });
-
-  if (!page) { return {} };
-
-  return processMetadata({ data: page as BlogPageQueryResult });
-}
+const POSTS_PER_PAGE = 15;
 
 export default async function BlogArchivePage() {
-  const { data: posts } = await sanityFetch({
-    query: allPostsQuery,
-  });
+  let initialPostsData;
+
+  try {
+    initialPostsData = await getPaginatedPosts(0, POSTS_PER_PAGE);
+  } catch (error) {
+    console.error('Error loading initial posts:', error);
+    initialPostsData = { posts: [], hasMore: false, total: 0 };
+  }
 
   return (
-    <PostGrid posts={posts} />
-  )
+    <div>
+      <InfiniteScrollClient
+        initialPosts={initialPostsData.posts || []}
+        postsPerPage={POSTS_PER_PAGE}
+      />
+    </div>
+  );
 }

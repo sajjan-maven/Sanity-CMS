@@ -22,8 +22,8 @@ export default function PostCategories({ categories }: PostCategoriesProps) {
           All Posts
         </CategoryLink>
       </li>
-      {categories.map((category) => (
-        <li key={category._id} className="text-nowrap">
+      {categories.map((category, index) => (
+        <li key={index} className="text-nowrap">
           <CategoryLink
             href={`/blog/category/${category.slug}`}
             category={category}

@@ -22,8 +22,8 @@ export default function ProjectCategories({ categories }: ProjectCategoriesProps
           All Projects
         </CategoryLink>
       </li>
-      {categories?.map((category) => (
-        <li key={category._id} className="text-nowrap">
+      {categories?.map((category, index) => (
+        <li key={index} className="text-nowrap">
           <CategoryLink
             href={`/projects/category/${category.slug}`}
             category={category}
@@ -44,12 +44,12 @@ function CategoryLink({ href, category, children }: {
 
   const pathname = usePathname();
 
-  const isActive = category 
+  const isActive = category
     ? pathname === `/projects/category/${category.slug}`
     : pathname === '/projects';
 
   return (
-    <Link 
+    <Link
       href={href}
       className={cn('py-2 px-3.5 rounded-full border border-transparent backdrop-blur-md transition-all duration-300', {
         'mr-2 md:mr-0 border-black bg-black text-white': isActive,

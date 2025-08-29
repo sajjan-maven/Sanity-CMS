@@ -180,8 +180,8 @@ export default async function AuthorPage({ params }: PageProps) {
 
                 <h2 className='text-3xl mt-8 mb-4 font-medium'>Latest Articles</h2>
                 <ul className='grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6'>
-                    {author.posts?.map((post: any) => (
-                        <PostCard key={post._id} post={post} />
+                    {author.posts?.map((post: any, index: number) => (
+                        <PostCard key={index} post={post} />
                     ))}
                 </ul>
             </div>

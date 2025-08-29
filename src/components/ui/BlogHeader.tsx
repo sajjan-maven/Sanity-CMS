@@ -5,7 +5,7 @@ interface BlogHeaderProps {
     heroText: string;
 }
 
-const BlogHeader = async ({ heroText }: BlogHeaderProps) => {
+const BlogHeader = ({ heroText }: BlogHeaderProps) => {
 
     return (
         <>

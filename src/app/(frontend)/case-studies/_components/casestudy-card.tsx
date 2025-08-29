@@ -6,7 +6,6 @@ export default function CasestudyCard({ casestudy }: any) {
     <div className="w-full flex flex-col md:flex-row gap-6">
       <Link
         href={`/case-studies/${casestudy?.slug}`}
-        key={casestudy._id}
         className="case-study-card flex-1 border border-solid border-[#545058] bg-white rounded-[32px] overflow-hidden cursor-pointer"
       >
         <div className="p-4 md:p-6 pb-0">
