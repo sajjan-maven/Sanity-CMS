@@ -11,7 +11,7 @@ export const authorBySlugQuery = defineQuery(`*[_type == 'author' && slug.curren
     }
   },
   bio,
-  socials {
+  socials[] {
     platform,
     url,
     customIcon {

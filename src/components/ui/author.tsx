@@ -17,7 +17,7 @@ export default function Author({ author }: AuthorProps) {
   return (
     <Link
       className="flex gap-2 items-center"
-      href={`/blog`}>
+      href={`/blog/author/${author?.slug}`}>
       <Image
         src={author?.avatar?.asset?.url ?? ''}
         width={42}

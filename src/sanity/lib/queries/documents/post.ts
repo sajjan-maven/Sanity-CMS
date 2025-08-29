@@ -100,7 +100,7 @@ export const postBySlugQuery = defineQuery(`*[_type == 'post' && slug.current ==
   author->{
     _id,
     name,
-    slug,
+    'slug': slug.current,
     position,
     bio,
     avatar { 
