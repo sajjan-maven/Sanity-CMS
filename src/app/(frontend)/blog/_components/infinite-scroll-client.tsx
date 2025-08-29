@@ -90,13 +90,6 @@ export default function InfiniteScrollClient({
                     </button>
                 </div>
             )}
-
-            {/* No more posts message */}
-            {!hasMore && posts.length > 0 && (
-                <div className="text-center py-8 text-gray-500">
-                    You&apos;ve reached the end of the blog posts
-                </div>
-            )}
         </>
     );
 }
