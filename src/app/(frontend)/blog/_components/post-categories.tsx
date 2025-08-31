@@ -19,7 +19,7 @@ export default function PostCategories({ categories }: PostCategoriesProps) {
         <CategoryLink
           href={`/blog`}
         >
-          All Posts
+          All Blogs
         </CategoryLink>
       </li>
       {categories.map((category, index) => (

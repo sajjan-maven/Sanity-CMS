@@ -37,7 +37,7 @@ export default defineType({
             type: 'text',
             rows: 3,
             hidden: ({ parent }) => !parent?.addDescription,
-            description: 'Description will only be shown if "Show Application Description" is enabled',
+            description: 'Description will only be shown if "Add Application Description" is enabled',
         }),
         orderRankField({
             type: 'integrationApplication'

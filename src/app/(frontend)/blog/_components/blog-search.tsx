@@ -58,7 +58,7 @@ export function BlogSearch({ posts, classNames }: BlogSearchProps) {
       </div>
       {isDropdownOpen && (
         <div className="absolute left-0 right-0 md:-left-8 max-h-[290px] overflow-y-scroll z-50 w-full md:w-[320px] mt-2 border rounded-xl shadow-lg">
-          <ul className="py-1 px-1">
+          <ul className="py-1 px-1 bg-white">
             {searchResults.map((post, index) => (
               <React.Fragment key={index}>
                 <li className="px-4 py-3 cursor-pointer rounded-lg hover:bg-gray-200/60">
