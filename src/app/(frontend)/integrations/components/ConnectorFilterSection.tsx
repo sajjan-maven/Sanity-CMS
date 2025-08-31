@@ -2,7 +2,7 @@
 
 import NewButton from "@/components/ui/newButton";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 interface Category {
     id: string;
@@ -30,7 +30,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
     const [imageData, setImageData] = useState<ConnectorImage[]>(imageList);
     const [showIntegrationModal, setShowIntegrationModal] = useState<boolean>(false);
     const [categoryType, setCategoryType] = useState<string>("");
-    const [imageFlag, setImageFlag] = useState(false);
+    const [searchQuery, setSearchQuery] = useState<string>("");
     const [resetFlag, setResetFlag] = useState(false);
     const [email, setEmail] = useState('');
     const [applicationName, setApplicationName] = useState('');
@@ -43,52 +43,57 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
         return re.test(email);
     };
 
+    // Filter images based on category and search query
+    const filterImages = useCallback(() => {
+        let filteredData = imageList;
+
+        // Apply category filter
+        if (categoryType) {
+            filteredData = filteredData.filter(
+                (item: ConnectorImage) => item.CategoryType?.toLowerCase() === categoryType.toLowerCase()
+            );
+        }
+
+        // Apply search filter
+        if (searchQuery) {
+            filteredData = filteredData.filter((item: ConnectorImage) =>
+                item.ImageTitle?.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
+
+        setImageData(filteredData);
+    }, [categoryType, searchQuery, imageList]);
+
+    useEffect(() => {
+        filterImages();
+    }, [filterImages]);
+
     const handleClick = (category: string): void => {
         setResetFlag(true);
         setCategoryType(category);
+        setSearchQuery(""); // Clear search when selecting a category
     };
 
     const handleReset = () => {
         setCategoryType("");
+        setSearchQuery("");
         setResetFlag(false);
-        setImageFlag(true);
     };
 
-    useEffect(() => {
-        const fetchDataAsync = async (): Promise<void> => {
-            try {
-                if (imageList) {
-                    setImageFlag(false);
-                    if (categoryType) {
-                        const filteredData = imageList.filter(
-                            (item: ConnectorImage) => item.CategoryType?.toLowerCase() === categoryType.toLowerCase()
-                        );
-                        setImageData(filteredData);
-                    } else {
-                        setImageData(imageList);
-                    }
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchDataAsync();
-    }, [categoryType, imageFlag, imageList]);
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+        setCategoryType(""); // Clear category when searching
+        if (value) {
+            setResetFlag(true);
+        } else {
+            setResetFlag(false);
+        }
+    };
 
     const handleSearchClick = () => {
         setResetFlag(false);
         setCategoryType("");
-    };
-
-    const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        const value = e.currentTarget.value.toLowerCase().trim();
-        const filteredData = imageList.filter((item: ConnectorImage) => item.ImageText?.toLowerCase().includes(value));
-        if (value) {
-            setImageData(filteredData);
-        } else {
-            setImageFlag(true);
-        }
     };
 
     const closeModal = () => {
@@ -237,7 +242,8 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                         name="Search"
                                         placeholder="Search for an integration"
                                         type="text"
-                                        onKeyUp={handleKeyUp}
+                                        value={searchQuery}
+                                        onChange={handleSearchChange}
                                         onClick={handleSearchClick}
                                         required
                                     />
@@ -254,7 +260,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                                             <Image
                                                                 src={imageItem.Image.url}
                                                                 loading="lazy"
-                                                                alt={imageItem.ImageText ?? ""}
+                                                                alt={imageItem.ImageTitle ?? ""}
                                                                 className="w-10 h-10 object-contain"
                                                                 width={40}
                                                                 height={40}
@@ -283,7 +289,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                             <div role="listitem" className="w-full">
                                                 <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6">
                                                     <div className="flex justify-center mb-4 lg:mb-14">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 16 16" fill="none">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16" fill="none">
                                                             <path d="M1 4.2C1 3.0799 1 2.51984 1.21799 2.09202C1.40973 1.71569 1.71569 1.40973 2.09202 1.21799C2.51984 1 3.0799 1 4.2 1H11.8C12.9201 1 13.4802 1 13.908 1.21799C14.2843 1.40973 14.5903 1.71569 14.782 2.09202C15 2.51984 15 3.0799 15 4.2V11.8C15 12.9201 15 13.4802 14.782 13.908C14.5903 14.2843 14.2843 14.5903 13.908 14.782C13.4802 15 12.9201 15 11.8 15H4.2C3.0799 15 2.51984 15 2.09202 14.782C1.71569 14.5903 1.40973 14.2843 1.21799 13.908C1 13.4802 1 12.9201 1 11.8V4.2Z" fill="#0C9222" />
                                                             <path fillRule="evenodd" clipRule="evenodd" d="M5 12C4.44772 12 4 11.5523 4 11V5C4 4.44772 4.44772 4 5 4H11C11.5523 4 12 4.44772 12 5V11C12 11.5523 11.5523 12 11 12H5ZM7.5 11V8.5H5V11H7.5ZM11 8.5V11H8.5V8.5H11ZM11 7.5V5H8.5V7.5H11ZM7.5 5H5V7.5H7.5V5Z" fill="white" />
                                                         </svg>
@@ -297,7 +303,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                             <div role="listitem" className="w-full">
                                                 <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6">
                                                     <div className="flex justify-center mb-4 lg:mb-14">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 16 16" fill="none">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16" fill="none">
                                                             <path d="M1 4.2C1 3.0799 1 2.51984 1.21799 2.09202C1.40973 1.71569 1.71569 1.40973 2.09202 1.21799C2.51984 1 3.0799 1 4.2 1H11.8C12.9201 1 13.4802 1 13.908 1.21799C14.2843 1.40973 14.5903 1.71569 14.782 2.09202C15 2.51984 15 3.0799 15 4.2V11.8C15 12.9201 15 13.4802 14.782 13.908C14.5903 14.2843 14.2843 14.5903 13.908 14.782C13.4802 15 12.9201 15 11.8 15H4.2C3.0799 15 2.51984 15 2.09202 14.782C1.71569 14.5903 1.40973 14.2843 1.21799 13.908C1 13.4802 1 12.9201 1 11.8V4.2Z" fill="#34A853" />
                                                             <path fillRule="evenodd" clipRule="evenodd" d="M7 5V2H5V5H2V7H5L5 14H7L7 7H14V5H7Z" fill="white" />
                                                         </svg>
