@@ -21,7 +21,7 @@ export default defineType({
         }),
         defineField({
             name: 'authorTitle',
-            title: 'Author Title',
+            title: 'Author Designation',
             type: 'string',
             validation: Rule => Rule.required()
         }),

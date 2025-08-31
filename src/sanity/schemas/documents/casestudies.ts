@@ -65,7 +65,6 @@ export default defineType({
                 { type: 'block' },
                 { type: 'statsSectionObject' },
                 { type: 'quoteCardObject' },
-                // Dummy need analysis
                 defineArrayMember({
                     type: 'table',
                 }),

@@ -13,14 +13,14 @@ export default function QuoteCard({ data }: {
     }
 }) {
     const { quoteText, authorName, authorTitle, authorImage } = data;
-
+    console.log('QuoteCard data:', data);
     return (
         <div className="w-full bg-white rounded-[32px] border border-solid mb-14 border-[#545058]">
             <div className="flex flex-col items-start gap-8 pt-6 p-8 md:pt-10 md:p-14">
                 <svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
                     <path d="M16.223 0L9.14389 23.197H16.6655V40H0V25.2788L8.84892 0H16.223ZM40.5576 0L33.4784 23.197H41V40H24.3345V25.2788L33.1835 0H40.5576Z" fill="#EB6548" />
                 </svg>
-                <div className="flex flex-col items-start gap-6 w-full">
+                <div className="flex flex-col items-start gap-2 w-full">
                     <p className="font-normal text-lg leading-[26px]">
                         {quoteText}
                     </p>

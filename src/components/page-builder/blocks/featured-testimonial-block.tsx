@@ -7,20 +7,20 @@ export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlock
   const { quote, author, quoteIcon, backgroundColor } = props;
 
   return (
-    <section 
+    <section
       className="w-full py-10 md:py-20 z-[5] px-6"
-      style={{ 
-        background: backgroundColor?.value || "linear-gradient(to bottom, #f8f5f3, white)" 
+      style={{
+        background: backgroundColor?.value || "linear-gradient(to bottom, #f8f5f3, white)"
       }}
     >
       <div className="max-w-[790px] mx-auto">
         <div className="flex flex-col items-start gap-6 md:gap-12">
-          <Image 
-            className="w-[41px] h-10" 
-            alt={quoteIcon?.alt || 'quote icon'} 
-            src={quoteIcon?.asset?.url || '/section-images/quotes.png'} 
-            width={41} 
-            height={40} 
+          <Image
+            className="w-[41px] h-10"
+            alt={quoteIcon?.alt || 'quote icon'}
+            src={quoteIcon?.asset?.url || '/section-images/quotes.png'}
+            width={41}
+            height={40}
           />
 
           <div className="flex flex-col items-start gap-6">
@@ -35,7 +35,7 @@ export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlock
                     width={48}
                     height={48}
                     src={author.avatar.asset.url as string}
-                    alt={author.avatar.alt ?? author.name ?? ''}
+                    alt={`Portrait of ${author.name}`}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                 </div>
