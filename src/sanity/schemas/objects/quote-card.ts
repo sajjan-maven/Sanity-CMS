@@ -17,13 +17,11 @@ export default defineType({
             name: 'authorName',
             title: 'Author Name',
             type: 'string',
-            validation: Rule => Rule.required()
         }),
         defineField({
             name: 'authorTitle',
             title: 'Author Designation',
             type: 'string',
-            validation: Rule => Rule.required()
         }),
         defineField({
             name: 'authorImage',
