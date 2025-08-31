@@ -152,6 +152,7 @@ import pricingItem from "./objects/pricing";
 import iframe from './objects/iframe';
 import faq from "./objects/faq";
 import blogButtonObject from "./objects/blog-button";
+import statsSectionObject from "./objects/stats-section";
 
 const objectSchema = [
   seoObject,
@@ -173,7 +174,8 @@ const objectSchema = [
   pricingItem,
   iframe,
   faq,
-  blogButtonObject
+  blogButtonObject,
+  statsSectionObject
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {

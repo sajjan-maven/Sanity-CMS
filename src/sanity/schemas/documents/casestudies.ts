@@ -66,6 +66,7 @@ export default defineType({
                 { type: 'callToActionObject' },
                 { type: 'singleImageObject' },
                 { type: 'videoObject' },
+                { type: 'statsSectionObject' },
                 // Dummy need analysis
                 defineArrayMember({
                     type: 'table',
