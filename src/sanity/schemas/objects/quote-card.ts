@@ -29,6 +29,7 @@ export default defineType({
             name: 'authorImage',
             title: 'Author Image',
             type: 'image',
+            description: 'Size should be 100x100 pixels'
         }),
     ],
     preview: {

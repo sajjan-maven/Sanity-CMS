@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { urlForImage } from '@/sanity/lib/utils';
 
 export default function QuoteCard({ data }: {
     data: {
@@ -7,13 +8,17 @@ export default function QuoteCard({ data }: {
         authorTitle: string;
         authorImage: {
             asset: {
-                url: string;
+                _ref: string;
             };
         };
     }
 }) {
     const { quoteText, authorName, authorTitle, authorImage } = data;
-    console.log('QuoteCard data:', data);
+
+    const imageUrl = authorImage?.asset?._ref
+        ? urlForImage(authorImage)?.width(48).height(48).url()
+        : null;
+
     return (
         <div className="w-full bg-white rounded-[32px] border border-solid mb-14 border-[#545058]">
             <div className="flex flex-col items-start gap-8 pt-6 p-8 md:pt-10 md:p-14">
@@ -29,7 +34,7 @@ export default function QuoteCard({ data }: {
                             <Image
                                 width={48}
                                 height={48}
-                                src={authorImage?.asset?.url || '/section-images/person.png'}
+                                src={imageUrl || '/section-images/person.png'}
                                 alt={authorName}
                                 className='m-0'
                             />

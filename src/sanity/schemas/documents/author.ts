@@ -14,6 +14,7 @@ export default defineType({
     defineField({
       name: 'avatar',
       title: 'Avatar',
+      description: 'Size should be 250x250 pixels',
       type: 'image',
     }),
     defineField({

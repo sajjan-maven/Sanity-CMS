@@ -60,6 +60,7 @@ export default defineType({
         defineField({
             name: 'content',
             title: 'Content',
+            description: 'For additional space use <AdditionalSpace> ',
             type: 'array',
             of: [
                 { type: 'block' },
