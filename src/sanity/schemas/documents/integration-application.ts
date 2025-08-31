@@ -25,6 +25,12 @@ export default defineType({
             type: 'image',
         }),
         defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: { type: 'integrationCategory' }
+        }),
+        defineField({
             name: 'addDescription',
             title: 'Add Application Description',
             type: 'boolean',
