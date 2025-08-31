@@ -6,6 +6,9 @@ export const integrationPageQuery = defineQuery(`
     _id,
     _type,
     title,
+    description,
+    heroImage,
+    headerActionButton,
     'slug': slug.current,
     ${pageBuilder},
     "seo": {

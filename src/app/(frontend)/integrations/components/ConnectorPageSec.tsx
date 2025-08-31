@@ -68,7 +68,7 @@ const ConnectorPageSec: React.FC<ConnectorPageSecProps> = (props) => {
     return (
         <div className="overflow-hidden">
             <ConnectorHeroSection title={props.data.HeroSection} />
-            <div className="bg-[#f8f5f3]">
+            <div className="bg-gray-50">
                 <ConnectorFilterSection
                     catogeoryList={props.content.CategorySec}
                     imageList={props.image.ConnectorImageSec}

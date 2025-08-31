@@ -22,6 +22,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'heroImage',
+            title: 'Hero Image',
+            type: 'image',
+        }),
+        defineField({
             name: 'headerActionButton',
             title: 'Header Action Button',
             type: 'object',
