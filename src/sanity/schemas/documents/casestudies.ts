@@ -63,10 +63,8 @@ export default defineType({
             type: 'array',
             of: [
                 { type: 'block' },
-                { type: 'callToActionObject' },
-                { type: 'singleImageObject' },
-                { type: 'videoObject' },
                 { type: 'statsSectionObject' },
+                { type: 'quoteCardObject' },
                 // Dummy need analysis
                 defineArrayMember({
                     type: 'table',

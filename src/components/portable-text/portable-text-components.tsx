@@ -2,6 +2,7 @@ import Video from './components/video';
 import CallToAction from './components/call-to-action';
 import SingleImage from './components/single-image';
 import StatsSection from './components/stats-section';
+import QuoteCard from './components/quote-card';
 import { PortableTextComponents } from '@portabletext/react';
 import { portableTextHeadings } from './components/headings';
 import TableBlock from './components/content-table';
@@ -28,6 +29,9 @@ export const portableTextComponents: PortableTextComponents = {
     },
     statsSectionObject: (data) => {
       return <StatsSection data={data.value} />
+    },
+    quoteCardObject: (data) => {
+      return <QuoteCard data={data.value} />
     },
     table: TableBlock,
     iframe: Iframe
