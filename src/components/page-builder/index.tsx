@@ -54,6 +54,16 @@ const SamCenteredBlockProps = dynamic(() => import("./blocks/sam-centered-block"
 const SamCardsBlockProps = dynamic(() => import("./blocks/sam-cards-block"))
 const SamFixTheGapsBlockProps = dynamic(() => import("./blocks/sam-fix-the-gaps-block"))
 const samActionBlockProps = dynamic(() => import("./blocks/sam-action-block"))
+const auditReadinessHeroBlockProps = dynamic(() => import("./blocks/audit-readiness-hero-block"))
+const AuditReadinessLeftAccordionBlockProps = dynamic(() => import("./blocks/audit-readiness-left-accordion-block"))
+const AuditReadinessRightAccordionBlockProps = dynamic(() => import("./blocks/audit-readiness-right-accordion-block"))
+const AuditReadinessSolutionsListBlockProps = dynamic(() => import("./blocks/audit-readiness-solutions-list-block"))
+const DisconnectedAppsHeroBlockProps = dynamic(() => import("./blocks/disconnected-apps-hero-block"))
+const DisconnectedAppsBrandsBlockProps = dynamic(() => import("./blocks/disconnected-apps-brands-block"))
+const DisconnectedAppsStickyStackBlockProps = dynamic(() => import("./blocks/disconnected-apps-sticky-stack-block"))
+const DisconnectedAppsFeaturesBlockProps = dynamic(() => import("./blocks/disconnected-apps-features-block"))
+const DisconnectedAppsSectionWithCardsBlockProps = dynamic(() => import("./blocks/disconnected-apps-section-with-cards-block"))
+const DisconnectedAppsEmpoweredTeamsBlockProps = dynamic(() => import("./blocks/disconnected-apps-empowered-teams-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -114,7 +124,17 @@ const PB_BLOCKS = {
   samCenteredBlock: SamCenteredBlockProps,
   samCardsBlock: SamCardsBlockProps,
   samFixTheGapsBlock: SamFixTheGapsBlockProps,
-  samActionBlock: samActionBlockProps
+  samActionBlock: samActionBlockProps,
+  auditReadinessHeroBlock: auditReadinessHeroBlockProps,
+  auditReadinessLeftAccordionBlock: AuditReadinessLeftAccordionBlockProps,
+  auditReadinessRightAccordionBlock: AuditReadinessRightAccordionBlockProps,
+  auditReadinessSolutionsListBlock: AuditReadinessSolutionsListBlockProps,
+  disconnectedAppsHeroBlock: DisconnectedAppsHeroBlockProps,
+  disconnectedAppsBrandsBlock: DisconnectedAppsBrandsBlockProps,
+  disconnectedAppsStickyStackBlock: DisconnectedAppsStickyStackBlockProps,
+  disconnectedAppsFeaturesBlock: DisconnectedAppsFeaturesBlockProps,
+  disconnectedAppsSectionWithCardsBlock: DisconnectedAppsSectionWithCardsBlockProps,
+  disconnectedAppsEmpoweredTeamsBlock: DisconnectedAppsEmpoweredTeamsBlockProps,
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

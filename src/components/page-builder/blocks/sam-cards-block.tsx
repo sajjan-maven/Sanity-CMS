@@ -30,13 +30,13 @@ export default function SAMCardsBlock(props: SAMCardsBlockProps) {
           </h2>
         )}
         {description && (
-          <p className="text-gray-600 text-center mb-16 mt-8 text-base md:text-lg">
+          <p className="text-gray-600 text-center mb-16 mt-8 text-base md:text-lg max-w-[800px] mx-auto">
             {description}
           </p>
         )}
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {cards.map((card, i) => (
+          {cards?.map((card, i) => (
             <div
               key={i}
               className="flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden border w-full max-w-[600px] mx-auto"

@@ -18,13 +18,13 @@ export default function SAMActionBlock(props: SAMActionBlockProps) {
 
                 {heading && (
                     <h2 className="font-bold text-[28px] md:text-[36px] lg:text-[42px] leading-tight mt-4">
-                        {heading.split(" ").map((word, i) =>
-                            word === highlightedText ? (
+                        {heading.split(new RegExp(`(${highlightedText})`, "gi")).map((part, i) =>
+                            part.toLowerCase() === highlightedText?.toLowerCase() ? (
                                 <span key={i} className="text-[#618D57]">
-                                    {" "}{word}{" "}
+                                    {part}
                                 </span>
                             ) : (
-                                ` ${word} `
+                                part
                             )
                         )}
                     </h2>

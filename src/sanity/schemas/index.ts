@@ -107,7 +107,17 @@ import samHeroSection from "./page-builder/blocks/sam-hero-block";
 import samCenteredBlock from "./page-builder/blocks/sam-centered-block";
 import samCardsBlock from "./page-builder/blocks/sam-cards-block";
 import samFixTheGapsBlock from "./page-builder/blocks/sam-fix-the-gaps-block";
-import samActionBlock from "./page-builder/blocks/sam-action-block"
+import samActionBlock from "./page-builder/blocks/sam-action-block";
+import auditReadinessHeroBlock from "./page-builder/blocks/audit-readiness-hero-block";
+import auditReadinessLeftAccordionBlock from "./page-builder/blocks/audit-readiness-left-accordion-block";
+import auditReadinessRightAccordionBlock from "./page-builder/blocks/audit-readiness-right-accordion-block";
+import auditReadinessSolutionsListBlock from "./page-builder/blocks/audit-readiness-solutions-list-block";
+import disconnectedAppsHeroBlock from "./page-builder/blocks/disconnected-apps-hero-block";
+import disconnectedAppsBrandsBlock from "./page-builder/blocks/disconnected-apps-brands-block";
+import disconnectedAppsStickyStackBlock from "./page-builder/blocks/disconnected-apps-sticky-stack-block";
+import disconnectedAppsFeaturesBlock from "./page-builder/blocks/disconnected-apps-features-block";
+import disconnectedAppsSectionWithCardsBlock from "./page-builder/blocks/disconnected-apps-section-with-cards-block";
+import disconnectedAppsEmpoweredTeamsBlock from "./page-builder/blocks/disconnected-apps-empowered-teams-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -159,7 +169,17 @@ const pageBuilderSchema = [
   samCenteredBlock,
   samCardsBlock,
   samFixTheGapsBlock,
-  samActionBlock
+  samActionBlock,
+  auditReadinessHeroBlock,
+  auditReadinessLeftAccordionBlock,
+  auditReadinessRightAccordionBlock,
+  auditReadinessSolutionsListBlock,
+  disconnectedAppsHeroBlock,
+  disconnectedAppsBrandsBlock,
+  disconnectedAppsStickyStackBlock,
+  disconnectedAppsFeaturesBlock,
+  disconnectedAppsSectionWithCardsBlock,
+  disconnectedAppsEmpoweredTeamsBlock
 ];
 
 import seoObject from './objects/seo';

@@ -5,12 +5,14 @@ import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import { PageBuilderType } from "@/types";
 
-export type SAMFixTheGapsBlockProps = PageBuilderType<"samFixTheGapsBlock">;
+export type SAMFixTheGapsBlockProps = Omit<PageBuilderType<"samFixTheGapsBlock">, "accordionItems"> & {
+  accordionItems: NonNullable<PageBuilderType<"samFixTheGapsBlock">["accordionItems"]>;
+};
 
 export default function SAMFixTheGapsBlock(props: SAMFixTheGapsBlockProps) {
   const {
-    tagline,
-    heading,
+    title,
+    subtitle,
     description,
     accordionItems = [],
   } = props;
@@ -26,18 +28,18 @@ export default function SAMFixTheGapsBlock(props: SAMFixTheGapsBlockProps) {
     <section className="pb-[60px] lg:pb-[100px] bg-[#f7f5f2]">
       <div className="max-w-[1256px] mx-auto px-4">
         <div className="flex flex-col items-center justify-center text-center">
-          {tagline && (
+          {title && (
             <p className="font-medium text-[#7B7481] bg-white rounded-full inline px-6 py-1">
-              {tagline}
+              {title}
             </p>
           )}
-          {heading && (
+          {subtitle && (
             <h2 className="font-bold text-[28px] md:text-[36px] lg:text-[42px] leading-tight mt-4">
-              {heading}
+              {subtitle}
             </h2>
           )}
           {description && (
-            <p className="text-[#363338] mx-auto mt-4 text-base md:text-lg leading-relaxed">
+            <p className="text-[#363338] mx-auto mt-4 text-base md:text-lg leading-relaxed max-w-[800px]">
               {description}
             </p>
           )}
@@ -47,7 +49,7 @@ export default function SAMFixTheGapsBlock(props: SAMFixTheGapsBlockProps) {
           {/* Left: Accordion */}
           <section className="w-full max-w-xl mx-auto flex-1 h-full flex flex-col">
             <div className="space-y-6 h-full flex flex-col justify-end">
-              {accordionItems.map((item, idx) => {
+              {accordionItems?.map((item, idx) => {
                 const isOpen = openIndex === idx;
                 return (
                   <div

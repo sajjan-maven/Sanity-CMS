@@ -45,6 +45,38 @@ export default defineType({
             ],
         }),
         defineField({
+            name: 'avatarImage',
+            title: 'Button Avatar Image',
+            type: 'image',
+            options: { hotspot: true },
+            fields: [
+                defineField({
+                    name: 'alt',
+                    title: 'Alt Text',
+                    type: 'string',
+                    initialValue: 'avatar'
+                }),
+                defineField({
+                    name: 'width',
+                    title: 'Display Width (px)',
+                    type: 'number',
+                    initialValue: 32
+                }),
+                defineField({
+                    name: 'height',
+                    title: 'Display Height (px)',
+                    type: 'number',
+                    initialValue: 32
+                })
+            ]
+        }),
+        defineField({
+            name: 'buttonText',
+            title: 'CTA Button Text',
+            type: 'string',
+            initialValue: 'Book a demo'
+        }),
+        defineField({
             name: "marqueeImages",
             title: "Trusted Logos",
             type: "array",

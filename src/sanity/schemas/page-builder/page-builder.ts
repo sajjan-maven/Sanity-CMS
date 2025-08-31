@@ -53,7 +53,17 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'samCenteredBlock', type: 'samCenteredBlock' }),
     defineArrayMember({ name: 'samCardsBlock', type: 'samCardsBlock' }),
     defineArrayMember({ name: 'samFixTheGapsBlock', type: 'samFixTheGapsBlock' }),
-    defineArrayMember({ name: 'samActionBlock', type: 'samActionBlock' })
+    defineArrayMember({ name: 'samActionBlock', type: 'samActionBlock' }),
+    defineArrayMember({ name: 'auditReadinessHeroBlock', type: 'auditReadinessHeroBlock' }),
+    defineArrayMember({ name: 'auditReadinessLeftAccordionBlock', type: 'auditReadinessLeftAccordionBlock' }),
+    defineArrayMember({ name: 'auditReadinessRightAccordionBlock', type: 'auditReadinessRightAccordionBlock' }),
+    defineArrayMember({ name: 'auditReadinessSolutionsListBlock', type: 'auditReadinessSolutionsListBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsHeroBlock', type: 'disconnectedAppsHeroBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsBrandsBlock', type: 'disconnectedAppsBrandsBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsStickyStackBlock', type: 'disconnectedAppsStickyStackBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsFeaturesBlock', type: 'disconnectedAppsFeaturesBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsSectionWithCardsBlock', type: 'disconnectedAppsSectionWithCardsBlock' }),
+    defineArrayMember({ name: 'disconnectedAppsEmpoweredTeamsBlock', type: 'disconnectedAppsEmpoweredTeamsBlock' })
   ],
   options: {
     insertMenu: {
@@ -105,6 +115,16 @@ export const pageBuilder = defineType({
             'samCardsBlock',
             'samFixTheGapsBlock',
             'samActionBlock',
+            'auditReadinessHeroBlock',
+            'auditReadinessLeftAccordionBlock',
+            'auditReadinessRightAccordionBlock',
+            'auditReadinessSolutionsListBlock',
+            'disconnectedAppsHeroBlock',
+            'disconnectedAppsBrandsBlock',
+            'disconnectedAppsStickyStackBlock',
+            'disconnectedAppsFeaturesBlock',
+            'disconnectedAppsSectionWithCardsBlock',
+            'disconnectedAppsEmpoweredTeamsBlock'
           ]
         },
         {

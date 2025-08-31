@@ -873,6 +873,21 @@ export const oktaIdpHeroSectionQuery = `
     title,
     subtitle,
     description,
+    buttonText,
+    avatarImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
     heroImage {
       alt,
       width,
@@ -904,7 +919,8 @@ export const oktaIdpHeroSectionQuery = `
       }
     }
   }
-`
+`;
+
 export const oktaIdpWhySaasSectionQuery = `
   _type == "oktaIdpWhySaasSection" => {
     ${baseQuery},
@@ -1090,6 +1106,21 @@ export const samHeroSectionQuery = `
     _type,
     title,
     description,
+    buttonText,
+    avatarImage {
+      alt,
+      width,
+      height,
+      asset->{
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
     heroImage {
       alt,
       width,
@@ -1159,8 +1190,8 @@ export const samFixTheGapsBlockQuery = `
   _type == "samFixTheGapsBlock" => {
     _key,
     _type,
-    tagline,
-    heading,
+    title,
+    subtitle,
     description,
     accordionItems[] {
       heading,
@@ -1190,6 +1221,224 @@ export const samActionBlockQuery = `
     highlightedText,
     description,
     videoUrl
+  }
+`;
+export const auditReadinessHeroBlockQuery = `
+  _type == "auditReadinessHeroBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    marqueeImages[] {
+      width,
+      height,
+      asset {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    },
+    video {
+      asset->{
+        url
+      }
+    }
+  }
+`;
+export const auditReadinessLeftAccordionBlockQuery = `
+  _type == "auditReadinessLeftAccordionBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    accordionItems[] {
+      heading,
+      subheading,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const auditReadinessRightAccordionBlockQuery = `
+  _type == "auditReadinessRightAccordionBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    accordionItems[] {
+      heading,
+      subheading,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const auditReadinessSolutionsListBlockQuery = `
+  _type == "auditReadinessSolutionsListBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    teamCards[] {
+      title,
+      description
+    }
+  }
+`;
+export const disconnectedAppsHeroBlockQuery = `
+  _type == "disconnectedAppsHeroBlock" => {
+    _key,
+    _type,
+    heading,
+    highlightedText,
+    description,
+    ctaLabel,
+    ctaLink,
+    marqueeImages[] {
+      width,
+      height,
+      asset {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    },
+    heroImage {
+      alt,
+      asset->{
+        url,
+        metadata { dimensions { width, height } }
+      }
+    }
+  }
+`;
+export const disconnectedAppsBrandsBlockQuery = `
+  _type == "disconnectedAppsBrandsBlock" => {
+    _key,
+    _type,
+    brandStats[] {
+      stat,
+      description,
+      width,
+      height,
+      logo {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const disconnectedAppsStickyStackBlockQuery = `
+  _type == "disconnectedAppsStickyStackBlock" => {
+    _key,
+    _type,
+    eyebrow,
+    heading,
+    highlightedText,
+    description,
+    ctaLabel,
+    ctaLink,
+    features[] {
+      title,
+      description,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      },
+      mobileImage {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const disconnectedAppsFeaturesBlockQuery = `
+  _type == "disconnectedAppsFeaturesBlock" => {
+    _key,
+    _type,
+    heading,
+    highlightedText,
+    description,
+    features[] {
+      title,
+      description,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const disconnectedAppsSectionWithCardsBlockQuery = `
+  _type == "disconnectedAppsSectionWithCardsBlock" => {
+    _key,
+    _type,
+    tagline,
+    heading,
+    highlightedText,
+    description,
+    cards[] {
+      title,
+      description,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
+  }
+`;
+export const disconnectedAppsEmpoweredTeamsBlockQuery = `
+  _type == "disconnectedAppsEmpoweredTeamsBlock" => {
+    _key,
+    _type,
+    heading,
+    brands[] {
+      caseStudy,
+      caseStudyLink,
+      image {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      }
+    }
   }
 `;
 

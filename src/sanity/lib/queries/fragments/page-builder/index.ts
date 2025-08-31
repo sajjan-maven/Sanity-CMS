@@ -47,7 +47,17 @@ import {
   samCenteredBlockQuery,
   samCardsBlockQuery,
   samFixTheGapsBlockQuery,
-  samActionBlockQuery
+  samActionBlockQuery,
+  auditReadinessHeroBlockQuery,
+  auditReadinessLeftAccordionBlockQuery,
+  auditReadinessRightAccordionBlockQuery,
+  auditReadinessSolutionsListBlockQuery,
+  disconnectedAppsHeroBlockQuery,
+  disconnectedAppsBrandsBlockQuery,
+  disconnectedAppsStickyStackBlockQuery,
+  disconnectedAppsFeaturesBlockQuery,
+  disconnectedAppsSectionWithCardsBlockQuery,
+  disconnectedAppsEmpoweredTeamsBlockQuery,
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -102,6 +112,16 @@ export const pageBuilder = `
     ${samCenteredBlockQuery},
     ${samCardsBlockQuery},
     ${samFixTheGapsBlockQuery},
-    ${samActionBlockQuery}
+    ${samActionBlockQuery},
+    ${auditReadinessHeroBlockQuery},
+    ${auditReadinessLeftAccordionBlockQuery},
+    ${auditReadinessRightAccordionBlockQuery},
+    ${auditReadinessSolutionsListBlockQuery},
+    ${disconnectedAppsHeroBlockQuery},
+    ${disconnectedAppsBrandsBlockQuery},
+    ${disconnectedAppsStickyStackBlockQuery},
+    ${disconnectedAppsFeaturesBlockQuery},
+    ${disconnectedAppsSectionWithCardsBlockQuery},
+    ${disconnectedAppsEmpoweredTeamsBlockQuery}
   }
 `
