@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import ConnectorPageSec from "./components/ConnectorPageSec";
 import { Metadata } from "next";
-import { getIntegrationData, IntegrationApplication, IntegrationCategory } from "@/actions/get-integration-data";
+import { getIntegrationData } from "@/actions/get-integration-data";
 
 interface BannerImage {
     url: string;
@@ -14,6 +14,9 @@ interface HeroSection {
     Description: string;
     BannerImage?: BannerImage;
     BannerImage2?: BannerImage2;
+    ButtonText?: string;
+    ButtonLink?: string;
+    ButtonVariant?: string;
 }
 
 interface ResponseData {
@@ -56,12 +59,6 @@ interface ImageResponse {
     updatedAt: string;
     publishedAt: string;
     ConnectorImageSec: ConnectorImage[];
-}
-
-interface ApiResponse<T> {
-    data: T;
-    status?: number;
-    message?: string;
 }
 
 interface ConnectorPageSecProps {
@@ -126,10 +123,11 @@ export default async function IntegrationPage() {
         const pageProps: ConnectorPageSecProps = {
             data: {
                 HeroSection: {
-                    HeroHeading: integrationData.page?.title || "Integrations",
-                    Description: integrationData.page?.seo?.description || "Connect and manage your applications seamlessly",
-                    BannerImage: { url: "" },
-                    BannerImage2: { url: "" },
+                    HeroHeading: integrationData.page?.title || "",
+                    Description: integrationData.page?.description || "",
+                    ButtonText: integrationData.page?.headerActionButton?.buttonText || "",
+                    ButtonLink: integrationData.page?.headerActionButton?.buttonUrl || "",
+                    ButtonVariant: integrationData.page?.headerActionButton?.buttonVariant || "",
                 },
             },
             content: {
@@ -139,16 +137,16 @@ export default async function IntegrationPage() {
                 updatedAt: "",
                 publishedAt: "",
                 HeroSection: {
-                    HeroHeading: integrationData.page?.title || "Integrations",
-                    Description: integrationData.page?.seo?.description || "Connect and manage your applications seamlessly",
+                    HeroHeading: integrationData.page?.title || "",
+                    Description: integrationData.page?.description || "",
                 },
-                CategorySec: integrationData.categories.map((category, index) => ({
+                CategorySec: integrationData.categories.map((category) => ({
                     id: category._id,
                     CategoryList: category.title,
                     name: category.title,
                     description: "",
                 })),
-                ConnectorImageSec: integrationData.applications.map((app, index) => ({
+                ConnectorImageSec: integrationData.applications.map((app) => ({
                     id: app._id,
                     ImageText: app.applicationDesc || "",
                     ImageTitle: app.applicationName,
@@ -162,7 +160,7 @@ export default async function IntegrationPage() {
                 createdAt: "",
                 updatedAt: "",
                 publishedAt: "",
-                ConnectorImageSec: integrationData.applications.map((app, index) => ({
+                ConnectorImageSec: integrationData.applications.map((app) => ({
                     id: app._id,
                     ImageText: app.applicationDesc || "",
                     ImageTitle: app.applicationName,
@@ -185,10 +183,13 @@ export default async function IntegrationPage() {
         const fallbackData: ConnectorPageSecProps = {
             data: {
                 HeroSection: {
-                    HeroHeading: "Integrations",
-                    Description: "Connect and manage your applications seamlessly",
-                    BannerImage: { url: "" },
-                    BannerImage2: { url: "" },
+                    HeroHeading: "",
+                    Description: "",
+                    BannerImage: undefined,
+                    BannerImage2: undefined,
+                    ButtonText: "",
+                    ButtonLink: "",
+                    ButtonVariant: "",
                 },
             },
             content: {
@@ -198,8 +199,8 @@ export default async function IntegrationPage() {
                 updatedAt: "",
                 publishedAt: "",
                 HeroSection: {
-                    HeroHeading: "Integrations",
-                    Description: "Connect and manage your applications seamlessly",
+                    HeroHeading: "",
+                    Description: "",
                 },
                 CategorySec: [],
                 ConnectorImageSec: [],

@@ -2,27 +2,32 @@ import React from "react";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import NewButton from "@/components/ui/newButton";
+
 interface ConnectorHeroSectionProps {
     title: {
         HeroHeading: string;
         Description: string;
         BannerImage?: { url: string };
         BannerImage2?: { url: string };
+        ButtonVariant?: string;
+        ButtonLink?: string;
+        ButtonText?: string;
     };
 }
+
 const ConnectorHeroSection: React.FC<ConnectorHeroSectionProps> = ({ title }) => {
     return (
         <div>
-            <section className="py-16 bg-white">
-                <div className="w-full max-w-6xl mx-auto">
+            <section className="py-16 bg-[#e3dacf] integration-page">
+                <div className="w-full max-w-[1256px] mx-auto">
                     <div className="flex items-center flex-col lg:flex-row">
                         <div className="w-full lg:w-3/5 px-6">
-                            <div className="pt-8 pb-24">
-                                <div className="max-w-2xl">
+                            <div className="pt-8 lg:pb-24">
+                                <div className="max-w-2xl mx-auto">
                                     <div className="grid gap-6 text-center lg:text-left">
                                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                                             {title.HeroHeading}
-                                            <span className="text-green-600" />
                                         </h1>
                                         <div className="grid gap-8">
                                             <div className="max-w-lg mx-auto lg:mx-0">
@@ -31,12 +36,14 @@ const ConnectorHeroSection: React.FC<ConnectorHeroSectionProps> = ({ title }) =>
                                                 </div>
                                             </div>
                                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                                <Link
-                                                    href="/demo"
-                                                    className="cursor-pointer shadow-[0px_2px_12px_#54505840,0px_2px_3px_#54505845,inset_0px_-2px_4px_#00000099] bg-[#363338] bg-gradient-to-b from-[#545058] to-[#363338] hover:to-[#1c1c1c] active:to-[#1f1e1f] text-white px-4 min-h-10 rounded-xl font-medium flex items-center justify-center whitespace-nowrap transition-all duration-180 ease-in-out transform focus:outline-none group active:[&_svg]:translate-x-1.5 hover:[&_svg]:translate-x-0.8 z-50"
-                                                >
-                                                    Book demo
-                                                    <ArrowRightIcon className="ml-2 h-4 w-4 transition-transform duration-200" />
+                                                <Link href={title.ButtonLink || "#"}>
+                                                    <NewButton
+                                                        variant={title.ButtonVariant === "primary" ? "primary" : "secondary"}
+                                                        className="mx-auto md:mx-0"
+                                                    >
+                                                        {title.ButtonText}
+                                                        <ArrowRightIcon className="ml-2 h-4 w-4 transition-transform duration-200" />
+                                                    </NewButton>
                                                 </Link>
                                                 <div className="hidden">
                                                     <form
@@ -79,20 +86,10 @@ const ConnectorHeroSection: React.FC<ConnectorHeroSectionProps> = ({ title }) =>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-2/5 flex justify-center">
+                        <div className="w-full lg:w-2/5 flex justify-end">
                             <Image
-                                src={title?.BannerImage?.url ?? ""}
-                                loading="lazy"
-                                alt="integration hero image will all the company logos"
-                                className="hidden lg:block w-full max-w-md h-auto"
-                                width={646}
-                                height={500}
-                            />
-                            <Image
-                                src={title?.BannerImage2?.url ?? ""}
-                                loading="lazy"
-                                sizes="(max-width: 767px) 80vw, 100vw"
-                                alt="in hero image with all the company logos"
+                                src={'/section-images/Group-427320677.png'}
+                                alt="integration hero image with all the company logos"
                                 className="lg:hidden w-full max-w-md h-auto"
                                 width={646}
                                 height={500}

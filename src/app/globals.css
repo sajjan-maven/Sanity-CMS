@@ -112,3 +112,23 @@ body {
 .case-study-card-container:hover .case-study-card:hover {
   opacity: 1;
 }
+
+.integration-page {
+  background-color: #e4dbd0;
+  background-image: url("/section-images/Group-427320677.png");
+  background-position: 100% 0;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-attachment: scroll;
+  padding-top: 4rem;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .integration-page {
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto;
+  }
+}

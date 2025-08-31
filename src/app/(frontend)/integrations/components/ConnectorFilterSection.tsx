@@ -74,7 +74,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
         };
 
         fetchDataAsync();
-    }, [categoryType, imageFlag]);
+    }, [categoryType, imageFlag, imageList]);
 
     const handleSearchClick = () => {
         setResetFlag(false);
@@ -158,8 +158,8 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
     };
 
     return (
-        <section className="w-full bg-gray-50 px-6 py-16">
-            <div className="w-full max-w-6xl mx-auto">
+        <section className="w-full bg-[#f7f4f2] py-16">
+            <div className="w-full max-w-[1256px] mx-auto px-6">
                 <div className="grid gap-4 grid-cols-1 lg:grid-cols-[0.25fr_1fr] auto-cols-fr content-start items-start">
                     <div className="grid gap-4 grid-cols-1">
                         <div className="shadow-sm h-full border border-gray-300 rounded-lg p-4">
@@ -182,7 +182,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                             <div key={category.id} role="listitem" className="w-full">
                                                 <a
                                                     href="#"
-                                                    className={`block px-3 py-2 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors ${categoryType === category.CategoryList ? "border-b-2 border-blue-500 bg-blue-50" : ""}`}
+                                                    className={`block px-3 py-2 text-sm text-gray-700 hover:text-gray-900 hover:bg-[#f4ece4] rounded-md transition-colors ${categoryType === category.CategoryList ? "border-b-2 border-[#e6ded4] bg-[#f4ece4]" : ""}`}
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         handleClick(category.CategoryList);
@@ -228,11 +228,11 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                         </div>
                     </div>
                     <div>
-                        <div className="grid gap-6">
+                        <div className="grid">
                             <div>
                                 <form className="mb-4">
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm bg-transparent outline-gray-400"
                                         maxLength={256}
                                         name="Search"
                                         placeholder="Search for an integration"
@@ -248,21 +248,21 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                     <div role="list" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                                         {imageData.map((imageItem) => (
                                             <div key={imageItem.id} role="listitem" className="w-full">
-                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6 bg-white">
-                                                    <div className="flex justify-center mb-4">
+                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6 lg:p-8">
+                                                    <div className="flex justify-center mb-4 lg:mb-14">
                                                         {imageItem.Image?.url && (
                                                             <Image
                                                                 src={imageItem.Image.url}
                                                                 loading="lazy"
                                                                 alt={imageItem.ImageText ?? ""}
-                                                                className="w-20 h-20 object-contain"
-                                                                width={80}
-                                                                height={80}
+                                                                className="w-10 h-10 object-contain"
+                                                                width={40}
+                                                                height={40}
                                                             />
                                                         )}
                                                     </div>
                                                     <div className="text-center">
-                                                        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                                                        <h2 className="text-gray-600 mb-2">
                                                             {imageItem.ImageText}
                                                         </h2>
                                                         <div className="text-sm text-gray-600">
@@ -277,33 +277,33 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                     <div>
                                         <div className="text-center mb-8">
                                             <div className="text-2xl font-semibold text-gray-900 mb-2">Connect any app to Stitchflow</div>
-                                            <p className="text-gray-600">Use our universal connectors to bring in data from any tool, even if it&apos;s not listed here. Get started in minutes with CSV or Google Sheets.</p>
+                                            <p className="text-gray-600 max-w-3xl mx-auto text-center">Use our universal connectors to bring in data from any tool, even if it&apos;s not listed here. Get started in minutes with CSV or Google Sheets.</p>
                                         </div>
                                         <div className="grid gap-6 md:grid-cols-2">
                                             <div role="listitem" className="w-full">
-                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6 bg-white">
-                                                    <div className="flex justify-center mb-4">
+                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6">
+                                                    <div className="flex justify-center mb-4 lg:mb-14">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 16 16" fill="none">
                                                             <path d="M1 4.2C1 3.0799 1 2.51984 1.21799 2.09202C1.40973 1.71569 1.71569 1.40973 2.09202 1.21799C2.51984 1 3.0799 1 4.2 1H11.8C12.9201 1 13.4802 1 13.908 1.21799C14.2843 1.40973 14.5903 1.71569 14.782 2.09202C15 2.51984 15 3.0799 15 4.2V11.8C15 12.9201 15 13.4802 14.782 13.908C14.5903 14.2843 14.2843 14.5903 13.908 14.782C13.4802 15 12.9201 15 11.8 15H4.2C3.0799 15 2.51984 15 2.09202 14.782C1.71569 14.5903 1.40973 14.2843 1.21799 13.908C1 13.4802 1 12.9201 1 11.8V4.2Z" fill="#0C9222" />
                                                             <path fillRule="evenodd" clipRule="evenodd" d="M5 12C4.44772 12 4 11.5523 4 11V5C4 4.44772 4.44772 4 5 4H11C11.5523 4 12 4.44772 12 5V11C12 11.5523 11.5523 12 11 12H5ZM7.5 11V8.5H5V11H7.5ZM11 8.5V11H8.5V8.5H11ZM11 7.5V5H8.5V7.5H11ZM7.5 5H5V7.5H7.5V5Z" fill="white" />
                                                         </svg>
                                                     </div>
                                                     <div className="text-center">
-                                                        <h2 className="text-xl font-semibold text-gray-900 mb-2">CSV</h2>
+                                                        <h2 className="text-gray-600 mb-2">CSV</h2>
                                                         <div className="text-sm text-gray-600">Import custom data</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div role="listitem" className="w-full">
-                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6 bg-white">
-                                                    <div className="flex justify-center mb-4">
+                                                <div className="shadow-sm h-full border border-gray-300 rounded-lg p-6">
+                                                    <div className="flex justify-center mb-4 lg:mb-14">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 16 16" fill="none">
                                                             <path d="M1 4.2C1 3.0799 1 2.51984 1.21799 2.09202C1.40973 1.71569 1.71569 1.40973 2.09202 1.21799C2.51984 1 3.0799 1 4.2 1H11.8C12.9201 1 13.4802 1 13.908 1.21799C14.2843 1.40973 14.5903 1.71569 14.782 2.09202C15 2.51984 15 3.0799 15 4.2V11.8C15 12.9201 15 13.4802 14.782 13.908C14.5903 14.2843 14.2843 14.5903 13.908 14.782C13.4802 15 12.9201 15 11.8 15H4.2C3.0799 15 2.51984 15 2.09202 14.782C1.71569 14.5903 1.40973 14.2843 1.21799 13.908C1 13.4802 1 12.9201 1 11.8V4.2Z" fill="#34A853" />
                                                             <path fillRule="evenodd" clipRule="evenodd" d="M7 5V2H5V5H2V7H5L5 14H7L7 7H14V5H7Z" fill="white" />
                                                         </svg>
                                                     </div>
                                                     <div className="text-center">
-                                                        <h2 className="text-xl font-semibold text-gray-900 mb-2">Google Sheets</h2>
+                                                        <h2 className="text-gray-600 mb-2">Google Sheets</h2>
                                                         <div className="text-sm text-gray-600">Import custom data</div>
                                                     </div>
                                                 </div>
@@ -320,7 +320,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
             {showIntegrationModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65">
                     <div className="w-full max-w-2xl m-6 relative">
-                        <div className="bg-amber-50 rounded-lg shadow-lg w-full px-6 py-8 relative border border-gray-100">
+                        <div className="bg-[#f7f4f2] rounded-lg shadow-lg w-full px-6 py-8 relative border border-gray-100">
                             <button
                                 className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl font-bold focus:outline-none cursor-pointer"
                                 onClick={closeModal}
@@ -351,7 +351,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                             onChange={(e) => { setApplicationName(e.target.value); setError({ ...error, applicationName: false, nullValue: false }) }}
                                             placeholder="e.g., Asana, Monday.com"
                                             required
-                                            className="mt-1 block w-full border border-gray-300 bg-white rounded-md shadow-sm p-2"
+                                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                         />
                                         <p className="mt-2 text-sm text-red-600">
                                             {error.applicationName && "Please enter the application name."}
@@ -368,7 +368,7 @@ const ConnectorFilterSection: React.FC<ConnectorFilterSectionProps> = ({ catogeo
                                             onChange={(e) => { setEmail(e.target.value); setError({ ...error, email: false, nullValue: false }) }}
                                             placeholder="you@yourcompany.com"
                                             required
-                                            className="mt-1 block w-full border border-gray-300 bg-white rounded-md shadow-sm p-2"
+                                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                         />
                                         <p className="mt-2 text-sm text-red-600">
                                             {error.email && "Please enter a valid email address."}

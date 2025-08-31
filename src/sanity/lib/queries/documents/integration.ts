@@ -2,14 +2,18 @@ import { defineQuery } from "next-sanity";
 import { pageBuilder } from "../fragments/page-builder";
 
 export const integrationPageQuery = defineQuery(`
-  *[_type == 'page' && slug.current == 'integrations'][0] {
+  *[_type == 'integrationsPage'][0] {
     _id,
     _type,
     title,
     description,
-    heroImage,
+    heroImageDesktop {
+      asset->{ url }
+    },
+    heroImageMobile {
+      asset->{ url }
+    },
     headerActionButton,
-    'slug': slug.current,
     ${pageBuilder},
     "seo": {
       "title": coalesce(seo.title, title, ""),

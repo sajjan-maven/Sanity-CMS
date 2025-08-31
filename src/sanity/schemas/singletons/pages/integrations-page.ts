@@ -22,11 +22,6 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'heroImage',
-            title: 'Hero Image',
-            type: 'image',
-        }),
-        defineField({
             name: 'headerActionButton',
             title: 'Header Action Button',
             type: 'object',
@@ -49,7 +44,6 @@ export default defineType({
                         list: [
                             { title: 'Primary', value: 'primary' },
                             { title: 'Secondary', value: 'secondary' },
-                            { title: 'Outline', value: 'outline' }
                         ]
                     }
                 })

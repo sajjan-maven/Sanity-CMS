@@ -41,10 +41,23 @@ export interface IntegrationPageData {
     categories: IntegrationCategory[];
     page?: {
         _id: string;
-        _type: 'page';
+        _type: 'integrationsPage';
         title: string;
-        slug: {
-            current: string;
+        description: string;
+        heroImageDesktop?: {
+            asset: {
+                url: string;
+            };
+        };
+        heroImageMobile?: {
+            asset: {
+                url: string;
+            };
+        };
+        headerActionButton?: {
+            buttonText: string;
+            buttonUrl: string;
+            buttonVariant: string;
         };
         seo?: {
             title: string;
