@@ -27,6 +27,7 @@ import integrationCategory from "./documents/integration-category";
 import casestudies from "./documents/casestudies";
 import integrationApplication from "./documents/integration-application";
 import integrationsPage from "./singletons/pages/integrations-page";
+import demoSettings from "./singletons/demo-settings";
 
 const coreSchema = [
   generalSettings,
@@ -55,7 +56,8 @@ const coreSchema = [
   integrationCategory,
   casestudies,
   integrationApplication,
-  integrationsPage
+  integrationsPage,
+  demoSettings
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";

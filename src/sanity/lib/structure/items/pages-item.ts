@@ -15,6 +15,7 @@ export const PagesItem = (
           // IndexPages(S),
           // BlogItem(S),
           // CaseStudieItem(S),
+          DemoPageItem(S),
           PrivacyItem(S),
           TermsOfServiceItem(S),
           S.divider(),
@@ -64,6 +65,21 @@ export const TermsOfServiceItem = (
         .schemaType('termsPage')
         .documentId('termsPage')
         .title('Terms and Services')
+    )
+)
+
+export const DemoPageItem = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Demo Page')
+    .icon(File)
+    .child(
+      S.document()
+        .id('demoSettings')
+        .schemaType('demoSettings')
+        .documentId('demoSettings')
+        .title('Demo Page')
     )
 )
 
