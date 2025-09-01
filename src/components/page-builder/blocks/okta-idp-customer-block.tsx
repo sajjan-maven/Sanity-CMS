@@ -52,7 +52,7 @@ export default function OktaIdpCustomer(props: OktaIdpCustomerProps) {
                                         <Image
                                             className="object-cover mb-4"
                                             src={card.image.asset.url}
-                                            alt={card.image.alt || card.mainHeading}
+                                            alt={card.image.alt ?? card.mainHeading ?? ""}
                                             width={card.image.width || 150}
                                             height={card.image.height || 21}
                                         />
@@ -68,7 +68,7 @@ export default function OktaIdpCustomer(props: OktaIdpCustomerProps) {
                                             <Image
                                                 className="rounded-full object-cover bg-gray-300"
                                                 src={card.avatarImage.asset.url}
-                                                alt={card.avatarImage.alt || card.name}
+                                                alt={card.avatarImage.alt ?? card.name ?? ""}
                                                 width={card.avatarImage.width || 48}
                                                 height={card.avatarImage.height || 48}
                                             />

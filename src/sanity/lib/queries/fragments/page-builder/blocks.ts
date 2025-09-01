@@ -1400,6 +1400,54 @@ export const heroBannerWithTagBlockQuery = `
     subheadingWidth
   }
 `;
+export const dataTableBlockQuery = `
+  _type == "dataTableBlock" => {
+    _key,
+    _type,
+    heading,
+    subheading,
+    tableHeaders[] {
+      id,
+      label,
+      width
+    },
+    tableRows[] {
+      feature,
+      values[] {
+        text,
+        color
+      }
+    }
+  }
+`;
+export const testimonialV1BlockQuery = `
+  _type == "testimonialV1Block" => {
+    _key,
+    _type,
+    testimonials[] {
+      company,
+      companyLogo {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      },
+      text,
+      profile {
+        name,
+        role,
+        image {
+          alt,
+          asset->{
+            url,
+            metadata { dimensions { width, height } }
+          }
+        }
+      }
+    }
+  }
+`;
 
 //ABCD 3 Create schema for component in sanity > schemas > page-builder > blocks
 //ABCD 4 Add component query here

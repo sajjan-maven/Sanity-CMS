@@ -63,7 +63,9 @@ export const pageBuilder = defineType({
     defineArrayMember({ name: 'disconnectedAppsFeaturesBlock', type: 'disconnectedAppsFeaturesBlock' }),
     defineArrayMember({ name: 'disconnectedAppsSectionWithCardsBlock', type: 'disconnectedAppsSectionWithCardsBlock' }),
     defineArrayMember({ name: 'disconnectedAppsEmpoweredTeamsBlock', type: 'disconnectedAppsEmpoweredTeamsBlock' }),
-    defineArrayMember({ name: 'heroBannerWithTagBlock', type: 'heroBannerWithTagBlock' })
+    defineArrayMember({ name: 'heroBannerWithTagBlock', type: 'heroBannerWithTagBlock' }),
+    defineArrayMember({ name: 'dataTableBlock', type: 'dataTableBlock' }),
+    defineArrayMember({ name: 'testimonialV1Block', type: 'testimonialV1Block' })
   ],
   options: {
     insertMenu: {
@@ -124,7 +126,9 @@ export const pageBuilder = defineType({
             'disconnectedAppsStickyStackBlock',
             'disconnectedAppsFeaturesBlock',
             'disconnectedAppsSectionWithCardsBlock',
-            'disconnectedAppsEmpoweredTeamsBlock'
+            'disconnectedAppsEmpoweredTeamsBlock',
+            'dataTableBlock',
+            'testimonialV1Block'
           ]
         },
         {

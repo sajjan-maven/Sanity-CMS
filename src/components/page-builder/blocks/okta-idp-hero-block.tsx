@@ -1,4 +1,4 @@
-import BlogHeaderEmailCapture from "@/components/ui/BlogHeaderEmailCapture";
+// import BlogHeaderEmailCapture from "@/components/ui/BlogHeaderEmailCapture";
 import { useDemoData } from "@/hooks/use-demo-data";
 import { PageBuilderType } from "@/types";
 import { ArrowRightIcon } from "lucide-react";

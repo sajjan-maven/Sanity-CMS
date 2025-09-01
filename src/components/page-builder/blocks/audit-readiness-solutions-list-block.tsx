@@ -8,7 +8,7 @@ export type AuditReadinessSolutionsListBlockProps =
 export default function AuditReadinessSolutionsListBlock(
     props: AuditReadinessSolutionsListBlockProps
 ) {
-    const { tagline, heading, highlightedText, teamCards = [] } = props;
+    const { heading, highlightedText, teamCards = [] } = props;
 
     return (
         <section className="w-full bg-[#f7f5f2] pb-[100px]">

@@ -57,7 +57,9 @@ import {
   disconnectedAppsFeaturesBlockQuery,
   disconnectedAppsSectionWithCardsBlockQuery,
   disconnectedAppsEmpoweredTeamsBlockQuery,
-  heroBannerWithTagBlockQuery
+  heroBannerWithTagBlockQuery,
+  dataTableBlockQuery,
+  testimonialV1BlockQuery
 } from "./blocks";
 
 //ABCD Add 5 component name here for type-script auto generate
@@ -122,6 +124,8 @@ export const pageBuilder = `
     ${disconnectedAppsFeaturesBlockQuery},
     ${disconnectedAppsSectionWithCardsBlockQuery},
     ${disconnectedAppsEmpoweredTeamsBlockQuery},
-    ${heroBannerWithTagBlockQuery}
+    ${heroBannerWithTagBlockQuery},
+    ${dataTableBlockQuery},
+    ${testimonialV1BlockQuery}
   }
 `
