@@ -244,6 +244,33 @@ export type HeadingObject = {
   headingSize?: "xxxl" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs";
 };
 
+export type HeroBannerWithTagBlock = {
+  _type: "heroBannerWithTagBlock";
+  tag?: string;
+  headingBold?: string;
+  headingOrdinary?: string;
+  headingWidth?: number;
+  subheading?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  subheadingWidth?: number;
+};
+
 export type DisconnectedAppsEmpoweredTeamsBlock = {
   _type: "disconnectedAppsEmpoweredTeamsBlock";
   heading?: string;
@@ -2127,7 +2154,9 @@ export type PageBuilder = Array<{
   _key: string;
 } & DisconnectedAppsSectionWithCardsBlock | {
   _key: string;
-} & DisconnectedAppsEmpoweredTeamsBlock>;
+} & DisconnectedAppsEmpoweredTeamsBlock | {
+  _key: string;
+} & HeroBannerWithTagBlock>;
 
 export type DemoSettings = {
   _id: string;
@@ -3307,7 +3336,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = StatsSectionObject | BlogButtonObject | Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | DisconnectedAppsEmpoweredTeamsBlock | DisconnectedAppsSectionWithCardsBlock | DisconnectedAppsFeaturesBlock | DisconnectedAppsStickyStackBlock | DisconnectedAppsBrandsBlock | DisconnectedAppsHeroBlock | AuditReadinessSolutionsListBlock | AuditReadinessRightAccordionBlock | AuditReadinessLeftAccordionBlock | AuditReadinessHeroBlock | SamActionBlock | SamFixTheGapsBlock | SamCardsBlock | SamCenteredBlock | SamHeroSection | OktaIdpCtaSection | OktaIdpFaqSection | OktaIdpTraditionalTools | OktaIdpCustomer | OktaIdpSaasManagementActuallyWorks | OktaIdpPointers | OktaIdpWhySaasSection | OktaIdpHeroSection | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | DemoSettings | QuoteCardObject | IntegrationsPage | IntegrationApplication | IntegrationCategory | CasestudiesPage | Casestudy | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = StatsSectionObject | BlogButtonObject | Faq | Iframe | AnnouncementBanner | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | HeroBannerWithTagBlock | DisconnectedAppsEmpoweredTeamsBlock | DisconnectedAppsSectionWithCardsBlock | DisconnectedAppsFeaturesBlock | DisconnectedAppsStickyStackBlock | DisconnectedAppsBrandsBlock | DisconnectedAppsHeroBlock | AuditReadinessSolutionsListBlock | AuditReadinessRightAccordionBlock | AuditReadinessLeftAccordionBlock | AuditReadinessHeroBlock | SamActionBlock | SamFixTheGapsBlock | SamCardsBlock | SamCenteredBlock | SamHeroSection | OktaIdpCtaSection | OktaIdpFaqSection | OktaIdpTraditionalTools | OktaIdpCustomer | OktaIdpSaasManagementActuallyWorks | OktaIdpPointers | OktaIdpWhySaasSection | OktaIdpHeroSection | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | DemoSettings | QuoteCardObject | IntegrationsPage | IntegrationApplication | IntegrationCategory | CasestudiesPage | Casestudy | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/author.ts
 // Variable: authorBySlugQuery
@@ -4061,6 +4090,33 @@ export type CasestudiesPageQueryResult = {
     }> | null;
     bottomCornerRadius: "rounded" | "straight" | null;
     anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
   } | {
     _id: null;
     _key: string;
@@ -6167,6 +6223,33 @@ export type IntegrationPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -8206,6 +8289,33 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -10221,6 +10331,33 @@ export type BlogPageQueryResult = {
     }> | null;
     bottomCornerRadius: "rounded" | "straight" | null;
     anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
   } | {
     _id: null;
     _key: string;
@@ -12467,6 +12604,33 @@ export type PrivacyPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -14448,6 +14612,33 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -16410,6 +16601,33 @@ export type ProjectsPageQueryResult = {
       }> | null;
       bottomCornerRadius: "rounded" | "straight" | null;
       anchorId: string | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "heroBannerWithTagBlock";
+      tag: string | null;
+      headingBold: string | null;
+      headingOrdinary: string | null;
+      headingWidth: number | null;
+      subheading: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      subheadingWidth: number | null;
     } | {
       _id: null;
       _key: string;
@@ -18404,6 +18622,33 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -20389,6 +20634,33 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -22366,6 +22638,33 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -24335,6 +24634,33 @@ export type ServiceBySlugQueryResult = {
     }> | null;
     bottomCornerRadius: "rounded" | "straight" | null;
     anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
   } | {
     _id: null;
     _key: string;
@@ -26309,6 +26635,33 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBlock";
     heading: string | null;
     content: Array<{
@@ -28261,6 +28614,33 @@ export type ServicesPageQueryResult = {
     }> | null;
     bottomCornerRadius: "rounded" | "straight" | null;
     anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
   } | {
     _id: null;
     _key: string;
@@ -30254,6 +30634,33 @@ export type TermsPageQueryResult = {
     }> | null;
     bottomCornerRadius: "rounded" | "straight" | null;
     anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBannerWithTagBlock";
+    tag: string | null;
+    headingBold: string | null;
+    headingOrdinary: string | null;
+    headingWidth: number | null;
+    subheading: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    subheadingWidth: number | null;
   } | {
     _id: null;
     _key: string;
