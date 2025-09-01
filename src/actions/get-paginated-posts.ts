@@ -15,7 +15,7 @@ export async function getPaginatedPosts(offset: number, limit: number): Promise<
     try {
         const { data } = await sanityFetch({
             query: paginatedPostsQuery,
-            params: { offset, limit }
+            params: { offset, end: offset + limit }
         });
 
         // If the query fails, data will be null/undefined

@@ -196,7 +196,7 @@ export const allPostsQuery = defineQuery(`*[_type == 'post'] | order(_createdAt 
 
 export const paginatedPostsQuery = defineQuery(`
 {
-  "posts": *[_type == "post"] | order(_createdAt desc) [$offset...$offset + $limit] {
+  "posts": *[_type == "post"] | order(_createdAt desc) [$offset...$end] {
     _id,
     _type,
     title,
@@ -207,9 +207,9 @@ export const paginatedPostsQuery = defineQuery(`
       title,
       'slug': slug.current,
     },
-    image { 
-      asset->{ url }, 
-      altText 
+    image {
+      asset->{ url },
+      altText
     },
   },
   "total": count(*[_type == "post"])
