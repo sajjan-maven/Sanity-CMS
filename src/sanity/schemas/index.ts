@@ -117,6 +117,7 @@ import disconnectedAppsStickyStackBlock from "./page-builder/blocks/disconnected
 import disconnectedAppsFeaturesBlock from "./page-builder/blocks/disconnected-apps-features-block";
 import disconnectedAppsSectionWithCardsBlock from "./page-builder/blocks/disconnected-apps-section-with-cards-block";
 import disconnectedAppsEmpoweredTeamsBlock from "./page-builder/blocks/disconnected-apps-empowered-teams-block";
+import heroBannerWithTagBlock from "./page-builder/blocks/hero-banner-with-tag-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -177,7 +178,8 @@ const pageBuilderSchema = [
   disconnectedAppsStickyStackBlock,
   disconnectedAppsFeaturesBlock,
   disconnectedAppsSectionWithCardsBlock,
-  disconnectedAppsEmpoweredTeamsBlock
+  disconnectedAppsEmpoweredTeamsBlock,
+  heroBannerWithTagBlock
 ];
 
 import seoObject from './objects/seo';

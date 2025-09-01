@@ -1389,5 +1389,17 @@ export const disconnectedAppsEmpoweredTeamsBlockQuery = `
   }
 `;
 
+export const heroBannerWithTagBlockQuery = `
+  _type == "heroBannerWithTagBlock" => {
+    ${baseQuery},
+    tag,
+    headingBold,
+    headingOrdinary,
+    headingWidth,
+    subheading[],
+    subheadingWidth
+  }
+`;
+
 //ABCD 3 Create schema for component in sanity > schemas > page-builder > blocks
 //ABCD 4 Add component query here

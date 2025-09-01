@@ -63,6 +63,7 @@ const DisconnectedAppsStickyStackBlockProps = dynamic(() => import("./blocks/dis
 const DisconnectedAppsFeaturesBlockProps = dynamic(() => import("./blocks/disconnected-apps-features-block"))
 const DisconnectedAppsSectionWithCardsBlockProps = dynamic(() => import("./blocks/disconnected-apps-section-with-cards-block"))
 const DisconnectedAppsEmpoweredTeamsBlockProps = dynamic(() => import("./blocks/disconnected-apps-empowered-teams-block"))
+const HeroBannerWithTagBlock = dynamic(() => import("./blocks/hero-banner-with-tag-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -133,6 +134,7 @@ const PB_BLOCKS = {
   disconnectedAppsFeaturesBlock: DisconnectedAppsFeaturesBlockProps,
   disconnectedAppsSectionWithCardsBlock: DisconnectedAppsSectionWithCardsBlockProps,
   disconnectedAppsEmpoweredTeamsBlock: DisconnectedAppsEmpoweredTeamsBlockProps,
+  heroBannerWithTagBlock: HeroBannerWithTagBlock,
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;
@@ -160,7 +162,7 @@ export function PageBuilder({ pageBuilder, id, type }: PageBuilderProps) {
           return null;
         }
         const type = (block as { _type: string })._type as BlockType;
-        const Component = PB_BLOCKS[type] as ComponentType<PageBuilderType<BlockType>>;
+        const Component = PB_BLOCKS[type] as ComponentType<PageBuilderType<any>>;
 
         // const Component = PB_BLOCKS[block._type] as ComponentType<PageBuilderType<BlockType>>;
         return (
