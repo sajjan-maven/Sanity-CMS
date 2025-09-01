@@ -94,6 +94,29 @@ import joinOurNewsletterBlock from "./page-builder/blocks/join-our-newsletter-bl
 import avatarWithDetails from "./page-builder/blocks/avatar-with-details-block";
 import iconBlock from "./page-builder/blocks/icon-block";
 import pngImageBlock from "./page-builder/blocks/png-image-block";
+import oktaIdpHeroSection from "./page-builder/blocks/okta-idp-hero-block"
+import oktaIdpWhySaasSection from "./page-builder/blocks/okta-idp-why-saas-block";
+import oktaIdpPointers from "./page-builder/blocks/okta-idp-pointers-block";
+import oktaIdpSaasManagementActuallyWorks from "./page-builder/blocks/okta-idp-saas-management-actually-works-block";
+import oktaIdpCustomer from "./page-builder/blocks/okta-idp-customer-block";
+import oktaIdpTraditionalTools from "./page-builder/blocks/okta-idp-traditional-tools-block";
+import oktaIdpFaqSection from "./page-builder/blocks/okta-idp-faq-block";
+import oktaIdpCtaSection from "./page-builder/blocks/cta-template-block";
+import samHeroSection from "./page-builder/blocks/sam-hero-block";
+import samCenteredBlock from "./page-builder/blocks/sam-centered-block";
+import samCardsBlock from "./page-builder/blocks/sam-cards-block";
+import samFixTheGapsBlock from "./page-builder/blocks/sam-fix-the-gaps-block";
+import samActionBlock from "./page-builder/blocks/sam-action-block";
+import auditReadinessHeroBlock from "./page-builder/blocks/audit-readiness-hero-block";
+import auditReadinessLeftAccordionBlock from "./page-builder/blocks/audit-readiness-left-accordion-block";
+import auditReadinessRightAccordionBlock from "./page-builder/blocks/audit-readiness-right-accordion-block";
+import auditReadinessSolutionsListBlock from "./page-builder/blocks/audit-readiness-solutions-list-block";
+import disconnectedAppsHeroBlock from "./page-builder/blocks/disconnected-apps-hero-block";
+import disconnectedAppsBrandsBlock from "./page-builder/blocks/disconnected-apps-brands-block";
+import disconnectedAppsStickyStackBlock from "./page-builder/blocks/disconnected-apps-sticky-stack-block";
+import disconnectedAppsFeaturesBlock from "./page-builder/blocks/disconnected-apps-features-block";
+import disconnectedAppsSectionWithCardsBlock from "./page-builder/blocks/disconnected-apps-section-with-cards-block";
+import disconnectedAppsEmpoweredTeamsBlock from "./page-builder/blocks/disconnected-apps-empowered-teams-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -131,7 +154,30 @@ const pageBuilderSchema = [
   joinOurNewsletterBlock,
   avatarWithDetails,
   iconBlock,
-  pngImageBlock
+  pngImageBlock,
+  oktaIdpHeroSection,
+  oktaIdpWhySaasSection,
+  oktaIdpPointers,
+  oktaIdpSaasManagementActuallyWorks,
+  oktaIdpCustomer,
+  oktaIdpTraditionalTools,
+  oktaIdpFaqSection,
+  oktaIdpCtaSection,
+  samHeroSection,
+  samCenteredBlock,
+  samCardsBlock,
+  samFixTheGapsBlock,
+  samActionBlock,
+  auditReadinessHeroBlock,
+  auditReadinessLeftAccordionBlock,
+  auditReadinessRightAccordionBlock,
+  auditReadinessSolutionsListBlock,
+  disconnectedAppsHeroBlock,
+  disconnectedAppsBrandsBlock,
+  disconnectedAppsStickyStackBlock,
+  disconnectedAppsFeaturesBlock,
+  disconnectedAppsSectionWithCardsBlock,
+  disconnectedAppsEmpoweredTeamsBlock
 ];
 
 import seoObject from './objects/seo';

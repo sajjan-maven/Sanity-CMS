@@ -40,6 +40,29 @@ const JoinOurNewsletterBlock = dynamic(() => import("./blocks/join-our-newslette
 const AvatarWithDetails = dynamic(() => import("./blocks/avatar-with-details-block"))
 const IconBlock = dynamic(() => import("./blocks/icon-block"));
 const PngImageBlock = dynamic(() => import("./blocks/png-image-block"));
+const OktaIdpHeroSectionProps = dynamic(() => import("./blocks/okta-idp-hero-block"))
+const OktaIdpWhySaasSectionProps = dynamic(() => import("./blocks/okta-idp-why-saas-block"))
+const OktaIdpPointersProps = dynamic(() => import("./blocks/okta-idp-pointers-block"))
+const OktaIdpSaasManagementActuallyWorksProps = dynamic(() => import("./blocks/okta-idp-saas-management-actually-works-block"))
+const OktaIdpCustomerProps = dynamic(() => import("./blocks/okta-idp-customer-block"))
+const OktaIdpTraditionalToolsProps = dynamic(() => import("./blocks/okta-idp-traditional-tools-block"))
+const OktaIdpFaqSectionProps = dynamic(() => import("./blocks/okta-idp-faq-block"))
+const OktaIdpCtaSectionProps = dynamic(() => import("./blocks/cta-template-block"))
+const SamHeroSectionProps = dynamic(() => import("./blocks/sam-hero-block"))
+const SamCenteredBlockProps = dynamic(() => import("./blocks/sam-centered-block"))
+const SamCardsBlockProps = dynamic(() => import("./blocks/sam-cards-block"))
+const SamFixTheGapsBlockProps = dynamic(() => import("./blocks/sam-fix-the-gaps-block"))
+const samActionBlockProps = dynamic(() => import("./blocks/sam-action-block"))
+const auditReadinessHeroBlockProps = dynamic(() => import("./blocks/audit-readiness-hero-block"))
+const AuditReadinessLeftAccordionBlockProps = dynamic(() => import("./blocks/audit-readiness-left-accordion-block"))
+const AuditReadinessRightAccordionBlockProps = dynamic(() => import("./blocks/audit-readiness-right-accordion-block"))
+const AuditReadinessSolutionsListBlockProps = dynamic(() => import("./blocks/audit-readiness-solutions-list-block"))
+const DisconnectedAppsHeroBlockProps = dynamic(() => import("./blocks/disconnected-apps-hero-block"))
+const DisconnectedAppsBrandsBlockProps = dynamic(() => import("./blocks/disconnected-apps-brands-block"))
+const DisconnectedAppsStickyStackBlockProps = dynamic(() => import("./blocks/disconnected-apps-sticky-stack-block"))
+const DisconnectedAppsFeaturesBlockProps = dynamic(() => import("./blocks/disconnected-apps-features-block"))
+const DisconnectedAppsSectionWithCardsBlockProps = dynamic(() => import("./blocks/disconnected-apps-section-with-cards-block"))
+const DisconnectedAppsEmpoweredTeamsBlockProps = dynamic(() => import("./blocks/disconnected-apps-empowered-teams-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -86,7 +109,30 @@ const PB_BLOCKS = {
   joinOurNewsletterBlock: JoinOurNewsletterBlock,
   avatarWithDetails: AvatarWithDetails,
   iconBlock: IconBlock,
-  pngImageBlock: PngImageBlock
+  pngImageBlock: PngImageBlock,
+  oktaIdpHeroSection: OktaIdpHeroSectionProps,
+  oktaIdpWhySaasSection: OktaIdpWhySaasSectionProps,
+  oktaIdpPointers: OktaIdpPointersProps,
+  oktaIdpSaasManagementActuallyWorks: OktaIdpSaasManagementActuallyWorksProps,
+  oktaIdpCustomer: OktaIdpCustomerProps,
+  oktaIdpTraditionalTools: OktaIdpTraditionalToolsProps,
+  oktaIdpFaqSection: OktaIdpFaqSectionProps,
+  oktaIdpCtaSection: OktaIdpCtaSectionProps,
+  samHeroSection: SamHeroSectionProps,
+  samCenteredBlock: SamCenteredBlockProps,
+  samCardsBlock: SamCardsBlockProps,
+  samFixTheGapsBlock: SamFixTheGapsBlockProps,
+  samActionBlock: samActionBlockProps,
+  auditReadinessHeroBlock: auditReadinessHeroBlockProps,
+  auditReadinessLeftAccordionBlock: AuditReadinessLeftAccordionBlockProps,
+  auditReadinessRightAccordionBlock: AuditReadinessRightAccordionBlockProps,
+  auditReadinessSolutionsListBlock: AuditReadinessSolutionsListBlockProps,
+  disconnectedAppsHeroBlock: DisconnectedAppsHeroBlockProps,
+  disconnectedAppsBrandsBlock: DisconnectedAppsBrandsBlockProps,
+  disconnectedAppsStickyStackBlock: DisconnectedAppsStickyStackBlockProps,
+  disconnectedAppsFeaturesBlock: DisconnectedAppsFeaturesBlockProps,
+  disconnectedAppsSectionWithCardsBlock: DisconnectedAppsSectionWithCardsBlockProps,
+  disconnectedAppsEmpoweredTeamsBlock: DisconnectedAppsEmpoweredTeamsBlockProps,
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;

@@ -75,6 +75,11 @@ body {
   animation: blink 1s linear infinite;
 }
 
+.custom-scrollbar {
+  scrollbar-width: 0px;
+  scrollbar-color: #f1acc000 transparent;
+}
+
 @keyframes blink {
   0% {
     opacity: 0;
