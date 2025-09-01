@@ -12,9 +12,28 @@ export default defineType({
     groups: [...fieldGroups],
     fields: [
         defineField({
-            name: 'title',
-            title: 'Title',
+            name: 'heading',
+            title: 'Heading',
             type: 'string',
+            description: 'The main heading text for the homepage hero section',
+        }),
+        defineField({
+            name: 'headingWidth',
+            title: 'Heading Width',
+            type: 'number',
+            description: 'Maximum width for the heading in pixels',
+        }),
+        defineField({
+            name: 'subheading',
+            title: 'Subheading',
+            type: 'string',
+            description: 'The subheading text for the homepage hero section',
+        }),
+        defineField({
+            name: 'subheadingWidth',
+            title: 'Subheading Width',
+            type: 'number',
+            description: 'Maximum width for the subheading in pixels',
         }),
         defineField({
             name: 'clickthrough',

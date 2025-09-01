@@ -10,6 +10,15 @@ export const SettingsItem = (S: StructureBuilder) =>
         .title('Settings')
         .items([
           S.listItem()
+            .title('General')
+            .child(
+              S.document()
+                .id('generalSettings')
+                .schemaType('generalSettings')
+                .documentId('generalSettings')
+                .title('General')
+            ),
+          S.listItem()
             .title('Marketing')
             .icon(Tv)
             .child(
@@ -26,6 +35,15 @@ export const SettingsItem = (S: StructureBuilder) =>
               S.documentList()
                 .title('All Redirects')
                 .filter('_type == "redirect"')
+            ),
+          S.listItem()
+            .title('Navigation')
+            .child(
+              S.document()
+                .id('navigationSettings')
+                .schemaType('navigationSettings')
+                .documentId('navigationSettings')
+                .title('Navigation')
             ),
           // S.divider(),
           // S.listItem()

@@ -7,7 +7,7 @@ import 'atropos/css';
 import NewButton from "./newButton";
 import { useDemoData } from "@/hooks/use-demo-data";
 
-export default function HomePageEmailCapture() {
+export default function HomePageEmailCapture({ referance }: { referance: string }) {
     const [email, setEmail] = useState("");
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -68,7 +68,7 @@ export default function HomePageEmailCapture() {
                     },
                     pageContext: {
                         pageUri: window.location.href,
-                        pageName: "home"
+                        pageName: referance
                     }
                 })
             });
