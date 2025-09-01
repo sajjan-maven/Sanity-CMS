@@ -46,7 +46,7 @@ export default async function Home() {
               style={{ maxWidth: `${homePage.subheadingWidth}px` }}>
               <p>{homePage.subheading}</p>
             </div>
-            <HomePageEmailCapture />
+            <HomePageEmailCapture referance={homePage.emailCapture} />
           </div>
           <div className="relative lg:-mt-[155px] xl:-mt-[170px] z-0">
             <div className="relative hidden lg:block">

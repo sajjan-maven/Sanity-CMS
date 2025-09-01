@@ -1,6 +1,7 @@
 import { File, Files } from "lucide-react";
 import { StructureBuilder } from "sanity/structure";
 
+// QWER 2
 export const PagesItem = (
   S: StructureBuilder,
 ) => (
@@ -16,10 +17,13 @@ export const PagesItem = (
           // BlogItem(S),
           // CaseStudieItem(S),
           DemoPageItem(S),
+          S.divider(),
+          PageBuilderPlatforms(S),
+          PageBuilderSolutions(S),
+          PageBuilder(S),
+          S.divider(),
           PrivacyItem(S),
           TermsOfServiceItem(S),
-          S.divider(),
-          PageBuilder(S),
         ])
     )
 )
@@ -27,7 +31,7 @@ export const HomeItem = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Home')
+    .title('Home Page')
     .icon(File)
     .child(
       S.document()
@@ -42,7 +46,7 @@ export const PrivacyItem = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Privacy Policy')
+    .title('Privacy Policy Page')
     .icon(File)
     .child(
       S.document()
@@ -57,7 +61,7 @@ export const TermsOfServiceItem = (
   S: StructureBuilder,
 ) => (
   S.listItem()
-    .title('Terms Of Service')
+    .title('Terms Of Service page')
     .icon(File)
     .child(
       S.document()
@@ -99,6 +103,32 @@ export const DemoPageItem = (
 //     )
 // )
 
+export const PageBuilderPlatforms = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Platforms Page')
+    .icon(Files)
+    .child(
+      S.documentList()
+        .title('Platforms Page')
+        .filter('_type == "page" && pageType == "platform"')
+    )
+)
+
+export const PageBuilderSolutions = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Solutions Page')
+    .icon(Files)
+    .child(
+      S.documentList()
+        .title('Solutions Page')
+        .filter('_type == "page" && pageType == "solution"')
+    )
+)
+
 export const PageBuilder = (
   S: StructureBuilder,
 ) => (
@@ -107,7 +137,7 @@ export const PageBuilder = (
     .icon(Files)
     .child(
       S.documentList()
-        .title('Page Builder')
+        .title('Other Pages')
         .filter('_type == "page"')
     )
 )
