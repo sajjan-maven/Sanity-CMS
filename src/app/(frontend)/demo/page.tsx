@@ -40,5 +40,8 @@ export async function generateMetadata(): Promise<Metadata> {
     // const description = seo?.description || "See how Stitchflow helps IT teams discover shadow apps, fix access risks, and reclaim SaaS waste. Schedule a personalized demo today.";
     // const imageUrl = seo?.image?.asset?.url || 'https://www.stitchflow.com/schedule-demo/OG-demo-link.png';
 
-    return processMetadata({ data: seo as any });
+    const metadata = processMetadata({ data: seo as any });
+    metadata.metadataBase = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stitchflow.com');
+
+    return metadata;
 }
