@@ -28,6 +28,7 @@ import casestudies from "./documents/casestudies";
 import integrationApplication from "./documents/integration-application";
 import integrationsPage from "./singletons/pages/integrations-page";
 import demoSettings from "./singletons/demo-settings";
+import sitemap from "./singletons/sitemap";
 
 const coreSchema = [
   generalSettings,
@@ -57,7 +58,8 @@ const coreSchema = [
   casestudies,
   integrationApplication,
   integrationsPage,
-  demoSettings
+  demoSettings,
+  sitemap
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";

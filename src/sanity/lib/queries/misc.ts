@@ -16,6 +16,13 @@ export const sitemapQuery = defineQuery(`
   }
 `)
 
+export const sitemapSettingsQuery = defineQuery(`
+  *[_type == "sitemap"][0] {
+    addToSitemap,
+    removeFromSitemap
+  }
+`)
+
 export const redirectsQuery = defineQuery(`
   *[_type == "redirect" && isEnabled == true] {
       source,
