@@ -71,8 +71,51 @@ export default defineType({
         defineField({
             name: 'testimonialsG2',
             title: 'G2 Testimonials',
-            type: 'string',
-            validation: rule => rule.required(),
+            type: 'array',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'name',
+                            title: 'Name',
+                            type: 'string',
+                            validation: rule => rule.required()
+                        }),
+                        defineField({
+                            name: 'jobTitle',
+                            title: 'Designation',
+                            type: 'string',
+                            validation: rule => rule.required()
+                        }),
+                        defineField({
+                            name: 'quote',
+                            title: 'Quote',
+                            type: 'text',
+                            rows: 4,
+                            validation: rule => rule.required()
+                        }),
+                        defineField({
+                            name: 'avatar',
+                            title: 'Avatar',
+                            type: 'image',
+                        }),
+                        defineField({
+                            name: 'url',
+                            title: 'G2 URL',
+                            type: 'url',
+                        }),
+                    ],
+                    preview: {
+                        select: {
+                            title: 'name',
+                            subtitle: 'jobTitle',
+                            media: 'avatar'
+                        }
+                    }
+                }
+            ],
+            validation: rule => rule.required().min(1)
         }),
         defineField({
             name: 'logos',

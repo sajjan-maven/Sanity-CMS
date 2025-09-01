@@ -32,28 +32,7 @@ export default async function LeftSection() {
                                             {benefit.text}
                                         </p>
                                     </div>
-                                )) || (
-                                        <>
-                                            <div className="flex items-start md:items-center justify-center gap-2 w-full">
-                                                <Image width={16} height={16} alt="Benefit icon" className="mt-1 md:mt-0" src="/schedule-demo/person.svg" />
-                                                <p className="flex-1 font-normal text-[#363338] text-base leading-[25.6px]">
-                                                    Offboarding taken care of without the manual hassle
-                                                </p>
-                                            </div>
-                                            <div className="flex items-start md:items-center justify-center gap-2 w-full">
-                                                <Image width={16} height={16} alt="Benefit icon" className="mt-1 md:mt-0" src="/schedule-demo/gridfour.svg" />
-                                                <p className="flex-1 font-normal text-[#363338] text-base leading-[25.6px]">
-                                                    Eliminate risk from orphaned and hidden accounts
-                                                </p>
-                                            </div>
-                                            <div className="flex items-start md:items-center justify-center gap-2 w-full">
-                                                <Image width={16} height={16} alt="Benefit icon" className="mt-1 md:mt-0" src="/schedule-demo/lightning.svg" />
-                                                <p className="flex-1 font-normal text-[#363338] text-base leading-[25.6px]">
-                                                    Save on the SSO/SCIM tax and wasted licenses
-                                                </p>
-                                            </div>
-                                        </>
-                                    )}
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -72,13 +51,9 @@ export default async function LeftSection() {
                 {/* Testimonial card */}
                 <div className="flex flex-col items-start gap-6 p-8 bg-white rounded-[32px] border border-solid border-[#545058] mb-24 mt-12">
                     <div className="p-0 w-full">
-                        <Image
-                            className="mb-6"
-                            alt="Quote icon"
-                            src="/schedule-demo/quotes.svg"
-                            width={30}
-                            height={31}
-                        />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none" className='mb-6'>
+                            <path d="M12.2662 0.0137939L6.91367 17.4116H12.6007V30.0138H0V18.9729L6.69065 0.0137939H12.2662ZM30.6655 0.0137939L25.313 17.4116H31V30.0138H18.3993V18.9729L25.0899 0.0137939H30.6655Z" fill="#F25C30" />
+                        </svg>
                         <div className="flex flex-col items-start gap-4 w-full">
                             <p className="w-full font-semibold text-[#363338] text-lg leading-[26px]">
                                 {testimonialCard?.quoteText || ""}

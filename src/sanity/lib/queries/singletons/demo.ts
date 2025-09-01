@@ -18,6 +18,18 @@ export const demoSettingsQuery = defineQuery(`*[_type == 'demoSettings'][0] {
     }
   },
   testimonialsHeading,
+  testimonialsG2[] {
+    name,
+    jobTitle,
+    company,
+    quote,
+    avatar {
+      asset->{ url }
+    },
+    logo {
+      asset->{ url }
+    }
+  },
   logos[] {
     asset->{ url }
   },

@@ -4,16 +4,11 @@ import DemoComponent from "./components/DemoComponent";
 import LeftSection from "./components/LeftSection";
 import Testimonials from "./components/Testimonials";
 import { sanityFetch } from '@/sanity/lib/live';
-import { demoSettingsQuery, testimonialsQuery } from '@/sanity/lib/queries/singletons/demo';
+import { demoSettingsQuery } from '@/sanity/lib/queries/singletons/demo';
 
 export default async function DemoDesktop() {
     const { data: demoSettings } = await sanityFetch({
         query: demoSettingsQuery,
-        params: {},
-    });
-
-    const { data: testimonials } = await sanityFetch({
-        query: testimonialsQuery,
         params: {},
     });
 
@@ -24,7 +19,7 @@ export default async function DemoDesktop() {
                     <LeftSection />
                     <DemoComponent />
                 </div>
-                <Testimonials testimonials={testimonials} heading={demoSettings?.testimonialsHeading || ""} />
+                <Testimonials testimonialsG2={demoSettings?.testimonialsG2} heading={demoSettings?.testimonialsHeading || ""} />
             </div>
         </div>
     );
