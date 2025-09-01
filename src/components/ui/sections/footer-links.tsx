@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -275,6 +276,10 @@ export default function FooterLinks({ footerLinks }: FooterLinksProps) {
                   </li>
                 ))}
               </ul>
+              <Link href="/tools" className="inline-flex sm:items-center text-white underline">
+                <span className="hover:underline">All Tools</span>
+                <ArrowRight />
+              </Link>
             </div>
 
             <div className="w-full px-2 mt-10 md:mt-0 md:max-w-[25%]">

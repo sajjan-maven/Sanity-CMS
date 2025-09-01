@@ -20,7 +20,7 @@ export default async function MarqueeSlider() {
             gradientWidth={86}
             className="w-full max-w-[578px] mx-auto"
         >
-            {logos?.length > 0 && logos.map((logo: any, index: number) => (
+            {logos && logos?.length > 0 && logos?.map((logo: any, index: number) => (
                 <div key={index} className="w-fit h-20 align-bottom px-6">
                     <Image
                         alt="Company Logo"

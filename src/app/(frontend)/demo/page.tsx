@@ -5,6 +5,7 @@ import LeftSection from "./components/LeftSection";
 import Testimonials from "./components/Testimonials";
 import { sanityFetch } from '@/sanity/lib/live';
 import { demoSettingsQuery } from '@/sanity/lib/queries/singletons/demo';
+import { processMetadata } from "@/lib/utils";
 
 export default async function DemoDesktop() {
     const { data: demoSettings } = await sanityFetch({
@@ -19,7 +20,10 @@ export default async function DemoDesktop() {
                     <LeftSection />
                     <DemoComponent />
                 </div>
-                <Testimonials testimonialsG2={demoSettings?.testimonialsG2} heading={demoSettings?.testimonialsHeading || ""} />
+                <Testimonials
+                    testimonialsG2={demoSettings?.testimonialsG2 || []}
+                    heading={demoSettings?.testimonialsHeading || ""}
+                />
             </div>
         </div>
     );
@@ -32,24 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     const seo = demoSettings?.seo;
+    // const title = seo?.title || "Schedule a demo | Stitchflow";
+    // const description = seo?.description || "See how Stitchflow helps IT teams discover shadow apps, fix access risks, and reclaim SaaS waste. Schedule a personalized demo today.";
+    // const imageUrl = seo?.image?.asset?.url || 'https://www.stitchflow.com/schedule-demo/OG-demo-link.png';
 
-    return {
-        title: seo?.title || "Schedule a demo | Stitchflow",
-        description: seo?.description || "See how Stitchflow helps IT teams discover shadow apps, fix access risks, and reclaim SaaS waste. Schedule a personalized demo today.",
-        openGraph: {
-            title: seo?.title || "Schedule a demo | Stitchflow",
-            description: seo?.description || "See how Stitchflow helps IT teams discover shadow apps, fix access risks, and reclaim SaaS waste. Schedule a personalized demo today.",
-            url: "https://www.stitchflow.com/demo",
-            type: "website",
-            images: seo?.image ? [{ url: seo.image.asset.url, alt: 'Stitchflow SaaS Management Platform' }] : [{ url: 'https://www.stitchflow.com/schedule-demo/OG-demo-link.png', alt: 'Stitchflow SaaS Management Platform' }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: seo?.title || "Schedule a demo | Stitchflow",
-            description: seo?.description || "See how Stitchflow helps IT teams discover shadow apps, fix access risks, and reclaim SaaS waste. Schedule a personalized demo today.",
-        },
-        alternates: {
-            canonical: "https://www.stitchflow.com/demo",
-        },
-    };
+    return processMetadata({ data: seo as any });
 }

@@ -52,7 +52,7 @@ export default function OktaIdpCustomer(props: OktaIdpCustomerProps) {
                                         <Image
                                             className="object-cover mb-4"
                                             src={card.image.asset.url}
-                                            alt={card.image.alt || card.mainHeading}
+                                            alt={card.image.alt || card.mainHeading || "company logo"}
                                             width={card.image.width || 150}
                                             height={card.image.height || 21}
                                         />
@@ -64,15 +64,13 @@ export default function OktaIdpCustomer(props: OktaIdpCustomerProps) {
 
                                 <div>
                                     <div className="flex items-center mb-10 md:mb-6">
-                                        {card.avatarImage?.asset?.url && (
-                                            <Image
-                                                className="rounded-full object-cover bg-gray-300"
-                                                src={card.avatarImage.asset.url}
-                                                alt={card.avatarImage.alt || card.name}
-                                                width={card.avatarImage.width || 48}
-                                                height={card.avatarImage.height || 48}
-                                            />
-                                        )}
+                                        <Image
+                                            className="rounded-full object-cover bg-gray-300"
+                                            src={card.avatarImage?.asset?.url || '/section-images/person.png'}
+                                            alt={card.avatarImage?.alt || card.name || "avatar"}
+                                            width={card.avatarImage?.width || 48}
+                                            height={card.avatarImage?.height || 48}
+                                        />
                                         <div className="ml-3">
                                             <p className="text-base font-semibold text-[#E8E7EA]">
                                                 {card.name}
