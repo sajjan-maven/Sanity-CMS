@@ -258,7 +258,7 @@ export default function FooterLinks({ footerLinks }: FooterLinksProps) {
           <div className="flex flex-col lg:justify-between md:flex-row md:flex-wrap w-full md:mt-10">
             <div className="w-full px-2 mt-10 md:mt-0 md:max-w-[25%]">
               <div className="text-[15px] font-semibold text-white">Free Tools</div>
-              <ul className="mt-3 space-y-2 pb-8">
+              <ul className="mt-3 space-y-2 pb-6">
                 {footerLinks?.freeTools?.map((link, index) => (
                   <li key={index}>
                     <Link
@@ -278,7 +278,7 @@ export default function FooterLinks({ footerLinks }: FooterLinksProps) {
               </ul>
               <Link href="/tools" className="inline-flex sm:items-center text-white underline">
                 <span className="hover:underline">All Tools</span>
-                <ArrowRight />
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </div>
 
