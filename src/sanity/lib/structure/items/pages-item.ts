@@ -138,7 +138,7 @@ export const PageBuilder = (
     .child(
       S.documentList()
         .title('Other Pages')
-        .filter('_type == "page"')
+        .filter('_type == "page" && !defined(pageType)')
     )
 )
 

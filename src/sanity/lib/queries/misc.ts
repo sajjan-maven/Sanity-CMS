@@ -4,8 +4,6 @@ import { defineQuery } from "next-sanity";
 export const sitemapQuery = defineQuery(`
   *[_type in ["page", "post", "project", "service", "blogPage", "projectsPage", "servicesPage"] && defined(slug.current)] {
     "href": select(
-      _type == "page" && pageType == "platform" => "/platform/" + slug.current,
-      _type == "page" && pageType == "solution" => "/solutions/" + slug.current,
       _type == "page" => "/" + slug.current,
       _type == "post" => "/blog/" + slug.current,
       _type == "blogPage" => "/blog",

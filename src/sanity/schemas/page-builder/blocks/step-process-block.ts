@@ -50,12 +50,6 @@ export default defineType({
               options: { hotspot: true },
               fields: [
                 defineField({
-                  name: 'alt',
-                  title: 'Alt Text',
-                  type: 'string',
-                  initialValue: 'Step {number} illustration'
-                }),
-                defineField({
                   name: 'width',
                   title: 'Display Width (px)',
                   type: 'number',

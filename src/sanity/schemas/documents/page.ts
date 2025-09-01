@@ -22,6 +22,7 @@ export default defineType({
       name: 'pageType',
       title: 'Page Type',
       type: 'string',
+      description: "Choose page type only if its under ' Platform ' or ' Solutions ' page",
       options: {
         list: [
           { title: 'Platform Page', value: 'platform' },
