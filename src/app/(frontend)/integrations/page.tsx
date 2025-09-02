@@ -140,13 +140,13 @@ export default async function IntegrationPage() {
                     HeroHeading: integrationData.page?.title || "",
                     Description: integrationData.page?.description || "",
                 },
-                CategorySec: integrationData.categories.map((category) => ({
+                CategorySec: integrationData.categories.map((category: any) => ({
                     id: category._id,
                     CategoryList: category.title,
                     name: category.title,
                     description: "",
                 })),
-                ConnectorImageSec: integrationData.applications.map((app) => ({
+                ConnectorImageSec: integrationData.applications.map((app: any) => ({
                     id: app._id,
                     ImageText: app.applicationDesc || "",
                     ImageTitle: app.applicationName,
@@ -160,7 +160,7 @@ export default async function IntegrationPage() {
                 createdAt: "",
                 updatedAt: "",
                 publishedAt: "",
-                ConnectorImageSec: integrationData.applications.map((app) => ({
+                ConnectorImageSec: integrationData.applications.map((app: any) => ({
                     id: app._id,
                     ImageText: app.applicationDesc || "",
                     ImageTitle: app.applicationName,

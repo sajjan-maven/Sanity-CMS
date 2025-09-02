@@ -7,7 +7,7 @@ import { BlogItem } from "./items/blog-item";
 // import { ProjectsItem } from "./items/projects-item";
 // import { FormsItem } from "./items/forms-item";
 import { NavbarAndFooterItem } from "./items/nav-footer-item";
-import { AnnouncementBanner } from "./items/announcement-banner";
+import { AnnouncementBar } from "./items/announcement-bar";
 import { IntegrationsItem } from "./items/integrations-item";
 import { CaseStudiesItem } from "./items/casestudy-item";
 import { PricingItem } from "./items/pricing-item";
@@ -22,7 +22,7 @@ export const structure: StructureResolver = (
       S.divider(),
       SettingsItem(S),
       S.divider(),
-      AnnouncementBanner(S),
+      AnnouncementBar(S),
       NavbarAndFooterItem(S),
       S.divider(),
       PagesItem(S),

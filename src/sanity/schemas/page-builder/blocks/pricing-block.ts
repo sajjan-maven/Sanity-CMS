@@ -17,7 +17,12 @@ export default defineType({
       description: 'Changes made to the referenced pricing block will be reflected here',
       type: 'reference',
       to: [{ type: 'pricingItem' }],
-    })
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'simplerColor',
+    }),
   ],
   initialValue: {
     pricingBlockReference: {

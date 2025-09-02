@@ -65,7 +65,7 @@ export default async function LeftSection() {
                                         height={40}
                                         alt={testimonialCard?.authorName || ""}
                                         className="bg-gray-300 min-w-10 min-h-10 rounded-full overflow-hidden"
-                                        src={testimonialCard?.authorImage?.asset.url || ""}
+                                        src={testimonialCard?.authorImage?.asset?.url || ""}
                                     />
                                     <p className="w-full text-[#7b7481] text-base leading-6">
                                         <span className="font-semibold">{testimonialCard?.authorName || ""}</span><br />

@@ -2,22 +2,22 @@ import React from 'react';
 import CasestudyCard from './casestudy-card';
 
 // Temporary type until Sanity generates it
-type Casestudy = {
-  _id: string;
-  _type: string;
-  title: string;
-  slug: string;
-  excerpt?: string;
-  image?: {
-    asset?: {
-      url: string;
-    };
-    altText?: string;
-  };
-};
+// type Casestudy = {
+//   _id: string;
+//   _type: string;
+//   title: string;
+//   slug: string;
+//   excerpt?: string;
+//   image?: {
+//     asset?: {
+//       url: string;
+//     };
+//     altText?: string;
+//   };
+// };
 
 interface CasestudyGridProps {
-  casestudies: Casestudy[];
+  casestudies: any[];
 }
 
 export default function CasestudyGrid({ casestudies }: CasestudyGridProps) {

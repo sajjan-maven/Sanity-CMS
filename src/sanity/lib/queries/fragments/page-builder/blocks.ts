@@ -588,6 +588,9 @@ export const pricingBlockQuery = `
     _key,
     _type,
     title,
+    backgroundColor{
+      value
+    },
     pricingBlockReference->{
       _id,
       freePilotCard{
@@ -602,9 +605,6 @@ export const pricingBlockQuery = `
         price,
         priceUnit
       },
-      backgroundColor{
-        value
-      }
     }
   }
 `
@@ -1398,6 +1398,54 @@ export const heroBannerWithTagBlockQuery = `
     headingWidth,
     subheading[],
     subheadingWidth
+  }
+`;
+export const dataTableBlockQuery = `
+  _type == "dataTableBlock" => {
+    _key,
+    _type,
+    heading,
+    subheading,
+    tableHeaders[] {
+      id,
+      label,
+      width
+    },
+    tableRows[] {
+      feature,
+      values[] {
+        text,
+        color
+      }
+    }
+  }
+`;
+export const testimonialV1BlockQuery = `
+  _type == "testimonialV1Block" => {
+    _key,
+    _type,
+    testimonials[] {
+      company,
+      companyLogo {
+        alt,
+        asset->{
+          url,
+          metadata { dimensions { width, height } }
+        }
+      },
+      text,
+      profile {
+        name,
+        role,
+        image {
+          alt,
+          asset->{
+            url,
+            metadata { dimensions { width, height } }
+          }
+        }
+      }
+    }
   }
 `;
 

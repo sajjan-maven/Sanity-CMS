@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { sanityFetch } from '@/sanity/lib/live';
 import { demoSettingsQuery } from '@/sanity/lib/queries/singletons/demo';
 
@@ -18,7 +19,9 @@ export default async function DemoMainComponent() {
                     <h2 className="w-full max-w-[455px] text-center font-medium text-[#222222] text-[35px] leading-[47.2px]">
                         {demoComponentHeading || ""}
                     </h2>
-                    <DemoForm />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <DemoForm />
+                    </Suspense>
                 </div>
             </div>
         </section>

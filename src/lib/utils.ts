@@ -135,7 +135,7 @@ export type PageQueryResult =
 // | ProjectBySlugQueryResult;
 
 export function processMetadata({ data }: {
-  data: PageQueryResult;
+  data: any;
 }): Metadata {
 
   const { _id: id, title: pageTitle } = data ?? {};

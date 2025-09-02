@@ -23,11 +23,13 @@ import homePage from "./singletons/pages/home-page";
 import termsPage from "./singletons/pages/terms-page";
 import privacyPage from "./singletons/pages/privacy-page";
 import casestudiesPage from "./singletons/pages/casestudies-page";
+import tamingDisconnectedAppsPage from "./singletons/pages/taming-disconnected-apps-page";
 import integrationCategory from "./documents/integration-category";
 import casestudies from "./documents/casestudies";
 import integrationApplication from "./documents/integration-application";
 import integrationsPage from "./singletons/pages/integrations-page";
 import demoSettings from "./singletons/demo-settings";
+import sitemap from "./singletons/sitemap";
 
 const coreSchema = [
   generalSettings,
@@ -57,7 +59,9 @@ const coreSchema = [
   casestudies,
   integrationApplication,
   integrationsPage,
-  demoSettings
+  demoSettings,
+  sitemap,
+  tamingDisconnectedAppsPage
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
@@ -118,6 +122,8 @@ import disconnectedAppsFeaturesBlock from "./page-builder/blocks/disconnected-ap
 import disconnectedAppsSectionWithCardsBlock from "./page-builder/blocks/disconnected-apps-section-with-cards-block";
 import disconnectedAppsEmpoweredTeamsBlock from "./page-builder/blocks/disconnected-apps-empowered-teams-block";
 import heroBannerWithTagBlock from "./page-builder/blocks/hero-banner-with-tag-block";
+import dataTableBlock from "./page-builder/blocks/data-table-block";
+import testimonialV1Block from "./page-builder/blocks/testimonial-v1-block";
 
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
@@ -179,7 +185,9 @@ const pageBuilderSchema = [
   disconnectedAppsFeaturesBlock,
   disconnectedAppsSectionWithCardsBlock,
   disconnectedAppsEmpoweredTeamsBlock,
-  heroBannerWithTagBlock
+  heroBannerWithTagBlock,
+  dataTableBlock,
+  testimonialV1Block
 ];
 
 import seoObject from './objects/seo';
@@ -193,7 +201,7 @@ import callToActionObject from "./objects/call-to-action";
 import ctaButton from "./objects/cta-button";
 import navDropdownItem from "./objects/nav-dropdownItem";
 import navMenuItem from "./objects/nav-menuItem";
-import announcementBanner from "./objects/announcementBanner";
+import announcementBar from "./objects/announcementBar";
 import logo from "./objects/logo";
 import footerCTA from "./objects/footerCTA";
 import footerLinks from "./objects/footerLinks";
@@ -217,7 +225,7 @@ const objectSchema = [
   ctaButton,
   navDropdownItem,
   navMenuItem,
-  announcementBanner,
+  announcementBar,
   logo,
   footerCTA,
   footerLinks,

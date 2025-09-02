@@ -14,10 +14,10 @@ export default function TestimonialCarouselBlock(props: TestimonialCarouselBlock
           {title || "IT teams who have tamed their disconnected environments with Stitchflow"}
         </h2>
       </div>
-      
+
       {/* Carousel */}
       <div className="w-full homePageCarousel">
-        <Marquee 
+        <Marquee
           pauseOnHover={true}
           pauseOnClick={true}
           autoFill={true}
@@ -32,17 +32,15 @@ export default function TestimonialCarouselBlock(props: TestimonialCarouselBlock
                     {testimonial.text}
                   </p>
                   <div className="flex items-center mt-[24px]">
-                    {testimonial.avatar?.asset?.url && (
-                      <div className="rounded-full flex items-center justify-center mr-3 md:mr-4 overflow-hidden">
-                        <Image
-                          src={testimonial.avatar.asset.url}
-                          alt={testimonial.avatar.alt || 'avatar image'}
-                          width={48}
-                          height={48}
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
+                    <div className="rounded-full flex items-center bg-gray-500 justify-center mr-3 md:mr-4 overflow-hidden">
+                      <Image
+                        src={testimonial?.avatar?.asset?.url || '/section-images/person.png'}
+                        alt={testimonial?.avatar?.alt || 'avatar image'}
+                        width={48}
+                        height={48}
+                        className="object-cover"
+                      />
+                    </div>
                     <div>
                       <p className="font-semibold text-sm md:text-base">
                         {testimonial.author}

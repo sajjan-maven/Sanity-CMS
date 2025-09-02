@@ -46,12 +46,24 @@ export default async function AuthorPage({ params }: PageProps) {
 
     // Group social links by platform for easier access
     const socialLinks = {
-        twitter: author?.socials?.find((s: { platform: string; url?: string }) => s.platform === 'x'),
-        linkedin: author?.socials?.find((s: { platform: string; url?: string }) => s.platform === 'linkedin'),
-        github: author?.socials?.find((s: { platform: string; url?: string }) => s.platform === 'github'),
-        youtube: author?.socials?.find((s: { platform: string; url?: string }) => s.platform === 'youtube'),
-        website: author?.socials?.find((s: { platform: string; url?: string }) => s.platform === 'website'),
-        others: author?.socials?.filter((s: { platform: string; url?: string }) => s.platform === 'other')
+        twitter: author?.socials?.find(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'x'
+        ),
+        linkedin: author?.socials?.find(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'linkedin'
+        ),
+        github: author?.socials?.find(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'github'
+        ),
+        youtube: author?.socials?.find(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'youtube'
+        ),
+        website: author?.socials?.find(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'website'
+        ),
+        others: author?.socials?.filter(
+            (s: { platform: "other" | "x" | "linkedin" | "github" | "youtube" | "website" | null; url: string | null; customIcon?: { asset?: { url?: string | null } | null } | null }) => s.platform === 'other'
+        )
     };
 
     if (author === null) notFound();
@@ -138,9 +150,9 @@ export default async function AuthorPage({ params }: PageProps) {
                                     {socialLinks.others?.map(
                                         (
                                             other: {
-                                                platform: string;
-                                                url?: string;
-                                                customIcon?: { asset?: { url?: string } };
+                                                platform: "other" | "github" | "linkedin" | "website" | "x" | "youtube" | null;
+                                                url: string | null;
+                                                customIcon: { asset: { url: string | null } | null } | null;
                                             },
                                             index: number
                                         ) => (
@@ -153,7 +165,7 @@ export default async function AuthorPage({ params }: PageProps) {
                                                 >
                                                     {other.customIcon?.asset?.url ? (
                                                         <Image
-                                                            src={other.customIcon.asset.url}
+                                                            src={other.customIcon.asset.url || ''}
                                                             alt="Custom social icon"
                                                             width={20}
                                                             height={20}
@@ -170,7 +182,7 @@ export default async function AuthorPage({ params }: PageProps) {
                                     )}
                                 </div>
                             </div>
-                            <div className='text-center md:text-start text-base mt-2.5'>{author.role}</div>
+                            {/* Removed author.role as it does not exist on the author type */}
                             <div className='text-center md:text-start mt-2.5 text-sm text-gray-500'>
                                 {author.bio}
                             </div>

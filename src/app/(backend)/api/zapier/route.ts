@@ -13,7 +13,6 @@ export async function POST(request: Request) {
   try {
     const { event_type, data } = await request.json();
 
-    console.log('tesst', data)
     // Validate required fields
     if (!event_type || !data) {
       return NextResponse.json(
@@ -23,8 +22,6 @@ export async function POST(request: Request) {
     }
 
     const zapierEndpoint = ZAPIER_ENDPOINTS[event_type];
-    
-    console.log('zapierEndpoint', zapierEndpoint)
     if (!zapierEndpoint) {
       return NextResponse.json(
         { error: "Invalid event type" },
@@ -52,8 +49,8 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Zapier API error:', error);
     return NextResponse.json(
-      { 
-        error: error instanceof Error ? error.message : "Internal server error" 
+      {
+        error: error instanceof Error ? error.message : "Internal server error"
       },
       { status: 500 }
     );

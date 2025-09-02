@@ -32,7 +32,7 @@ export default function AuditReadinessHeroBlock(
     const [email, setEmail] = useState("");
     const [error, setError] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [showThankyou, setShowThankyou] = useState(false);
+    // const [showThankyou, setShowThankyou] = useState(false);
 
     const validateEmail = (email: string) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -103,7 +103,7 @@ export default function AuditReadinessHeroBlock(
             sendToZapier("blog", { email });
 
             setEmail("");
-            setShowThankyou(true);
+            // setShowThankyou(true);
         } catch (error) {
             console.error("Error submitting email:", error);
         } finally {

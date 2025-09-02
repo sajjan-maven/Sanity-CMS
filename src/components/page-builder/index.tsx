@@ -64,6 +64,8 @@ const DisconnectedAppsFeaturesBlockProps = dynamic(() => import("./blocks/discon
 const DisconnectedAppsSectionWithCardsBlockProps = dynamic(() => import("./blocks/disconnected-apps-section-with-cards-block"))
 const DisconnectedAppsEmpoweredTeamsBlockProps = dynamic(() => import("./blocks/disconnected-apps-empowered-teams-block"))
 const HeroBannerWithTagBlock = dynamic(() => import("./blocks/hero-banner-with-tag-block"))
+const DataTableBlock = dynamic(() => import("./blocks/data-table-block"))
+const TestimonialV1Block = dynamic(() => import("./blocks/testimonial-v1-block"))
 
 type PageBlock = NonNullable<
   NonNullable<PageBySlugQueryResult>["pageBuilder"]
@@ -135,6 +137,8 @@ const PB_BLOCKS = {
   disconnectedAppsSectionWithCardsBlock: DisconnectedAppsSectionWithCardsBlockProps,
   disconnectedAppsEmpoweredTeamsBlock: DisconnectedAppsEmpoweredTeamsBlockProps,
   heroBannerWithTagBlock: HeroBannerWithTagBlock,
+  dataTableBlock: DataTableBlock,
+  testimonialV1Block: TestimonialV1Block,
 } as const;
 
 type BlockType = keyof typeof PB_BLOCKS;
