@@ -39,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       );
     }
 
-    // Add manually added paths
+    // Add manually added paths  
     if (sitemapSettings?.addToSitemap) {
       sitemapEntries.push(
         ...sitemapSettings.addToSitemap.map((path: string) => ({
