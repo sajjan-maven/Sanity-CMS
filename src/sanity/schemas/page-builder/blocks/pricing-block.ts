@@ -21,7 +21,7 @@ export default defineType({
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
-      type: 'simpleColor',
+      type: 'simplerColor',
     }),
   ],
   initialValue: {
