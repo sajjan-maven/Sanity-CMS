@@ -22,7 +22,6 @@ export async function POST(request: Request) {
     }
 
     const zapierEndpoint = ZAPIER_ENDPOINTS[event_type];
-
     if (!zapierEndpoint) {
       return NextResponse.json(
         { error: "Invalid event type" },
