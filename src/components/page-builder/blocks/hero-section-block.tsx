@@ -6,8 +6,8 @@ import React from 'react';
 export type HeroSectionBlockProps = PageBuilderType<"heroSectionBlock">;
 
 export default function HeroSectionBlock(props: HeroSectionBlockProps) {
-  const { 
-    title, 
+  const {
+    title,
     titleWidth,
     description,
     descriptionWidth,
@@ -40,30 +40,30 @@ export default function HeroSectionBlock(props: HeroSectionBlockProps) {
   };
 
   return (
-    <section 
+    <section
       className="w-full z-[3] px-6"
-      style={{ 
+      style={{
         backgroundColor: backgroundColor?.value || '#E4DBD0',
         paddingTop: `${currentSpacing?.topSpacing || defaultSpacing.topSpacing}px`,
         paddingBottom: `${currentSpacing?.bottomSpacing || defaultSpacing.bottomSpacing}px`
       }}
     >
       <div className="flex flex-col w-full items-center">
-        <h1 
+        <h1
           className="font-semibold text-[#363338] text-[40px] text-center leading-[48px] mx-auto"
-          style={{ 
+          style={{
             marginBottom: `${currentSpacing?.titleBelowSpacing || defaultSpacing.titleBelowSpacing}px`,
-            maxWidth: `${ titleWidth || 1000 }px`
+            maxWidth: `${titleWidth || 1000}px`
           }}
         >
           {title}
         </h1>
 
-        <p 
+        <p
           className="font-normal text-[#363338] text-lg text-center leading-8 max-w-2xl"
-          style={{ 
+          style={{
             marginBottom: `${currentSpacing?.descriptionBelowSpacing || defaultSpacing.descriptionBelowSpacing}px`,
-            maxWidth: `${ descriptionWidth || 1000 }px`
+            maxWidth: `${descriptionWidth || 1000}px`
           }}
         >
           {description}
@@ -73,20 +73,20 @@ export default function HeroSectionBlock(props: HeroSectionBlockProps) {
           <Link
             href={button.link || '#'}
             className={`px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${buttonClasses[button.variant as keyof typeof buttonClasses] || buttonClasses.primary}`}
-            style={{ 
-              marginBottom: `${button?.buttonBelowSpacing || defaultSpacing.buttonBelowSpacing}px` 
+            style={{
+              marginBottom: `${button?.buttonBelowSpacing || defaultSpacing.buttonBelowSpacing}px`
             }}
           >
             {button.text || 'Get Started'}
           </Link>
         )}
       </div>
-      
+
       {showImage && image !== null && image.asset?.url && (
-        <div 
+        <div
           className="mx-auto"
-          style={{ 
-            marginBottom: `${currentSpacing?.imageBelowSpacing || defaultSpacing.imageBelowSpacing}px` 
+          style={{
+            marginBottom: `${currentSpacing?.imageBelowSpacing || defaultSpacing.imageBelowSpacing}px`
           }}
         >
           <Image
