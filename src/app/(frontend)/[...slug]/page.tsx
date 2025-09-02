@@ -6,7 +6,7 @@ import { PageBuilder } from '@/components/page-builder';
 import { pageBySlugQuery, pageSlugsQuery } from '@/sanity/lib/queries/documents/page';
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }
 
 export async function generateStaticParams() {
@@ -15,13 +15,23 @@ export async function generateStaticParams() {
     perspective: "published",
     stega: false,
   });
-  return pages;
+
+  // Convert slug string to slug array by splitting on '/'
+  return pages
+    .filter((page) => page.params.slug)
+    .map((page) => ({
+      slug: page.params.slug!.split('/'),
+    }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  // Join slug array to form full slug string
+  const slugString = slug.join('/');
+
   const { data: page } = await sanityFetch({
     query: pageBySlugQuery,
-    params: await params,
+    params: { slug: slugString },
     stega: false,
   });
 
@@ -31,9 +41,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+  // Join slug array to form full slug string
+  const slugString = slug.join('/');
+
   const { data: page } = await sanityFetch({
     query: pageBySlugQuery,
-    params: await params,
+    params: { slug: slugString },
   });
 
   if (page === null) notFound();
