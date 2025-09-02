@@ -17,6 +17,7 @@ export const PagesItem = (
           // BlogItem(S),
           // CaseStudieItem(S),
           DemoPageItem(S),
+          WebinarItem(S),
           S.divider(),
           PageBuilderPlatforms(S),
           PageBuilderSolutions(S),
@@ -72,6 +73,21 @@ export const TermsOfServiceItem = (
         .schemaType('termsPage')
         .documentId('termsPage')
         .title('Terms and Services')
+    )
+)
+
+export const WebinarItem = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Webinar Page')
+    .icon(File)
+    .child(
+      S.document()
+        .id('tamingDisconnectedAppsPage')
+        .schemaType('tamingDisconnectedAppsPage')
+        .documentId('tamingDisconnectedAppsPage')
+        .title('Taming Disconnected Apps')
     )
 )
 

@@ -23,6 +23,7 @@ import homePage from "./singletons/pages/home-page";
 import termsPage from "./singletons/pages/terms-page";
 import privacyPage from "./singletons/pages/privacy-page";
 import casestudiesPage from "./singletons/pages/casestudies-page";
+import tamingDisconnectedAppsPage from "./singletons/pages/taming-disconnected-apps-page";
 import integrationCategory from "./documents/integration-category";
 import casestudies from "./documents/casestudies";
 import integrationApplication from "./documents/integration-application";
@@ -59,7 +60,8 @@ const coreSchema = [
   integrationApplication,
   integrationsPage,
   demoSettings,
-  sitemap
+  sitemap,
+  tamingDisconnectedAppsPage
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
