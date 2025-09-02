@@ -1,4 +1,4 @@
-import { Settings, Shuffle, Tv } from "lucide-react";
+import { Settings, Shuffle, Tv, Map } from "lucide-react";
 import type { StructureBuilder } from "sanity/structure";
 
 export const SettingsItem = (S: StructureBuilder) =>
@@ -9,6 +9,15 @@ export const SettingsItem = (S: StructureBuilder) =>
       S.list()
         .title('Settings')
         .items([
+          // S.listItem()
+          //   .title('General')
+          //   .child(
+          //     S.document()
+          //       .id('generalSettings')
+          //       .schemaType('generalSettings')
+          //       .documentId('generalSettings')
+          //       .title('General')
+          //   ),
           S.listItem()
             .title('Marketing')
             .icon(Tv)
@@ -20,6 +29,16 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .title('Marketing')
             ),
           S.listItem()
+            .title('Sitemap')
+            .icon(Map)
+            .child(
+              S.document()
+                .id('sitemap')
+                .schemaType('sitemap')
+                .documentId('sitemap')
+                .title('Sitemap')
+            ),
+          S.listItem()
             .title('Redirects')
             .icon(Shuffle)
             .child(
@@ -27,6 +46,15 @@ export const SettingsItem = (S: StructureBuilder) =>
                 .title('All Redirects')
                 .filter('_type == "redirect"')
             ),
+          // S.listItem()
+          //   .title('Navigation')
+          //   .child(
+          //     S.document()
+          //       .id('navigationSettings')
+          //       .schemaType('navigationSettings')
+          //       .documentId('navigationSettings')
+          //       .title('Navigation')
+          //   ),
           // S.divider(),
           // S.listItem()
           //   .title('Blog & Posts')

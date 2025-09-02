@@ -2,8 +2,8 @@ import { defineField, defineType } from 'sanity'
 import { FiSettings, FiLayout } from "react-icons/fi";
 
 export default defineType({
-  name: 'announcementBanner',
-  title: 'Announcement Banner',
+  name: 'announcementBar',
+  title: 'Announcement Bar',
   type: 'document',
   groups: [
     {

@@ -11,7 +11,7 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         locations: [
           {
             title: doc?.title || 'Untitled',
-            href: `/${doc?.slug}`,
+            href: `/${doc?.slug.replace(/^\/+/, '')}`,
           },
         ],
       }),
@@ -25,75 +25,17 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         locations: [
           {
             title: doc?.title || 'Untitled',
-            href: `/blog/${doc?.slug}`,
+            href: `/blog/${doc?.slug.replace(/^\/+/, '')}`,
           },
           { title: 'Blog', href: `/blog` },
-        ],
-      }),
-    }),
-    // Dummy need analysis
-    home: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
-      },
-      resolve: (doc) => ({
-        locations: [
-          {
-            title: doc?.title || 'Untitled',
-            href: `/`,
-          },
-          { title: 'Home', href: `/` },
-        ],
-      }),
-    }),
-    service: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
-      },
-      resolve: (doc) => ({
-        locations: [
-          {
-            title: doc?.title || 'Untitled',
-            href: `/services/${doc?.slug}`,
-          },
-          { title: 'Services', href: `/services` },
-        ],
-      }),
-    }),
-    project: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
-      },
-      resolve: (doc) => ({
-        locations: [
-          {
-            title: doc?.title || 'Untitled',
-            href: `/projects/${doc?.slug}`,
-          },
-          { title: 'Projects Index', href: `/projects` },
         ],
       }),
     }),
   },
   mainDocuments: defineDocuments([
     {
-      route: "/",
-      filter: `_type == 'page' && slug.current == 'home'`,
-    },
-    {
-      route: "/:slug",
+      route: "/[...slug]",
       filter: `_type == 'page' && slug.current == $slug`,
-    },
-    {
-      route: "/projects/:slug",
-      filter: `_type == 'project' && slug.current == $slug`,
-    },
-    {
-      route: "/services/:slug",
-      filter: `_type == 'service' && slug.current == $slug`,
     },
     {
       route: "/blog/:slug",

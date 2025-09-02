@@ -5,70 +5,8 @@ import {
     integrationPageQuery
 } from "@/sanity/lib/queries/documents/integration";
 
-export interface IntegrationApplication {
-    _id: string;
-    _type: 'integrationApplication';
-    applicationName: string;
-    image?: {
-        asset: {
-            url: string;
-        };
-        altText?: string;
-    };
-    category?: {
-        _id: string;
-        _type: 'integrationCategory';
-        title: string;
-        slug: {
-            current: string;
-        };
-    };
-    addDescription: boolean;
-    applicationDesc?: string;
-}
 
-export interface IntegrationCategory {
-    _id: string;
-    _type: 'integrationCategory';
-    title: string;
-    slug: {
-        current: string;
-    };
-}
-
-export interface IntegrationPageData {
-    applications: IntegrationApplication[];
-    categories: IntegrationCategory[];
-    page?: {
-        _id: string;
-        _type: 'integrationsPage';
-        title: string;
-        description: string;
-        heroImageDesktop?: {
-            asset: {
-                url: string;
-            };
-        };
-        heroImageMobile?: {
-            asset: {
-                url: string;
-            };
-        };
-        headerActionButton?: {
-            buttonText: string;
-            buttonUrl: string;
-            buttonVariant: string;
-        };
-        seo?: {
-            title: string;
-            description: string;
-            noIndex: boolean;
-            image?: any;
-        };
-    };
-}
-
-export async function getIntegrationData(): Promise<IntegrationPageData> {
+export async function getIntegrationData(): Promise<any> {
     try {
         const [applications, categories, page] = await Promise.all([
             client.fetch(allIntegrationApplicationsQuery),
@@ -91,7 +29,7 @@ export async function getIntegrationData(): Promise<IntegrationPageData> {
     }
 }
 
-export async function getIntegrationApplications(): Promise<IntegrationApplication[]> {
+export async function getIntegrationApplications(): Promise<any[]> {
     try {
         return await client.fetch(allIntegrationApplicationsQuery);
     } catch (error) {
@@ -100,7 +38,7 @@ export async function getIntegrationApplications(): Promise<IntegrationApplicati
     }
 }
 
-export async function getIntegrationCategories(): Promise<IntegrationCategory[]> {
+export async function getIntegrationCategories(): Promise<any[]> {
     try {
         return await client.fetch(allIntegrationCategoriesQuery);
     } catch (error) {

@@ -9,7 +9,7 @@ export type TestimonialV1BlockProps = PageBuilderType<"testimonialV1Block">;
 export default function TestimonialV1Block(props: TestimonialV1BlockProps) {
     const { testimonials = [] } = props;
 
-    if (!testimonials?.length) return null;
+    if (!testimonials) return null;
 
     return (
         <section className="bg-[#f7f5f2] px-4">

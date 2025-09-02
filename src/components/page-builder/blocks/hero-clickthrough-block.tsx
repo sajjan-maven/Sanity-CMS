@@ -19,14 +19,13 @@ export default function HeroClickthroughBlock(props: HeroClickthroughBlockProps)
           </h1>
         </header>
       </div>
-      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       <div className="relative w-full">
         <div className="relative pt-2 xl:pt-8 lg:mb-0 w-full flex-wrap px-8 pointer-events-none z-[99]">
           <div className="w-full font-normal mx-auto text-sm md:text-lg text-center md:leading-8 pointer-events-auto text-[#7B7481]"
             style={{ maxWidth: `${subheadingWidth}px` }}>
             <p>{subheading}</p>
           </div>
-          <HomePageEmailCapture />
+          <HomePageEmailCapture referance="hero-clickthrough-block" />
         </div>
         <div className="relative lg:-mt-[155px] xl:-mt-[170px] z-0">
           <div className="relative hidden lg:block">

@@ -27,8 +27,8 @@ interface ColorValue {
     value: string;
 }
 
-interface AnnouncementBannerSettings {
-    icon: {
+interface AnnouncementBarSettings {
+    icon?: {
         asset?: {
             url?: string;
         };
@@ -84,9 +84,9 @@ const NotificationBanner = ({
     linkColor,
     onClose,
 }: {
-    icon: {
+    icon?: {
         asset?: {
-            url?: string;
+            url?: string | null | undefined;
         };
     };
     text: string;
@@ -101,9 +101,9 @@ const NotificationBanner = ({
     return (
         <div className="relative flex justify-center items-center pl-5 pr-12 gap-2 w-full min-h-9"
             style={{ backgroundColor: backgroundColor?.value || '#000' }}>
-            {icon.asset?.url && <Image
+            {icon?.asset?.url && <Image
                 className="hidden md:block"
-                src={icon.asset?.url || '/dummy'}
+                src={icon?.asset?.url}
                 width={20}
                 height={20}
                 alt={"announcement icon"}
@@ -325,7 +325,7 @@ const MobileNavigation = ({
 };
 
 // Main Header Component
-const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbarSetting: any, announcementBannerSettings: AnnouncementBannerSettings }) => {
+const NavbarComponent = ({ navbarSetting, announcementBarSettings }: { navbarSetting: any, announcementBarSettings: AnnouncementBarSettings | null }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -335,13 +335,24 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
     const headerRef = useRef<HTMLDivElement>(null);
 
     const { logo, menuItems, ctaButton } = navbarSetting;
-    const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor } = announcementBannerSettings;
+    const defaultAnnouncementBar = {
+        icon: {},
+        show: false,
+        text: '',
+        link: '',
+        linkText: '',
+        backgroundColor: { value: '#000' },
+        textColor: { value: '#fff' },
+        linkColor: { value: '#fff' },
+        excludedRoutes: []
+    };
+    const { icon, show, text, link, linkText, backgroundColor, textColor, linkColor, excludedRoutes } = announcementBarSettings ? announcementBarSettings : defaultAnnouncementBar;
 
     const isPathExcluded = useCallback(() => {
-        if (!announcementBannerSettings?.excludedRoutes) return false;
+        if (!excludedRoutes) return false;
 
-        return Array.isArray(announcementBannerSettings?.excludedRoutes) &&
-            announcementBannerSettings.excludedRoutes.some((exclusion: { path: string }) => {
+        return Array.isArray(excludedRoutes) &&
+            excludedRoutes.some((exclusion: { path: string }) => {
                 const excludedPath = exclusion.path;
                 if (!excludedPath) return false;
                 if (pathname === excludedPath) return true;
@@ -349,7 +360,7 @@ const NavbarComponent = ({ navbarSetting, announcementBannerSettings }: { navbar
 
                 return false;
             });
-    }, [announcementBannerSettings?.excludedRoutes, pathname]);
+    }, [excludedRoutes, pathname]);
 
     // Check if navbar menu items should be hidden based on excluded routes
     const shouldHideNavbarMenu = navbarSetting?.excludedRoutes?.some((route: any) => {

@@ -2,23 +2,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-interface TestimonialsProps {
-    testimonialsG2: {
-        name: string;
-        jobTitle: string;
-        company?: string;
-        quote: string;
-        avatar: {
-            asset: {
-                url: string;
-            };
-        };
-        url: string;
-    }[];
-    heading: string;
-}
+// interface TestimonialsProps {
+//     testimonialsG2: {
+//         name: string | null;
+//         jobTitle: string | null;
+//         company?: string | null;
+//         quote: string | null;
+//         avatar: {
+//             asset: {
+//                 url: string;
+//             };
+//         };
+//         url: string;
+//     }[];
+//     heading: string;
+// }
 
-export default function Testimonials({ testimonialsG2, heading }: TestimonialsProps) {
+export default function Testimonials({ testimonialsG2, heading }: any) {
     const testimonials = testimonialsG2 || [];
 
     return (
@@ -40,7 +40,7 @@ export default function Testimonials({ testimonialsG2, heading }: TestimonialsPr
                                     <Image
                                         width={40}
                                         height={40}
-                                        alt={testimonials[0].name}
+                                        alt={testimonials[0]?.name || "avatar"}
                                         className="bg-gray-300 w-10 h-10 rounded-full overflow-hidden"
                                         src={testimonials[0].avatar?.asset?.url || '/section-images/person.png'}
                                     />
@@ -68,7 +68,7 @@ export default function Testimonials({ testimonialsG2, heading }: TestimonialsPr
 
                 {/* Right side testimonials */}
                 <div className="flex flex-col w-full lg:w-[780px] items-start gap-[18px]">
-                    {testimonials.slice(1).map((testimonial, index) => (
+                    {testimonials.slice(1).map((testimonial: any, index: number) => (
                         <Link
                             href={testimonial.url || '#'}
                             target="_blank"
@@ -84,7 +84,7 @@ export default function Testimonials({ testimonialsG2, heading }: TestimonialsPr
                                         <Image
                                             width={40}
                                             height={40}
-                                            alt={testimonial.name}
+                                            alt={testimonial?.name || "avatar"}
                                             className="bg-gray-300 w-10 h-10 rounded-full overflow-hidden"
                                             src={testimonial.avatar?.asset?.url || '/section-images/person.png'}
                                         />

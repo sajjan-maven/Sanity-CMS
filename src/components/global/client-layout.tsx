@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 interface ClientLayoutProps {
   children: React.ReactNode;
   navbarSettings: any;
-  announcementBannerSettings: any;
+  announcementBarSettings: any | null;
   footerSettings: any;
 }
 
@@ -25,7 +25,7 @@ const geistMono = localFont({
 });
 
 export default function ClientLayout({
-  announcementBannerSettings,
+  announcementBarSettings,
   navbarSettings,
   children,
   footerSettings
@@ -45,7 +45,7 @@ export default function ClientLayout({
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased grid min-h-[100dvh] grid-rows-[auto_1fr_auto]`}>
       <Navbar
-        announcementBannerSettings={announcementBannerSettings}
+        announcementBarSettings={announcementBarSettings}
         navbarSetting={navbarSettings}
       />
       <main>
