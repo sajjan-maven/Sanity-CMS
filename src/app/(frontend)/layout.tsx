@@ -7,7 +7,7 @@ import { DisableDraftMode } from "@/components/shared/disable-draft-mode";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { navbarQuery } from "@/sanity/lib/queries/singletons/navbar";
 import { marketingSettingsQuery } from "@/sanity/lib/queries/singletons/settings";
-import { announcementBannerQuery } from "@/sanity/lib/queries/singletons/announcement-banner";
+import { announcementBarQuery } from "@/sanity/lib/queries/singletons/announcement-bar";
 import { footerQuery } from "@/sanity/lib/queries/singletons/footer";
 
 export const metadata: Metadata = {
@@ -34,14 +34,14 @@ export default async function RootLayout({
   const sanityResults = await Promise.all([
     sanityFetch({ query: marketingSettingsQuery }),
     sanityFetch({ query: navbarQuery }),
-    sanityFetch({ query: announcementBannerQuery }),
+    sanityFetch({ query: announcementBarQuery }),
     sanityFetch({ query: footerQuery }),
   ]);
 
   // const settings = sanityResults[0].data;
   const marketingSettings = sanityResults[0].data;
   const navbarSettings = sanityResults[1].data;
-  const announcementBannerSettings = sanityResults[2].data;
+  const announcementBarSettings = sanityResults[2].data;
   const footerSettings = sanityResults[3].data;
   // if (!settings) return (
   //   <Container className="py-16 flex items-center justify-center gap-2.5 h-screen pattern-bg--2">
@@ -53,7 +53,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <ClientLayout
-          announcementBannerSettings={announcementBannerSettings}
+          announcementBarSettings={announcementBarSettings}
           navbarSettings={navbarSettings}
           footerSettings={footerSettings}
         >

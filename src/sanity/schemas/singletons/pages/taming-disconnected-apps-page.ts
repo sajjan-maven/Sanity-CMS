@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 import { fieldsets } from "../../misc/fieldsets";
 import { fieldGroups } from "../../misc/field-groups";
 

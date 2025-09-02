@@ -197,7 +197,7 @@ import callToActionObject from "./objects/call-to-action";
 import ctaButton from "./objects/cta-button";
 import navDropdownItem from "./objects/nav-dropdownItem";
 import navMenuItem from "./objects/nav-menuItem";
-import announcementBanner from "./objects/announcementBanner";
+import announcementBar from "./objects/announcementBar";
 import logo from "./objects/logo";
 import footerCTA from "./objects/footerCTA";
 import footerLinks from "./objects/footerLinks";
@@ -221,7 +221,7 @@ const objectSchema = [
   ctaButton,
   navDropdownItem,
   navMenuItem,
-  announcementBanner,
+  announcementBar,
   logo,
   footerCTA,
   footerLinks,

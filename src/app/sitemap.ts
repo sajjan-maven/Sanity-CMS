@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ? `https://${process.env.VERCEL_URL}`
       : "http://localhost:3000";
 
-    let sitemapEntries: MetadataRoute.Sitemap = [
+    const sitemapEntries: MetadataRoute.Sitemap = [
       {
         url: baseUrl,
         lastModified: new Date(),

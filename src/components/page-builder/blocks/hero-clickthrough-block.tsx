@@ -25,7 +25,7 @@ export default function HeroClickthroughBlock(props: HeroClickthroughBlockProps)
             style={{ maxWidth: `${subheadingWidth}px` }}>
             <p>{subheading}</p>
           </div>
-          <HomePageEmailCapture />
+          <HomePageEmailCapture referance="hero-clickthrough-block" />
         </div>
         <div className="relative lg:-mt-[155px] xl:-mt-[170px] z-0">
           <div className="relative hidden lg:block">

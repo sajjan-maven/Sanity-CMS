@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const announcementBannerQuery = defineQuery(`*[_type == "announcementBanner"][0] {
+export const announcementBarQuery = defineQuery(`*[_type == "announcementBar"][0] {
     show,
     backgroundColor { value },
     textColor { value },
