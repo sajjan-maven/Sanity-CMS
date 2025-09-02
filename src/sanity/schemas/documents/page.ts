@@ -22,11 +22,14 @@ export default defineType({
       name: 'pageType',
       title: 'Page Type',
       type: 'string',
-      description: "Choose page type only if its under ' Platform ' or ' Solutions ' page",
+      description: "Choose page type only if its under Resources Structure",
       options: {
         list: [
           { title: 'Platform Page', value: 'platform' },
           { title: 'Solution Page', value: 'solution' },
+          { title: 'Resource Page', value: 'resource' },
+          { title: 'Company Page', value: 'company' },
+          { title: 'Landing Page', value: 'landing' }
         ],
       },
     }),

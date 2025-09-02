@@ -20,6 +20,9 @@ export const PagesItem = (
           S.divider(),
           PageBuilderPlatforms(S),
           PageBuilderSolutions(S),
+          PageBuilderResources(S),
+          PageBuilderCompany(S),
+          PageBuilderLanding(S),
           PageBuilder(S),
           S.divider(),
           PrivacyItem(S),
@@ -126,6 +129,45 @@ export const PageBuilderSolutions = (
       S.documentList()
         .title('Solutions Page')
         .filter('_type == "page" && pageType == "solution"')
+    )
+)
+
+export const PageBuilderResources = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Resources Page')
+    .icon(Files)
+    .child(
+      S.documentList()
+        .title('Resources Page')
+        .filter('_type == "page" && pageType == "resource"')
+    )
+)
+
+export const PageBuilderCompany = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Company Pages')
+    .icon(Files)
+    .child(
+      S.documentList()
+        .title('Company Pages')
+        .filter('_type == "page" && pageType == "company"')
+    )
+)
+
+export const PageBuilderLanding = (
+  S: StructureBuilder,
+) => (
+  S.listItem()
+    .title('Landing Pages')
+    .icon(Files)
+    .child(
+      S.documentList()
+        .title('Landing Page')
+        .filter('_type == "page" && pageType == "landing"')
     )
 )
 
