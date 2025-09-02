@@ -4,6 +4,7 @@ import { processMetadata } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import { PageBuilder } from '@/components/page-builder';
 import { pageBySlugQuery, pageSlugsQuery } from '@/sanity/lib/queries/documents/page';
+import { Suspense } from 'react';
 
 interface PageProps {
   params: Promise<{ slug: string[] }>;
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
   return pages
     .filter((page) => page.params.slug)
     .map((page) => ({
-      slug: page.params.slug!.split('/'),
+      slug: page.params.slug!.split('/').filter(p => p),
     }));
 }
 
@@ -53,10 +54,12 @@ export default async function Page({ params }: PageProps) {
   if (page === null) notFound();
 
   return (
-    <PageBuilder
-      id={page?._id ?? ''}
-      type="servicesPage"
-      pageBuilder={page?.pageBuilder ?? []}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageBuilder
+        id={page?._id ?? ''}
+        type="servicesPage"
+        pageBuilder={page?.pageBuilder ?? []}
+      />
+    </Suspense>
   )
 }

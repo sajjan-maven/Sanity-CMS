@@ -6,6 +6,7 @@ import { PageBuilder } from "@/components/page-builder";
 import { homePageQuery } from "@/sanity/lib/queries/singletons/home-page";
 import Image from "next/image";
 import HomePageEmailCapture from "@/components/ui/HomePageEmailCapture";
+import { Suspense } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: homePage } = await sanityFetch({
@@ -46,7 +47,7 @@ export default async function Home() {
               style={{ maxWidth: `${homePage.subheadingWidth}px` }}>
               <p>{homePage.subheading}</p>
             </div>
-            <HomePageEmailCapture referance={homePage.emailCapture} />
+            <Suspense fallback={<div>Loading...</div>}><HomePageEmailCapture referance={homePage.emailCapture} /></Suspense>
           </div>
           <div className="relative lg:-mt-[155px] xl:-mt-[170px] z-0">
             <div className="relative hidden lg:block">
@@ -92,11 +93,13 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <PageBuilder
-        id={homePage._id}
-        type={homePage._type}
-        pageBuilder={homePage.pageBuilder ?? []}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PageBuilder
+          id={homePage._id}
+          type={homePage._type}
+          pageBuilder={homePage.pageBuilder ?? []}
+        />
+      </Suspense>
     </div>
   );
 }
