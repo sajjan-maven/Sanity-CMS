@@ -7,12 +7,12 @@ export type PricingBlockProps = PageBuilderType<"pricingBlock">;
 export default function PricingBlock(props: PricingBlockProps) {
   const {
     title, // section title (from pricingBlock doc)
-    pricingBlockReference, // referenced pricingItem
+    pricingBlockReference, // referenced pricingItem,
+    backgroundColor,
   } = props;
 
   const freePilotCard = pricingBlockReference?.freePilotCard;
   const afterPilotCard = pricingBlockReference?.afterPilotCard;
-  const backgroundColor = pricingBlockReference?.backgroundColor;
 
   return (
     <section

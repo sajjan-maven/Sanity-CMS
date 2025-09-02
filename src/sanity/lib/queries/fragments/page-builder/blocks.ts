@@ -588,6 +588,9 @@ export const pricingBlockQuery = `
     _key,
     _type,
     title,
+    backgroundColor{
+      value
+    },
     pricingBlockReference->{
       _id,
       freePilotCard{
@@ -602,9 +605,6 @@ export const pricingBlockQuery = `
         price,
         priceUnit
       },
-      backgroundColor{
-        value
-      }
     }
   }
 `

@@ -47,7 +47,7 @@
     "react-use-measure": "^2.1.1",
     "redux": "^5.0.1",
     "resend": "^4.1.1",
-    "sanity": "^3.67.1",
+    "sanity": "^3.99.0",
     "sanity-plugin-iframe-pane": "^3.1.6",
     "sanity-plugin-media": "^3.0.1",
     "sanity-plugin-simpler-color-input": "^3.1.1",
