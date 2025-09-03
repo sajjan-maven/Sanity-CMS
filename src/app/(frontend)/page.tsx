@@ -47,7 +47,7 @@ export default async function Home() {
               style={{ maxWidth: `${homePage.subheadingWidth}px` }}>
               <p>{homePage.subheading}</p>
             </div>
-            <Suspense fallback={<div>Loading...</div>}><HomePageEmailCapture referance={homePage.emailCapture} /></Suspense>
+            <Suspense fallback={<div>Loading...</div>}><HomePageEmailCapture referance={homePage.emailCapture || ''} /></Suspense>
           </div>
           <div className="relative lg:-mt-[155px] xl:-mt-[170px] z-0">
             <div className="relative hidden lg:block">
@@ -79,14 +79,14 @@ export default async function Home() {
             <div className="lg:absolute pt-6 lg:pt-14 xl:pt-4 lg:top-[52.523%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 w-full max-w-[1728px] mx-auto pointer-events-none z-40">
               <div className="w-full px-4 lg:px-0 lg:max-w-[60.34%] mx-auto">
                 <div className="w-full pb-[72.832%] min-[647px]:pb-[64.7%] rounded-md relative hero-section-box-shadow">
-                  <iframe
+                  {homePage.clickthrough && <iframe
                     src={homePage.clickthrough}
                     title="Stitchflow Homepage"
                     frameBorder="0"
                     allowFullScreen
                     allow="clipboard-write"
                     className="absolute inset-0 w-full h-full pointer-events-auto"
-                  ></iframe>
+                  ></iframe>}
                 </div>
               </div>
             </div>

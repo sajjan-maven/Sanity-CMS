@@ -2,23 +2,23 @@ import React from "react";
 
 interface LeftSectionProps {
   pageData: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    description: string[];
-    learningPoints: string[];
-    keyChallenges: string[];
+    badge: string | null;
+    title: string | null;
+    subtitle: string | null;
+    description: string[] | null;
+    learningPoints: string[] | null;
+    keyChallenges: string[] | null;
   };
 }
 
 export default function LeftSection({ pageData }: LeftSectionProps) {
   const {
-    badge,
-    title,
-    subtitle,
-    description,
-    learningPoints,
-    keyChallenges,
+    badge = '',
+    title = '',
+    subtitle = '',
+    description = [],
+    learningPoints = [],
+    keyChallenges = [],
   } = pageData;
 
   return (
@@ -40,7 +40,7 @@ export default function LeftSection({ pageData }: LeftSectionProps) {
       </div>
 
       <div className="flex flex-col items-start justify-center gap-2.5 w-full">
-        {description.map((para, idx) => (
+        {description && description.map((para, idx) => (
           <p key={idx} className="w-full font-normal text-[#363338] text-base pb-4">
             {para}
           </p>
@@ -52,7 +52,7 @@ export default function LeftSection({ pageData }: LeftSectionProps) {
           </h3>
 
           <ul className="font-normal text-[#363338] text-base leading-[25.6px] list-disc pl-8">
-            {learningPoints.map((point, index) => (
+            {learningPoints && learningPoints.map((point, index) => (
               <li key={`learning-point-${index}`}>{point}</li>
             ))}
           </ul>
@@ -64,7 +64,7 @@ export default function LeftSection({ pageData }: LeftSectionProps) {
           </h3>
 
           <ul className="font-normal text-[#363338] text-base leading-[25.6px] list-disc pl-8">
-            {keyChallenges.map((challenge, index) => (
+            {keyChallenges && keyChallenges.map((challenge, index) => (
               <li key={`challenge-${index}`}>{challenge}</li>
             ))}
           </ul>

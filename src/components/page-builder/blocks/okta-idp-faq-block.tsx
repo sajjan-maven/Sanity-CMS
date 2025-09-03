@@ -23,7 +23,7 @@ export default function OktaIdpFaqSection(props: OktaIdpFaqSectionProps) {
     };
 
     return (
-        <section className="pt-20 w-full bg-[#F7F5F2] px-6">
+        <section className={`pt-20 pb-4 w-full bg-[#F7F5F2] px-6`}>
             <div className="text-2xl md:text-[40px] mb-8 md:mb-12 text-center max-w-[590px] mx-auto font-medium leading-tight md:leading-[48px]">
                 {heading || "Frequently Asked Questions"}
             </div>
