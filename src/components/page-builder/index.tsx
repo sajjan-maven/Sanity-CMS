@@ -6,20 +6,15 @@ import { createDataAttribute } from "next-sanity";
 import { PageBySlugQueryResult } from "../../../sanity.types";
 import { dataset, projectId, studioUrl } from "@/sanity/lib/api";
 
-const HeroBlock = dynamic(() => import("./blocks/hero-block"));
-const HeaderBlock = dynamic(() => import("./blocks/header-block"));
-const FeatureCardsBlock = dynamic(() => import("./blocks/feature-cards-block"));
-const TestimonialBlock = dynamic(() => import("./blocks/testimonial-block"));
-const LogoBlock = dynamic(() => import("./blocks/logo-block"));
+
 const FreeformBlock = dynamic(() => import("./blocks/freeform-block"));
 const PortableTextBlock = dynamic(() => import("./blocks/portable-text-block"));
-const CallToActionBlock = dynamic(() => import("./blocks/call-to-action-block"));
-const FeaturesMinimalBlock = dynamic(() => import("./blocks/features-minimal-block"));
-const ServicesBlock = dynamic(() => import("./blocks/services-block"));
+// -----
 const FormBlock = dynamic(() => import("./blocks/form-block"));
+// -----
 const MediaBlock = dynamic(() => import("./blocks/media-block"));
 // new UI components
-const HeroClickthroughBlock = dynamic(() => import("./blocks/hero-clickthrough-block"))
+
 const ComparisonTableBlock = dynamic(() => import("./blocks/comparison-table-block"))
 const FeaturedTestimonialBlock = dynamic(() => import("./blocks/featured-testimonial-block"))
 const SimpleCardBlock = dynamic(() => import("./blocks/simple-cards-block"))
@@ -78,21 +73,12 @@ export type PageBuilderProps = {
 };
 
 const PB_BLOCKS = {
-  heroBlock: HeroBlock,
-  headerBlock: HeaderBlock,
-  featureCardsBlock: FeatureCardsBlock,
-  testimonialBlock: TestimonialBlock,
-  logoBlock: LogoBlock,
   freeformBlock: FreeformBlock,
   portableTextBlock: PortableTextBlock,
-  callToActionBlock: CallToActionBlock,
-  featuresMinimalBlock: FeaturesMinimalBlock,
-  servicesBlock: ServicesBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   //ABCD 1 Create the UI component inside components > page-builder > blocks
   //ABCD 2 Add component name here to allow page builder to render component
-  heroClickthroughBlock: HeroClickthroughBlock,
   simpleCardBlock: SimpleCardBlock,
   featuredTestimonialBlock: FeaturedTestimonialBlock,
   comparisonTableBlock: ComparisonTableBlock,

@@ -1,18 +1,11 @@
 import {
-  heroBlockQuery,
-  headerBlockQuery,
-  heroClickthroughBlockQuery,
   featureBlockQuery,
-  featureCardsBlockQuery,
-  featuresMinimalBlockQuery,
-  callToActionBlockQuery,
-  logoBlockQuery,
-  testimonialBlockQuery,
   freeformBlockQuery,
   portableTextBlockQuery,
   blogArchiveBlockQuery,
-  servicesBlockQuery,
+  // ----
   formBlockQuery,
+  // ----
   mediaBlockQuery,
   simpleCardBlockQuery,
   featuredTestimonialBlockQuery,
@@ -65,22 +58,14 @@ import {
 //ABCD Add 5 component name here for type-script auto generate
 export const pageBuilder = `
   pageBuilder[] {
-    ${heroBlockQuery},
-    ${headerBlockQuery},
     ${featureBlockQuery},
-    ${featureCardsBlockQuery},
-    ${featuresMinimalBlockQuery},
-    ${callToActionBlockQuery},
-    ${logoBlockQuery},
-    ${testimonialBlockQuery},
     ${freeformBlockQuery},
     ${portableTextBlockQuery},
     ${blogArchiveBlockQuery},
-    ${servicesBlockQuery},
+    // -----
     ${formBlockQuery},
+    // -----
     ${mediaBlockQuery},
-
-    ${heroClickthroughBlockQuery},
     ${simpleCardBlockQuery},
     ${featuredTestimonialBlockQuery},
     ${comparisonTableBlockQuery},

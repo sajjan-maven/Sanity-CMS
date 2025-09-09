@@ -65,19 +65,12 @@ const coreSchema = [
 ];
 
 import { pageBuilder } from "./page-builder/page-builder";
-import headerBlock from "./page-builder/blocks/header-block";
-import heroBlock from "./page-builder/blocks/hero-block";
-import logoBlock from "./page-builder/blocks/logo-block";
-import featuresMinimalBlock from "./page-builder/blocks/features-minimal-block";
-import featureCardsBlock from "./page-builder/blocks/feature-cards-block";
-import callToActionBlock from "./page-builder/blocks/call-to-action-block";
-import testimonialBlock from "./page-builder/blocks/testimonial-block";
 import portableTextBlock from "./page-builder/blocks/portable-text-block";
 import freeformBlock from "./page-builder/blocks/freeform-block";
-import servicesBlock from "./page-builder/blocks/services-block";
+// -----
 import formBlock from "./page-builder/blocks/form-block";
+// -----
 import mediaBlock from "./page-builder/blocks/media-block";
-import heroClickthroughBlock from "./page-builder/blocks/hero-clickthrough";
 import simpleCardBlock from "./page-builder/blocks/simple-card-block";
 import featuredTestimonialBlock from "./page-builder/blocks/featured-testimonial-block";
 import comparisonTableBlock from "./page-builder/blocks/comparison-table-block";
@@ -128,20 +121,11 @@ import testimonialV1Block from "./page-builder/blocks/testimonial-v1-block";
 //ABCD 6 Add component name here for recognising schema as page builder block
 const pageBuilderSchema = [
   pageBuilder,
-  heroBlock,
-  headerBlock,
-  featureCardsBlock,
-  featuresMinimalBlock,
   freeformBlock,
   portableTextBlock,
-  callToActionBlock,
-  logoBlock,
   mediaBlock,
-  testimonialBlock,
-  servicesBlock,
+  
   formBlock,
-
-  heroClickthroughBlock,
   simpleCardBlock,
   featuredTestimonialBlock,
   comparisonTableBlock,

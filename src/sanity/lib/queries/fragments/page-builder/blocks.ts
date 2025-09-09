@@ -1,45 +1,6 @@
-import { baseQuery, buttonQuery, mediaQuery, paddingQuery } from "../misc";
+import { baseQuery, mediaQuery, paddingQuery } from "../misc";
 
-export const heroBlockQuery = `
-  _type == "heroBlock" => {
-    ${baseQuery},
-    heading,
-    content[],
-    mediaType,
-    bottomCornerRadius,
-    buttons[]{
-      ${buttonQuery}
-    },
-    image { 
-      height,
-      ${mediaQuery}
-    },
-    dialogType,
-    videoUrl,
-    overlayType,
-    anchorId
-  }
-`
 
-export const headerBlockQuery = `
-  _type == "headerBlock" => {
-    ${baseQuery},
-    heading,
-    content[],
-    bottomCornerRadius,
-    anchorId
-  }
-`
-
-export const heroClickthroughBlockQuery = `
-  _type == "heroClickthroughBlock" => {
-    ${baseQuery},
-    heading,
-    subheading,
-    headingWidth,
-    subheadingWidth
-  }
-`
 export const simpleCardBlockQuery = `
   _type == "simpleCardBlock" => {
     ${baseQuery},
@@ -173,109 +134,6 @@ export const featureBlockQuery = `
     anchorId
   }
 `
-
-export const featureCardsBlockQuery = `
-  _type == "featureCardsBlock" => {
-    ${baseQuery},
-    heading,
-    buttons[]{
-      ${buttonQuery}
-    },
-    features[] {
-      _key,
-      title,
-      description,
-      items,
-      image { 
-        ${mediaQuery}
-      },
-      button {
-        ${buttonQuery}
-      },  
-    },
-    showCallToAction,
-    callToActionHeading,
-    callToActionContent,
-    callToActionButtons[] {
-      ${buttonQuery}
-    },
-    anchorId,
-    ${paddingQuery}
-  }
-`
-
-export const featuresMinimalBlockQuery = `
-  _type == "featuresMinimalBlock" => {
-    ${baseQuery},
-    heading,
-    content,
-    buttons[] {
-      ${buttonQuery}
-    },
-    features,
-    enableBorderTop,
-    cornerRadiusTop,
-    enableBorderBottom,
-    cornerRadiusBottom,
-    anchorId,
-    ${paddingQuery}
-  }
-`
-
-export const callToActionBlockQuery = `
-  _type == "callToActionBlock" => {
-    ${baseQuery},
-    heading,
-    content,
-    buttons[] {
-      ${buttonQuery}
-    },
-    anchorId,
-    ${paddingQuery}
-  }
-`
-
-export const logoBlockQuery = `
-  _type == "logoBlock" => {
-    ${baseQuery},
-    heading,
-    logos[] {
-      _key,
-      title,
-      image { 
-        ${mediaQuery}
-      },
-      size,
-      link
-    },
-    anchorId
-  }
-`
-export const testimonialBlockQuery = `
-  _type == "testimonialBlock" => {
-    ${baseQuery},
-    heading,
-    eyebrow,
-    testimonials[]->{
-      _id,
-      name,
-      jobTitle,
-      company,
-      quote,
-      avatar { 
-        ${mediaQuery}
-      },
-      logo { 
-        ${mediaQuery}
-      },
-    },
-    anchorId,
-    cornerRadiusTop,
-    cornerRadiusBottom,
-    ${paddingQuery}
-  }
-`
-
 export const freeformBlockQuery = `
   _type == "freeformBlock" => {
     ${baseQuery},
@@ -340,30 +198,7 @@ export const blogArchiveBlockQuery = `
     ${paddingQuery}
   }
 `
-
-export const servicesBlockQuery = `
-  _type == "servicesBlock" => {
-    ${baseQuery},
-    heading,
-    services[]->{
-      _id,
-      title,
-      shortDescription,
-      image { 
-        ${mediaQuery}
-      },
-      "slug": slug.current,
-    },
-    buttons[]{
-      ${buttonQuery}
-    },
-    background,
-    topCornerRadius,
-    anchorId,
-    ${paddingQuery}
-  }
-`
-
+// ----
 export const formBlockQuery = `
   _type == "formBlock" => {
     ${baseQuery},
@@ -378,6 +213,7 @@ export const formBlockQuery = `
     ${paddingQuery}
   }
 `
+// ----
 
 export const mediaBlockQuery = `
   _type == "mediaBlock" => {
