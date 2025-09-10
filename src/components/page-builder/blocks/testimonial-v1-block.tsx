@@ -14,7 +14,7 @@ export default function TestimonialV1Block(props: TestimonialV1BlockProps) {
     return (
         <section className="bg-[#f7f5f2] px-4">
             <div className="w-full max-w-[1066px] mx-auto px-4 flex justify-center">
-                {testimonials.map((testimonial, index) => (
+                {testimonials?.map((testimonial, index) => (
                     <div
                         key={index}
                         className="bg-white rounded-2xl border border-[#e0d6c7] p-4 w-full mb-8"

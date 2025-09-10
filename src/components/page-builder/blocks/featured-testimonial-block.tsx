@@ -4,7 +4,8 @@ import Image from "next/image";
 export type FeaturedTestimonialBlockProps = PageBuilderType<"featuredTestimonialBlock">;
 
 export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlockProps) {
-  const { quote, author, quoteIcon, backgroundColor } = props;
+  const {
+    quote, author, quoteIcon, /*backgroundColor*/ } = props;
 
   return (
     <section
