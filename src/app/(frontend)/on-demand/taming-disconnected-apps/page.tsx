@@ -26,11 +26,17 @@ export default async function Webinar() {
     return null;
   }
 
+  // Fix type for RightSection props
+  const rightSectionData = {
+    videoId: page.videoId ?? null,
+    formThumbnail: page.formThumbnail ?? null,
+  };
+
   return (
     <section className="w-full bg-[#F7F5F2]">
       <div className="relative w-full max-w-[1360px] mx-auto flex flex-col lg:flex-row h-full">
         <LeftSection pageData={page} />
-        <RightSection pageData={page} />
+        <RightSection pageData={rightSectionData} />
       </div>
     </section>
   );

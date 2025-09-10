@@ -2063,9 +2063,31 @@ export type HeroBlock = {
 
 export type PageBuilder = Array<{
   _key: string;
+} & HeroBlock | {
+  _key: string;
+} & HeaderBlock | {
+  _key: string;
+} & FeatureCardsBlock | {
+  _key: string;
+} & FeaturesMinimalBlock | {
+  _key: string;
+} & FreeformBlock | {
+  _key: string;
 } & PortableTextBlock | {
   _key: string;
+} & CallToActionBlock | {
+  _key: string;
+} & LogoBlock | {
+  _key: string;
+} & TestimonialBlock | {
+  _key: string;
+} & ServicesBlock | {
+  _key: string;
+} & FormBlock | {
+  _key: string;
 } & MediaBlock | {
+  _key: string;
+} & HeroClickthroughBlock | {
   _key: string;
 } & SimpleCardBlock | {
   _key: string;
@@ -2947,6 +2969,97 @@ export type GeneralSettings = {
   copyright?: string;
 };
 
+export type Page = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  pageType?: "platform" | "solution" | "resource" | "company" | "landing";
+  slug?: Slug;
+  pageBuilder?: PageBuilder;
+  seo?: SeoObject;
+};
+
+export type BlogPage = {
+  _id: string;
+  _type: "blogPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  heroText?: string;
+  featuredBlog?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "post";
+  };
+  editorsPicks?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "post";
+  }>;
+  pageBuilder?: PageBuilder;
+  seo?: SeoObject;
+};
+
+export type ServicesPage = {
+  _id: string;
+  _type: "servicesPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  pageBuilder?: PageBuilder;
+  seo?: SeoObject;
+};
+
+export type ProjectsPage = {
+  _id: string;
+  _type: "projectsPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  pageBuilder?: PageBuilder;
+  seo?: SeoObject;
+};
+
+export type Service = {
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  shortDescription?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    altText?: string;
+    caption?: string;
+    _type: "image";
+  };
+  pageBuilder?: PageBuilder;
+  seo?: SeoObject;
+  orderRank?: string;
+};
+
 export type Project = {
   _id: string;
   _type: "project";
@@ -2989,84 +3102,6 @@ export type ProjectCategory = {
   title?: string;
   slug?: Slug;
   orderRank?: string;
-};
-
-export type Service = {
-  _id: string;
-  _type: "service";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  shortDescription?: string;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    altText?: string;
-    caption?: string;
-    _type: "image";
-  };
-  pageBuilder?: PageBuilder;
-  seo?: SeoObject;
-  orderRank?: string;
-};
-
-export type ProjectsPage = {
-  _id: string;
-  _type: "projectsPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  pageBuilder?: PageBuilder;
-  seo?: SeoObject;
-};
-
-export type ServicesPage = {
-  _id: string;
-  _type: "servicesPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  pageBuilder?: PageBuilder;
-  seo?: SeoObject;
-};
-
-export type BlogPage = {
-  _id: string;
-  _type: "blogPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  heroText?: string;
-  featuredBlog?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "post";
-  };
-  editorsPicks?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "post";
-  }>;
-  pageBuilder?: PageBuilder;
-  seo?: SeoObject;
 };
 
 export type Post = {
@@ -3151,6 +3186,25 @@ export type Post = {
   seo?: SeoObject;
 };
 
+export type SeoObject = {
+  _type: "seoObject";
+  title?: string;
+  description?: string;
+  noIndex?: boolean;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type Author = {
   _id: string;
   _type: "author";
@@ -3201,38 +3255,6 @@ export type PostCategory = {
   title?: string;
   slug?: Slug;
   orderRank?: string;
-};
-
-export type Page = {
-  _id: string;
-  _type: "page";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  pageType?: "platform" | "solution" | "resource" | "company" | "landing";
-  slug?: Slug;
-  pageBuilder?: PageBuilder;
-  seo?: SeoObject;
-};
-
-export type SeoObject = {
-  _type: "seoObject";
-  title?: string;
-  description?: string;
-  noIndex?: boolean;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
 };
 
 export type HighlightColor = {
@@ -3425,7 +3447,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = StatsSectionObject | BlogButtonObject | Faq | Iframe | AnnouncementBar | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | TestimonialV1Block | DataTableBlock | HeroBannerWithTagBlock | DisconnectedAppsEmpoweredTeamsBlock | DisconnectedAppsSectionWithCardsBlock | DisconnectedAppsFeaturesBlock | DisconnectedAppsStickyStackBlock | DisconnectedAppsBrandsBlock | DisconnectedAppsHeroBlock | AuditReadinessSolutionsListBlock | AuditReadinessRightAccordionBlock | AuditReadinessLeftAccordionBlock | AuditReadinessHeroBlock | SamActionBlock | SamFixTheGapsBlock | SamCardsBlock | SamCenteredBlock | SamHeroSection | OktaIdpCtaSection | OktaIdpFaqSection | OktaIdpTraditionalTools | OktaIdpCustomer | OktaIdpSaasManagementActuallyWorks | OktaIdpPointers | OktaIdpWhySaasSection | OktaIdpHeroSection | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | TamingDisconnectedAppsPage | Sitemap | DemoSettings | QuoteCardObject | IntegrationsPage | IntegrationApplication | IntegrationCategory | CasestudiesPage | Casestudy | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | GeneralSettings | Project | ProjectCategory | Service | ProjectsPage | ServicesPage | BlogPage | Post | Author | PostCategory | Page | SeoObject | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = StatsSectionObject | BlogButtonObject | Faq | Iframe | AnnouncementBar | MenuItem | DropdownItem | VideoObject | CallToActionObject | SpacerObject | SingleImageObject | ButtonObject | RichTextObject | HeadingObject | TestimonialV1Block | DataTableBlock | HeroBannerWithTagBlock | DisconnectedAppsEmpoweredTeamsBlock | DisconnectedAppsSectionWithCardsBlock | DisconnectedAppsFeaturesBlock | DisconnectedAppsStickyStackBlock | DisconnectedAppsBrandsBlock | DisconnectedAppsHeroBlock | AuditReadinessSolutionsListBlock | AuditReadinessRightAccordionBlock | AuditReadinessLeftAccordionBlock | AuditReadinessHeroBlock | SamActionBlock | SamFixTheGapsBlock | SamCardsBlock | SamCenteredBlock | SamHeroSection | OktaIdpCtaSection | OktaIdpFaqSection | OktaIdpTraditionalTools | OktaIdpCustomer | OktaIdpSaasManagementActuallyWorks | OktaIdpPointers | OktaIdpWhySaasSection | OktaIdpHeroSection | PngImageBlock | IconBlock | AvatarWithDetails | JoinOurNewsletterBlock | FrequentlyAskedQuestionBlock | AccordionAndImageBlock | SocialReviewBlock | ItToolsCardBlock | PricingBlock | PricingItem | IconHighlightBlock | IconListTwoColumnBlock | IconListBlock | StepRightImageBlock | ClickthroughTopicBlock | StepProcessBlock | HeroSectionBlock | TestimonialCarouselBlock | ComparisonTableBlock | FeaturedTestimonialBlock | SimpleCardBlock | HeroClickthroughBlock | FormBlock | ServicesBlock | TestimonialBlock | MediaBlock | LogoBlock | CallToActionBlock | PortableTextBlock | FreeformBlock | FeaturesMinimalBlock | FeatureCardsBlock | HeaderBlock | HeroBlock | PageBuilder | TamingDisconnectedAppsPage | Sitemap | DemoSettings | QuoteCardObject | IntegrationsPage | IntegrationApplication | IntegrationCategory | CasestudiesPage | Casestudy | PrivacyPage | TermsPage | HomePage | Footer | FooterCoLinks | FooterLinks | FooterCTA | Navbar | CtaButton | Logo | Form | Testimonial | Redirect | BlogSettings | MarketingSettings | GeneralSettings | Page | BlogPage | ServicesPage | ProjectsPage | Service | Project | ProjectCategory | Post | SeoObject | Author | PostCategory | HighlightColor | TextColor | SimplerColor | MediaTag | Table | TableRow | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries/documents/author.ts
 // Variable: authorBySlugQuery
@@ -3557,6 +3579,80 @@ export type CasestudiesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -3602,6 +3698,195 @@ export type CasestudiesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -3626,6 +3911,245 @@ export type CasestudiesPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -3655,6 +4179,31 @@ export type CasestudiesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -3678,6 +4227,103 @@ export type CasestudiesPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -3826,6 +4472,29 @@ export type CasestudiesPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -4133,6 +4802,81 @@ export type CasestudiesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -4242,6 +4986,46 @@ export type CasestudiesPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -4977,6 +5761,80 @@ export type IntegrationPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -5022,6 +5880,195 @@ export type IntegrationPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -5046,6 +6093,245 @@ export type IntegrationPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -5075,6 +6361,31 @@ export type IntegrationPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -5098,6 +6409,103 @@ export type IntegrationPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -5246,6 +6654,29 @@ export type IntegrationPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -5553,6 +6984,81 @@ export type IntegrationPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -5662,6 +7168,46 @@ export type IntegrationPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -6334,6 +7880,80 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -6379,6 +7999,195 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -6403,6 +8212,245 @@ export type PageBySlugQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -6432,6 +8480,31 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -6455,6 +8528,103 @@ export type PageBySlugQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -6603,6 +8773,29 @@ export type PageBySlugQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -6910,6 +9103,81 @@ export type PageBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -7019,6 +9287,46 @@ export type PageBySlugQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -7669,6 +9977,80 @@ export type BlogPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -7714,6 +10096,195 @@ export type BlogPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -7738,6 +10309,245 @@ export type BlogPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -7767,6 +10577,31 @@ export type BlogPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -7790,6 +10625,103 @@ export type BlogPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -7938,6 +10870,29 @@ export type BlogPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -8245,6 +11200,81 @@ export type BlogPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -8354,6 +11384,46 @@ export type BlogPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -9229,6 +12299,80 @@ export type PrivacyPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -9274,6 +12418,195 @@ export type PrivacyPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -9298,6 +12631,245 @@ export type PrivacyPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -9327,6 +12899,31 @@ export type PrivacyPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -9350,6 +12947,103 @@ export type PrivacyPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -9498,6 +13192,29 @@ export type PrivacyPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -9805,6 +13522,81 @@ export type PrivacyPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -9914,6 +13706,46 @@ export type PrivacyPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -10527,6 +14359,80 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -10572,6 +14478,195 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -10596,6 +14691,245 @@ export type ProjectsPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -10625,6 +14959,31 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -10648,6 +15007,103 @@ export type ProjectsPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -10796,6 +15252,29 @@ export type ProjectsPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -11103,6 +15582,81 @@ export type ProjectsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -11212,6 +15766,46 @@ export type ProjectsPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -11809,6 +16403,80 @@ export type ProjectsPageQueryResult = {
     } | {
       _id: null;
       _key: string;
+      _type: "callToActionBlock";
+      heading: string | null;
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      buttons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      anchorId: string | null;
+      paddingTop: null;
+      paddingBottom: null;
+    } | {
+      _id: null;
+      _key: string;
       _type: "clickthroughTopicBlock";
       useCases: Array<{
         title: string | null;
@@ -11854,6 +16522,195 @@ export type ProjectsPageQueryResult = {
     } | {
       _id: null;
       _key: string;
+      _type: "featureCardsBlock";
+      heading: string | null;
+      buttons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      features: Array<{
+        _key: string;
+        title: string | null;
+        description: string | null;
+        items: Array<string> | null;
+        image: {
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        button: {
+          _key: null;
+          showButton: boolean | null;
+          buttonText: string | null;
+          buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+          buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+          buttonWidth: "auto" | "fullWidth" | null;
+          buttonFileUrl: {
+            asset: {
+              url: string | null;
+            } | null;
+          } | null;
+          buttonPageReference: {
+            _id: string;
+            _type: "blogPage";
+            title: string | null;
+            slug: string | null;
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: string | null;
+          } | {
+            _id: string;
+            _type: "project";
+            title: string | null;
+            slug: string | null;
+          } | {
+            _id: string;
+            _type: "projectsPage";
+            title: string | null;
+            slug: string | null;
+          } | {
+            _id: string;
+            _type: "service";
+            title: string | null;
+            slug: string | null;
+          } | {
+            _id: string;
+            _type: "servicesPage";
+            title: string | null;
+            slug: string | null;
+          } | null;
+          buttonEmailAddress: string | null;
+          buttonExternalUrl: string | null;
+          buttonAnchorLocation: "choosePage" | "currentPage" | null;
+          buttonAnchorId: string | null;
+        } | null;
+      }> | null;
+      showCallToAction: boolean | null;
+      callToActionHeading: string | null;
+      callToActionContent: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      callToActionButtons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      anchorId: string | null;
+      paddingTop: null;
+      paddingBottom: null;
+    } | {
+      _id: null;
+      _key: string;
       _type: "featuredTestimonialBlock";
       quote: string | null;
       author: {
@@ -11878,6 +16735,245 @@ export type ProjectsPageQueryResult = {
       backgroundColor: {
         value: string | null;
       } | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "featuresMinimalBlock";
+      heading: string | null;
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      buttons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      features: Array<string> | null;
+      enableBorderTop: boolean | null;
+      cornerRadiusTop: "rounded" | "straight" | null;
+      enableBorderBottom: boolean | null;
+      cornerRadiusBottom: "rounded" | "straight" | null;
+      anchorId: string | null;
+      paddingTop: null;
+      paddingBottom: null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "formBlock";
+      heading: string | null;
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      form: {
+        title: string | null;
+        submitButtonText: string | null;
+        fields: Array<{
+          name?: string;
+          placeholder?: string;
+          inputType?: "email" | "tel" | "text" | "textarea";
+          isRequired?: boolean;
+          _key: string;
+        }> | null;
+      } | null;
+      anchorId: string | null;
+      paddingTop: null;
+      paddingBottom: null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "freeformBlock";
+      title: string | null;
+      columnsPerRow: "2" | "3" | "4" | null;
+      columns: Array<{
+        _key: string;
+        _type: null;
+        title: string | null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+        alignment: "center" | "left" | "right" | null;
+        items: Array<{
+          _key: string;
+          _type: "buttonObject";
+          image: null;
+          heading: null;
+          headingText: null;
+          headingTag: null;
+          headingSize: null;
+          richTextContent: null;
+          buttonText: string | null;
+          buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+          buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+          buttonPageReference: {
+            _id: string;
+            title: string | null;
+            slug: string | null;
+          } | null;
+          buttonExternalUrl: string | null;
+          spacing: null;
+        } | {
+          _key: string;
+          _type: "headingObject";
+          image: null;
+          heading: null;
+          headingText: string | null;
+          headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+          headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+          richTextContent: null;
+          buttonText: null;
+          buttonVariant: null;
+          buttonType: null;
+          buttonPageReference: null;
+          buttonExternalUrl: null;
+          spacing: null;
+        } | {
+          _key: string;
+          _type: "richTextObject";
+          image: null;
+          heading: null;
+          headingText: null;
+          headingTag: null;
+          headingSize: null;
+          richTextContent: Array<{
+            children?: Array<{
+              marks?: Array<string>;
+              text?: string;
+              _type: "span";
+              _key: string;
+            }>;
+            style?: "normal";
+            listItem?: never;
+            markDefs?: Array<{
+              href?: string;
+              _type: "link";
+              _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+          }> | null;
+          buttonText: null;
+          buttonVariant: null;
+          buttonType: null;
+          buttonPageReference: null;
+          buttonExternalUrl: null;
+          spacing: null;
+        } | {
+          _key: string;
+          _type: "singleImageObject";
+          image: {
+            aspectRatio: null;
+            asset: {
+              _ref: null;
+              _type: "sanity.imageAsset";
+              url: string | null;
+              altText: string | null;
+              description: string | null;
+              tags: null;
+              title: string | null;
+            } | null;
+          } | null;
+          heading: null;
+          headingText: null;
+          headingTag: null;
+          headingSize: null;
+          richTextContent: null;
+          buttonText: null;
+          buttonVariant: null;
+          buttonType: null;
+          buttonPageReference: null;
+          buttonExternalUrl: null;
+          spacing: null;
+        } | {
+          _key: string;
+          _type: "spacerObject";
+          image: null;
+          heading: null;
+          headingText: null;
+          headingTag: null;
+          headingSize: null;
+          richTextContent: null;
+          buttonText: null;
+          buttonVariant: null;
+          buttonType: null;
+          buttonPageReference: null;
+          buttonExternalUrl: null;
+          spacing: "large" | "medium" | "none" | "small" | null;
+        }> | null;
+      }> | null;
+      anchorId: string | null;
+      border: "bottom" | "none" | "top" | "topBottom" | null;
     } | {
       _id: null;
       _key: string;
@@ -11907,6 +17003,31 @@ export type ProjectsPageQueryResult = {
     } | {
       _id: null;
       _key: string;
+      _type: "headerBlock";
+      heading: string | null;
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      bottomCornerRadius: "rounded" | "straight" | null;
+      anchorId: string | null;
+    } | {
+      _id: null;
+      _key: string;
       _type: "heroBannerWithTagBlock";
       tag: string | null;
       headingBold: string | null;
@@ -11930,6 +17051,103 @@ export type ProjectsPageQueryResult = {
         _type: "block";
         _key: string;
       }> | null;
+      subheadingWidth: number | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "heroBlock";
+      heading: string | null;
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      mediaType: "image" | "none" | null;
+      bottomCornerRadius: "rounded" | "straight" | null;
+      buttons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      image: {
+        height: "full" | "short" | null;
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      dialogType: "none" | "video" | null;
+      videoUrl: string | null;
+      overlayType: "dark" | "none" | null;
+      anchorId: string | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "heroClickthroughBlock";
+      heading: string | null;
+      subheading: string | null;
+      headingWidth: number | null;
       subheadingWidth: number | null;
     } | {
       _id: null;
@@ -12078,6 +17296,29 @@ export type ProjectsPageQueryResult = {
       successTextColor: {
         value: string | null;
       } | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "logoBlock";
+      heading: string | null;
+      logos: Array<{
+        _key: string;
+        title: string | null;
+        image: {
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        size: "default" | "large" | null;
+        link: string | null;
+      }> | null;
+      anchorId: string | null;
     } | {
       _id: null;
       _key: string;
@@ -12385,6 +17626,81 @@ export type ProjectsPageQueryResult = {
     } | {
       _id: null;
       _key: string;
+      _type: "servicesBlock";
+      heading: string | null;
+      services: Array<{
+        _id: string;
+        title: string | null;
+        shortDescription: string | null;
+        image: {
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        slug: string | null;
+      }> | null;
+      buttons: Array<{
+        _key: string;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      }> | null;
+      background: "pattern" | "white" | null;
+      topCornerRadius: "rounded" | "straight" | null;
+      anchorId: string | null;
+      paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+      paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+    } | {
+      _id: null;
+      _key: string;
       _type: "simpleCardBlock";
       title: string | null;
       cards: Array<{
@@ -12494,6 +17810,46 @@ export type ProjectsPageQueryResult = {
           value: string | null;
         } | null;
       } | null;
+    } | {
+      _id: null;
+      _key: string;
+      _type: "testimonialBlock";
+      heading: string | null;
+      eyebrow: string | null;
+      testimonials: Array<{
+        _id: string;
+        name: string | null;
+        jobTitle: string | null;
+        company: string | null;
+        quote: string | null;
+        avatar: {
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        logo: {
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+      }> | null;
+      anchorId: string | null;
+      cornerRadiusTop: "rounded" | "straight" | null;
+      cornerRadiusBottom: "rounded" | "straight" | null;
+      paddingTop: null;
+      paddingBottom: null;
     } | {
       _id: null;
       _key: string;
@@ -13117,6 +18473,80 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -13162,6 +18592,195 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -13186,6 +18805,245 @@ export type ProjectBySlugQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -13215,6 +19073,31 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -13238,6 +19121,103 @@ export type ProjectBySlugQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -13386,6 +19366,29 @@ export type ProjectBySlugQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -13693,6 +19696,81 @@ export type ProjectBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -13802,6 +19880,46 @@ export type ProjectBySlugQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -14419,6 +20537,80 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -14464,6 +20656,195 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -14488,6 +20869,245 @@ export type AllProjectsQueryResult = Array<{
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -14517,6 +21137,31 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -14540,6 +21185,103 @@ export type AllProjectsQueryResult = Array<{
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -14688,6 +21430,29 @@ export type AllProjectsQueryResult = Array<{
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -14995,6 +21760,81 @@ export type AllProjectsQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -15104,6 +21944,46 @@ export type AllProjectsQueryResult = Array<{
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -15713,6 +22593,80 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -15758,6 +22712,195 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -15782,6 +22925,245 @@ export type ProjectsByCategoryQueryResult = Array<{
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -15811,6 +23193,31 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -15834,6 +23241,103 @@ export type ProjectsByCategoryQueryResult = Array<{
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -15982,6 +23486,29 @@ export type ProjectsByCategoryQueryResult = Array<{
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -16289,6 +23816,81 @@ export type ProjectsByCategoryQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -16398,6 +24000,46 @@ export type ProjectsByCategoryQueryResult = Array<{
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -17002,6 +24644,80 @@ export type ServiceBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -17047,6 +24763,195 @@ export type ServiceBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -17071,6 +24976,245 @@ export type ServiceBySlugQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -17100,6 +25244,31 @@ export type ServiceBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -17123,6 +25292,103 @@ export type ServiceBySlugQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -17271,6 +25537,29 @@ export type ServiceBySlugQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -17578,6 +25867,81 @@ export type ServiceBySlugQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -17687,6 +26051,46 @@ export type ServiceBySlugQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -18290,6 +26694,80 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -18335,6 +26813,195 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -18359,6 +27026,245 @@ export type AllServicesQueryResult = Array<{
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -18388,6 +27294,31 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -18411,6 +27342,103 @@ export type AllServicesQueryResult = Array<{
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -18559,6 +27587,29 @@ export type AllServicesQueryResult = Array<{
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -18866,6 +27917,81 @@ export type AllServicesQueryResult = Array<{
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -18975,6 +28101,46 @@ export type AllServicesQueryResult = Array<{
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -19562,6 +28728,80 @@ export type ServicesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -19607,6 +28847,195 @@ export type ServicesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -19631,6 +29060,245 @@ export type ServicesPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -19660,6 +29328,31 @@ export type ServicesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -19683,6 +29376,103 @@ export type ServicesPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -19831,6 +29621,29 @@ export type ServicesPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -20138,6 +29951,81 @@ export type ServicesPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -20247,6 +30135,46 @@ export type ServicesPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -20910,6 +30838,80 @@ export type TermsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -20955,6 +30957,195 @@ export type TermsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -20979,6 +31170,245 @@ export type TermsPageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -21008,6 +31438,31 @@ export type TermsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -21031,6 +31486,103 @@ export type TermsPageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -21179,6 +31731,29 @@ export type TermsPageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -21486,6 +32061,81 @@ export type TermsPageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -21595,6 +32245,46 @@ export type TermsPageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;
@@ -22598,6 +33288,80 @@ export type HomePageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "callToActionBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "clickthroughTopicBlock";
     useCases: Array<{
       title: string | null;
@@ -22643,6 +33407,195 @@ export type HomePageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "featureCardsBlock";
+    heading: string | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<{
+      _key: string;
+      title: string | null;
+      description: string | null;
+      items: Array<string> | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      button: {
+        _key: null;
+        showButton: boolean | null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonWidth: "auto" | "fullWidth" | null;
+        buttonFileUrl: {
+          asset: {
+            url: string | null;
+          } | null;
+        } | null;
+        buttonPageReference: {
+          _id: string;
+          _type: "blogPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "project";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "projectsPage";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "service";
+          title: string | null;
+          slug: string | null;
+        } | {
+          _id: string;
+          _type: "servicesPage";
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonEmailAddress: string | null;
+        buttonExternalUrl: string | null;
+        buttonAnchorLocation: "choosePage" | "currentPage" | null;
+        buttonAnchorId: string | null;
+      } | null;
+    }> | null;
+    showCallToAction: boolean | null;
+    callToActionHeading: string | null;
+    callToActionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    callToActionButtons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "featuredTestimonialBlock";
     quote: string | null;
     author: {
@@ -22667,6 +33620,245 @@ export type HomePageQueryResult = {
     backgroundColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "featuresMinimalBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    features: Array<string> | null;
+    enableBorderTop: boolean | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    enableBorderBottom: boolean | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "formBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    form: {
+      title: string | null;
+      submitButtonText: string | null;
+      fields: Array<{
+        name?: string;
+        placeholder?: string;
+        inputType?: "email" | "tel" | "text" | "textarea";
+        isRequired?: boolean;
+        _key: string;
+      }> | null;
+    } | null;
+    anchorId: string | null;
+    paddingTop: null;
+    paddingBottom: null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "freeformBlock";
+    title: string | null;
+    columnsPerRow: "2" | "3" | "4" | null;
+    columns: Array<{
+      _key: string;
+      _type: null;
+      title: string | null;
+      spacing: "large" | "medium" | "none" | "small" | null;
+      alignment: "center" | "left" | "right" | null;
+      items: Array<{
+        _key: string;
+        _type: "buttonObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: string | null;
+        buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+        buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+        buttonPageReference: {
+          _id: string;
+          title: string | null;
+          slug: string | null;
+        } | null;
+        buttonExternalUrl: string | null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "headingObject";
+        image: null;
+        heading: null;
+        headingText: string | null;
+        headingTag: "h2" | "h3" | "h4" | "h5" | "h6" | null;
+        headingSize: "lg" | "md" | "sm" | "xl" | "xs" | "xxl" | "xxxl" | null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "richTextObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "normal";
+          listItem?: never;
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }> | null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "singleImageObject";
+        image: {
+          aspectRatio: null;
+          asset: {
+            _ref: null;
+            _type: "sanity.imageAsset";
+            url: string | null;
+            altText: string | null;
+            description: string | null;
+            tags: null;
+            title: string | null;
+          } | null;
+        } | null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: null;
+      } | {
+        _key: string;
+        _type: "spacerObject";
+        image: null;
+        heading: null;
+        headingText: null;
+        headingTag: null;
+        headingSize: null;
+        richTextContent: null;
+        buttonText: null;
+        buttonVariant: null;
+        buttonType: null;
+        buttonPageReference: null;
+        buttonExternalUrl: null;
+        spacing: "large" | "medium" | "none" | "small" | null;
+      }> | null;
+    }> | null;
+    anchorId: string | null;
+    border: "bottom" | "none" | "top" | "topBottom" | null;
   } | {
     _id: null;
     _key: string;
@@ -22696,6 +33888,31 @@ export type HomePageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "headerBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "heroBannerWithTagBlock";
     tag: string | null;
     headingBold: string | null;
@@ -22719,6 +33936,103 @@ export type HomePageQueryResult = {
       _type: "block";
       _key: string;
     }> | null;
+    subheadingWidth: number | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroBlock";
+    heading: string | null;
+    content: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    mediaType: "image" | "none" | null;
+    bottomCornerRadius: "rounded" | "straight" | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    image: {
+      height: "full" | "short" | null;
+      asset: {
+        _ref: null;
+        _type: "sanity.imageAsset";
+        url: string | null;
+        altText: string | null;
+        description: string | null;
+        tags: null;
+        title: string | null;
+      } | null;
+    } | null;
+    dialogType: "none" | "video" | null;
+    videoUrl: string | null;
+    overlayType: "dark" | "none" | null;
+    anchorId: string | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "heroClickthroughBlock";
+    heading: string | null;
+    subheading: string | null;
+    headingWidth: number | null;
     subheadingWidth: number | null;
   } | {
     _id: null;
@@ -22867,6 +34181,29 @@ export type HomePageQueryResult = {
     successTextColor: {
       value: string | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "logoBlock";
+    heading: string | null;
+    logos: Array<{
+      _key: string;
+      title: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      size: "default" | "large" | null;
+      link: string | null;
+    }> | null;
+    anchorId: string | null;
   } | {
     _id: null;
     _key: string;
@@ -23174,6 +34511,81 @@ export type HomePageQueryResult = {
   } | {
     _id: null;
     _key: string;
+    _type: "servicesBlock";
+    heading: string | null;
+    services: Array<{
+      _id: string;
+      title: string | null;
+      shortDescription: string | null;
+      image: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      slug: string | null;
+    }> | null;
+    buttons: Array<{
+      _key: string;
+      showButton: boolean | null;
+      buttonText: string | null;
+      buttonVariant: "outline" | "primary" | "secondary" | "tertiary" | "underline" | null;
+      buttonType: "anchor" | "emailAddress" | "external" | "fileDownload" | "internal" | null;
+      buttonWidth: "auto" | "fullWidth" | null;
+      buttonFileUrl: {
+        asset: {
+          url: string | null;
+        } | null;
+      } | null;
+      buttonPageReference: {
+        _id: string;
+        _type: "blogPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "project";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "projectsPage";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "service";
+        title: string | null;
+        slug: string | null;
+      } | {
+        _id: string;
+        _type: "servicesPage";
+        title: string | null;
+        slug: string | null;
+      } | null;
+      buttonEmailAddress: string | null;
+      buttonExternalUrl: string | null;
+      buttonAnchorLocation: "choosePage" | "currentPage" | null;
+      buttonAnchorId: string | null;
+    }> | null;
+    background: "pattern" | "white" | null;
+    topCornerRadius: "rounded" | "straight" | null;
+    anchorId: string | null;
+    paddingTop: "default" | "large" | "medium" | "none" | "small" | null;
+    paddingBottom: "default" | "large" | "medium" | "none" | "small" | null;
+  } | {
+    _id: null;
+    _key: string;
     _type: "simpleCardBlock";
     title: string | null;
     cards: Array<{
@@ -23283,6 +34695,46 @@ export type HomePageQueryResult = {
         value: string | null;
       } | null;
     } | null;
+  } | {
+    _id: null;
+    _key: string;
+    _type: "testimonialBlock";
+    heading: string | null;
+    eyebrow: string | null;
+    testimonials: Array<{
+      _id: string;
+      name: string | null;
+      jobTitle: string | null;
+      company: string | null;
+      quote: string | null;
+      avatar: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+      logo: {
+        asset: {
+          _ref: null;
+          _type: "sanity.imageAsset";
+          url: string | null;
+          altText: string | null;
+          description: string | null;
+          tags: null;
+          title: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    anchorId: string | null;
+    cornerRadiusTop: "rounded" | "straight" | null;
+    cornerRadiusBottom: "rounded" | "straight" | null;
+    paddingTop: null;
+    paddingBottom: null;
   } | {
     _id: null;
     _key: string;

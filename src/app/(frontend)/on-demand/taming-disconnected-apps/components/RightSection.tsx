@@ -8,13 +8,13 @@ import NewButton from "@/components/ui/newButton";
 
 interface RightSectionProps {
   pageData: {
-    videoId: string;
+    videoId: string | null;
     formThumbnail: {
       asset: {
         _id: string;
-        url: string;
-      };
-    };
+        url: string | null;
+      } | null;
+    } | null;
   };
 }
 
@@ -132,15 +132,17 @@ export default function RightSection({ pageData }: RightSectionProps) {
               }`}
           >
             <div className={`${showVideoModal ? 'relative w-full max-w-5xl aspect-video mt-20' : 'w-full h-full'}`} >
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className={`rounded-lg`}
-              ></iframe>
+              {videoId && (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className={`rounded-lg`}
+                ></iframe>
+              )}
 
               {!showVideoModal && (
                 <button
@@ -170,14 +172,16 @@ export default function RightSection({ pageData }: RightSectionProps) {
   return (
     <section className="lg:max-w-[50%] w-full bg-[#E9E2D9] px-4 sm:px-6 py-14">
       <div className="flex flex-col items-center justify-center gap-6 h-full">
-        <Image
-          width={445}
-          height={250}
-          priority
-          draggable={false}
-          alt="Webinar thumbnail"
-          src={formThumbnail.asset.url}
-        />
+        {formThumbnail?.asset?.url && (
+          <Image
+            width={445}
+            height={250}
+            priority
+            draggable={false}
+            alt="Webinar thumbnail"
+            src={formThumbnail.asset.url}
+          />
+        )}
 
         <div className="bg-transparent border-none shadow-none w-full max-w-[445px] mx-auto">
           <div className="flex flex-col items-center gap-[18px] w-full">
