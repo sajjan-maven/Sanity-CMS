@@ -13,7 +13,7 @@ export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
 
 
   return (
-    <section className="w-full px-6 pt-20 pb-40">
+    <section className="w-full px-6 py-20">
       <div className="w-full max-w-[1256px] mx-auto">
         <h2 className="font-semibold text-[#363338] text-3xl md:text-[40px] leading-tight md:leading-[48px] mb-6 md:mb-10">
           {sectionTitle}
@@ -24,7 +24,7 @@ export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
 
             return (
               <div key={index} className="relative bg-[#e4dbd0] rounded-[32px] overflow-hidden border-none">
-                <div className="flex items-center gap-2 px-8 min-h-[90px] lg:min-h-[100px] pt-4">
+                <div className="flex items-center gap-2 px-8 py-8">
                   <Image
                     src={avatar.avatar?.asset?.url || ''}
                     alt={`${avatar.name} Avatar`}
@@ -41,9 +41,9 @@ export default function AvatarWithDetails(props: AvatarWithDetailsProps) {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-start pt-0 pb-16 px-8">
+                <div className="flex flex-col items-start pt-0 px-8">
                   <p className="text-[#363338] text-sm leading-6">{avatar.bio}</p>
-                  <div className="absolute bottom-6 flex gap-3">
+                  <div className="flex gap-3 mt-4 mb-8">
                     {avatar.socialLinks?.map((social, i) => {
                       return (
                         <Link

@@ -4,13 +4,15 @@ import Image from "next/image";
 export type FeaturedTestimonialBlockProps = PageBuilderType<"featuredTestimonialBlock">;
 
 export default function FeaturedTestimonialBlock(props: FeaturedTestimonialBlockProps) {
-  const { quote, author, quoteIcon, backgroundColor } = props;
+  const {
+    quote, author, quoteIcon, /*backgroundColor*/ } = props;
 
   return (
     <section
       className="w-full py-10 md:py-20 z-[5] px-6"
       style={{
-        background: backgroundColor?.value || "linear-gradient(to bottom, #f8f5f3, white)"
+        // background: backgroundColor?.value || "linear-gradient(to bottom, #f8f5f3, white)"
+        background: "linear-gradient(to bottom, #f8f5f3, white)"
       }}
     >
       <div className="max-w-[790px] mx-auto">

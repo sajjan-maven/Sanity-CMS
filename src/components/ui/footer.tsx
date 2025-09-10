@@ -19,7 +19,7 @@ export default function Footer({ footerSettings }: {
   });
 
   return (
-    <footer className="bg-[#363338] rounded-t-4xl overflow-hidden -mt-5 pt-6 md:pt-20 relative z-20">
+    <footer className="bg-[#363338] rounded-t-[2rem] overflow-hidden -mt-5 pt-6 md:pt-20 relative z-20">
       {!shouldHideFooterCTA && <FooterCTA footerCTA={footerSettings.footerCTA} />}
       <FooterLinks footerLinks={footerSettings.footerLinks} />
       <FooterCoLinks footerCoLinks={footerSettings.footerCoLinks} />

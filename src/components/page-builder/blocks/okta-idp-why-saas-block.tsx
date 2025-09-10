@@ -22,9 +22,8 @@ export default function WhySaasSection(props: OktaIdpWhySaasSectionProps) {
             <div className="mx-auto max-w-[1256px]">
                 {/* Section Title */}
                 <div className="max-w-[675px] mx-auto text-center">
-                    <h2 className="text-2xl font-medium text-[#363338] md:text-[40px] px-2 mb-4 lg:mb-0 leading-tight md:leading-[48px]">
-                        {title ||
-                            "How non-SSO, non-API apps derail your identity investments"}
+                    <h2 className="text-2xl font-medium text-[#363338] md:text-[40px] px-2 mb-4 lg:mb-0 leading-[34px] md:leading-[56px]">
+                        {title || "How non-SSO, non-API apps derail your identity investments"}
                     </h2>
                 </div>
 

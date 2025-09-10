@@ -109,20 +109,35 @@ export default function HomePageEmailCapture({ referance }: { referance: string 
                     />
                 </div>
                 <div className="w-[280px] sm:w-[150px]">
-                    <NewButton
-                        variant="secondary"
-                        type="button"
-                        className="py-[7px] w-[280px] min-h-[48px] sm:w-auto flex group active:[&_svg]:translate-x-1.5 hover:[&_svg]:w-4 z-50 pointer-events-auto"
-                        onClick={handleSubmit}
-                        disabled={loading}
-                    >
-                        <div className="flex justify-center items-center">
-                            <span className="font-medium text-base leading-4 whitespace-nowrap pl-2">
-                                {loading ? "Processing..." : "Get started"}
-                            </span>
-                        </div>
-                        {!loading && <ArrowRightIcon className="ml-2 h-4 w-0 transition-all ease-in duration-200" />}
-                    </NewButton>
+                    {/* wrapper provides the hover group, no change to NewButton internals */}
+                    <span className="inline-flex group">
+                        <NewButton
+                            variant="secondary"
+                            type="button"
+                            className="py-[7px] w-[280px] min-h-[48px] sm:w-auto flex
+                 z-50 pointer-events-auto"
+                            onClick={handleSubmit}
+                            disabled={loading}
+                        >
+                            <div className="flex justify-center items-center">
+                                <span className="font-medium text-base leading-4 whitespace-nowrap pl-2">
+                                    {loading ? "Processing..." : "Get started"}
+                                </span>
+                            </div>
+
+                            {/* Arrow shows only on hover of the wrapper/button */}
+                            {!loading && (
+                                <ArrowRightIcon
+                                    className="
+            ml-2 h-4 w-0 opacity-0
+            transition-all ease-in duration-200
+            group-hover:w-4 group-hover:opacity-100
+            active:translate-x-1.5
+          "
+                                />
+                            )}
+                        </NewButton>
+                    </span>
                 </div>
             </div>
         </div>

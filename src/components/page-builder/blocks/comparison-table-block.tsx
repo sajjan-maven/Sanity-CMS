@@ -37,11 +37,9 @@ export default function ComparisonTableBlock(props: ComparisonTableBlockProps) {
               {rows?.map((row: any, index: number) => (
                 <div
                   key={`left-${index}`}
-                  className={`p-4 md:px-8 pt-6 pb-2 md:min-h-[130px] ${
-                    index === rows.length - 1 ? "mt-auto" : ""
-                  } ${
-                    index !== 0 ? "border-t border-[#545058]" : ""
-                  }`}
+                  className={`p-4 md:px-8 pt-6 pb-2 md:min-h-[130px] ${index === rows.length - 1 ? "mt-auto" : ""
+                    } ${index !== 0 ? "border-t border-[#545058]" : ""
+                    }`}
                 >
                   <p className="text-[#383f3b] text-lg leading-relaxed">
                     {row.leftText}
@@ -52,7 +50,7 @@ export default function ComparisonTableBlock(props: ComparisonTableBlockProps) {
           </div>
 
           {/* Right Column */}
-          <div 
+          <div
             className="w-full md:w-1/2 border-t md:border-t-0 md:border-l border-[#545058]"
             style={{ backgroundColor: rightColumn?.backgroundColor?.value || '#EFF6FF' }}
           >
@@ -74,9 +72,8 @@ export default function ComparisonTableBlock(props: ComparisonTableBlockProps) {
               {rows?.map((row: any, index: number) => (
                 <div
                   key={`right-${index}`}
-                  className={`p-4 md:px-8 pt-6 pb-2 md:min-h-[130px] ${
-                    index !== 0 ? "border-t border-[#545058]" : ""
-                  }`}
+                  className={`p-4 md:px-8 pt-6 pb-2 md:min-h-[130px] ${index !== 0 ? "border-t border-[#545058]" : ""
+                    }`}
                 >
                   <p className="text-[#383f3b] text-lg leading-relaxed">
                     {row.rightText}
