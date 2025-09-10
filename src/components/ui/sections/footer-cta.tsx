@@ -58,19 +58,19 @@ const FooterCTA = ({ footerCTA }: FooterCTAProps) => {
 
   return (
     <section className="w-full bg-[#363338] px-4 pb-6 md:pb-20 relative z-50">
-      <div className="w-full bg-[#565258] rounded-[26px] md:rounded-4xl max-w-[1256px] mx-auto overflow-hidden relative flex flex-col lg:flex-row items-start md:items-center justify-between sm:max-h-[515px] lg:max-h-auto">
+      <div className="w-full bg-[#565258] rounded-[26px] md:rounded-[2rem] max-w-[1256px] mx-auto overflow-hidden relative flex flex-col lg:flex-row items-start md:items-center justify-between sm:max-h-[515px] lg:max-h-auto">
         {/* Text Section */}
-        <div className="w-full lg:w-1/2 pt-10 lg:pt-0 flex flex-col gap-6 z-10 px-5 md:px-10">
+        <div className="w-full lg:w-1/2 pt-10 lg:pt-2 flex flex-col gap-6 z-10 px-5 md:px-10">
           <div className="flex flex-col items-start gap-2 w-full">
             <div className="font-semibold text-center md:text-start w-full text-white text-2xl sm:text-3xl lg:text-4xl leading-snug">
               {title}
             </div>
-            <p className="font-normal text-center md:text-start w-full text-white text-base sm:text-lg leading-relaxed">
+            <p className="font-normal text-center md:text-start w-full text-white text-base sm:text-lg leading-[34px] md:leading-[38px]">
               {description}
             </p>
           </div>
 
-          <div className="w-full max-w-[300px] lg:max-w-full mx-auto md:ml-0 md:mr-auto">
+          <div className="w-full max-w-[300px] lg:max-w-full mx-auto md:ml-0 md:mr-auto -mt-1">
             <NewButton
               variant="secondary"
               onClick={() => router.push(buttonLink)}

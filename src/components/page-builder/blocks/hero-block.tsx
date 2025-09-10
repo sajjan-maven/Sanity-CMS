@@ -12,56 +12,56 @@ export type HeroBlockProps = PageBuilderType<"heroBlock">;
 
 export default function HeroBlock(props: HeroBlockProps) {
 
-  const { 
-    heading, 
-    content, 
-    mediaType, 
-    bottomCornerRadius, 
-    buttons, 
-    image, 
+  const {
+    heading,
+    content,
+    mediaType,
+    bottomCornerRadius,
+    buttons,
+    image,
     dialogType,
     videoUrl,
     overlayType,
-    anchorId 
+    anchorId
   } = props;
 
   return (
-//     <div>
-//     <section className="relative w-full py-12 md:py-24 bg-[#f8f5f3] overflow-hidden">
-//         <div className="flex flex-col w-full max-w-4xl xl:max-w-7xl px-6 items-center gap-8 mx-auto">
-//             <header>
-//                 <h1 className="w-full text-[#222222] text-[40px] lg:text-5xl xl:text-[62px] text-center leading-12 xl:leading-[72px] inline-block font-medium">
-//                   {heading}
-//                 </h1>
-//             </header>
-//         </div>
-//         <div className="relative w-full">
-//           <div className="relative pt-2 xl:pt-8 lg:mb-0 w-full flex-wrap px-8 pointer-events-none z-[99]">
-//               <div className="w-full font-normal max-w-[768px] mx-auto text-sm md:text-lg text-center md:leading-8 pointer-events-auto text-[#7B7481]">
-//                 <PortableTextEditor 
-//                   data={content ?? []}
-//                   classNames='text-center mx-auto'
-//                 />
-//                   {/* <p>Stitchflow continuously audits every app not covered by your IDP, fixing orphaned accounts, hidden users, and unused licenses to eliminate manual work, security risks, and SaaS waste.</p> */}
-//               </div>
-//               {/* <HomePageEmailCapture /> */}
-//           </div>
-//           {/* <HomePageClickThrough /> */}
-//         </div>
-//     </section>
-// </div>
-    <section 
-      {...(anchorId ? { id: anchorId } : {})} 
+    //     <div>
+    //     <section className="relative w-full py-12 md:py-24 bg-[#f8f5f3] overflow-hidden">
+    //         <div className="flex flex-col w-full max-w-4xl xl:max-w-7xl px-6 items-center gap-8 mx-auto">
+    //             <header>
+    //                 <h1 className="w-full text-[#222222] text-[40px] lg:text-5xl xl:text-[62px] text-center leading-12 xl:leading-[72px] inline-block font-medium">
+    //                   {heading}
+    //                 </h1>
+    //             </header>
+    //         </div>
+    //         <div className="relative w-full">
+    //           <div className="relative pt-2 xl:pt-8 lg:mb-0 w-full flex-wrap px-8 pointer-events-none z-[99]">
+    //               <div className="w-full font-normal max-w-[768px] mx-auto text-sm md:text-lg text-center md:leading-8 pointer-events-auto text-[#7B7481]">
+    //                 <PortableTextEditor 
+    //                   data={content ?? []}
+    //                   classNames='text-center mx-auto'
+    //                 />
+    //                   {/* <p>Stitchflow continuously audits every app not covered by your IDP, fixing orphaned accounts, hidden users, and unused licenses to eliminate manual work, security risks, and SaaS waste.</p> */}
+    //               </div>
+    //               {/* <HomePageEmailCapture /> */}
+    //           </div>
+    //           {/* <HomePageClickThrough /> */}
+    //         </div>
+    //     </section>
+    // </div>
+    <section
+      {...(anchorId ? { id: anchorId } : {})}
       className={cn('px-4 md:px-10 pattern-bg border-b border-b-gray-200/60', {
         'rounded-3xl md:rounded-4xl': bottomCornerRadius === 'rounded'
       })}
     >
-      <Container 
+      <Container
         className={cn('space-y-10 xl:-space-y-6 border-x border-dashed', {
           'pb-7 md:pb-12': mediaType === 'image'
         })}
       >
-        <div 
+        <div
           className={cn('pt-36 md:pt-52 pb-16 md:pb-24 xl:pb-36 grid grid-cols-12 gap-3 md:gap-6 xl:gap-14 md:px-14 md:border-x md:border-dashed', {
             'pb-6': mediaType === 'image'
           })}
@@ -72,13 +72,13 @@ export default function HeroBlock(props: HeroBlockProps) {
             </Heading>
           </div>
           <div className='col-span-12 xl:col-span-5'>
-            <PortableTextEditor 
+            <PortableTextEditor
               data={content ?? []}
               classNames='mt-3 md:text-lg text-gray-600 text-balance'
             />
             {buttons && buttons.length > 0 && (
               <div className='mt-8 md:mt-10'>
-                <ButtonRenderer buttons={buttons} />  
+                <ButtonRenderer buttons={buttons} />
               </div>
             )}
           </div>

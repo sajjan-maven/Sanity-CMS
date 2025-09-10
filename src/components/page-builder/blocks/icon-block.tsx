@@ -8,7 +8,7 @@ const IconBlock = ({
     icons = [],
 }: IconBlockProps) => {
     return (
-        <section className="w-full px-6 pt-20 pb-40">
+        <section className="w-full px-6 pb-40">
             <div className="w-full max-w-[1256px] mx-auto">
                 <h2 className="font-semibold text-[#363338] text-3xl md:text-[40px] leading-tight md:leading-[48px] mb-6 md:mb-10">
                     {title}

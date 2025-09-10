@@ -28,14 +28,14 @@ export default function SAMCenteredBlock(props: SAMCenteredBlockProps) {
                 )}
 
                 {/* Title */}
-                <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1e1e1e] text-center mt-4 max-w-xl">
+                <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1e1e1e] text-center mt-4 max-w-xl leading-[34px] md:leading-[46px]">
                     {title ||
                         "You’re managing more apps than you can see 👀"}
                 </h2>
 
                 {/* Description */}
                 {description && (
-                    <p className="text-[#363338] text-center mb-2 mt-8 text-base md:text-lg max-w-4xl">
+                    <p className="text-[#363338] text-center mb-2 mt-8 text-base md:text-lg max-w-[52rem]">
                         {description}
                     </p>
                 )}

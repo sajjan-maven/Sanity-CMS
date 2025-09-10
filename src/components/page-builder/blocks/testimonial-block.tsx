@@ -10,17 +10,17 @@ export type TestimonialBlockProps = PageBuilderType<"testimonialBlock">;
 
 export default function TestimonialBlock(props: TestimonialBlockProps) {
 
-  const { 
-    heading, 
-    eyebrow, 
-    testimonials, 
-    anchorId, 
+  const {
+    heading,
+    eyebrow,
+    testimonials,
+    anchorId,
     cornerRadiusTop,
     cornerRadiusBottom,
   } = props;
 
   return (
-    <section 
+    <section
       {...(anchorId ? { id: anchorId } : {})}
       className={cn('pb-10 md:pb-0 xl:px-10 pattern-bg border-y border-dashed', {
         'rounded-t-4xl': stegaClean(cornerRadiusTop) === 'rounded',
@@ -48,12 +48,12 @@ export default function TestimonialBlock(props: TestimonialBlockProps) {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        ): (
-          <TestimonialCard 
-            testimonial={testimonials?.[0] ?? null} 
+        ) : (
+          <TestimonialCard
+            testimonial={testimonials?.[0] ?? null}
             classNames='border border-gray-200/70 rounded-xl'
           />
-        )}       
+        )}
       </Container>
     </section>
   )

@@ -31,7 +31,7 @@ export default function SAMActionBlock(props: SAMActionBlockProps) {
                 )}
 
                 {description && (
-                    <p className="text-[#363338] text-base leading-relaxed mt-4 mb-12">
+                    <p className="text-[#363338] text-base leading-relaxed mt-4 mb-12 max-w-lg">
                         {description}
                     </p>
                 )}

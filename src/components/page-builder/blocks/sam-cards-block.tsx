@@ -18,13 +18,13 @@ export default function SAMCardsBlock(props: SAMCardsBlockProps) {
         )}
         {heading && (
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1e1e1e] text-center mt-2">
-            {heading.split(" ").map((word, i) =>
-              word === highlightedText ? (
+            {heading.split(new RegExp(`(${highlightedText})`, "gi")).map((part, i) =>
+              part.toLowerCase() === highlightedText?.toLowerCase() ? (
                 <span key={i} className="text-[#B53A20]">
-                  {" "}{word}{" "}
+                  {part}
                 </span>
               ) : (
-                ` ${word} `
+                part
               )
             )}
           </h2>

@@ -189,7 +189,7 @@ export default function FooterLinks({ footerLinks }: FooterLinksProps) {
             </div>
 
             <div className="w-full px-2 mt-10 md:mt-0 md:max-w-[25%]">
-              <div className="text-[15px] font-semibold text-white">Resource</div>
+              <div className="text-[15px] font-semibold text-white">Resources</div>
               <ul className="mt-3 space-y-2 pb-8">
                 {footerLinks?.resources?.map((link, index) => (
                   <li key={index}>
@@ -211,7 +211,7 @@ export default function FooterLinks({ footerLinks }: FooterLinksProps) {
             </div>
 
             <div className="w-full px-2 mt-10 md:mt-0 md:max-w-[25%]">
-              <div className="text-[15px] font-semibold text-white">Companys</div>
+              <div className="text-[15px] font-semibold text-white">Company</div>
               <ul className="mt-3 space-y-2 pb-8">
                 {footerLinks?.companys?.map((link, index) => (
                   <li key={index}>

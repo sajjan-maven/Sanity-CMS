@@ -11,8 +11,8 @@ export default function HeaderBlock(props: HeaderBlockProps) {
   const { heading, content, bottomCornerRadius, anchorId } = props;
 
   return (
-    <section 
-      {...(anchorId ? { id: anchorId } : {})} 
+    <section
+      {...(anchorId ? { id: anchorId } : {})}
       className={cn('px-4 md:px-10 pattern-bg border-b', {
         'rounded-4xl': bottomCornerRadius === 'rounded'
       })}
@@ -22,7 +22,7 @@ export default function HeaderBlock(props: HeaderBlockProps) {
           <Heading tag="h1" size="xxl" className='text-balance leading-normal'>
             {heading}
           </Heading>
-          <PortableTextEditor 
+          <PortableTextEditor
             data={content ?? []}
             classNames='mt-6 md:mt-8 md:text-xl text-balance text-gray-600'
           />
